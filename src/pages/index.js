@@ -1,21 +1,32 @@
-import React from "react"
+import React, { useEffect, useContext } from "react"
 import { Link } from "gatsby"
+import { Button } from "../components/button"
+import { H1, H2, H3, H4 } from "../components/text"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import { AppContext } from "../context"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const IndexPage = () => {
+  const { dispatch } = useContext(AppContext)
+  useEffect(() => {
+    dispatch({
+      type: "activeMenu",
+      value: "/",
+    })
+  }, [])
+  return (
+    <>
+      <SEO title="Home" />
+      <H1>Hi people</H1>
+      <H2>Hi people</H2>
+      <H3>Hi people</H3>
+      <H4>Hi people</H4>
+      <p>Welcome to your new Gatsby site.</p>
+      <Button>Halo</Button>
+      <Button bordered>Halo</Button>
+      <Button withArrow>Halo</Button>
+    </>
+  )
+}
 
 export default IndexPage
