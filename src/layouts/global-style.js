@@ -36,5 +36,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     font-weight: normal;
     line-height: 140%;
+    p {
+      color: white;
+    }
   }
 `
