@@ -8,7 +8,7 @@ import { Quote, BlockTitle, Text } from "../components/text"
 import { Arrow, Collab, Button } from "../components/button"
 import Banner from "../components/banner"
 import MeetTheTeam from "../components/meettheteam"
-import Friends from '../components/friends'
+import Friends from "../components/friends"
 import InstagramFeed from "../components/instagram"
 
 import bannerImg from "../images/home-banner-bg.jpg"
@@ -135,7 +135,7 @@ const IndexPage = () => {
           Our Products
         </BlockTitle>
         <Grid>
-          <Grid.Unit size={{ sm: 1 / 3, xs: 1 }}>
+          <Grid.Unit size={{ sm: 2 / 5, xs: 1 }}>
             <Text color="#FFF">
               Our goal is to preserve the essence of a live plant until you’re
               holding our concentrates in your hand. We’re always looking for
