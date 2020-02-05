@@ -2,11 +2,16 @@ import { Link } from "gatsby"
 import React from "react"
 import Logo from "./logo"
 import styled from "styled-components"
-import { Grid, Cell } from "styled-css-grid"
+import Grid from "styled-components-grid"
 import { BlockTitle } from "./text"
 import { Box } from "./box"
 import { SocialButton } from "./button"
-import arrow from '../images/sign-up-arrow.png'
+import arrow from "../images/sign-up-arrow.png"
+
+const halfSize = {
+  sm: 1 / 1,
+  md: 1 / 2,
+}
 
 const MENU_ITEMS = [
   { link: `/`, label: `Home` },
@@ -30,7 +35,7 @@ const FooterMenu = styled.ul`
     color: white;
     font-size: 16px;
     line-height: 180%;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     text-decoration: none;
     &:hover {
@@ -40,40 +45,40 @@ const FooterMenu = styled.ul`
 `
 
 const SubscribeForm = styled.form`
-    margin: 30px 0 0 0;
-    width: 100%;
-    display: flex;
-    input[type="text"] {
-       flex: 1; 
-       border: 0;
-       padding: 25px;
-       color: #000;
+  margin: 30px 0 0 0;
+  width: 100%;
+  display: flex;
+  input[type="text"] {
+    flex: 1;
+    border: 0;
+    padding: 25px;
+    color: #000;
+  }
+  button {
+    background: #ff9e18;
+    color: white;
+    text-transform: uppercase;
+    font-size: 18px;
+    border: 0;
+    height: 70px;
+    width: 200px;
+    letter-spacing: 0.1em;
+    position: relative;
+    padding: 0 30px;
+    text-align: left;
+    &:after {
+      content: "";
+      display: block;
+      width: 28px;
+      height: 19px;
+      background: url(${arrow}) center center no-repeat;
+      background-size: 100% 100%;
+      position: absolute;
+      margin-top: -9.5px;
+      top: 50%;
+      right: 30px;
     }
-    button {
-        background: #FF9E18;
-        color: white;
-        text-transform: uppercase;
-        font-size: 18px;
-        border: 0;
-        height: 70px;
-        width: 200px;
-        letter-spacing: 0.1rem;
-        position: relative;
-        padding: 0 30px;
-        text-align: left;
-        &:after {
-            content: '';
-            display: block;
-            width: 28px;
-            height: 19px;
-            background: url(${arrow}) center center no-repeat;
-            background-size: 100% 100%;
-            position: absolute;
-            margin-top: -9.5px;
-            top: 50%;
-            right: 30px;
-        }
-    }
+  }
 `
 
 const SocialList = styled.ul`
@@ -93,7 +98,7 @@ const SocialList = styled.ul`
 const Footer = ({ siteTitle }) => (
   <FooterBlock>
     <Grid>
-      <Cell width={6}>
+      <Grid.Unit size={halfSize}>
         <Box>
           <Link to="/">
             <Logo mono width={230} />
@@ -106,8 +111,8 @@ const Footer = ({ siteTitle }) => (
             ))}
           </FooterMenu>
         </Box>
-      </Cell>
-      <Cell width={6}>
+      </Grid.Unit>
+      <Grid.Unit size={halfSize}>
         <Box>
           <BlockTitle color="#FFF" line="top">
             Get Notified
@@ -132,7 +137,7 @@ const Footer = ({ siteTitle }) => (
             </li>
           </SocialList>
         </Box>
-      </Cell>
+      </Grid.Unit>
     </Grid>
   </FooterBlock>
 )

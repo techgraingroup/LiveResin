@@ -1,10 +1,20 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { Grid, Cell } from "styled-css-grid"
+import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import Logo from "./logo"
 import { Box } from "./box"
+
+const halfSize = {
+  sm: 1 / 1,
+  md: 1 / 2,
+}
+
+const BrandWrapper = styled(props => <Grid.Unit {...props} />)`
+  display: flex;
+  align-items: center;
+`
 
 const Nav = styled.nav`
   height: 200px;
@@ -65,14 +75,14 @@ const Header = () => {
   return (
     <header>
       <Grid>
-        <Cell width={4} center middle>
+        <BrandWrapper size={halfSize}>
           <Box top="0" bottom="0">
             <Link to="/">
               <Logo />
             </Link>
           </Box>
-        </Cell>
-        <Cell width={8}>
+        </BrandWrapper>
+        <Grid.Unit size={halfSize}>
           <Box right="0" top="0" bottom="0">
             <Nav>
               <Menu>
@@ -89,7 +99,7 @@ const Header = () => {
               </Menu>
             </Nav>
           </Box>
-        </Cell>
+        </Grid.Unit>
       </Grid>
     </header>
   )

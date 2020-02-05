@@ -1,34 +1,71 @@
-import React from 'react'
+import React from "react"
 import { math } from "polished"
 import styled from "styled-components"
-import btnArrow from "../images/btn-arrow.png"
 
-export const Button = styled.button`
+export const Collab = ({ borderColor, right }) => (
+  <svg
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+    style={{ position: "relative", top: 10, right: right || 25 }}
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M15.6131 30.9912C15.7409 30.9934 15.8708 31 15.9985 31C16.1263 31 16.2562 30.9934 16.3839 30.9912C24.4903 30.7863 31 24.1542 31 15.9956C31 7.837 24.4925 1.20705 16.3861 1C20.3501 1.20044 23.5015 4.47797 23.5015 8.49339C23.5015 12.6366 20.1431 15.9956 16.0007 15.9956C11.8584 15.9956 8.5 19.3546 8.5 23.4978C8.4978 27.5132 11.6492 30.7907 15.6131 30.9912Z"
+      stroke={borderColor || "black"}
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M15.6147 31C11.6511 30.7996 8.5 27.522 8.5 23.5066C8.5 19.3634 11.858 16.0044 16 16.0044C20.142 16.0044 23.5 12.6454 23.5 8.5022C23.5 4.48899 20.3489 1.20925 16.3853 1.00881C16.2576 1.00661 16.1277 1 16 1C15.8723 1 15.7424 1.00661 15.6147 1.00881C7.5091 1.21586 1 7.84802 1 16.0044C1 24.1608 7.5091 30.7952 15.6147 31Z"
+      stroke={borderColor || "black"}
+      strokeMiterlimit="10"
+    />
+  </svg>
+)
+
+export const Arrow = ({ left, borderColor }) => (
+  <svg
+    width="28"
+    height="19"
+    viewBox="0 0 28 19"
+    fill="none"
+    style={{ position: "relative", top: 3, left: left || 35 }}
+    xmlns="http://www.w3.org/2000/svg">
+    <g clipPath="url(#clip0)">
+      <path
+        d="M18 0.349976L27 9.34998L18 18.35"
+        stroke={borderColor}
+        strokeMiterlimit="10"
+      />
+      <path d="M0 9.34998H27" stroke={borderColor} strokeMiterlimit="10" />
+    </g>
+    <defs>
+      <clipPath id="clip0">
+        <rect width="27.71" height="18.71" fill={borderColor} />
+      </clipPath>
+    </defs>
+  </svg>
+)
+
+export const Button = styled(
+  ({ withArrow, bgColor, borderColor, color, children, ...rest }) => (
+    <button {...rest}>
+      {children}
+      {withArrow && <Arrow borderColor={borderColor} />}
+    </button>
+  )
+)`
   height: 60px;
   font-family: MontHeavy, sans-serif;
   padding: ${props => (props.withArrow ? "0 70px 0 30px" : "0 30px")};
   font-size: 16px;
   text-transform: uppercase;
   line-height: 60px;
-  background: ${props => (props.withArrow || props.bordered ? "#fff" : "#000")};
-  border: ${props =>
-    props.withArrow || props.bordered ? "1px solid #000" : "1px solid #000"};
-  color: ${props => (props.withArrow || props.bordered ? "#000" : "#fff")};
+  background: ${props => props.bgColor || "transparent"};
+  border: ${props => `1px solid ${props.borderColor || "transparent"}`};
+  color: ${props => props.color || "#000"};
   position: relative;
   transition: transform 0.1s;
-  ${props =>
-    props.withArrow
-      ? `&::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 25px;
-    right: 22px;
-    background: url(${btnArrow}) center center no-repeat transparent;
-    background-size: 100% auto;
-    transition: transform .1s;
-  }`
-      : ""}
   &:hover {
     cursor: pointer;
     padding: ${props => (props.withArrow ? "0 70px 0 22px" : "0 22px")};
@@ -106,4 +143,28 @@ export const SocialButton = styled(({ type, ...rest }) => (
   width: 45px;
   height: 45px;
   border-radius: 22.5px;
+`
+
+export const PlayButton = styled(({ color, ...rest }) => (
+  <button {...rest}>
+    <svg
+      width="100"
+      height="100"
+      viewBox="0 0 101 101"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M50.4927 0C22.605 0 0 22.605 0 50.4927C0 78.3804 22.605 100.985 50.4927 100.985C78.3804 100.985 100.985 78.3804 100.985 50.4927C100.985 22.605 78.395 0 50.4927 0ZM38.9348 68.1214V32.8786L74.163 50.4927L38.9348 68.1214Z"
+        fill={color || "white"}
+      />
+    </svg>
+  </button>
+))`
+  background: none;
+  border: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
 `
