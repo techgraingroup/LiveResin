@@ -5,14 +5,16 @@ import { AppContext } from "../context"
 import SEO from "../components/seo"
 import { Box } from "../components/box"
 import { Quote, BlockTitle, Text } from "../components/text"
-import { Arrow, Collab, Button, PlayButton } from "../components/button"
-import HomeBanner from "../components/home/banner"
-import InstagramFeed from '../components/home/instagram'
+import { Arrow, Collab, Button } from "../components/button"
+import Banner from "../components/banner"
+import MeetTheTeam from "../components/meettheteam"
+import Friends from '../components/friends'
+import InstagramFeed from "../components/instagram"
 
+import bannerImg from "../images/home-banner-bg.jpg"
 import inventor from "../images/inventor.jpg"
 import extract from "../images/extract.jpg"
 import products from "../images/products.jpg"
-import theteam from "../images/the-team.jpg"
 
 const halfSize = {
   sm: 1 / 1,
@@ -30,7 +32,14 @@ const IndexPage = () => {
   return (
     <>
       <SEO title="Home" />
-      <HomeBanner />
+      <Banner
+        withButton
+        bannerImg={bannerImg}
+        linkText="Our Process"
+        link="/our-process/"
+        title={`Our Adventure \n in extraction.`}
+        tagLine="Learn more about the Live Resin Project"
+      />
       <Box bgColor="#BBA135" top={20} bottom={20}>
         <Grid valign="center">
           <Grid.Unit size={halfSize}>
@@ -191,10 +200,7 @@ const IndexPage = () => {
             <Text color="#FFC700">
               It's everything we love about OG - gassy, rich a little earthy.
             </Text>
-            <Button
-              borderColor="#FFC700"
-              color="#FFC700"
-              bgColor="#000">
+            <Button borderColor="#FFC700" color="#FFC700" bgColor="#000">
               Learn More
             </Button>
           </Box>
@@ -207,31 +213,8 @@ const IndexPage = () => {
           cannabis plant.”
         </Quote>
       </Box>
-      <Box
-        bgColor="#A2D45E"
-        bgImage={theteam}
-        bgPosition="bottom center"
-        top={274}
-        bottom={274}
-        bgSize="contain">
-        <Grid>
-          <Grid.Unit size={{ sm: 1 / 3, xs: 1 }}>
-            <BlockTitle line="bottom" color="#FFF">
-              Meet the Team
-            </BlockTitle>
-            <Text color="#FFF">Say hello to Bill, Philip and Ry.</Text>
-            <Button bgColor="#FFF" color="#A2D45E">
-              Learn More
-            </Button>
-          </Grid.Unit>
-        </Grid>
-        <PlayButton />
-      </Box>
-      <Box>
-        <BlockTitle line="top" color="#000">
-          Friends of the Project
-        </BlockTitle>
-      </Box>
+      <MeetTheTeam />
+      <Friends />
       <InstagramFeed />
     </>
   )
