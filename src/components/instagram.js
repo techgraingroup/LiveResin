@@ -50,7 +50,7 @@ const InstagramFeed = () => {
       <Grid>
         {allInstaNode.edges.map(item => (
           <Grid.Unit
-            id={item.node.id}
+            key={item.node.id}
             size={{
               sm: 1 / 4,
               xs: 1 / 2,
