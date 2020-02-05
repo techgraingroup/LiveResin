@@ -5,6 +5,7 @@ import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import Logo from "./logo"
 import { Box } from "./box"
+import { MENU_ITEMS } from "../data"
 
 const halfSize = {
   sm: 1 / 1,
@@ -60,13 +61,6 @@ const MenuLink = styled(({ activeColor, isActive, ...rest }) => (
       props.isActive && props.activeColor ? props.activeColor : "transparent"};
   }
 `
-
-const MENU_ITEMS = [
-  { link: `/products/`, label: `Products`, color: `#FF4438` },
-  { link: `/our-process/`, label: `Our Process`, color: `#FF9E18` },
-  { link: `/our-story/`, label: `Our Story`, color: `#1DCAD3` },
-  { link: `/faq/`, label: `FAQ`, color: null },
-]
 
 const Header = () => {
   const {

@@ -1,5 +1,7 @@
 import React from "react"
 import styled from "styled-components"
+import Grid from "styled-components-grid"
+import { Box } from "./box"
 
 import signature from "../images/signature.png"
 
@@ -9,6 +11,7 @@ export const H1 = styled.h1`
   font-size: 96px;
   margin-bottom: 44px;
   line-height: 87px;
+  white-space: pre-wrap;
 `
 
 export const H2 = styled.h2`
@@ -17,6 +20,7 @@ export const H2 = styled.h2`
   font-size: 48px;
   margin-bottom: 30px;
   line-height: 105.8%;
+  white-space: pre-wrap;
 `
 
 export const H3 = styled.h3`
@@ -27,6 +31,46 @@ export const H3 = styled.h3`
   text-transform: uppercase;
   margin-bottom: 18px;
   line-height: 100%;
+  white-space: pre-wrap;
+`
+
+export const H4 = styled.h4`
+  font-weight: bold;
+  font-family: MontHeavy, sans-serif;
+  font-size: 24px;
+  margin-bottom: 30px;
+  line-height: 100%;
+  white-space: pre-wrap;
+`
+
+export const PageTitle = styled(({ title, text, ...rest }) => (
+  <Box>
+    <div {...rest}>
+      <Grid>
+        <Grid.Unit size={{ xs: 1, sm: 1 / 2 }}>
+          <H1>{title}</H1>
+        </Grid.Unit>
+        {text && (
+          <Grid.Unit size={{ xs: 1, sm: 1 / 2 }}>
+            <p>{text}</p>
+          </Grid.Unit>
+        )}
+      </Grid>
+    </div>
+  </Box>
+))`
+  border-top: 4px solid #000;
+  padding-top: 40px;
+  h1 {
+    margin-top: 0;
+  }
+  p {
+    color: #000;
+    font-size: 24px;
+    line-height: 140%;
+    margin-bottom: 0;
+    white-space: pre-wrap;
+  }
 `
 
 export const BlockTitle = styled(
@@ -46,19 +90,11 @@ export const BlockTitle = styled(
     `border-bottom: 4px solid ${props.color || "#000"};`}
 `
 
-export const H4 = styled.h4`
-  font-weight: bold;
-  font-family: MontHeavy, sans-serif;
-  font-size: 24px;
-  margin-bottom: 30px;
-  line-height: 100%;
-`
-
 export const Text = styled.p`
-    margin-bottom: ${ props => props.bottom ? `${props.bottom}px` : '40px' };
-    color: ${ props => props.color || '#000' };
-    font-size: 16px;
-    line-height: 140%;
+  margin-bottom: ${props => (props.bottom ? `${props.bottom}px` : "40px")};
+  color: ${props => props.color || "#000"};
+  font-size: 16px;
+  line-height: 140%;
 `
 
 export const Quote = styled(({ withSignature, children, ...rest }) => (

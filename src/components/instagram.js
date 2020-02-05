@@ -2,8 +2,8 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Grid from "styled-components-grid"
 import Img from "gatsby-image"
-import { Box } from "../box"
-import { Text } from "../text"
+import { Box } from "./box"
+import { Text } from "./text"
 
 const InstagramFeed = () => {
   const { allInstaNode } = useStaticQuery(graphql`
@@ -23,7 +23,6 @@ const InstagramFeed = () => {
       }
     }
   `)
-  console.log(allInstaNode)
   return (
     <div>
       <Box bgColor="#000" top={100} bottom={100}>

@@ -5,6 +5,7 @@ import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { BlockTitle } from "./text"
 import { Box } from "./box"
+import { FOOTER_MENU_ITEMS } from '../data'
 import { SocialButton } from "./button"
 import arrow from "../images/sign-up-arrow.png"
 
@@ -12,16 +13,6 @@ const halfSize = {
   sm: 1 / 1,
   md: 1 / 2,
 }
-
-const MENU_ITEMS = [
-  { link: `/`, label: `Home` },
-  { link: `/products/`, label: `Products` },
-  { link: `/our-process/`, label: `Our Process` },
-  { link: `/our-story/`, label: `Our Story` },
-  { link: `/faq/`, label: `FAQ` },
-  { link: `/contact-us/`, label: `Contact` },
-  { link: `/store-locator/`, label: `Store Locator` },
-]
 
 const FooterBlock = styled.footer`
   background: #000;
@@ -95,7 +86,7 @@ const SocialList = styled.ul`
   }
 `
 
-const Footer = ({ siteTitle }) => (
+const Footer = () => (
   <FooterBlock>
     <Grid>
       <Grid.Unit size={halfSize}>
@@ -104,7 +95,7 @@ const Footer = ({ siteTitle }) => (
             <Logo mono width={230} />
           </Link>
           <FooterMenu>
-            {MENU_ITEMS.map(item => (
+            {FOOTER_MENU_ITEMS.map(item => (
               <li key={item.link}>
                 <Link to={item.link}>{item.label}</Link>
               </li>
