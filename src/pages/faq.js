@@ -1,8 +1,7 @@
 import React, { useEffect, useContext } from "react"
-import { Link } from "gatsby"
-
-import SEO from "../components/seo"
 import { AppContext } from "../context"
+import SEO from "../components/seo"
+import { PageTitle } from "../components/text"
 
 const FaqPage = () => {
   const { dispatch } = useContext(AppContext)
@@ -15,7 +14,10 @@ const FaqPage = () => {
   return (
     <>
       <SEO title="FAQ" />
-      <h1>FAQ</h1>
+      <PageTitle
+        title={`FAQs`}
+        text={`Donec eget imperdiet dui. Mauris lorem lacus, porttitor quis vehicula vitae, pretium non purus. Morbi nec rhoncus massa`}
+      />
     </>
   )
 }

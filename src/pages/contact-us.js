@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from "react"
 import { Link } from "gatsby"
-
-import SEO from "../components/seo"
 import { AppContext } from "../context"
+import SEO from "../components/seo"
+import { PageTitle } from "../components/text"
 
 const ContactUsPage = () => {
   const { dispatch } = useContext(AppContext)
@@ -15,7 +15,7 @@ const ContactUsPage = () => {
   return (
     <>
       <SEO title="Contact Us" />
-      <h1>Contact Us</h1>
+      <PageTitle title={`Contact Us`} />
     </>
   )
 }

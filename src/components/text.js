@@ -68,6 +68,7 @@ export const PageTitle = styled(({ title, text, ...rest }) => (
     color: #000;
     font-size: 24px;
     line-height: 140%;
+    margin-top: 0;
     margin-bottom: 0;
     white-space: pre-wrap;
   }
