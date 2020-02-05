@@ -4,6 +4,16 @@ import img03 from "./images/03-extract.svg"
 import img04 from "./images/04-pure.svg"
 import img05 from "./images/05-enjoy.svg"
 
+export const THEME = {
+  breakpoints: {
+    xs: 0,
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200,
+  },
+}
+
 export const MENU_ITEMS = [
   { link: `/products/`, label: `Products`, color: `#FF4438` },
   { link: `/our-process/`, label: `Our Process`, color: `#FF9E18` },

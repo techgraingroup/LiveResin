@@ -1,35 +1,14 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-
 import { ThemeProvider } from "styled-components"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import { StateProvider } from "../context"
 import { GlobalStyle } from "./global-style"
-
-const theme = {
-  breakpoints: {
-    xs: 0,
-    sm: 576,
-    md: 768,
-    lg: 992,
-    xl: 1200,
-  },
-}
+import { THEME } from '../data'
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={THEME}>
       <StateProvider>
         <GlobalStyle />
         <Header />

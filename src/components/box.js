@@ -1,11 +1,20 @@
 import styled from "styled-components"
+import { THEME } from "../data"
+
+const {
+  breakpoints: { sm },
+} = THEME
 
 export const Box = styled.div`
   position: relative;
-  padding-left: ${props => (props.left ? `${props.left}px` : "135px")};
-  padding-right: ${props => (props.right ? `${props.right}px` : "135px")};
   padding-top: ${props => (props.top ? `${props.top}px` : "120px")};
   padding-bottom: ${props => (props.bottom ? `${props.bottom}px` : "120px")};
+  padding-left: ${props => (props.left ? `${props.left}px` : "20px")};
+  padding-right: ${props => (props.right ? `${props.right}px` : "20px")};
+  @media only screen and (min-width: ${sm}px) {
+      padding-left: ${props => (props.left ? `${props.left}px` : "135px")};
+      padding-right: ${props => (props.right ? `${props.right}px` : "135px")};
+  }
   ${props =>
     props.bgColor &&
     `

@@ -2,8 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { Box } from "./box"
+import { THEME } from "../data"
 
 import signature from "../images/signature.png"
+
+const {
+  breakpoints: { sm },
+} = THEME
 
 export const H1 = styled.h1`
   font-weight: bold;
@@ -109,11 +114,15 @@ export const Quote = styled(({ withSignature, children, ...rest }) => (
     )}
   </div>
 ))`
-  width: 900px;
   margin: 0 auto;
   color: white;
   font-family: MontHeavy, sans-serif;
-  font-size: 64px;
   line-height: 105.8%;
   letter-spacing: -0.035rem;
+  font-size: 24px;
+  width: 75%;
+  @media only screen and (min-width: ${sm}px) {
+    width: 900px;
+    font-size: 64px;
+  }
 `
