@@ -173,7 +173,18 @@ const IndexPage = () => {
               <br />
               Congolese
             </BlockTitle>
-            <Text>
+            <div>
+              <Collab right="0" />
+              <span
+                style={{
+                  display: "inline-block",
+                  marginLeft: 18,
+                  marginRight: 60,
+                }}>
+                GOLD SEAL SF
+              </span>
+            </div>
+            <Text style={{ marginTop: 30, paddingTop: 30, borderTop: "1px solid #000" }}>
               This special collaboration showcases Gold Seal’s signature Red
               Congolese, a 12+ week flowering Sativa that we believe is truly
               special.
@@ -197,7 +208,9 @@ const IndexPage = () => {
               <br />
               OG
             </BlockTitle>
-            <Text color="#FFC700">
+            <Text
+              color="#FFC700"
+              style={{ marginTop: 70, paddingTop: 30, borderTop: "1px solid #FFC700" }}>
               It's everything we love about OG - gassy, rich a little earthy.
             </Text>
             <Button borderColor="#FFC700" color="#FFC700" bgColor="#000">
