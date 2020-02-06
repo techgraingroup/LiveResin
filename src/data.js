@@ -4,6 +4,10 @@ import img03 from "./images/03-extract.svg"
 import img04 from "./images/04-pure.svg"
 import img05 from "./images/05-enjoy.svg"
 
+import goldSeal from "./images/f-gold-seal.png"
+import cookies from "./images/f-cookies.png"
+import sherbinskis from "./images/f-sherbinskis.png"
+
 export const THEME = {
   breakpoints: {
     xs: 0,
@@ -67,4 +71,10 @@ export const PROCESS_STEPS = [
     text:
       "Straight from the seed and into your hand – you’re holding the purest way to consume cannabis in the world. Take a hit and enjoy. Pure and simple.",
   },
+]
+
+export const FRIENDS_DATA = [
+  { name: "Gold Seal", image: goldSeal, link: '#' },
+  { name: "Cookies", image: cookies, link: '#' },
+  { name: "Sherbinskis", image: sherbinskis, link: '#' },
 ]
