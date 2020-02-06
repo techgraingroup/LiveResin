@@ -3,6 +3,7 @@ import Grid from "styled-components-grid"
 
 import SEO from "../components/seo"
 import Banner from "../components/banner"
+import FormsTextures from "../components/formsntextures"
 import { H2, PageTitle, Quote } from "../components/text"
 import { Box } from "../components/box"
 import { AppContext } from "../context"
@@ -33,7 +34,9 @@ const OurProcessPage = () => {
       {PROCESS_STEPS.map(item => (
         <Box key={`box-${item.color}`} bgColor={item.color}>
           <Grid valign="center">
-            <Grid.Unit size={{ xs: 1, sm: 1 / 2 }} style={{ textAlign: 'center' }}>
+            <Grid.Unit
+              size={{ xs: 1, sm: 1 / 2 }}
+              style={{ textAlign: "center" }}>
               <img src={item.image} />
             </Grid.Unit>
             <Grid.Unit size={{ xs: 1, sm: 1 / 2 }}>
@@ -43,6 +46,7 @@ const OurProcessPage = () => {
           </Grid>
         </Box>
       ))}
+      <FormsTextures />
       <Box bgColor="#FF9E18">
         <Quote withSignature>
           “The real thing about mastering a craft isn’t that you get to make it
