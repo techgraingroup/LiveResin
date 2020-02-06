@@ -79,6 +79,20 @@ export const PageTitle = styled(({ title, text, ...rest }) => (
   }
 `
 
+export const BlockTitleHorz = styled(({ title, description, ...rest }) => (
+  <Grid {...rest}>
+    <Grid.Unit size={{ xs: 1, sm: 1 / 2 }}>
+      <H2 style={{ marginTop: 0 }}>{title}</H2>
+    </Grid.Unit>
+    <Grid.Unit size={{ xs: 1, sm: 1 / 2 }}>
+      <Text>{description}</Text>
+    </Grid.Unit>
+  </Grid>
+))`
+  border-top: 4px solid #000;
+  padding-top: 30px;
+`
+
 export const BlockTitle = styled(
   ({ color, line, fontSize, lineHeight, ...rest }) => <h3 {...rest} />
 )`

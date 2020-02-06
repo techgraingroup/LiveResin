@@ -1,9 +1,11 @@
 import React, { useEffect, useContext } from "react"
+import { navigate } from "gatsby"
 import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import { Box } from "../components/box"
-import { H2, Quote, PageTitle } from "../components/text"
+import { Button } from "../components/button"
+import { H2, Quote, PageTitle, BlockTitleHorz } from "../components/text"
 import MeetTheTeam from "../components/meettheteam"
 import Friends from "../components/friends"
 
@@ -34,6 +36,28 @@ const OurStoryPage = () => {
         </Quote>
       </Box>
       <Friends />
+      <Box>
+        <BlockTitleHorz
+          style={{ marginBottom: 100 }}
+          title="Get In Touch"
+          description="Donec eget imperdiet dui. Mauris lorem lacus, porttitor quis vehicula vitae, pretium non purus."
+        />
+        <Button
+          color="#FFF"
+          bgColor="#000"
+          style={{ marginRight: 30 }}
+          onClick={() => navigate("/contact-us/")}>
+          Contact Us
+        </Button>
+        <Button
+          withArrow
+          color="#000"
+          bgColor="#FFF"
+          borderColor="#000"
+          onClick={() => navigate("/store-locator/")}>
+          Store Locator
+        </Button>
+      </Box>
     </>
   )
 }

@@ -66,6 +66,9 @@ export const Button = styled(
   color: ${props => props.color || "#000"};
   position: relative;
   transition: transform 0.1s;
+  &:focus {
+    outline: none;
+  }
   &:hover {
     cursor: pointer;
     padding: ${props => (props.withArrow ? "0 70px 0 22px" : "0 22px")};
