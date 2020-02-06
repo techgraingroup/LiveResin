@@ -8,15 +8,20 @@ import goldSeal from "./images/f-gold-seal.png"
 import cookies from "./images/f-cookies.png"
 import sherbinskis from "./images/f-sherbinskis.png"
 
-import icnBudder from './images/t-budder.svg'
-import icnSauce from './images/t-sauce.svg'
-import icnSugar from './images/t-sugar.svg'
-import icnDiamonds from './images/t-diamonds.svg'
-import icnThca from './images/t-thca.svg'
-import icnShatter from './images/t-shatter.svg'
-import icnVapes from './images/t-vapes.svg'
+import icnBudder from "./images/t-budder.svg"
+import icnSauce from "./images/t-sauce.svg"
+import icnSugar from "./images/t-sugar.svg"
+import icnDiamonds from "./images/t-diamonds.svg"
+import icnThca from "./images/t-thca.svg"
+import icnShatter from "./images/t-shatter.svg"
+import icnVapes from "./images/t-vapes.svg"
 
-import tpBudder from './images/t-p-budder.jpg'
+import tpBudder from "./images/t-p-budder.jpg"
+
+import story01 from './images/story-01.png'
+import story02 from './images/story-02.png'
+import story03 from './images/story-03.png'
+import story04 from './images/story-04.png'
 
 export const THEME = {
   breakpoints: {
@@ -154,5 +159,50 @@ export const FORMS_TEXTURES_DATA = [
     image: tpBudder,
     description: "",
     level: "",
+  },
+]
+
+export const TIMELINE_DATA = [
+  {
+    title: "Recreational Legalization Begins",
+    description:
+      "In 2012, Colorado and Washington become the first two states to legalize the recreational use of cannabis, following the passage of Amendment 64 and Initiative 502. Massachusetts approved a ballot measure to legalize medical cannabis",
+    photo: null,
+    position: "left",
+  },
+  {
+    title: "Kind Bill",
+    description:
+      "Live resin originated in late 2013 with William “Kind Bill” Fenger, who developed the unique extraction process alongside a talented, terpene-chasing few who dared to try something different.",
+    photo: story01,
+    position: "right",
+  },
+  {
+    title: "Live Resin",
+    description:
+      "When seeing this entirely new product for the first time and deciding what to call it on the shelf, Phillip “Tierra Rojo” Hague (the head cultivator at the facility) suggested the name “Live Resin”, which stuck, and the product was put onto Colorado dispensary shelves immediately, sparking the cannabis flavor revolution.",
+    photo: story02,
+    position: "left",
+  },
+  {
+    title: "Absolute Best",
+    description:
+      "Quickly, instead of thinking about concentrate as a by product of flower production, it started to be the focus, with Bill and Phillip going through the entire “Indoor Acre” facility and picking only a handful of the absolute best plants for the purposes of live resin extraction.",
+    photo: story03,
+    position: "right",
+  },
+  {
+    title: "Live Resin Project",
+    description:
+      "Today, Bill and Phillip have joined forces with a passionate team of of trailblazers, taste-makers and high-flying cannabis connoisseurs to bring you Live Resin Project.",
+    photo: story04,
+    position: "left",
+  },
+  {
+    title: "Award Winning",
+    description:
+      "Since that point, live resin has won the vast majority of cannabis extract competitions and has single-handedly changed the way growers think about their plants, how they are harvested, and even how customers shop.",
+    photo: null,
+    position: "right",
   },
 ]
