@@ -1,0 +1,155 @@
+{
+  "mainMenu": [
+    { "link": "/products/", "label": "Products", "color": "#FF4438" },
+    { "link": "/our-process/", "label": "Our Process", "color": "#FF9E18" },
+    { "link": "/our-story/", "label": "Our Story", "color": "#1DCAD3" },
+    { "link": "/faq/", "label": "FAQ", "color": null }
+  ],
+  "footerMenu": [
+    { "link": "/", "label": "Home" },
+    { "link": "/products/", "label": "Products" },
+    { "link": "/our-process/", "label": "Our Process" },
+    { "link": "/our-story/", "label": "Our Story" },
+    { "link": "/faq/", "label": "FAQ" },
+    { "link": "/contact-us/", "label": "Contact" },
+    { "link": "/store-locator/", "label": "Store Locator" }
+  ],
+  "processSteps": [
+    {
+      "image": "../images/01-best-plant.svg",
+      "color": "#A2D45E",
+      "title": "Pick the Best Plant",
+      "text": "First we select the finest cannabis plants, and harvest them at their aromatic peak. Each plant we select has the perfect balance of cannabinoids, flavonoid and terpenes, providing a flavorful, full-bodied experience."
+    },
+    {
+      "image": "../images/02-flash-frozen.svg",
+      "color": "#1DCAD3",
+      "title": "Flash Frozen for Flavor",
+      "text": "At the moment of harvest, we flash-freeze our plants and keep them cool throughout the extraction process. This helps us preserve the volatile terpenes – the source of the plant’s unique flavor profile."
+    },
+    {
+      "image": "../images/03-extract.svg",
+      "color": "#FCD199",
+      "title": "Extract the Good Stuff",
+      "text": "We use hydrocarbon solvents (n-butane) to pull out and preserve the terpenes, which ensures the things you love most about cannabis – the aroma, the flavor, the potency – doesn’t dry up or degrade at all once it’s concentrated."
+    },
+    {
+      "image": "../images/04-pure.svg",
+      "color": "#FF9E18",
+      "title": "Pure Concentration",
+      "text": "From there, we remove all solvent and finish the resin into its purest concentrate form – vape cartridges, budders, sauces, diamonds, sugars, shatters, and THCA crystalline."
+    },
+    {
+      "image": "../images/05-enjoy.svg",
+      "color": "#FF4438",
+      "title": "And Enjoy",
+      "text": "Straight from the seed and into your hand – you’re holding the purest way to consume cannabis in the world. Take a hit and enjoy. Pure and simple."
+    }
+  ],
+  "friends": [
+    { "name": "Gold Seal", "image": "../images/f-gold-seal.png", "link": "#" },
+    { "name": "Cookies", "image": "../images/f-cookies.png", "link": "#" },
+    { "name": "Sherbinskis", "image": "../images/f-sherbinskis.png", "link": "#" }
+  ],
+  "formsTextures": [
+    {
+      "name": "Budder",
+      "icon": "../images/t-budder.svg",
+      "productLink": "/products/",
+      "store": "/store-locator/",
+      "image": "../images/t-p-budder.jpg",
+      "description": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
+      "level": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike."
+    },
+    {
+      "name": "Sauce",
+      "icon": "../images/t-sauce.svg",
+      "productLink": "/products/",
+      "store": "/store-locator/",
+      "image": "../images/t-p-budder.jpg",
+      "description": "",
+      "level": ""
+    },
+    {
+      "name": "Sugar",
+      "icon": "../images/t-sugar.svg",
+      "productLink": "/products/",
+      "store": "/store-locator/",
+      "image": "../images/t-p-budder.jpg",
+      "description": "",
+      "level": ""
+    },
+    {
+      "name": "Diamonds",
+      "icon": "../images/t-diamonds.svg",
+      "productLink": "/products/",
+      "store": "/store-locator/",
+      "image": "../images/t-p-budder.jpg",
+      "description": "",
+      "level": ""
+    },
+    {
+      "name": "THCA Crystalline",
+      "icon": "../images/t-thca.svg",
+      "productLink": "/products/",
+      "store": "/store-locator/",
+      "image": "../images/t-p-budder.jpg",
+      "description": "",
+      "level": ""
+    },
+    {
+      "name": "Shatter",
+      "icon": "../images/t-shatter.svg",
+      "productLink": "/products/",
+      "store": "/store-locator/",
+      "image": "../images/t-p-budder.jpg",
+      "description": "",
+      "level": ""
+    },
+    {
+      "name": "Vapes",
+      "icon": "../images/t-vapes.svg",
+      "productLink": "/products/",
+      "store": "/store-locator/",
+      "image": "../images/t-p-budder.jpg",
+      "description": "",
+      "level": ""
+    }
+  ],
+  "timeline": [
+    {
+      "title": "Recreational Legalization Begins",
+      "description": "In 2012, Colorado and Washington become the first two states to legalize the recreational use of cannabis, following the passage of Amendment 64 and Initiative 502. Massachusetts approved a ballot measure to legalize medical cannabis",
+      "position": "left"
+    },
+    {
+      "title": "Kind Bill",
+      "description": "Live resin originated in late 2013 with William “Kind Bill” Fenger, who developed the unique extraction process alongside a talented, terpene-chasing few who dared to try something different.",
+      "photo": "../images/story-01.png",
+      "position": "right"
+    },
+    {
+      "title": "Live Resin",
+      "description": "When seeing this entirely new product for the first time and deciding what to call it on the shelf, Phillip “Tierra Rojo” Hague (the head cultivator at the facility) suggested the name “Live Resin”, which stuck, and the product was put onto Colorado dispensary shelves immediately, sparking the cannabis flavor revolution.",
+      "photo": "../images/story-02.png",
+      "position": "left"
+    },
+    {
+      "title": "Absolute Best",
+      "description": "Quickly, instead of thinking about concentrate as a by product of flower production, it started to be the focus, with Bill and Phillip going through the entire “Indoor Acre” facility and picking only a handful of the absolute best plants for the purposes of live resin extraction.",
+      "photo": "../images/story-03.png",
+      "position": "right"
+    },
+    {
+      "title": "Live Resin Project",
+      "description": "Today, Bill and Phillip have joined forces with a passionate team of of trailblazers, taste-makers and high-flying cannabis connoisseurs to bring you Live Resin Project.",
+      "photo": "../images/story-04.png",
+      "position": "left"
+    },
+    {
+      "title": "Award Winning",
+      "description": "Since that point, live resin has won the vast majority of cannabis extract competitions and has single-handedly changed the way growers think about their plants, how they are harvested, and even how customers shop.",
+      "position": "right"
+    }
+  ]
+}

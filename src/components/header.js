@@ -1,11 +1,11 @@
 import React, { useContext } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import Logo from "./logo"
 import { Box } from "./box"
-import { MENU_ITEMS } from "../data"
 
 const halfSize = {
   sm: 1 / 1,
@@ -66,6 +66,19 @@ const Header = () => {
   const {
     state: { data },
   } = useContext(AppContext)
+  const {
+    dataJson: { mainMenu },
+  } = useStaticQuery(graphql`
+    query {
+      dataJson {
+        mainMenu {
+          color
+          label
+          link
+        }
+      }
+    }
+  `)
   return (
     <header>
       <Grid>
@@ -80,7 +93,7 @@ const Header = () => {
           <Box right="0" top="0" bottom="0">
             <Nav>
               <Menu>
-                {MENU_ITEMS.map(item => (
+                {mainMenu.map(item => (
                   <MenuItem key={item.link}>
                     <MenuLink
                       activeColor={item.color}

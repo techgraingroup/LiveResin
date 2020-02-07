@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import Grid from "styled-components-grid"
 
 import SEO from "../components/seo"
@@ -7,12 +8,27 @@ import FormsTextures from "../components/formsntextures"
 import { H2, PageTitle, Quote } from "../components/text"
 import { Box } from "../components/box"
 import { AppContext } from "../context"
-import { PROCESS_STEPS } from "../data"
 
 import bannerImg from "../images/process-banner-bg.jpg"
 
 const OurProcessPage = () => {
   const { dispatch } = useContext(AppContext)
+  const {
+    dataJson: { processSteps },
+  } = useStaticQuery(graphql`
+    query {
+      dataJson {
+        processSteps {
+          color
+          text
+          title
+          image {
+            publicURL
+          }
+        }
+      }
+    }
+  `)
   useEffect(() => {
     dispatch({
       type: "activeMenu",
@@ -31,13 +47,13 @@ const OurProcessPage = () => {
         title={`Our\nProcess`}
         text="Creating live resin is an intensive labor of love. It requires precision and care from the beginning to end, to ensure we harness the greatest qualities of cannabis and extract them into a powerful dab. And we should know. After all, we invented it."
       />
-      {PROCESS_STEPS.map(item => (
+      {processSteps.map(item => (
         <Box key={`box-${item.color}`} bgColor={item.color}>
           <Grid valign="center">
             <Grid.Unit
               size={{ xs: 1, sm: 1 / 2 }}
               style={{ textAlign: "center" }}>
-              <img src={item.image} />
+              <img src={item.image.publicURL} />
             </Grid.Unit>
             <Grid.Unit size={{ xs: 1, sm: 1 / 2 }}>
               <H2 style={{ color: "white" }}>{item.title}</H2>

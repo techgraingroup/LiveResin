@@ -1,4 +1,5 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { Box } from "./box"
@@ -82,7 +83,7 @@ const TimelineItem = styled(
               height: 250px;
               border-radius: 125px;
               background: url(${
-                props.photo
+                props.photo.childImageSharp.fluid.src
               }) center center no-repeat transparent;
               background-size: 100%;
               bottom: -125px;
@@ -96,8 +97,7 @@ const TimelineItem = styled(
               border: 1px solid #000;
               bottom: -10px;
               ${props.position === "right" ? `left: -12px` : `right: -12px`};
-              `
-            }
+              `}
         }
       }
       .text-wrap {
@@ -112,10 +112,30 @@ const TimelineItem = styled(
 `
 
 const Timeline = () => {
+  const {
+    dataJson: { timeline },
+  } = useStaticQuery(graphql`
+    query {
+      dataJson {
+        timeline {
+          title
+          description
+          position
+          photo {
+            childImageSharp {
+              fluid(maxWidth: 250) {
+                src
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
   return (
     <Box top="0" bottom="0">
       <Wrapper>
-        {TIMELINE_DATA.map((item, i) => {
+        {timeline.map((item, i) => {
           return <TimelineItem key={`item-${i}`} {...item} />
         })}
       </Wrapper>

@@ -1,11 +1,11 @@
 import { Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import Logo from "./logo"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { BlockTitle } from "./text"
 import { Box } from "./box"
-import { FOOTER_MENU_ITEMS } from '../data'
 import { SocialButton } from "./button"
 import arrow from "../images/sign-up-arrow.png"
 
@@ -86,51 +86,65 @@ const SocialList = styled.ul`
   }
 `
 
-const Footer = () => (
-  <FooterBlock>
-    <Grid>
-      <Grid.Unit size={halfSize}>
-        <Box>
-          <Link to="/">
-            <Logo mono width={230} />
-          </Link>
-          <FooterMenu>
-            {FOOTER_MENU_ITEMS.map(item => (
-              <li key={item.link}>
-                <Link to={item.link}>{item.label}</Link>
+const Footer = () => {
+  const {
+    dataJson: { footerMenu },
+  } = useStaticQuery(graphql`
+    query {
+      dataJson {
+        footerMenu {
+          label
+          link
+        }
+      }
+    }
+  `)
+  return (
+    <FooterBlock>
+      <Grid>
+        <Grid.Unit size={halfSize}>
+          <Box>
+            <Link to="/">
+              <Logo mono width={230} />
+            </Link>
+            <FooterMenu>
+              {footerMenu.map(item => (
+                <li key={item.link}>
+                  <Link to={item.link}>{item.label}</Link>
+                </li>
+              ))}
+            </FooterMenu>
+          </Box>
+        </Grid.Unit>
+        <Grid.Unit size={halfSize}>
+          <Box>
+            <BlockTitle color="#FFF" line="top">
+              Get Notified
+            </BlockTitle>
+            <p>
+              Sign up here to stay up-to-date on our upcoming retail locations,
+              events, and new product drops.
+            </p>
+            <SubscribeForm method="POST" action="#">
+              <input type="text" placeholder="Your email" />
+              <button type="submit">Sign Up</button>
+            </SubscribeForm>
+            <SocialList>
+              <li>
+                <SocialButton href="#" target="_blank" type="facebook" />
               </li>
-            ))}
-          </FooterMenu>
-        </Box>
-      </Grid.Unit>
-      <Grid.Unit size={halfSize}>
-        <Box>
-          <BlockTitle color="#FFF" line="top">
-            Get Notified
-          </BlockTitle>
-          <p>
-            Sign up here to stay up-to-date on our upcoming retail locations,
-            events, and new product drops.
-          </p>
-          <SubscribeForm method="POST" action="#">
-            <input type="text" placeholder="Your email" />
-            <button type="submit">Sign Up</button>
-          </SubscribeForm>
-          <SocialList>
-            <li>
-              <SocialButton href="#" target="_blank" type="facebook" />
-            </li>
-            <li>
-              <SocialButton href="#" target="_blank" type="twitter" />
-            </li>
-            <li>
-              <SocialButton href="#" target="_blank" type="instagram" />
-            </li>
-          </SocialList>
-        </Box>
-      </Grid.Unit>
-    </Grid>
-  </FooterBlock>
-)
+              <li>
+                <SocialButton href="#" target="_blank" type="twitter" />
+              </li>
+              <li>
+                <SocialButton href="#" target="_blank" type="instagram" />
+              </li>
+            </SocialList>
+          </Box>
+        </Grid.Unit>
+      </Grid>
+    </FooterBlock>
+  )
+}
 
 export default Footer

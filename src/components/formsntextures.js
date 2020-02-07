@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react"
-import { navigate } from "gatsby"
+import { useStaticQuery, graphql, navigate } from "gatsby"
+import Img from "gatsby-image"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { Box } from "./box"
@@ -36,21 +37,40 @@ const TabBtn = styled(({ isActive, children, ...rest }) => (
       : ""}
 `
 
-const Image = styled(({ src, alt, ...rest }) => <div {...rest}>{alt}</div>)`
-  background-image: url(${props => props.src});
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+const Image = styled(({ fluid, alt, ...rest }) => <Image {...rest} />)`
   border: 4px solid #000;
-  text-indent: -100em;
-  overflow: hidden;
   margin-bottom: 30px;
-  height: 350px;
 `
 
 const FormsTextures = () => {
   const [active, setActive] = useState(0)
-  const formsCount = FORMS_TEXTURES_DATA.length
+  const {
+    dataJson: { formsTextures },
+  } = useStaticQuery(graphql`
+    query {
+      dataJson {
+        formsTextures {
+          name
+          description
+          store
+          level
+          productLink
+          icon {
+            publicURL
+          }
+          image {
+            childImageSharp {
+              fluid(maxHeight: 350) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  const formsCount = formsTextures.length
+
   return (
     <Box>
       <BlockTitleHorz
@@ -65,13 +85,13 @@ const FormsTextures = () => {
         halign="center"
         valign="center"
         style={{ marginTop: 60, marginBottom: 80 }}>
-        {FORMS_TEXTURES_DATA.map((item, i) => (
+        {formsTextures.map((item, i) => (
           <Grid.Unit
             key={`item-${i}`}
             size={{ sm: 1 / formsCount }}
             style={{ textAlign: "center" }}>
             <TabBtn isActive={i === active} onClick={() => setActive(i)}>
-              <img src={item.icon} alt={item.name} />
+              <img src={item.icon.publicURL} alt={item.name} />
               <div
                 style={{
                   textAlign: "center",
@@ -85,13 +105,23 @@ const FormsTextures = () => {
         ))}
       </Grid>
       <Grid>
-        {FORMS_TEXTURES_DATA.map((item, i) => {
+        {formsTextures.map((item, i) => {
           let ele = null
           if (active === i) {
             ele = (
               <Fragment key={`item-${i}`}>
                 <Grid.Unit size={8 / 17}>
-                  <Image src={item.image} alt={item.name} />
+                  <Img
+                    fluid={{
+                      ...item.image.childImageSharp.fluid,
+                        aspectRatio: 4/3,
+                    }}
+                    alt={item.name}
+                    style={{
+                      border: "4px solid #000",
+                      marginBottom: 30,
+                    }}
+                  />
                   <Button
                     color="#FFF"
                     bgColor="#000"
