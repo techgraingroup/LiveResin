@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react"
-import { navigate } from "gatsby"
+import { useStaticQuery, graphql, navigate } from "gatsby"
 import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
@@ -10,11 +10,7 @@ import Banner from "../components/banner"
 import MeetTheTeam from "../components/meettheteam"
 import Friends from "../components/friends"
 import InstagramFeed from "../components/instagram"
-
-import bannerImg from "../images/home-banner-bg.jpg"
-import inventor from "../images/inventor.jpg"
-import extract from "../images/extract.jpg"
-import products from "../images/products.jpg"
+import { getImageFromList } from "../utils"
 
 const halfSize = {
   sm: 1 / 1,
@@ -29,6 +25,40 @@ const IndexPage = () => {
       value: "/",
     })
   }, [])
+  const {
+    allFile: { edges },
+  } = useStaticQuery(graphql`
+    query {
+      allFile(
+        filter: {
+          relativePath: {
+            in: [
+              "home-banner-bg.jpg"
+              "inventor.jpg"
+              "extract.jpg"
+              "products.jpg"
+            ]
+          }
+        }
+      ) {
+        edges {
+          node {
+            id
+            relativePath
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  const bannerImg = getImageFromList("home-banner-bg.jpg", edges)
+  const inventor = getImageFromList("inventor.jpg", edges)
+  const extract = getImageFromList("extract.jpg", edges)
+  const products = getImageFromList("products.jpg", edges)
   return (
     <>
       <SEO title="Home" />
@@ -80,7 +110,7 @@ const IndexPage = () => {
       </Box>
       <Grid>
         <Grid.Unit size={halfSize}>
-          <Box square bgColor="#1DCAD3">
+          <Box bgColor="#1DCAD3">
             <BlockTitle color="#FFF" line="bottom">
               The Inventor of Live Resin
             </BlockTitle>
@@ -184,7 +214,12 @@ const IndexPage = () => {
                 GOLD SEAL SF
               </span>
             </div>
-            <Text style={{ marginTop: 30, paddingTop: 30, borderTop: "1px solid #000" }}>
+            <Text
+              style={{
+                marginTop: 30,
+                paddingTop: 30,
+                borderTop: "1px solid #000",
+              }}>
               This special collaboration showcases Gold Seal’s signature Red
               Congolese, a 12+ week flowering Sativa that we believe is truly
               special.
@@ -210,7 +245,11 @@ const IndexPage = () => {
             </BlockTitle>
             <Text
               color="#FFC700"
-              style={{ marginTop: 70, paddingTop: 30, borderTop: "1px solid #FFC700" }}>
+              style={{
+                marginTop: 70,
+                paddingTop: 30,
+                borderTop: "1px solid #FFC700",
+              }}>
               It's everything we love about OG - gassy, rich a little earthy.
             </Text>
             <Button borderColor="#FFC700" color="#FFC700" bgColor="#000">

@@ -9,14 +9,20 @@ import { H2, PageTitle, Quote } from "../components/text"
 import { Box } from "../components/box"
 import { AppContext } from "../context"
 
-import bannerImg from "../images/process-banner-bg.jpg"
-
 const OurProcessPage = () => {
   const { dispatch } = useContext(AppContext)
   const {
+    file,
     dataJson: { processSteps },
   } = useStaticQuery(graphql`
     query {
+      file(relativePath: { eq: "process-banner-bg.jpg" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
       dataJson {
         processSteps {
           color
@@ -39,7 +45,7 @@ const OurProcessPage = () => {
     <>
       <SEO title="Our Process" />
       <Banner
-        bannerImg={bannerImg}
+        bannerImg={file}
         title={`The true essence\nof cannabis.`}
         tagLine="Live Resin is the purest way to consume cannabis. It harnesses all of the flavor, aroma, and potency of a live cannabis plant, and delivers it in an authentic concentrate."
       />
