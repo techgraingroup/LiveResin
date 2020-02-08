@@ -54,7 +54,7 @@
   "formsTextures": [
     {
       "name": "Budder",
-      "icon": "../images/t-budder.svg",
+      "icon": "TBudder",
       "productLink": "/products/",
       "store": "/store-locator/",
       "image": "../images/t-p-budder.jpg",
@@ -63,7 +63,7 @@
     },
     {
       "name": "Sauce",
-      "icon": "../images/t-sauce.svg",
+      "icon": "TSauce",
       "productLink": "/products/",
       "store": "/store-locator/",
       "image": "../images/t-p-budder.jpg",
@@ -72,7 +72,7 @@
     },
     {
       "name": "Sugar",
-      "icon": "../images/t-sugar.svg",
+      "icon": "TSugar",
       "productLink": "/products/",
       "store": "/store-locator/",
       "image": "../images/t-p-budder.jpg",
@@ -81,7 +81,7 @@
     },
     {
       "name": "Diamonds",
-      "icon": "../images/t-diamonds.svg",
+      "icon": "TDiamonds",
       "productLink": "/products/",
       "store": "/store-locator/",
       "image": "../images/t-p-budder.jpg",
@@ -90,7 +90,7 @@
     },
     {
       "name": "THCA Crystalline",
-      "icon": "../images/t-thca.svg",
+      "icon": "TThca",
       "productLink": "/products/",
       "store": "/store-locator/",
       "image": "../images/t-p-budder.jpg",
@@ -99,7 +99,7 @@
     },
     {
       "name": "Shatter",
-      "icon": "../images/t-shatter.svg",
+      "icon": "TShatter",
       "productLink": "/products/",
       "store": "/store-locator/",
       "image": "../images/t-p-budder.jpg",
@@ -108,7 +108,7 @@
     },
     {
       "name": "Vapes",
-      "icon": "../images/t-vapes.svg",
+      "icon": "TVapes",
       "productLink": "/products/",
       "store": "/store-locator/",
       "image": "../images/t-p-budder.jpg",

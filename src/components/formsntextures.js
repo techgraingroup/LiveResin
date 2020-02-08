@@ -4,10 +4,19 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { Box } from "./box"
-import { H2, Text, BlockTitle, BlockTitleHorz } from "./text"
+import { Text, BlockTitle, BlockTitleHorz } from "./text"
 import { Button } from "./button"
+import {
+  TBudder,
+  TDiamonds,
+  TSauce,
+  TSugar,
+  TShatter,
+  TThca,
+  TVapes,
+} from "./icons"
 
-import { FORMS_TEXTURES_DATA } from "../data"
+const icons = { TBudder, TDiamonds, TSauce, TSugar, TShatter, TThca, TVapes }
 
 const TabBtn = styled(({ isActive, children, ...rest }) => (
   <button {...rest}>{children}</button>
@@ -55,9 +64,7 @@ const FormsTextures = () => {
           store
           level
           productLink
-          icon {
-            publicURL
-          }
+          icon
           image {
             childImageSharp {
               fluid(maxHeight: 350) {
@@ -85,24 +92,27 @@ const FormsTextures = () => {
         halign="center"
         valign="center"
         style={{ marginTop: 60, marginBottom: 80 }}>
-        {formsTextures.map((item, i) => (
-          <Grid.Unit
-            key={`item-${i}`}
-            size={{ sm: 1 / formsCount }}
-            style={{ textAlign: "center" }}>
-            <TabBtn isActive={i === active} onClick={() => setActive(i)}>
-              <img src={item.icon.publicURL} alt={item.name} />
-              <div
-                style={{
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  marginTop: 15,
-                }}>
-                {item.name}
-              </div>
-            </TabBtn>
-          </Grid.Unit>
-        ))}
+        {formsTextures.map((item, i) => {
+          const Icon = icons[item.icon]
+          return (
+            <Grid.Unit
+              key={`item-${i}`}
+              size={{ sm: 1 / formsCount }}
+              style={{ textAlign: "center" }}>
+              <TabBtn isActive={i === active} onClick={() => setActive(i)}>
+                <Icon active={ i === active }/>
+                <div
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    marginTop: 15,
+                  }}>
+                  {item.name}
+                </div>
+              </TabBtn>
+            </Grid.Unit>
+          )
+        })}
       </Grid>
       <Grid>
         {formsTextures.map((item, i) => {
@@ -114,7 +124,7 @@ const FormsTextures = () => {
                   <Img
                     fluid={{
                       ...item.image.childImageSharp.fluid,
-                        aspectRatio: 4/3,
+                      aspectRatio: 4 / 3,
                     }}
                     alt={item.name}
                     style={{
