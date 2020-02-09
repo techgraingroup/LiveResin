@@ -7,7 +7,7 @@ import { AppContext } from "../context"
 import Logo from "./logo"
 import { Box } from "./box"
 
-const halfSize = {
+const gridSize = {
   sm: 1 / 1,
   md: 1 / 2,
 }
@@ -82,14 +82,14 @@ const Header = () => {
   return (
     <header>
       <Grid>
-        <BrandWrapper size={halfSize}>
-          <Box top="0" bottom="0">
+        <BrandWrapper size={{ xs: 1, sm: 1 / 4 }}>
+          <Box top="0" bottom="0" right="0">
             <Link to="/">
               <Logo />
             </Link>
           </Box>
         </BrandWrapper>
-        <Grid.Unit size={halfSize}>
+        <Grid.Unit size={{ xs: 1, sm: 3 / 4 }}>
           <Box right="0" top="0" bottom="0">
             <Nav>
               <Menu>

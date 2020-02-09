@@ -22,7 +22,7 @@ const ContactUsPage = () => {
       <PageTitle title={`Contact Us`} />
       <Box top="0">
         <Grid>
-            <Grid.Unit size={{ md: 1, lg: 3 / 5 }}>
+          <Grid.Unit size={{ md: 1, lg: 3 / 5 }}>
             <form method="GET" action="#">
               <TextInput label="Your name" placeholder="Your name" />
               <TextInput
