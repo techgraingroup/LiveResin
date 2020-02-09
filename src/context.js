@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from "react"
 
 const defaultContextValue = {
   data: {
-    activeMenu: "/our-process/",
+    activeMenu: "/products/",
   },
 }
 
