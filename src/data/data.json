@@ -49,7 +49,11 @@
   "friends": [
     { "name": "Gold Seal", "image": "../images/f-gold-seal.png", "link": "#" },
     { "name": "Cookies", "image": "../images/f-cookies.png", "link": "#" },
-    { "name": "Sherbinskis", "image": "../images/f-sherbinskis.png", "link": "#" }
+    {
+      "name": "Sherbinskis",
+      "image": "../images/f-sherbinskis.png",
+      "link": "#"
+    }
   ],
   "formsTextures": [
     {
@@ -150,6 +154,20 @@
       "title": "Award Winning",
       "description": "Since that point, live resin has won the vast majority of cannabis extract competitions and has single-handedly changed the way growers think about their plants, how they are harvested, and even how customers shop.",
       "position": "right"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Question number One?",
+      "a": "Answer for Question Number One"
+    },
+    {
+      "q": "Question number Two?",
+      "a": "Answer for Question Number Two"
+    },
+    {
+      "q": "Question number Three?",
+      "a": "Answer for Question Number Three"
     }
   ]
 }
