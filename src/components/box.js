@@ -56,11 +56,7 @@ export const Box = styled(
   height: ${props => (props.fullHeight ? "100vh" : "auto")};
   ${props =>
     props.left
-      ? fluidRange({
-          prop: "padding-left",
-          fromSize: `${props.left}px`,
-          toSize: `${props.left}px`,
-        })
+      ? `padding-left: ${props.left}px;`
       : fluidRange({
           prop: "padding-left",
           fromSize: "20px",
@@ -68,11 +64,7 @@ export const Box = styled(
         })}
   ${props =>
     props.right
-      ? fluidRange({
-          prop: "padding-right",
-          fromSize: `${props.right}px`,
-          toSize: `${props.right}px`,
-        })
+      ? `padding-right: ${props.right}px;`
       : fluidRange({
           prop: "padding-right",
           fromSize: "20px",

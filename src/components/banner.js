@@ -1,17 +1,26 @@
 import React from "react"
 import styled from "styled-components"
+import { fluidRange } from "polished"
 import { navigate } from "gatsby"
 import { Button } from "./button"
 import { Box } from "./box"
 
 const BannerTitle = styled.h2`
   color: #fff;
-  font-size: 96px;
-  line-height: 87px;
   font-family: MontHeavy;
   padding-bottom: 50px;
   border-bottom: 4px solid #fff;
   margin-bottom: 30px;
+  ${fluidRange({
+    prop: "line-height",
+    fromSize: "41px",
+    toSize: "87px",
+  })}
+  ${fluidRange({
+    prop: "font-size",
+    fromSize: "45px",
+    toSize: "96px",
+  })}
 `
 
 const Tagline = styled.p`

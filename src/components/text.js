@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
-import { fluidRange } from 'polished'
+import { fluidRange } from "polished"
 import { Box } from "./box"
 import { THEME } from "../data"
 
@@ -14,10 +14,18 @@ const {
 export const H1 = styled.h1`
   font-weight: bold;
   font-family: MontHeavy, sans-serif;
-  font-size: 96px;
   margin-bottom: 44px;
-  line-height: 87px;
   white-space: pre-wrap;
+  ${fluidRange({
+    prop: "font-size",
+    fromSize: "45px",
+    toSize: "96px",
+  })}
+  ${fluidRange({
+    prop: "line-height",
+    fromSize: "41px",
+    toSize: "87px",
+  })}
 `
 
 export const H2 = styled.h2`
@@ -101,8 +109,22 @@ export const BlockTitle = styled(
   font-family: Mont, sans-serif;
   margin: 0;
   padding: 30px 0;
-  line-height: ${props => props.lineHeight || "105.8%"};
-  font-size: ${props => props.fontSize || "48px"};
+  ${props =>
+    props.lineHeight
+      ?  `line-height: ${props.lineHeight}px;`
+      : fluidRange({
+          prop: "line-height",
+          fromSize: "32px",
+          toSize: "51px",
+        })}
+  ${props =>
+    props.fontSize
+      ? `font-size: ${props.fontSize}px;` 
+      : fluidRange({
+          prop: "font-size",
+          fromSize: "30px",
+          toSize: "48px",
+        })}
   color: ${props => (props.color ? props.color : "#000")};
   ${props =>
     props.line === "top" && `border-top: 4px solid ${props.color || "#000"};`}
@@ -135,13 +157,13 @@ export const Quote = styled(({ withSignature, children, ...rest }) => (
   line-height: 105.8%;
   letter-spacing: -0.035rem;
   ${fluidRange({
-      prop: 'width',
-      fromSize: '280px',
-      toSize: '900px'
+    prop: "width",
+    fromSize: "280px",
+    toSize: "900px",
   })}
   ${fluidRange({
-      prop: 'font-size',
-      fromSize: '24px',
-      toSize: '64px'
+    prop: "font-size",
+    fromSize: "24px",
+    toSize: "64px",
   })}
 `
