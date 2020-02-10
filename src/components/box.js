@@ -1,6 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import { fluidRange } from "polished"
 import { THEME } from "../data"
 
 const {
@@ -52,12 +53,32 @@ export const Box = styled(
   position: relative;
   padding-top: ${props => (props.top ? `${props.top}px` : "120px")};
   padding-bottom: ${props => (props.bottom ? `${props.bottom}px` : "120px")};
-  padding-left: ${props => (props.left ? `${props.left}px` : "20px")};
-  padding-right: ${props => (props.right ? `${props.right}px` : "20px")};
   height: ${props => (props.fullHeight ? "100vh" : "auto")};
+  ${props =>
+    props.left
+      ? fluidRange({
+          prop: "padding-left",
+          fromSize: `${props.left}px`,
+          toSize: `${props.left}px`,
+        })
+      : fluidRange({
+          prop: "padding-left",
+          fromSize: "20px",
+          toSize: "135px",
+        })}
+  ${props =>
+    props.right
+      ? fluidRange({
+          prop: "padding-right",
+          fromSize: `${props.right}px`,
+          toSize: `${props.right}px`,
+        })
+      : fluidRange({
+          prop: "padding-right",
+          fromSize: "20px",
+          toSize: "135px",
+        })}
   @media only screen and (min-width: ${sm}px) {
-      padding-left: ${props => (props.left ? `${props.left}px` : "135px")};
-      padding-right: ${props => (props.right ? `${props.right}px` : "135px")};
       height: ${props => (props.fullHeight ? "100%" : "auto")};
   }
   ${props =>

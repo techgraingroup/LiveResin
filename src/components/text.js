@@ -1,13 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
+import { fluidRange } from 'polished'
 import { Box } from "./box"
 import { THEME } from "../data"
 
 import signature from "../images/signature.png"
 
 const {
-  breakpoints: { sm },
+  breakpoints: { sm, md },
 } = THEME
 
 export const H1 = styled.h1`
@@ -133,10 +134,14 @@ export const Quote = styled(({ withSignature, children, ...rest }) => (
   font-family: MontHeavy, sans-serif;
   line-height: 105.8%;
   letter-spacing: -0.035rem;
-  font-size: 24px;
-  width: 75%;
-  @media only screen and (min-width: ${sm}px) {
-    width: 900px;
-    font-size: 64px;
-  }
+  ${fluidRange({
+      prop: 'width',
+      fromSize: '280px',
+      toSize: '900px'
+  })}
+  ${fluidRange({
+      prop: 'font-size',
+      fromSize: '24px',
+      toSize: '64px'
+  })}
 `

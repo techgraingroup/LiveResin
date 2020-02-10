@@ -21,7 +21,7 @@ export const Button = styled(
   border: ${props => `1px solid ${props.borderColor || "transparent"}`};
   color: ${props => props.color || "#000"};
   position: relative;
-  transition: transform 0.1s;
+  transition: transform 0.1s ease-in-out;
   &:focus {
     outline: none;
   }

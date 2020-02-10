@@ -12,9 +12,11 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
   return (
     <div {...rest} className={eleClass}>
       <H2>
-        <button onClick={onClick}>{`Q.${data.q}`}</button>
+        <button onClick={onClick}>{`Q. ${data.q}`}</button>
       </H2>
-      {active && <Text>{data.a}</Text>}
+      <div className={active ? "active text-wrap" : "text-wrap"}>
+        <Text>{data.a}</Text>
+      </div>
     </div>
   )
 })`
@@ -23,12 +25,6 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
     padding-bottom: 30px;
     border-bottom: 4px solid #000;
     position: relative;
-    &::after {
-      content: "+";
-      position: absolute;
-      right: 0;
-      font-family: Mont, sans-serif;
-    }
     button {
       border: 0;
       outline: none;
@@ -38,14 +34,38 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
       color: #000;
       text-decoration: none;
       width: calc(100% - 60px);
+      &:hover {
+        cursor: pointer;
+      }
+      &::after {
+        content: "+";
+        position: absolute;
+        right: 0;
+        font-family: Mont, sans-serif;
+      }
+    }
+  }
+  .text-wrap {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 60px;
+      display: block;
     }
   }
   &.active {
-    padding-bottom: 60px;
     h2 {
-      &::after {
-        content: "-";
+      button {
+        &::after {
+          content: "-";
+        }
       }
+    }
+    .text-wrap {
+      max-height: 100rem;
     }
   }
 `
