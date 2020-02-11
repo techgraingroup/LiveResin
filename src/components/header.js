@@ -62,7 +62,7 @@ const MenuLink = styled(({ activeColor, isActive, ...rest }) => (
   }
 `
 
-const Header = () => {
+const Header = ({ passed }) => {
   const {
     state: { data },
   } = useContext(AppContext)
@@ -83,14 +83,14 @@ const Header = () => {
     <header>
       <Grid>
         <BrandWrapper size={{ xs: 1, sm: 1 / 4 }}>
-          <Box top="0" bottom="0" right="0">
+          <Box top={passed ? "0" : 75} bottom={passed ? "0" : 75} right="0">
             <Link to="/">
-              <Logo />
+              <Logo width={!passed ? 450 : null} showSubtext={!passed} />
             </Link>
           </Box>
         </BrandWrapper>
         <Grid.Unit size={{ xs: 1, sm: 3 / 4 }}>
-          <Box right="0" top="0" bottom="0">
+          <Box right="0" top="0" bottom="0" style={{ display: passed ? 'inherit' : 'none' }}>
             <Nav>
               <Menu>
                 {mainMenu.map(item => (

@@ -26,19 +26,22 @@ const Layout = ({ children }) => {
       setPassed(false)
     }
   }, [passed, setPassed])
+  const passAgeGate = () => {
+    localStorage.setItem(AGE_GATE_KEY, "true")
+    setPassed(true)
+  }
   return (
     <ThemeProvider theme={THEME}>
       <StateProvider>
         <GlobalStyle />
-        <Header />
-        {passed ? (
-          <div>
-            <main>{children}</main>
-            <Footer />
-          </div>
-        ) : (
-          <AgeGate />
-        )}
+        <Header passed={passed} />
+        <div style={{ display: passed ? "block" : "none" }}>
+          <main>{children}</main>
+          <Footer />
+        </div>
+        <div style={{ display: passed ? "none" : "block" }}>
+          <AgeGate passAgeGate={passAgeGate} />
+        </div>
       </StateProvider>
     </ThemeProvider>
   )
