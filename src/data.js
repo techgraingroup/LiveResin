@@ -1,3 +1,5 @@
+export const AGE_GATE_KEY = "_liveresin_agegate_passed"
+
 export const THEME = {
   breakpoints: {
     xs: 0,
