@@ -156,6 +156,12 @@
       "position": "right"
     }
   ],
+  "storeLocator": [
+    {
+      "name": "Cookies Melrose",
+      "address": "8360 Melrose Ave #101, Los Angeles, CA 90069"
+    }
+  ],
   "faqs": [
     {
       "q": "Question number One?",
