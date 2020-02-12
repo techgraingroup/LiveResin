@@ -1,12 +1,13 @@
 import React from "react"
-import { math } from "polished"
+import { math, cover } from "polished"
 import styled from "styled-components"
 import { Arrow, Play, Facebook, Twitter, Instagram } from "./icons"
 
 export const Button = styled(
   ({ withArrow, bgColor, borderColor, color, children, ...rest }) => (
     <button {...rest}>
-      {children}
+      <span className="bg" />
+      <span className="text">{children}</span>
       {withArrow && <Arrow borderColor={borderColor} />}
     </button>
   )
@@ -16,31 +17,44 @@ export const Button = styled(
   padding: ${props => (props.withArrow ? "0 70px 0 30px" : "0 30px")};
   font-size: 16px;
   text-transform: uppercase;
-  line-height: 60px;
-  background: ${props => props.bgColor || "transparent"};
-  border: ${props => `1px solid ${props.borderColor || "transparent"}`};
   color: ${props => props.color || "#000"};
   position: relative;
-  transition: transform 0.1s ease-in-out;
+  background: transparent;
+  border: 0;
+  outline: none;
+  .text {
+    position: relative;
+    z-index: 10;
+    line-height: 61px;
+    height: 100%;
+    display: inline-block;
+  }
+  svg {
+    transition: transform 0.1s ease-in-out;
+  }
+  .bg {
+    ${cover()};
+    display: block;
+    transition: transform 0.1s ease-in-out;
+    background: ${props => props.bgColor || "transparent"};
+    border: ${props => `1px solid ${props.borderColor || "transparent"}`};
+  }
   &:focus {
     outline: none;
   }
   &:hover {
     cursor: pointer;
-    padding: ${props => (props.withArrow ? "0 70px 0 22px" : "0 22px")};
-    transform: scale(${math("52/60")});
-    ${props =>
-      props.withArrow
-        ? `
-      &::after {
-        transform: translateX(10px);
-      }
-    `
-        : ""}
+    .bg {
+      padding: ${props => (props.withArrow ? "0 70px 0 22px" : "0 22px")};
+      transform: scale(${math("52/60")});
+    }
+    ${props => (props.withArrow ? `svg { transform: translateX(10px); }` : "")}
   }
   &:active {
-    padding: ${props => (props.withArrow ? "0 70px 0 26px" : "0 26px")};
-    transform: scale(${math("56/60")});
+    .bg {
+      padding: ${props => (props.withArrow ? "0 70px 0 26px" : "0 26px")};
+      transform: scale(${math("56/60")});
+    }
   }
   &:disabled {
     opacity: 40%;
