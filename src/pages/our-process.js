@@ -62,7 +62,7 @@ const OurProcessPage = () => {
               <img src={item.image.publicURL} />
             </Grid.Unit>
             <Grid.Unit size={{ xs: 1, sm: 1 / 2 }}>
-              <H2 style={{ color: "white" }}>{item.title}</H2>
+              <H2 style={{ fontFamily: 'MontHeavy, sans-serif', color: "white" }}>{item.title}</H2>
               <p>{item.text}</p>
             </Grid.Unit>
           </Grid>

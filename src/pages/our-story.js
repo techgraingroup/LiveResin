@@ -38,7 +38,7 @@ const OurStoryPage = () => {
         </Quote>
       </Box>
       <Friends />
-      <Box>
+      <Box top="0">
         <BlockTitleHorz
           style={{ marginBottom: 100 }}
           title="Get In Touch"

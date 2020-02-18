@@ -6,7 +6,6 @@ import { Arrow, Play, Facebook, Twitter, Instagram } from "./icons"
 export const Button = styled(
   ({ withArrow, bgColor, borderColor, color, children, ...rest }) => (
     <button {...rest}>
-      <span className="bg" />
       <span className="text">{children}</span>
       {withArrow && <Arrow borderColor={borderColor} />}
     </button>
@@ -32,8 +31,9 @@ export const Button = styled(
   svg {
     transition: transform 0.1s ease-in-out;
   }
-  .bg {
+  &::before {
     ${cover()};
+    content: '';
     display: block;
     transition: transform 0.1s ease-in-out;
     background: ${props => props.bgColor || "transparent"};
@@ -44,14 +44,14 @@ export const Button = styled(
   }
   &:hover {
     cursor: pointer;
-    .bg {
+    &::before {
       padding: ${props => (props.withArrow ? "0 70px 0 22px" : "0 22px")};
       transform: scale(${math("52/60")});
     }
-    ${props => (props.withArrow ? `svg { transform: translateX(10px); }` : "")}
+    ${props => (props.withArrow ? `svg { transform: translateX(5px); }` : "")}
   }
   &:active {
-    .bg {
+    &::before {
       padding: ${props => (props.withArrow ? "0 70px 0 26px" : "0 26px")};
       transform: scale(${math("56/60")});
     }

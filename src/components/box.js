@@ -1,12 +1,50 @@
 import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import { fluidRange } from "polished"
+import { fluidRange, cover } from "polished"
 import { THEME } from "../data"
 
 const {
-  breakpoints: { sm },
+  breakpoints: { xs, sm, md, xl },
 } = THEME
+
+export const SquareBox = styled(
+  ({ bgSize, bgColor, bgImage, children, ...rest }) => {
+    let imageStyle = {
+      position: "absolute",
+      left: 0,
+      top: 0,
+      width: "100%",
+      height: bgSize === "contain" ? "auto" : "100%",
+    }
+    return (
+      <div {...rest}>
+        {bgImage &&
+          bgImage.childImageSharp &&
+          bgImage.childImageSharp.fluid && (
+            <Img fluid={bgImage.childImageSharp.fluid} style={imageStyle} />
+          )}
+        <div className="content">{children}</div>
+      </div>
+    )
+  }
+)`
+  padding-top: 100%;
+  position: relative;
+  ${props => props.bgColor && `background-color: ${props.bgColor};`}
+  .content {
+    ${cover()}
+    ${fluidRange(
+      {
+        prop: "padding",
+        fromSize: "20px",
+        toSize: "135px",
+      },
+      `${md}px`,
+      `${xl}px`
+    )}
+  }
+`
 
 export const Box = styled(
   ({
@@ -19,6 +57,7 @@ export const Box = styled(
     bgPosition,
     bgSize,
     fullHeight,
+    square,
     children,
     ...rest
   }) => {
@@ -61,7 +100,7 @@ export const Box = styled(
           prop: "padding-left",
           fromSize: "20px",
           toSize: "135px",
-        })}
+        }, `${md}px`, `${xl}px`)}
   ${props =>
     props.right
       ? `padding-right: ${props.right}px;`
@@ -69,7 +108,7 @@ export const Box = styled(
           prop: "padding-right",
           fromSize: "20px",
           toSize: "135px",
-        })}
+        }, `${md}px`, `${xl}px`)}
   @media only screen and (min-width: ${sm}px) {
       height: ${props => (props.fullHeight ? "100%" : "auto")};
   }

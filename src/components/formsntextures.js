@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { Box } from "./box"
-import { Text, BlockTitle, BlockTitleHorz } from "./text"
+import { H4, Text, BlockTitle, BlockTitleHorz } from "./text"
 import { Button } from "./button"
 import {
   TBudder,
@@ -25,6 +25,7 @@ const TabBtn = styled(({ isActive, children, ...rest }) => (
   border: 0;
   background: transparent;
   padding-top: 25px;
+  font-family: MontHeavy, sans-serif;
   &:focus {
     outline: none;
   }
@@ -100,12 +101,13 @@ const FormsTextures = () => {
               size={{ sm: 1 / formsCount }}
               style={{ textAlign: "center" }}>
               <TabBtn isActive={i === active} onClick={() => setActive(i)}>
-                <Icon active={ i === active }/>
+                <Icon active={i === active} />
                 <div
                   style={{
                     textAlign: "center",
                     textTransform: "uppercase",
                     marginTop: 15,
+                    opacity: i === active ? 1 : 0.5,
                   }}>
                   {item.name}
                 </div>
@@ -154,7 +156,7 @@ const FormsTextures = () => {
                   <Text>{item.description}</Text>
                   {item.level && (
                     <>
-                      <h4>Comfort Level</h4>
+                      <H4>Comfort Level</H4>
                       <Text>{item.level}</Text>
                     </>
                   )}

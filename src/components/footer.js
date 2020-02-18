@@ -29,6 +29,7 @@ const FooterMenu = styled.ul`
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-decoration: none;
+    font-family: MontHeavy, sans-serif;
     &:hover {
       opacity: 0.4;
     }
@@ -44,6 +45,7 @@ const SubscribeForm = styled.form`
     border: 0;
     padding: 25px;
     color: #000;
+    font-family: MontBold, sans-serif;
   }
   button {
     background: #ff9e18;
@@ -57,6 +59,7 @@ const SubscribeForm = styled.form`
     position: relative;
     padding: 0 30px;
     text-align: left;
+    font-family: MontHeavy, sans-serif;
     &:after {
       content: "";
       display: block;

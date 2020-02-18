@@ -6,6 +6,7 @@ import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import Logo from "./logo"
 import { Box } from "./box"
+import { Arrow } from "./icons"
 
 const gridSize = {
   sm: 1 / 1,
@@ -26,6 +27,22 @@ const Menu = styled.ul`
   text-align: right;
   padding: 0;
   margin: 0;
+  .store-locator {
+    display: inline-block;
+    margin-left: 55px;
+    a {
+      display: block;
+      background: #ff9e18;
+      color: #fff;
+      height: 60px;
+      text-decoration: none;
+      line-height: 60px;
+      padding-left: 30px;
+      padding-right: 50px;
+      text-transform: uppercase;
+      font-family: MontBold, sans-serif;
+    }
+  }
 `
 
 const MenuItem = styled.li`
@@ -45,8 +62,8 @@ const MenuLink = styled(({ activeColor, isActive, ...rest }) => (
   text-decoration: none;
   position: relative;
   font-size: 16px;
-  font-weight: bold;
-  font-family: Mont, sans-serif;
+  font-weight: 800;
+  font-family: MontBold, sans-serif;
   &:hover {
     opacity: 40%;
   }
@@ -90,7 +107,11 @@ const Header = ({ passed }) => {
           </Box>
         </BrandWrapper>
         <Grid.Unit size={{ xs: 1, sm: 3 / 4 }}>
-          <Box right="0" top="0" bottom="0" style={{ display: passed ? 'inherit' : 'none' }}>
+          <Box
+            right="0"
+            top="0"
+            bottom="0"
+            style={{ display: passed ? "inherit" : "none" }}>
             <Nav>
               <Menu>
                 {mainMenu.map(item => (
@@ -103,6 +124,12 @@ const Header = ({ passed }) => {
                     </MenuLink>
                   </MenuItem>
                 ))}
+                <li className="store-locator">
+                  <Link to="/store-locator/">
+                    Store Locator
+                    <Arrow borderColor="#FFF" left="20" />
+                  </Link>
+                </li>
               </Menu>
             </Nav>
           </Box>

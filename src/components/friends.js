@@ -6,17 +6,29 @@ import styled from "styled-components"
 import { Box } from "./box"
 import { BlockTitle } from "./text"
 
-const FriendImg = styled(({ src, to, alt, ...rest }) => (
+const FriendImg = styled(({ width, height, src, to, alt, ...rest }) => (
   <div {...rest}>
     <a href={to || "#"} target="_blank" rel="noopener noreferrer">
-      <Img alt={alt} fluid={src.childImageSharp.fluid} />
+      <Img
+        style={{
+          width: "100%",
+          height: "auto",
+          maxWidth: width,
+          maxHeight: height,
+        }}
+        alt={alt}
+        fluid={src.childImageSharp.fluid}
+      />
     </a>
   </div>
 ))`
-  margin: 15px;
-  img {
-    max-width: 100%;
-    height: auto;
+  margin: 15px 15px 60px 15px;
+  a {
+    display: block;
+    .gatsby-image-wrapper {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 `
 
@@ -29,9 +41,11 @@ const Friends = () => {
         friends {
           link
           name
+          width
+          height
           image {
             childImageSharp {
-              fluid(maxWidth: 768){
+              fluid(maxWidth: 768) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
@@ -47,8 +61,14 @@ const Friends = () => {
       </BlockTitle>
       <Grid halign="left" valign="center" style={{ marginTop: 40 }}>
         {friends.map(item => (
-          <Grid.Unit key={item.name} size={{ sm: 1 / 4, xs: 1 / 2 }}>
-            <FriendImg to={item.link} src={item.image} alt={item.name} />
+          <Grid.Unit key={item.name} size={{ sm: 1 / 4, xs: 1 }}>
+            <FriendImg
+              width={item.width}
+              height={item.height}
+              to={item.link}
+              src={item.image}
+              alt={item.name}
+            />
           </Grid.Unit>
         ))}
       </Grid>

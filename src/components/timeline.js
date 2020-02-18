@@ -67,6 +67,7 @@ const TimelineItem = styled(
         position: relative;
         ${props => props.position === "right" && `justify-content: flex-end;`}
         h3 {
+          font-family: MontHeavy, sans-serif;
           font-size: 24px;
           text-transform: uppercase;
           line-height: 100%;
@@ -82,6 +83,8 @@ const TimelineItem = styled(
               width: 250px;
               height: 250px;
               border-radius: 125px;
+              border: 4px solid #000;
+              box-sizing: border-box;
               background: url(${
                 props.photo.childImageSharp.fluid.src
               }) center center no-repeat transparent;

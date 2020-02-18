@@ -3,10 +3,10 @@ import { useStaticQuery, graphql, navigate } from "gatsby"
 import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
-import { Box } from "../components/box"
+import { Box, SquareBox } from "../components/box"
 import { Quote, BlockTitle, Text } from "../components/text"
 import { Button } from "../components/button"
-import { Arrow, Collab } from '../components/icons'
+import { Arrow, Collab } from "../components/icons"
 import Banner from "../components/banner"
 import MeetTheTeam from "../components/meettheteam"
 import Friends from "../components/friends"
@@ -35,9 +35,10 @@ const IndexPage = () => {
           relativePath: {
             in: [
               "home-banner-bg.jpg"
-              "inventor.jpg"
+              "inventor.png"
               "extract.jpg"
               "products.jpg"
+              "products_mobile.jpg"
             ]
           }
         }
@@ -57,7 +58,7 @@ const IndexPage = () => {
     }
   `)
   const bannerImg = getImageFromList("home-banner-bg.jpg", edges)
-  const inventor = getImageFromList("inventor.jpg", edges)
+  const inventor = getImageFromList("inventor.png", edges)
   const extract = getImageFromList("extract.jpg", edges)
   const products = getImageFromList("products.jpg", edges)
   return (
@@ -74,14 +75,19 @@ const IndexPage = () => {
       <Box bgColor="#BBA135" top={20} bottom={20}>
         <Grid valign="center">
           <Grid.Unit size={halfSize}>
-            <span style={{ display: "block", lineHeight: "140%" }}>
+            <span
+              style={{
+                fontFamily: "MontHeavy, sans-serif",
+                display: "block",
+                lineHeight: "140%",
+              }}>
               Latest Collaboration
             </span>
             <span
               style={{
                 display: "block",
                 fontSize: 36,
-                fontWeight: 800,
+                fontFamily: "MontHeavy, sans-serif",
                 letterSpacing: "-0.04em",
                 lineHeight: "96%",
               }}>
@@ -111,7 +117,7 @@ const IndexPage = () => {
       </Box>
       <Grid>
         <Grid.Unit size={halfSize}>
-          <Box bgColor="#1DCAD3">
+          <SquareBox bgColor="#1DCAD3">
             <BlockTitle color="#FFF" line="bottom">
               The Inventor of Live Resin
             </BlockTitle>
@@ -127,18 +133,18 @@ const IndexPage = () => {
               onClick={() => navigate("/our-story/")}>
               About us
             </Button>
-          </Box>
+          </SquareBox>
         </Grid.Unit>
         <Grid.Unit size={halfSize}>
-          <Box fullHeight top="0" bottom="0" bgImage={inventor}></Box>
+          <SquareBox bgColor="#d4d4d4" bgImage={inventor} />
         </Grid.Unit>
       </Grid>
       <Grid>
         <Grid.Unit size={halfSize}>
-          <Box fullHeight top="0" bottom="0" bgImage={extract}></Box>
+          <SquareBox bgColor="#d4d4d4" bgImage={extract} />
         </Grid.Unit>
         <Grid.Unit size={halfSize}>
-          <Box bgColor="#FF9E18">
+          <SquareBox bgColor="#FF9E18">
             <BlockTitle color="#FFF" line="bottom">
               An Extract Science
             </BlockTitle>
@@ -153,7 +159,7 @@ const IndexPage = () => {
               onClick={() => navigate("/our-process/")}>
               Our Process
             </Button>
-          </Box>
+          </SquareBox>
         </Grid.Unit>
       </Grid>
       <Box

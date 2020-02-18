@@ -50,6 +50,7 @@ export const TextInput = styled(
   &.active {
     label {
       transform: translate(0, 2px) scale(0.75);
+      font-family: Mont, sans-serif;
     }
   }
   label {
@@ -60,6 +61,7 @@ export const TextInput = styled(
     transform-origin: top left;
     transform: translate(0, 16px) scale(1);
     transition: all 0.1s ease-in-out;
+    font-family: MontBold, sans-serif;
   }
   input,
   textarea {

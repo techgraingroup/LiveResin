@@ -29,6 +29,7 @@ const InstagramFeed = () => {
         <Text color="#FFF">
           <span
             style={{
+              fontFamily: "MontHeavy, sans-serif",
               lineHeight: "100%",
               fontSize: 24,
               display: "block",
@@ -42,6 +43,7 @@ const InstagramFeed = () => {
               color: "white",
               textDecoration: "none",
               lineSpacing: "0.1em",
+              fontFamily: "MontBold, sans-serif",
             }}>
             VIEW INSTAGRAM
           </a>
