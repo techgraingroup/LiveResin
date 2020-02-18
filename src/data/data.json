@@ -47,12 +47,26 @@
     }
   ],
   "friends": [
-    { "name": "Gold Seal", "image": "../images/f-gold-seal.png", "link": "#" },
-    { "name": "Cookies", "image": "../images/f-cookies.png", "link": "#" },
+    {
+      "name": "Gold Seal",
+      "image": "../images/f-gold-seal.png",
+      "link": "#",
+      "width": 212,
+      "height": 161
+    },
+    {
+      "name": "Cookies",
+      "image": "../images/f-cookies.png",
+      "link": "#",
+      "width": 292,
+      "height": 136
+    },
     {
       "name": "Sherbinskis",
       "image": "../images/f-sherbinskis.png",
-      "link": "#"
+      "link": "#",
+      "width": 292,
+      "height": 136
     }
   ],
   "formsTextures": [
@@ -120,6 +134,92 @@
       "level": ""
     }
   ],
+  "product": [
+    {
+      "name": "Red Congolese",
+      "goldSeal": true,
+      "bgColor": "#BBA135",
+      "color": "#000",
+      "description": "This special collaboration showcases Gold Seal’s signature Red Congolese, a 12+ week flowering Sativa that we believe is truly special. We harvested a stellar lot of Congo and extracted it into our favorite texture —which is live budder. The tropical funk flavor and soaring, electric Sativa effects this budder offers are some of our favorite things in the world.",
+      "link": "#",
+      "details": {
+        "form": "Live Resin Budder",
+        "thc": "70-77 %",
+        "thcpg": "700-800mg",
+        "cbd": "< 1%",
+        "cbdpg": "< 0.5mg"
+      },
+      "terpeneProfile": [
+        { "name": "Limonene (Citrus)", "value": 2.47 },
+        { "name": "B-Carophyllene (Earthy)", "value": 0.99 },
+        { "name": "B-Myrcene (Fruity)", "value": 0.59 }
+      ],
+      "images": ["../images/product-01.jpg", "../images/product-02.jpg"]
+    },
+    {
+      "name": "Skywalker OG",
+      "goldSeal": false,
+      "bgColor": "#000",
+      "color": "#FFC700",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia dictum molestie. Nulla mattis elit eu purus tincidunt vehicula. Nulla facilisis nisl sit amet pretium lobortis. Etiam pharetra mollis dignissim. Sed non lobortis leo. Proin nulla leo, euismod ac aliquam ac, efficitur sed orci. Praesent vel tortor vehicula, aliquet nibh vel, cursus neque. Phasellus mi augue, egestas et dolor et, fringilla bibendum ante.",
+      "link": "#",
+      "details": {
+        "form": "Live Resin Budder",
+        "thc": "70-77 %",
+        "thcpg": "700-800mg",
+        "cbd": "< 1%",
+        "cbdpg": "< 0.5mg"
+      },
+      "terpeneProfile": [
+        { "name": "Limonene (Citrus)", "value": 2.47 },
+        { "name": "B-Carophyllene (Earthy)", "value": 0.99 },
+        { "name": "B-Myrcene (Fruity)", "value": 0.59 }
+      ],
+      "images": ["../images/product-01.jpg", "../images/product-02.jpg"]
+    },
+    {
+      "name": "Sundae Driver",
+      "goldSeal": false,
+      "bgColor": "#FFC700",
+      "color": "#6663DF",
+      "description": "Donec risus nibh, venenatis porta laoreet at, consectetur eu felis. Suspendisse leo quam, viverra quis purus quis, ornare feugiat dolor. Praesent lacinia tempor sagittis. Aliquam sed libero fringilla enim tincidunt varius at tincidunt sem. Donec eget imperdiet dui. Mauris lorem lacus, porttitor quis vehicula vitae, pretium non purus. Morbi nec rhoncus massa.",
+      "link": "#",
+      "details": {
+        "form": "Live Resin Budder",
+        "thc": "70-77 %",
+        "thcpg": "700-800mg",
+        "cbd": "< 1%",
+        "cbdpg": "< 0.5mg"
+      },
+      "terpeneProfile": [
+        { "name": "Limonene (Citrus)", "value": 2.47 },
+        { "name": "B-Carophyllene (Earthy)", "value": 0.99 },
+        { "name": "B-Myrcene (Fruity)", "value": 0.59 }
+      ],
+      "images": ["../images/product-01.jpg", "../images/product-02.jpg"]
+    },
+    {
+      "name": "Chem 4",
+      "goldSeal": false,
+      "bgColor": "#616F39",
+      "color": "#F3DCAD",
+      "description": "Sed gravida eu nisl porttitor tristique. Donec rhoncus lorem in dictum vehicula. Nulla faucibus lectus sit amet libero aliquam finibus. Sed lobortis urna at orci consectetur condimentum. Morbi ornare erat a sollicitudin rhoncus. Sed placerat sed risus sit amet convallis. Vestibulum tincidunt orci a ante iaculis facilisis. Etiam et arcu a enim interdum finibus. Vivamus semper ipsum a tellus condimentum, at fermentum leo consequat.",
+      "link": "#",
+      "details": {
+        "form": "Live Resin Budder",
+        "thc": "70-77 %",
+        "thcpg": "700-800mg",
+        "cbd": "< 1%",
+        "cbdpg": "< 0.5mg"
+      },
+      "terpeneProfile": [
+        { "name": "Limonene (Citrus)", "value": 2.47 },
+        { "name": "B-Carophyllene (Earthy)", "value": 0.99 },
+        { "name": "B-Myrcene (Fruity)", "value": 0.59 }
+      ],
+      "images": ["../images/product-01.jpg", "../images/product-02.jpg"]
+    }
+  ],
   "timeline": [
     {
       "title": "Recreational Legalization Begins",
@@ -129,25 +229,25 @@
     {
       "title": "Kind Bill",
       "description": "Live resin originated in late 2013 with William “Kind Bill” Fenger, who developed the unique extraction process alongside a talented, terpene-chasing few who dared to try something different.",
-      "photo": "../images/story-01.png",
+      "photo": "../images/story-01.jpg",
       "position": "right"
     },
     {
       "title": "Live Resin",
       "description": "When seeing this entirely new product for the first time and deciding what to call it on the shelf, Phillip “Tierra Rojo” Hague (the head cultivator at the facility) suggested the name “Live Resin”, which stuck, and the product was put onto Colorado dispensary shelves immediately, sparking the cannabis flavor revolution.",
-      "photo": "../images/story-02.png",
+      "photo": "../images/story-02.jpg",
       "position": "left"
     },
     {
       "title": "Absolute Best",
       "description": "Quickly, instead of thinking about concentrate as a by product of flower production, it started to be the focus, with Bill and Phillip going through the entire “Indoor Acre” facility and picking only a handful of the absolute best plants for the purposes of live resin extraction.",
-      "photo": "../images/story-03.png",
+      "photo": "../images/story-03.jpg",
       "position": "right"
     },
     {
       "title": "Live Resin Project",
       "description": "Today, Bill and Phillip have joined forces with a passionate team of of trailblazers, taste-makers and high-flying cannabis connoisseurs to bring you Live Resin Project.",
-      "photo": "../images/story-04.png",
+      "photo": "../images/story-04.jpg",
       "position": "left"
     },
     {
@@ -164,8 +264,8 @@
   ],
   "faqs": [
     {
-      "q": "Question number One?",
-      "a": "Answer for Question Number One"
+      "q": "What exactly is Live Resin?",
+      "a": "Live resin is both a cannabis extraction process and a type of concentrate. It exclusively utilizes fresh-frozen plants, harvested at their absolute peak. The plants are then frozen and extracted at cryogenic temperatures using hydrocarbon solvents (generally n-butane), which helps to preserve the volatile terpenes that are not only crucial for aroma and flavor, but also create the unique qualities that make strains different from one another. Pretty important stuff."
     },
     {
       "q": "Question number Two?",
