@@ -37,14 +37,18 @@ const Layout = ({ children }) => {
       const threshold = 300
       const isScrollDown = currPos.y > prevPos.y
       const absY = Math.abs(currPos.y)
-      if (absY >= threshold) {
+      if (isScrollDown) {
         setHideNav(false)
-      }
-      if (!isScrollDown && absY >= threshold) {
-        setHideNav(true)
+      } else {
+        if (absY >= threshold) {
+          setHideNav(true)
+        }
       }
     },
-    [hideNav], null, null, 500
+    [hideNav],
+    null,
+    null,
+    500
   )
   return (
     <ThemeProvider theme={THEME}>
