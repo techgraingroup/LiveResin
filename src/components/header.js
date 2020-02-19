@@ -86,9 +86,15 @@ const MenuItem = styled.li`
   }
 `
 
-const MenuLink = styled(({ activeColor, isActive, ...rest }) => (
-  <a {...rest} />
-))`
+const MenuLink = styled(({ activeColor, isActive, external, ...rest }) => {
+  let ele
+  if (external) {
+    ele = <a {...rest} />
+  } else {
+    ele = <Link {...rest} />
+  }
+  return ele
+})`
   display: block;
   color: #000;
   text-transform: uppercase;
@@ -199,12 +205,13 @@ const Header = ({ passed, hideNav }) => {
               </DesktopMenu>
               <MobileMenu>
                 <MenuItem>
-                  <MenuLink href="#">
+                  <MenuLink external href="#">
                     <MenuNearMe style={{ position: "relative", top: 7 }} />
                   </MenuLink>
                 </MenuItem>
                 <MenuItem style={{ marginLeft: 40, marginRight: 20 }}>
                   <MenuLink
+                    external
                     href="#"
                     onClick={e => {
                       e.preventDefault()
