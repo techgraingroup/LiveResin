@@ -8,7 +8,6 @@ import Logo from "./logo"
 import { Box } from "./box"
 import { Arrow, MenuHamburger, MenuNearMe, ChevronDown } from "./icons"
 import { THEME } from "../data"
-import { useScrollPosition } from "../utils"
 
 const {
   breakpoints: { md, lg, xl },
@@ -22,7 +21,7 @@ const HeaderWrap = styled.header`
   right: 0;
   background: #fff;
   z-index: 1000;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.3s ease-in-out;
   &.hidden {
     transform: translate3d(0, -100%, 0);
   }
@@ -88,7 +87,7 @@ const MenuItem = styled.li`
 `
 
 const MenuLink = styled(({ activeColor, isActive, ...rest }) => (
-  <Link {...rest} />
+  <a {...rest} />
 ))`
   display: block;
   color: #000;
@@ -145,8 +144,7 @@ const LocationButton = styled.button`
   }
 `
 
-const Header = ({ passed }) => {
-  const [hideNav, setHideNav] = useState(false)
+const Header = ({ passed, hideNav }) => {
   const {
     dispatch,
     state: { data },
@@ -164,20 +162,6 @@ const Header = ({ passed }) => {
       }
     }
   `)
-  useScrollPosition(
-    ({ prevPos, currPos }) => {
-      const threshold = 300
-      const isScrollDown = currPos.y > prevPos.y
-      const absY = Math.abs(currPos.y)
-      if (absY >= threshold) {
-        setHideNav(false)
-      }
-      if (!isScrollDown && absY >= threshold) {
-        setHideNav(true)
-      }
-    },
-    [hideNav]
-  )
   return (
     <HeaderWrap className={hideNav ? "hidden" : ""}>
       <Grid>
@@ -215,13 +199,13 @@ const Header = ({ passed }) => {
               </DesktopMenu>
               <MobileMenu>
                 <MenuItem>
-                  <MenuLink to="#">
+                  <MenuLink href="#">
                     <MenuNearMe style={{ position: "relative", top: 7 }} />
                   </MenuLink>
                 </MenuItem>
                 <MenuItem style={{ marginLeft: 40, marginRight: 20 }}>
                   <MenuLink
-                    to="#"
+                    href="#"
                     onClick={e => {
                       e.preventDefault()
                       dispatch({

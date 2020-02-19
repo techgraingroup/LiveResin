@@ -62,6 +62,7 @@ const IndexPage = () => {
   const inventor = getImageFromList("inventor.png", edges)
   const extract = getImageFromList("extract.jpg", edges)
   const products = getImageFromList("products.jpg", edges)
+  const productsMobile = getImageFromList("products_mobile.jpg", edges)
   return (
     <>
       <SEO title="Home" />

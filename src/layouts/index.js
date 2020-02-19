@@ -6,9 +6,11 @@ import AgeGate from "../components/agegate"
 import { StateProvider } from "../context"
 import { GlobalStyle } from "./global-style"
 import { THEME, AGE_GATE_KEY } from "../data"
+import { useScrollPosition } from "../utils"
 
 const Layout = ({ children }) => {
   const [passed, setPassed] = useState(false)
+  const [hideNav, setHideNav] = useState(false)
   useEffect(() => {
     window.addEventListener("storage", () => {
       console.log("change")
@@ -30,11 +32,25 @@ const Layout = ({ children }) => {
     localStorage.setItem(AGE_GATE_KEY, "true")
     setPassed(true)
   }
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const threshold = 300
+      const isScrollDown = currPos.y > prevPos.y
+      const absY = Math.abs(currPos.y)
+      if (absY >= threshold) {
+        setHideNav(false)
+      }
+      if (!isScrollDown && absY >= threshold) {
+        setHideNav(true)
+      }
+    },
+    [hideNav], null, null, 500
+  )
   return (
     <ThemeProvider theme={THEME}>
       <StateProvider>
         <GlobalStyle />
-        <Header passed={passed} />
+        <Header passed={passed} hideNav={hideNav} />
         <div style={{ display: passed ? "block" : "none" }}>
           <main>{children}</main>
           <Footer />
