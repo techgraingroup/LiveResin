@@ -6,20 +6,26 @@ import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import Logo from "./logo"
 import { Box } from "./box"
-import { Arrow } from "./icons"
+import { Arrow, MenuHamburger, MenuNearMe } from "./icons"
+import { THEME } from "../data"
 
-const gridSize = {
-  sm: 1 / 1,
-  md: 1 / 2,
-}
+const {
+  breakpoints: { md, lg, xl },
+} = THEME
 
 const BrandWrapper = styled(props => <Grid.Unit {...props} />)`
   display: flex;
   align-items: center;
+  svg {
+    max-width: 100%;
+  }
 `
 
 const Nav = styled.nav`
-  height: 200px;
+  height: 100px;
+  @media only screen and (min-width: ${md}px) {
+    height: 200px;
+  }
 `
 
 const Menu = styled.ul`
@@ -45,10 +51,25 @@ const Menu = styled.ul`
   }
 `
 
+const DesktopMenu = styled(props => <Menu {...props} />)`
+  @media only screen and (max-width: ${md}px) {
+    display: none;
+  }
+`
+
+const MobileMenu = styled(props => <Menu {...props} />)`
+  @media only screen and (min-width: ${md}px) {
+    display: none;
+  }
+`
+
 const MenuItem = styled.li`
   display: inline-block;
   margin: 0;
-  padding: 0 25px;
+  padding: 0 10px;
+  @media only screen and (min-width: ${xl}px) {
+    padding: 0 25px;
+  }
 `
 
 const MenuLink = styled(({ activeColor, isActive, ...rest }) => (
@@ -58,14 +79,17 @@ const MenuLink = styled(({ activeColor, isActive, ...rest }) => (
   color: #000;
   text-transform: uppercase;
   height: 100%;
-  line-height: 200px;
   text-decoration: none;
   position: relative;
   font-size: 16px;
   font-weight: 800;
   font-family: MontBold, sans-serif;
+  line-height: 100px;
+  @media only screen and (min-width: ${md}px) {
+    line-height: 200px;
+  }
   &:hover {
-    opacity: 40%;
+    opacity: 0.4;
   }
   &::before {
     content: "";
@@ -81,6 +105,7 @@ const MenuLink = styled(({ activeColor, isActive, ...rest }) => (
 
 const Header = ({ passed }) => {
   const {
+    dispatch,
     state: { data },
   } = useContext(AppContext)
   const {
@@ -99,21 +124,21 @@ const Header = ({ passed }) => {
   return (
     <header>
       <Grid>
-        <BrandWrapper size={{ xs: 1, sm: 1 / 4 }}>
+        <BrandWrapper size={{ xs: 1 / 3, sm: 1 / 4 }}>
           <Box top={passed ? "0" : 75} bottom={passed ? "0" : 75} right="0">
             <Link to="/">
               <Logo width={!passed ? 450 : null} showSubtext={!passed} />
             </Link>
           </Box>
         </BrandWrapper>
-        <Grid.Unit size={{ xs: 1, sm: 3 / 4 }}>
+        <Grid.Unit size={{ xs: 2 / 3, sm: 3 / 4 }}>
           <Box
             right="0"
             top="0"
             bottom="0"
             style={{ display: passed ? "inherit" : "none" }}>
             <Nav>
-              <Menu>
+              <DesktopMenu>
                 {mainMenu.map(item => (
                   <MenuItem key={item.link}>
                     <MenuLink
@@ -130,7 +155,28 @@ const Header = ({ passed }) => {
                     <Arrow borderColor="#FFF" left="20" />
                   </Link>
                 </li>
-              </Menu>
+              </DesktopMenu>
+              <MobileMenu>
+                <MenuItem>
+                  <MenuLink>
+                    <MenuNearMe style={{ position: "relative", top: 7 }} />
+                  </MenuLink>
+                </MenuItem>
+                <MenuItem style={{ marginLeft: 40, marginRight: 20 }}>
+                  <MenuLink
+                    onClick={e => {
+                      e.preventDefault()
+                      dispatch({
+                        type: "mobileMenu",
+                      })
+                    }}>
+                    <MenuHamburger
+                      active={data.mobileMenuVisible}
+                      style={{ position: "relative", top: 7 }}
+                    />
+                  </MenuLink>
+                </MenuItem>
+              </MobileMenu>
             </Nav>
           </Box>
         </Grid.Unit>

@@ -1,18 +1,25 @@
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
-import React from "react"
 import Logo from "./logo"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
+import { AppContext } from "../context"
 import { BlockTitle } from "./text"
 import { Box } from "./box"
 import { SocialButton } from "./button"
+import MobileMenu from "./mobile-menu"
 import arrow from "../images/sign-up-arrow.png"
+import { THEME } from "../data"
 
 const halfSize = {
   sm: 1 / 1,
   md: 1 / 2,
 }
+
+const {
+  breakpoints: { sm, md, xl },
+} = THEME
 
 const FooterBlock = styled.footer`
   background: #000;
@@ -34,18 +41,30 @@ const FooterMenu = styled.ul`
       opacity: 0.4;
     }
   }
+  @media only screen and (max-width: ${md}px) {
+    display: none;
+  }
 `
 
 const SubscribeForm = styled.form`
-  margin: 30px 0 0 0;
+  margin: 50px 0 0 0;
   width: 100%;
-  display: flex;
+  display: block;
+  @media only screen and (min-width: ${md}px) {
+    display: flex;
+  }
   input[type="text"] {
-    flex: 1;
     border: 0;
     padding: 25px;
     color: #000;
+    width: calc(100% - 50px);
     font-family: MontBold, sans-serif;
+    margin-bottom: 10px;
+    @media only screen and (min-width: ${md}px) {
+      width: auto;
+      flex: 1;
+      margin-bottom: 0;
+    }
   }
   button {
     background: #ff9e18;
@@ -53,11 +72,11 @@ const SubscribeForm = styled.form`
     text-transform: uppercase;
     font-size: 18px;
     border: 0;
-    height: 70px;
-    width: 200px;
+    height: 72px;
     letter-spacing: 0.1em;
     position: relative;
     padding: 0 30px;
+    width: 100%;
     text-align: left;
     font-family: MontHeavy, sans-serif;
     &:after {
@@ -72,10 +91,13 @@ const SubscribeForm = styled.form`
       top: 50%;
       right: 30px;
     }
+    @media only screen and (min-width: ${md}px) {
+      width: 200px;
+    }
   }
 `
 
-const SocialList = styled.ul`
+export const SocialList = styled.ul`
   list-style: none;
   margin: 30px 0 0 0;
   padding: 0;
@@ -89,7 +111,37 @@ const SocialList = styled.ul`
   }
 `
 
+const FooterLogo = styled(props => <Logo {...props} />)`
+  width: 130px;
+  @media only screen and (min-width: ${md}px) {
+    width: 230px;
+  }
+`
+
+const LeftBox = styled(({ children, ...rest }) => (
+  <Box {...rest}>{children}</Box>
+))`
+  padding-top: 50px;
+  padding-bottom: 50px;
+  @media only screen and (min-width: ${md}px) {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+`
+
+const RightBox = styled(({ children, ...rest }) => (
+  <Box {...rest}>{children}</Box>
+))`
+  padding-top: 30px;
+  @media only screen and (min-width: ${md}px) {
+    padding-top: 120px;
+  }
+`
+
 const Footer = () => {
+  const {
+    state: { data },
+  } = useContext(AppContext)
   const {
     dataJson: { footerMenu },
   } = useStaticQuery(graphql`
@@ -103,50 +155,53 @@ const Footer = () => {
     }
   `)
   return (
-    <FooterBlock>
-      <Grid>
-        <Grid.Unit size={halfSize}>
-          <Box>
-            <Link to="/">
-              <Logo mono width={230} />
-            </Link>
-            <FooterMenu>
-              {footerMenu.map(item => (
-                <li key={item.link}>
-                  <Link to={item.link}>{item.label}</Link>
+    <>
+      <FooterBlock>
+        <Grid>
+          <Grid.Unit size={halfSize}>
+            <LeftBox>
+              <Link to="/">
+                <FooterLogo mono />
+              </Link>
+              <FooterMenu>
+                {footerMenu.map(item => (
+                  <li key={item.link}>
+                    <Link to={item.link}>{item.label}</Link>
+                  </li>
+                ))}
+              </FooterMenu>
+            </LeftBox>
+          </Grid.Unit>
+          <Grid.Unit size={halfSize}>
+            <RightBox>
+              <BlockTitle color="#FFF" line="top">
+                Get Notified
+              </BlockTitle>
+              <p>
+                We will be launching soon in California and Oregon. Sign up to
+                stay up to date on when you can get your hands on Live Resin.
+              </p>
+              <SubscribeForm method="POST" action="#">
+                <input type="text" placeholder="Your email" />
+                <button type="submit">Sign Up</button>
+              </SubscribeForm>
+              <SocialList>
+                <li>
+                  <SocialButton href="#" target="_blank" type="facebook" />
                 </li>
-              ))}
-            </FooterMenu>
-          </Box>
-        </Grid.Unit>
-        <Grid.Unit size={halfSize}>
-          <Box>
-            <BlockTitle color="#FFF" line="top">
-              Get Notified
-            </BlockTitle>
-            <p>
-              Sign up here to stay up-to-date on our upcoming retail locations,
-              events, and new product drops.
-            </p>
-            <SubscribeForm method="POST" action="#">
-              <input type="text" placeholder="Your email" />
-              <button type="submit">Sign Up</button>
-            </SubscribeForm>
-            <SocialList>
-              <li>
-                <SocialButton href="#" target="_blank" type="facebook" />
-              </li>
-              <li>
-                <SocialButton href="#" target="_blank" type="twitter" />
-              </li>
-              <li>
-                <SocialButton href="#" target="_blank" type="instagram" />
-              </li>
-            </SocialList>
-          </Box>
-        </Grid.Unit>
-      </Grid>
-    </FooterBlock>
+                <li>
+                  <SocialButton href="#" target="_blank" type="twitter" />
+                </li>
+                <li>
+                  <SocialButton href="#" target="_blank" type="instagram" />
+                </li>
+              </SocialList>
+            </RightBox>
+          </Grid.Unit>
+        </Grid>
+      </FooterBlock>
+      <MobileMenu menu={footerMenu} active={data.mobileMenuVisible} />
+    </>
   )
 }
 

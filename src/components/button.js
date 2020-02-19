@@ -61,11 +61,11 @@ export const Button = styled(
   }
 `
 
-export const SocialButton = styled(({ type, ...rest }) => (
+export const SocialButton = styled(({ type, dark, ...rest }) => (
   <a {...rest}>
-    {type === "facebook" && <Facebook />}
-    {type === "twitter" && <Twitter />}
-    {type === "instagram" && <Instagram />}
+    {type === "facebook" && <Facebook dark={dark} />}
+    {type === "twitter" && <Twitter dark={dark} />}
+    {type === "instagram" && <Instagram dark={dark} />}
   </a>
 ))`
   display: block;

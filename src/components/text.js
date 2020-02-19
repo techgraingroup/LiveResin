@@ -80,10 +80,19 @@ export const PageTitle = styled(({ title, text, ...rest }) => (
     </div>
   </Box>
 ))`
-  border-top: 4px solid #000;
-  padding-top: 40px;
+  border-top: 0;
+  @media only screen and (min-width: ${md}px) {
+    border-top: 4px solid #000;
+    padding-top: 40px;
+  }
   h1 {
     margin-top: 0;
+    border-bottom: 4px solid #000;
+    padding-bottom: 30px;
+    @media only screen and (min-width: ${md}px) {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
   }
   p {
     color: #000;
@@ -107,10 +116,10 @@ export const PageTitle = styled(({ title, text, ...rest }) => (
 export const BlockTitleHorz = styled(
   ({ title, description, ctaText, ctaLink, ...rest }) => (
     <Grid {...rest}>
-      <Grid.Unit size={{ xs: 1, sm: 1 / 2 }}>
+      <Grid.Unit size={{ sm: 1, md: 1 / 2 }}>
         <H2 style={{ marginTop: 0 }}>{title}</H2>
       </Grid.Unit>
-      <Grid.Unit size={{ xs: 1, sm: 1 / 2 }}>
+      <Grid.Unit size={{ sm: 1, md: 1 / 2 }}>
         <Text>{description}</Text>
         {ctaText && (
           <Button color="#FFF" bgColor="#000" onClick={() => navigate(ctaLink)}>
@@ -121,10 +130,20 @@ export const BlockTitleHorz = styled(
     </Grid>
   )
 )`
-  border-top: 4px solid #000;
-  padding-top: 30px;
+  border-top: 0;
+  padding-top: 0;
+  @media only screen and (min-width: ${md}px) {
+    border-top: 4px solid #000;
+    padding-top: 30px;
+  }
   h2 {
     font-family: MontHeavy, sans-serif;
+    border-bottom: 4px solid #000;
+    padding-bottom: 30px;
+    @media only screen and (min-width: ${md}px) {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
   }
 `
 
@@ -160,10 +179,25 @@ export const BlockTitle = styled(
         )}
   color: ${props => (props.color ? props.color : "#000")};
   ${props =>
-    props.line === "top" && `border-top: 4px solid ${props.color || "#000"};`}
+    props.line === "mobileTop"
+      ? `border-top: 4px solid ${props.color || "#000"};`
+      : `border-bottom: 4px solid ${props.color || "#000"};`}
+  ${props =>
+    props.line === "mobileTop" ? `border-bottom: 0;` : `border-top: 0;`}
+  @media only screen and (min-width: ${md}px) {
+  ${props =>
+    props.line === "top" &&
+    `
+        border-top: 4px solid ${props.color || "#000"};
+        border-bottom: 0;
+    `}
   ${props =>
     props.line === "bottom" &&
-    `border-bottom: 4px solid ${props.color || "#000"};`}
+    `
+        border-bottom: 4px solid ${props.color || "#000"};
+        border-top: 0;
+    `}
+  }
 `
 
 export const Text = styled.p`
