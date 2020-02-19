@@ -12,14 +12,26 @@ const {
   breakpoints: { sm, md },
 } = THEME
 
+const BottomGrid = styled(({ children, ...rest }) => (
+  <Grid.Unit size={{ xs: 1, sm: 1, md: 1 / 3 }} {...rest}>
+    {children}
+  </Grid.Unit>
+))`
+  padding-bottom: 25px;
+  @media only screen and (min-width: ${md}px) {
+    padding-bottom: 0;
+  }
+`
+
 const BottomBox = styled.div`
   border: 4px solid #000;
-  margin-bottom: 15px;
-  display: block;
   height: 100%;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
   @media only screen and (min-width: ${md}px) {
+    min-height: auto;
     margin-bottom: 0;
     margin-left: 15px;
     margin-right: 15px;
@@ -85,7 +97,7 @@ const FindNearYou = () => {
         Find Live Resin Near You
       </BlockTitle>
       <Grid>
-        <Grid.Unit size={{ xs: 1, sm: 1, md: 1 / 3 }}>
+        <BottomGrid>
           <BottomBox className="first">
             <div className="text">
               <H4>Ancient Remedies Cannabis Weed Dispensary</H4>
@@ -95,8 +107,8 @@ const FindNearYou = () => {
               Get Direction <Arrow borderColor="#000" />
             </Link>
           </BottomBox>
-        </Grid.Unit>
-        <Grid.Unit size={{ xs: 1, sm: 1, md: 1 / 3 }}>
+        </BottomGrid>
+        <BottomGrid>
           <BottomBox>
             <div className="text">
               <H4>Ancient Remedies Cannabis Weed Dispensary</H4>
@@ -106,14 +118,14 @@ const FindNearYou = () => {
               Get Direction <Arrow borderColor="#000" />
             </Link>
           </BottomBox>
-        </Grid.Unit>
-        <Grid.Unit size={{ xs: 1, sm: 1, md: 1 / 3 }}>
+        </BottomGrid>
+        <BottomGrid>
           <BottomBox className="last">
             <Link to="/store-locator" className="store-locator">
               Store Locator
             </Link>
           </BottomBox>
-        </Grid.Unit>
+        </BottomGrid>
       </Grid>
     </Box>
   )

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react"
 import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
+import { fluidRange } from "polished"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import Banner from "../components/banner"
@@ -18,7 +19,7 @@ const halfSize = {
 }
 
 const {
-  breakpoints: { sm, md },
+  breakpoints: { sm, md, xl },
 } = THEME
 
 const ProductTitle = styled(({ onClick, children, ...rest }) => (
@@ -34,7 +35,15 @@ const ProductTitle = styled(({ onClick, children, ...rest }) => (
   a {
     line-height: 96%;
     font-family: MontHeavy, sans-serif;
-    font-size: 66px;
+    ${fluidRange(
+      {
+        prop: "font-size",
+        fromSize: "30px",
+        toSize: "66px",
+      },
+      `${md}px`,
+      `${xl}px`
+    )}
     padding-bottom: 30px;
     letter-spacing: -0.04em;
     display: block;
@@ -56,8 +65,16 @@ const ProductTitle = styled(({ onClick, children, ...rest }) => (
     top: 0;
     right: 0;
     font-family: Mont, sans-serif;
-    font-size: 66px;
     line-height: 96%;
+    ${fluidRange(
+      {
+        prop: "font-size",
+        fromSize: "30px",
+        toSize: "66px",
+      },
+      `${md}px`,
+      `${xl}px`
+    )}
   }
   &.compact {
     &::after {
@@ -194,6 +211,18 @@ const ChartList = styled(({ color, value, children, ...rest }) => (
   margin: 20px 0 0 0;
 `
 
+const ImageBox = styled(({ children, ...rest }) => (
+  <Box {...rest}>{children}</Box>
+))`
+  height: auto;
+  padding-top: 100%;
+  padding-bottom: 0;
+  @media only screen and (min-width: ${md}px) {
+    height: 720px;
+    padding-top: 0;
+  }
+`
+
 const ProductItem = styled(({ showContent, onClick, product }) => (
   <>
     <Box top={40} bottom={40} bgColor={product.bgColor}>
@@ -205,7 +234,7 @@ const ProductItem = styled(({ showContent, onClick, product }) => (
           <Grid>
             <Grid.Unit size={{ sm: 1, md: 1 / 2 }}>{product.name}</Grid.Unit>
             <Grid.Unit size={{ sm: 1, md: 1 / 2 }} className="goldseal-wrap">
-              <div style={{ position:'relative', top: '-10px' }}>
+              <div style={{ position: "relative", top: "-10px" }}>
                 <Collab right="0" />
                 <span
                   style={{
@@ -295,8 +324,8 @@ const ProductItem = styled(({ showContent, onClick, product }) => (
     </Box>
     {showContent && (
       <>
-        <Box style={{ height: 720 }} bgImage={product.images[0]} />
-        <Box style={{ height: 720 }} bgImage={product.images[1]} />
+        <ImageBox bgImage={product.images[0]} />
+        <ImageBox bgImage={product.images[1]} />
       </>
     )}
   </>
@@ -381,24 +410,39 @@ const ProductsPage = () => {
   return (
     <>
       <SEO title="Products" />
-      <Banner bannerImg={banner}>
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            width: "50%",
-            background: "#BBA135",
-            color: "#000",
-          }}>
-          <h3>Latest Release</h3>
-          <h2>Red Congolese</h2>
-          <p>
+      <Box left="0" right="0" bgImage={banner}>
+        <Box
+          bgColor="#BBA135"
+          top={45}
+          bottom={45}
+          left={133}
+          right={133}
+          style={{ width: "50%", boxSizing: "border-box" }}>
+          <h3 style={{ fontSize: 24, fontFamily: "MontHeavy, sans-serif" }}>
+            Latest Release
+          </h3>
+          <BlockTitle fontSize="66px" line="top">{`Red\nCongolese`}</BlockTitle>
+          <div style={{ borderBottom: '1px solid #000', paddingBottom: 30, marginBottom: 30 }}>
+            <Collab right="0" />
+            <span
+              style={{
+                display: "inline-block",
+                marginLeft: 18,
+                marginRight: 60,
+              }}>
+              GOLD SEAL SF
+            </span>
+          </div>
+          <p style={{ color: "#000", marginBottom: 50 }}>
             This special collaboration showcases Gold Seal’s signature Red
             Congolese, a 12+ week flowering Sativa that we believe is truly
             special.
           </p>
-        </div>
-      </Banner>
+          <Button borderColor="#000" bgColor="#BBA135" color="#000">
+            Learn More
+          </Button>
+        </Box>
+      </Box>
       <Box>
         <BlockTitleHorz
           title="Current Releases"
