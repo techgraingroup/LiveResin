@@ -44,6 +44,15 @@ export const H2 = styled.h2`
   margin-bottom: 30px;
   line-height: 105.8%;
   white-space: pre-wrap;
+  ${fluidRange(
+    {
+      prop: "font-size",
+      fromSize: "22px",
+      toSize: "48px",
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
 `
 
 export const H3 = styled.h3`
