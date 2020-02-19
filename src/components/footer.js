@@ -150,6 +150,7 @@ const Footer = () => {
         footerMenu {
           label
           link
+          color
         }
       }
     }
@@ -200,7 +201,11 @@ const Footer = () => {
           </Grid.Unit>
         </Grid>
       </FooterBlock>
-      <MobileMenu menu={footerMenu} active={data.mobileMenuVisible} />
+      <MobileMenu
+        menu={footerMenu}
+        active={data.mobileMenuVisible}
+        activeMenu={data.activeMenu}
+      />
     </>
   )
 }

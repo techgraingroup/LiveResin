@@ -17,6 +17,7 @@ const OurStoryPage = () => {
       type: "activeMenu",
       value: "/our-story/",
     })
+    dispatch({ type: "mobileMenu", value: false })
   }, [])
   return (
     <>

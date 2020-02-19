@@ -25,6 +25,7 @@ const IndexPage = () => {
       type: "activeMenu",
       value: "/",
     })
+    dispatch({ type: "mobileMenu", value: false })
   }, [])
   const {
     allFile: { edges },

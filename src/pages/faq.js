@@ -90,6 +90,7 @@ const FaqPage = () => {
       type: "activeMenu",
       value: "/faq/",
     })
+    dispatch({ type: "mobileMenu", value: false })
   }, [])
   const handleActive = i => {
     if (active === i) {

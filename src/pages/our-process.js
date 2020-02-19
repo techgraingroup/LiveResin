@@ -40,6 +40,7 @@ const OurProcessPage = () => {
       type: "activeMenu",
       value: "/our-process/",
     })
+    dispatch({ type: "mobileMenu", value: false })
   }, [])
   return (
     <>

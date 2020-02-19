@@ -347,6 +347,7 @@ const ProductsPage = () => {
       type: "activeMenu",
       value: "/products/",
     })
+    dispatch({ type: "mobileMenu", value: false })
   }, [])
   const {
     dataJson: { product },

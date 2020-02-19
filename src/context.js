@@ -25,7 +25,7 @@ export const StateProvider = ({ children }) => {
         const mobileMenuState = {
           data: {
             ...state.data,
-            mobileMenuVisible: !state.data.mobileMenuVisible,
+            mobileMenuVisible: action.value,
           },
         }
         return mobileMenuState

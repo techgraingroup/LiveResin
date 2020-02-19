@@ -11,7 +11,17 @@ import { THEME } from "../data"
 
 const {
   breakpoints: { md, lg, xl },
+  headerHeight,
 } = THEME
+
+const HeaderWrap = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 1000;
+`
 
 const BrandWrapper = styled(props => <Grid.Unit {...props} />)`
   display: flex;
@@ -22,9 +32,9 @@ const BrandWrapper = styled(props => <Grid.Unit {...props} />)`
 `
 
 const Nav = styled.nav`
-  height: 100px;
+  height: ${headerHeight.mobile}px;
   @media only screen and (min-width: ${md}px) {
-    height: 200px;
+    height: ${headerHeight.desktop}px;
   }
 `
 
@@ -84,9 +94,9 @@ const MenuLink = styled(({ activeColor, isActive, ...rest }) => (
   font-size: 16px;
   font-weight: 800;
   font-family: MontBold, sans-serif;
-  line-height: 100px;
+  line-height: ${headerHeight.mobile}px;
   @media only screen and (min-width: ${md}px) {
-    line-height: 200px;
+    line-height: ${headerHeight.desktop}px;
   }
   &:hover {
     opacity: 0.4;
@@ -122,7 +132,7 @@ const Header = ({ passed }) => {
     }
   `)
   return (
-    <header>
+    <HeaderWrap>
       <Grid>
         <BrandWrapper size={{ xs: 1 / 3, sm: 1 / 4 }}>
           <Box top={passed ? "0" : 75} bottom={passed ? "0" : 75} right="0">
@@ -158,16 +168,18 @@ const Header = ({ passed }) => {
               </DesktopMenu>
               <MobileMenu>
                 <MenuItem>
-                  <MenuLink>
+                  <MenuLink to="#">
                     <MenuNearMe style={{ position: "relative", top: 7 }} />
                   </MenuLink>
                 </MenuItem>
                 <MenuItem style={{ marginLeft: 40, marginRight: 20 }}>
                   <MenuLink
+                    to="#"
                     onClick={e => {
                       e.preventDefault()
                       dispatch({
                         type: "mobileMenu",
+                        value: !data.mobileMenuVisible,
                       })
                     }}>
                     <MenuHamburger
@@ -181,7 +193,7 @@ const Header = ({ passed }) => {
           </Box>
         </Grid.Unit>
       </Grid>
-    </header>
+    </HeaderWrap>
   )
 }
 

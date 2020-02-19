@@ -39,6 +39,7 @@ const StoreLocatorPage = () => {
       type: "activeMenu",
       value: "/store-locator/",
     })
+    dispatch({ type: "mobileMenu", value: false })
   }, [])
   return (
     <>

@@ -15,6 +15,7 @@ const ContactUsPage = () => {
       type: "activeMenu",
       value: "/contact-us/",
     })
+    dispatch({ type: "mobileMenu", value: false })
   }, [])
   return (
     <>
