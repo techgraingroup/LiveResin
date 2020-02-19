@@ -339,6 +339,41 @@ const ProductItem = styled(({ showContent, onClick, product }) => (
   }
 `
 
+const BigBox = styled(({ children, ...rest }) => (
+  <Box {...rest}>{children}</Box>
+))`
+  padding-top: 100%;
+  margin-bottom: 100%;
+  position: relative;
+  @media only screen and (min-width: ${md}px) {
+    padding: 120px 0;
+    margin-bottom: 0;
+  }
+`
+
+const SmallBox = styled(({ children, ...rest }) => (
+  <Box {...rest}>{children}</Box>
+))`
+  box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 30px 20px;
+  @media only screen and (min-width: ${md}px) {
+    position: static;
+    width: 50%;
+    padding: 45px 133px;
+  }
+  h3 {
+    font-size: 45px;
+    @media only screen and (min-width: ${md}px) {
+      font-size: 66px;
+    }
+  }
+`
+
 const ProductsPage = () => {
   const [active, setActive] = useState("")
   const { dispatch } = useContext(AppContext)
@@ -410,19 +445,20 @@ const ProductsPage = () => {
   return (
     <>
       <SEO title="Products" />
-      <Box left="0" right="0" bgImage={banner}>
-        <Box
-          bgColor="#BBA135"
-          top={45}
-          bottom={45}
-          left={133}
-          right={133}
-          style={{ width: "50%", boxSizing: "border-box" }}>
-          <h3 style={{ fontSize: 24, fontFamily: "MontHeavy, sans-serif" }}>
-            Latest Release
-          </h3>
-          <BlockTitle fontSize="66px" line="top">{`Red\nCongolese`}</BlockTitle>
-          <div style={{ borderBottom: '1px solid #000', paddingBottom: 30, marginBottom: 30 }}>
+      <BigBox left="0" right="0" bgImage={banner}>
+        <SmallBox bgColor="#BBA135">
+          <h4 style={{ fontSize: 24, fontFamily: "MontHeavy, sans-serif" }}>
+            Latest Collaboration
+          </h4>
+          <BlockTitle
+            fontSize="66px"
+            line="mobileTop">{`Red\nCongolese`}</BlockTitle>
+          <div
+            style={{
+              borderBottom: "1px solid #000",
+              paddingBottom: 30,
+              marginBottom: 30,
+            }}>
             <Collab right="0" />
             <span
               style={{
@@ -441,8 +477,8 @@ const ProductsPage = () => {
           <Button borderColor="#000" bgColor="#BBA135" color="#000">
             Learn More
           </Button>
-        </Box>
-      </Box>
+        </SmallBox>
+      </BigBox>
       <Box>
         <BlockTitleHorz
           title="Current Releases"
