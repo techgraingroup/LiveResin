@@ -9,6 +9,7 @@ import { BlockTitle } from "./text"
 import { Box } from "./box"
 import { SocialButton } from "./button"
 import MobileMenu from "./mobile-menu"
+import { ChevronDown } from "./icons"
 import arrow from "../images/sign-up-arrow.png"
 import { THEME } from "../data"
 
@@ -26,9 +27,10 @@ const FooterBlock = styled.footer`
 `
 
 const FooterMenu = styled.ul`
-  margin: 46px 0 0 0;
-  padding: 0;
+  margin: 46px 0 15px 0;
+  padding: 0 0 15px 0;
   list-style: none;
+  border-bottom: 1px solid #fff;
   a {
     color: white;
     font-size: 16px;
@@ -138,6 +140,31 @@ const RightBox = styled(({ children, ...rest }) => (
   }
 `
 
+const LocationButton = styled.button`
+  display: none;
+  @media only screen and (min-width: ${md}px) {
+    display: block;
+    background: #000;
+    color: #fff;
+    font-family: MontHeavy, sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    border: 0;
+    outline: none;
+    letter-spacing: 0.1em;
+    padding-left: 0;
+    padding-right: 30px;
+    &:hover {
+      cursor: pointer;
+    }
+    svg {
+      position: relative;
+      margin-left: 10px;
+      top: -1px;
+    }
+  }
+`
+
 const Footer = () => {
   const {
     state: { data },
@@ -159,7 +186,7 @@ const Footer = () => {
     <>
       <FooterBlock>
         <Grid>
-          <Grid.Unit size={halfSize}>
+          <Grid.Unit size={{ sm: 1, md: 3 / 8 }}>
             <LeftBox>
               <Link to="/">
                 <FooterLogo mono />
@@ -171,9 +198,14 @@ const Footer = () => {
                   </li>
                 ))}
               </FooterMenu>
+              <LocationButton>
+                California
+                <ChevronDown color="#FFF" />
+              </LocationButton>
             </LeftBox>
           </Grid.Unit>
-          <Grid.Unit size={halfSize}>
+          <Grid.Unit size={{ sm: 1, md: 1 / 8 }} />
+          <Grid.Unit size={{ sm: 1, md: 1 / 2 }}>
             <RightBox>
               <BlockTitle color="#FFF" line="top">
                 Get Notified

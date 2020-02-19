@@ -61,6 +61,21 @@ export const MenuNearMe = props => (
   </svg>
 )
 
+export const ChevronDown = ({ color }) => (
+  <svg
+    width="15"
+    height="9"
+    viewBox="0 0 15 9"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M1.24316 1.24341L7.49651 7.50583L13.7498 1.24341"
+      stroke={ color || '#000' }
+      strokeMiterlimit="10"
+    />
+  </svg>
+)
+
 export const TBudder = ({ active }) => (
   <svg
     width="81"

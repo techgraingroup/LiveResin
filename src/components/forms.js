@@ -1,6 +1,65 @@
 import React, { useState, useRef } from "react"
 import styled from "styled-components"
 
+import chevronDown from '../images/chevron-down.svg'
+
+export const Select = styled(
+  ({
+    label,
+    name,
+    onChange,
+    value,
+    options,
+    placeholder,
+    color,
+    bgColor,
+    className,
+    ...rest
+  }) => {
+    return (
+      <div className={className} {...rest}>
+        <label htmlFor={name}>{label}</label>
+        <select name={name} onChange={onChange}>
+          <option value="">{placeholder}</option>
+          {options.map(item => (
+            <option key={item.value} value={item.value}>
+              {item.label}
+            </option>
+          ))}
+        </select>
+      </div>
+    )
+  }
+)`
+  label {
+    display: block;
+    font-size: 16px;
+    font-family: MontHeavy, sans-serif;
+    margin-bottom: 20px;
+    color: ${props => props.color || "#000"};
+  }
+  select {
+    height: 60px;
+    border: 1px solid ${props => props.color || "#000"};
+    border-radius: 0;
+    color: ${props => props.color || "#000"};
+    width: 100%;
+    max-width: 400px;
+    padding: 0 10px 0 25px;
+    font-family: MontHeavy, sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background-color: ${props => props.bgColor || "#FFF"};
+    background-image: url(${chevronDown});
+    background-position: calc(100% - 20px) 50%;
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+`
+
 export const TextInput = styled(
   ({ label, name, type, onChange, value, placeholder, className, ...rest }) => {
     const [active, setActive] = useState(false)

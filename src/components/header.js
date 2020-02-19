@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useState, useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import styled from "styled-components"
@@ -6,8 +6,9 @@ import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import Logo from "./logo"
 import { Box } from "./box"
-import { Arrow, MenuHamburger, MenuNearMe } from "./icons"
+import { Arrow, MenuHamburger, MenuNearMe, ChevronDown } from "./icons"
 import { THEME } from "../data"
+import { useScrollPosition } from "../utils"
 
 const {
   breakpoints: { md, lg, xl },
@@ -21,6 +22,10 @@ const HeaderWrap = styled.header`
   right: 0;
   background: #fff;
   z-index: 1000;
+  transition: all 0.1s ease-in-out;
+  &.hidden {
+    transform: translate3d(0, -100%, 0);
+  }
 `
 
 const BrandWrapper = styled(props => <Grid.Unit {...props} />)`
@@ -113,7 +118,35 @@ const MenuLink = styled(({ activeColor, isActive, ...rest }) => (
   }
 `
 
+const LocationButton = styled.button`
+  display: none;
+  @media only screen and (min-width: ${md}px) {
+    display: block;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    border: 0;
+    outline: none;
+    font-family: MontHeavy, sans-serif;
+    font-size: 16px;
+    color: #888;
+    padding-right: 30px;
+    &:hover {
+      cursor: pointer;
+    }
+    svg {
+      position: relative;
+      margin-left: 10px;
+      top: -1px;
+    }
+  }
+`
+
 const Header = ({ passed }) => {
+  const [hideNav, setHideNav] = useState(false)
   const {
     dispatch,
     state: { data },
@@ -131,8 +164,22 @@ const Header = ({ passed }) => {
       }
     }
   `)
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const threshold = 300
+      const isScrollDown = currPos.y > prevPos.y
+      const absY = Math.abs(currPos.y)
+      if (absY >= threshold) {
+        setHideNav(false)
+      }
+      if (!isScrollDown && absY >= threshold) {
+        setHideNav(true)
+      }
+    },
+    [hideNav]
+  )
   return (
-    <HeaderWrap>
+    <HeaderWrap className={hideNav ? "hidden" : ""}>
       <Grid>
         <BrandWrapper size={{ xs: 1 / 3, sm: 1 / 4 }}>
           <Box top={passed ? "0" : 75} bottom={passed ? "0" : 75} right="0">
@@ -193,6 +240,12 @@ const Header = ({ passed }) => {
           </Box>
         </Grid.Unit>
       </Grid>
+      {passed && (
+        <LocationButton>
+          CA
+          <ChevronDown color="#888" />
+        </LocationButton>
+      )}
     </HeaderWrap>
   )
 }

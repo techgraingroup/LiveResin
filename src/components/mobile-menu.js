@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { Box } from "./box"
 import { SocialList } from "./footer"
 import { SocialButton } from "./button"
-import { Arrow } from "./icons"
+import { Arrow, ChevronDown } from "./icons"
 import { THEME } from "../data"
 
 const {
@@ -74,11 +74,36 @@ const MenuItem = styled(({ children, isActive, activeColor, ...rest }) => (
 `}
 `
 
+const LocationButton = styled.button`
+  display: block;
+  border: 0;
+  border-top: 4px solid #000;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-family: MontHeavy, sans-serif;
+  font-size: 20px;
+  text-align: left;
+  letter-spacing: 0.1em;
+  padding: 13px 0;
+  text-transform: uppercase;
+  position: relative;
+  svg {
+    position: absolute;
+    right: 0;
+    top: 20px;
+  }
+`
+
 const MobileMenu = ({ menu, active, activeMenu }) => {
   const mobileMenus = menu.filter((m, i) => i !== 0)
   return (
     <MobileMenuWrap active={active}>
       <Box top="0">
+        <LocationButton>
+          California
+          <ChevronDown />
+        </LocationButton>
         <ul className="menu">
           {mobileMenus.map(item => (
             <li className="menu-item" key={item.link}>
