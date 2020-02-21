@@ -41,6 +41,9 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     line-height: 140%;
     padding-top: ${headerHeight.mobile};
+    &.age-gate {
+      padding-top: 0;
+    }
     @media only screen and (min-width: ${md}px) {
       padding-top: ${headerHeight.desktop};
     }

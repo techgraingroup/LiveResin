@@ -1,14 +1,13 @@
 import React from "react"
 
-const Logo = ({ showSubtext, width, mono, ...rest }) => (
+const Logo = ({ showSubtext, width, height, mono, ...rest }) => (
   <svg
     viewBox="0 0 231 111"
     css={`
-      width: ${width ? `${width}px` : "220px"};
-      height: auto;
+      width: ${width ? `${width}` : "220px"};
+      height: ${height ? `${height}` : "auto"};
       vertical-align: top;
       transition: all 500ms cubic-bezier(0.4, 0, 1, 1);
-      ${showSubtext && "transform: translateY(-5%)"};
     `}
     {...rest}>
     <title>Live Resin Project</title>

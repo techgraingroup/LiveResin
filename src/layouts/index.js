@@ -63,7 +63,15 @@ const Layout = ({ children }) => {
           <main>{children}</main>
           <Footer userState={userState} />
         </div>
-        <div style={{ display: passed ? "none" : "block" }}>
+        <div
+          style={{
+            backgroundColor: "#000",
+            display: passed ? "none" : "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            height: passed ? 0 : "70vh",
+          }}>
           <AgeGate passAgeGate={passAgeGate} />
         </div>
       </StateProvider>

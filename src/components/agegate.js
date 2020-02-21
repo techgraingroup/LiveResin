@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import Grid from "styled-components-grid"
 import styled from "styled-components"
@@ -49,31 +50,34 @@ const AgeGate = ({ passAgeGate }) => {
     setSelectedState(state)
   }
   return (
-    <Box bgColor="#000">
-      <Grid>
-        <Grid.Unit size={{ xs: 1, sm: 3 / 4 }}>
-          <H1 style={{ color: "#FFF" }}>Are you at least 21 years of age?</H1>
-          <Select
-            color="#FFF"
-            bgColor="#000"
-            label="Your State"
-            name="place"
-            placeholder="Choose Your State"
-            style={{ marginBottom: 50 }}
-            options={statesList}
-            onChange={e => selectState(e.target.value)}
-          />
-          <div>
-            <Button
-              style={{ marginRight: 30 }}
-              onClick={() => passAgeGate(selectedState)}>
-              Yes
-            </Button>
-            <Button negative>Nope</Button>
-          </div>
-        </Grid.Unit>
-      </Grid>
-    </Box>
+    <>
+      <Helmet bodyAttributes={{ class: "age-gate" }} />
+      <Box top="0" bottom="0" bgColor="#000">
+        <Grid>
+          <Grid.Unit size={{ xs: 1, sm: 3 / 4 }}>
+            <H1 style={{ marginTop: 0, color: "#FFF" }}>Are you at least 21 years of age?</H1>
+            <Select
+              color="#FFF"
+              bgColor="#000"
+              label="Your State"
+              name="place"
+              placeholder="Choose Your State"
+              style={{ marginBottom: 50 }}
+              options={statesList}
+              onChange={e => selectState(e.target.value)}
+            />
+            <div>
+              <Button
+                style={{ marginRight: 30 }}
+                onClick={() => passAgeGate(selectedState)}>
+                Yes
+              </Button>
+              <Button negative>Nope</Button>
+            </div>
+          </Grid.Unit>
+        </Grid>
+      </Box>
+    </>
   )
 }
 
