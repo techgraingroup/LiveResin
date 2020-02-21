@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useState } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import Grid from "styled-components-grid"
 import styled from "styled-components"
 import { AGE_GATE_KEY } from "../data"
@@ -26,6 +27,27 @@ const Button = styled.button`
 `
 
 const AgeGate = ({ passAgeGate }) => {
+  const [selectedState, setSelectedState] = useState("")
+  const {
+    dataJson: { states },
+  } = useStaticQuery(graphql`
+    query {
+      dataJson {
+        states {
+          name
+          abbreviation
+        }
+      }
+    }
+  `)
+  const statesList = states.map(s => ({
+    label: s.name,
+    value: s.abbreviation,
+  }))
+  const selectState = abbr => {
+    const state = statesList.find(state => state.value === abbr)
+    setSelectedState(state)
+  }
   return (
     <Box bgColor="#000">
       <Grid>
@@ -38,10 +60,13 @@ const AgeGate = ({ passAgeGate }) => {
             name="place"
             placeholder="Choose Your State"
             style={{ marginBottom: 50 }}
-            options={[]}
+            options={statesList}
+            onChange={e => selectState(e.target.value)}
           />
           <div>
-            <Button style={{ marginRight: 30 }} onClick={passAgeGate}>
+            <Button
+              style={{ marginRight: 30 }}
+              onClick={() => passAgeGate(selectedState)}>
               Yes
             </Button>
             <Button negative>Nope</Button>

@@ -1,9 +1,10 @@
 export const AGE_GATE_KEY = "_liveresin_agegate_passed"
+export const LOCATION_KEY = "_liveresin_agegate_state"
 
 export const THEME = {
   headerHeight: {
-    desktop: 200,
-    mobile: 100,
+    desktop: '200px',
+    mobile: '100px',
   },
   breakpoints: {
     xs: 0,

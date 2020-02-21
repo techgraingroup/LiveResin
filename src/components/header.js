@@ -7,7 +7,7 @@ import { AppContext } from "../context"
 import Logo from "./logo"
 import { Box } from "./box"
 import { Arrow, MenuHamburger, MenuNearMe, ChevronDown } from "./icons"
-import { THEME } from "../data"
+import { THEME, LOCATION_KEY } from "../data"
 
 const {
   breakpoints: { md, lg, xl },
@@ -36,9 +36,9 @@ const BrandWrapper = styled(props => <Grid.Unit {...props} />)`
 `
 
 const Nav = styled.nav`
-  height: ${headerHeight.mobile}px;
+  height: ${headerHeight.mobile};
   @media only screen and (min-width: ${md}px) {
-    height: ${headerHeight.desktop}px;
+    height: ${headerHeight.desktop};
   }
 `
 
@@ -104,9 +104,9 @@ const MenuLink = styled(({ activeColor, isActive, external, ...rest }) => {
   font-size: 16px;
   font-weight: 800;
   font-family: MontBold, sans-serif;
-  line-height: ${headerHeight.mobile}px;
+  line-height: ${headerHeight.mobile};
   @media only screen and (min-width: ${md}px) {
-    line-height: ${headerHeight.desktop}px;
+    line-height: ${headerHeight.desktop};
   }
   &:hover {
     opacity: 0.4;
@@ -150,7 +150,7 @@ const LocationButton = styled.button`
   }
 `
 
-const Header = ({ passed, hideNav }) => {
+const Header = ({ passed, userState, hideNav }) => {
   const {
     dispatch,
     state: { data },
@@ -231,9 +231,9 @@ const Header = ({ passed, hideNav }) => {
           </Box>
         </Grid.Unit>
       </Grid>
-      {passed && (
+      {passed && userState && (
         <LocationButton>
-          CA
+          {userState.value}
           <ChevronDown color="#888" />
         </LocationButton>
       )}

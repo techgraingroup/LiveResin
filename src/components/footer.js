@@ -11,7 +11,7 @@ import { SocialButton } from "./button"
 import MobileMenu from "./mobile-menu"
 import { ChevronDown } from "./icons"
 import arrow from "../images/sign-up-arrow.png"
-import { THEME } from "../data"
+import { THEME, LOCATION_KEY } from "../data"
 
 const halfSize = {
   sm: 1 / 1,
@@ -124,10 +124,10 @@ const LeftBox = styled(({ children, ...rest }) => (
   <Box {...rest}>{children}</Box>
 ))`
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
   @media only screen and (min-width: ${md}px) {
     padding-top: 120px;
-    padding-bottom: 120px;
+    padding-bottom: 30px;
   }
 `
 
@@ -135,13 +135,16 @@ const RightBox = styled(({ children, ...rest }) => (
   <Box {...rest}>{children}</Box>
 ))`
   padding-top: 30px;
+  padding-bottom: 100px;
   @media only screen and (min-width: ${md}px) {
     padding-top: 120px;
+    padding-bottom: 30px;
   }
 `
 
 const LocationButton = styled.button`
   display: none;
+  margin-bottom: 50px;
   @media only screen and (min-width: ${md}px) {
     display: block;
     background: #000;
@@ -165,7 +168,7 @@ const LocationButton = styled.button`
   }
 `
 
-const Footer = () => {
+const Footer = ({ userState }) => {
   const {
     state: { data },
   } = useContext(AppContext)
@@ -198,10 +201,12 @@ const Footer = () => {
                   </li>
                 ))}
               </FooterMenu>
-              <LocationButton>
-                California
-                <ChevronDown color="#FFF" />
-              </LocationButton>
+              {userState && (
+                <LocationButton>
+                  {userState.label}
+                  <ChevronDown color="#FFF" />
+                </LocationButton>
+              )}
             </LeftBox>
           </Grid.Unit>
           <Grid.Unit size={{ sm: 1, md: 1 / 8 }} />
@@ -232,8 +237,25 @@ const Footer = () => {
             </RightBox>
           </Grid.Unit>
         </Grid>
+        <Grid>
+          <Grid.Unit size={1}>
+            <Box top="0">
+              <Link
+                to="/"
+                style={{
+                  color: "#FFF",
+                  textDecoration: "none",
+                  fontSize: "10px",
+                  fontFamily: "MontHeavy, sans-serif",
+                }}>
+                Privacy and Terms
+              </Link>
+            </Box>
+          </Grid.Unit>
+        </Grid>
       </FooterBlock>
       <MobileMenu
+        userState={userState}
         menu={footerMenu}
         active={data.mobileMenuVisible}
         activeMenu={data.activeMenu}

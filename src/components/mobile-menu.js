@@ -95,15 +95,17 @@ const LocationButton = styled.button`
   }
 `
 
-const MobileMenu = ({ menu, active, activeMenu }) => {
+const MobileMenu = ({ menu, userState, active, activeMenu }) => {
   const mobileMenus = menu.filter((m, i) => i !== 0)
   return (
     <MobileMenuWrap active={active}>
       <Box top="0">
-        <LocationButton>
-          California
-          <ChevronDown />
-        </LocationButton>
+        {userState && (
+          <LocationButton>
+            {userState.label}
+            <ChevronDown />
+          </LocationButton>
+        )}
         <ul className="menu">
           {mobileMenus.map(item => (
             <li className="menu-item" key={item.link}>
@@ -123,7 +125,7 @@ const MobileMenu = ({ menu, active, activeMenu }) => {
             </li>
           ))}
         </ul>
-        <SocialList>
+        <SocialList style={{ marginBottom: 60 }}>
           <li>
             <SocialButton dark href="#" target="_blank" type="facebook" />
           </li>
@@ -134,6 +136,16 @@ const MobileMenu = ({ menu, active, activeMenu }) => {
             <SocialButton dark href="#" target="_blank" type="instagram" />
           </li>
         </SocialList>
+        <Link
+          to="/"
+          style={{
+            color: "#000",
+            textDecoration: "none",
+            fontSize: "10px",
+            fontFamily: "Mont, sans-serif",
+          }}>
+          Privacy and Terms
+        </Link>
       </Box>
     </MobileMenuWrap>
   )
