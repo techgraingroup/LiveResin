@@ -226,11 +226,21 @@ const ProductsPage = () => {
       </Box>
       <Box top="0" bottom="0">
         <IconsWrap>
-          {products.map(p => {
+          {products.map((p, i) => {
             const Icon = icons[p.icon]
+            const isEven = products.length % 2 === 0
+            const isLastElement = i + 1 === products.length
+            const size = {
+              xs: 1 / 2,
+              sm: 1 / 2,
+              md: 1 / products.length,
+            }
+            if (!isEven && isLastElement) {
+              size.xs = 1
+              size.sm = 1
+            }
             return (
-              <Grid.Unit
-                size={{ xs: 1 / 2, sm: 1 / 2, md: 1 / products.length }}>
+              <Grid.Unit size={size}>
                 <span className="label">{p.name}</span>
                 <Icon active />
               </Grid.Unit>
