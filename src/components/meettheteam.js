@@ -22,8 +22,8 @@ const MeetTheTeam = () => {
       bgColor="#A2D45E"
       bgImage={file}
       bgPosition="bottom center"
-      top={280}
-      bottom={280}>
+      top={320}
+      bottom={320}>
       <Grid>
         <Grid.Unit size={{ sm: 1 / 3, xs: 1 }}>
           <BlockTitle line="bottom" color="#FFF">

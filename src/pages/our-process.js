@@ -75,7 +75,7 @@ const OurProcessPage = () => {
           description="Following the extraction process, we can make a consumable product in a variety of form factors. Explore each form factor and decide which product is right for you"
         />
       </Box>
-      <Box bgColor="#FF9E18">
+      <Box top={190} bottom={190} bgColor="#FF9E18">
         <Quote withSignature>
           “The real thing about mastering a craft isn’t that you get to make it
           perfect, but it’s about really knowing how great it can be.”

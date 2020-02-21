@@ -133,7 +133,7 @@ const IndexPage = () => {
           </Grid.Unit>
         </Grid>
       </Box>
-      <Box bgColor="#FF4438">
+      <Box top={190} bottom={190} bgColor="#FF4438">
         <Quote>
           The Live Resin Project began when we were harvesting fresh flower. We
           thought, “There must be a better way to harness this aroma, flavor,
@@ -294,7 +294,7 @@ const IndexPage = () => {
           </Box>
         </Grid.Unit>
       </OnlyMobile>
-      <Box bgColor="#FCD199">
+      <Box top={190} bottom={190} bgColor="#FCD199">
         <Quote withSignature>
           “My philosophy is Japanese Materialism. That everything takes its
           higher form. And I believe that live resin is the highest form of the

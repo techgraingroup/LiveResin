@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
   }
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      const threshold = 300
+      const threshold = 150
       const isScrollDown = currPos.y > prevPos.y
       const absY = Math.abs(currPos.y)
       if (isScrollDown) {

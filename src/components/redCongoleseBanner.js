@@ -18,7 +18,7 @@ const BigBox = styled(({ children, ...rest }) => (
   padding-top: 100%;
   position: relative;
   @media only screen and (min-width: ${md}px) {
-    padding: 120px 0;
+    padding: 170px 0;
     margin-bottom: 0;
   }
 `
