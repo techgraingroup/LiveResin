@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import { Box } from "../components/box"
 import { Button } from "../components/button"
 import { H2, Quote, PageTitle, BlockTitleHorz } from "../components/text"
-import Timeline from '../components/timeline'
+import Timeline from "../components/timeline"
 import MeetTheTeam from "../components/meettheteam"
 import Friends from "../components/friends"
 
@@ -31,7 +31,7 @@ const OurStoryPage = () => {
         <H2>{`We lead by example.\nWe champion new experiences.\nWe travel beyond borders.\nWe are doing it live.`}</H2>
       </Box>
       <MeetTheTeam />
-      <Box top={190} bottom={190} bgColor="#1DCAD3">
+      <Box fullHeight top={190} bottom={190} bgColor="#1DCAD3">
         <Quote withSignature>
           “Believe me, you’ve never felt something like this. You will taste
           color and smell flavor. There’s a multidimensional experience waiting
@@ -41,6 +41,7 @@ const OurStoryPage = () => {
       <Friends />
       <Box top="0">
         <BlockTitleHorz
+          mobileTop
           style={{ marginBottom: 100 }}
           title="Get In Touch"
           description="Donec eget imperdiet dui. Mauris lorem lacus, porttitor quis vehicula vitae, pretium non purus."

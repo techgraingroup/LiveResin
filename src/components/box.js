@@ -9,7 +9,7 @@ const {
 } = THEME
 
 export const SquareBox = styled(
-  ({ bgSize, bgColor, bgImage, children, ...rest }) => {
+  ({ bgSize, mobileHeight, bgColor, bgImage, children, ...rest }) => {
     let imageStyle = {
       position: "absolute",
       left: 0,
@@ -28,25 +28,46 @@ export const SquareBox = styled(
               style={imageStyle}
             />
           )}
-        <div className="content">{children}</div>
+        <div className="content-wrap">
+          <div className="content">{children}</div>
+        </div>
       </div>
     )
   }
 )`
-  padding-top: 100%;
   position: relative;
+  padding-top: 0;
+  height: ${props => props.mobileHeight || '100vh'};
+  @media only screen and (min-width: ${md}px) {
+    padding-top: 100%;
+    height: auto;
+  }
   ${props => props.bgColor && `background-color: ${props.bgColor};`}
-  .content {
+  .content-wrap {
     ${cover()}
-    ${fluidRange(
-      {
-        prop: "padding",
-        fromSize: "20px",
-        toSize: "135px",
-      },
-      `${md}px`,
-      `${xl}px`
-    )}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content {
+      ${fluidRange(
+        {
+          prop: "padding-right",
+          fromSize: "20px",
+          toSize: "135px",
+        },
+        `${md}px`,
+        `${xl}px`
+      )}
+      ${fluidRange(
+        {
+          prop: "padding-left",
+          fromSize: "20px",
+          toSize: "135px",
+        },
+        `${md}px`,
+        `${xl}px`
+      )}
+    }
   }
 `
 
@@ -61,6 +82,7 @@ export const Box = styled(
     bgPosition,
     bgSize,
     fullHeight,
+    verticalCentered,
     square,
     children,
     ...rest
@@ -101,7 +123,18 @@ export const Box = styled(
   position: relative;
   padding-top: ${props => (props.top ? `${props.top}px` : "120px")};
   padding-bottom: ${props => (props.bottom ? `${props.bottom}px` : "120px")};
-  height: ${props => (props.fullHeight ? "100vh" : "auto")};
+  @media only screen and (max-width: ${md}px) {
+    height: ${props => (props.fullHeight ? "100vh" : "auto")};
+    ${props =>
+      props.fullHeight
+        ? `
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0;
+            padding-bottom: 0;`
+        : ``}
+  }
   ${props =>
     props.left
       ? `padding-left: ${props.left}px;`
@@ -126,9 +159,6 @@ export const Box = styled(
           `${md}px`,
           `${xl}px`
         )}
-  @media only screen and (min-width: ${sm}px) {
-      height: ${props => (props.fullHeight ? "100%" : "auto")};
-  }
   ${props =>
     props.bgColor &&
     `

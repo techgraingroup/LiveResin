@@ -40,7 +40,6 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
   font-family: MontBold, sans-serif;
-  font-size: 48px;
   margin-bottom: 30px;
   line-height: 105.8%;
   white-space: pre-wrap;
@@ -123,10 +122,10 @@ export const PageTitle = styled(({ title, text, ...rest }) => (
 `
 
 export const BlockTitleHorz = styled(
-  ({ title, titleStyle, description, ctaText, ctaLink, ...rest }) => (
+  ({ title, mobileTop, titleStyle, description, ctaText, ctaLink, ...rest }) => (
     <Grid {...rest}>
       <Grid.Unit size={{ sm: 1, md: 1 / 2 }}>
-        <H2 style={{ marginTop: 0, ...titleStyle }}>{title}</H2>
+        <h2 style={{ marginTop: 0, ...titleStyle }}>{title}</h2>
       </Grid.Unit>
       <Grid.Unit size={{ sm: 1, md: 1 / 2 }}>
         <Text>{description}</Text>
@@ -140,15 +139,26 @@ export const BlockTitleHorz = styled(
   )
 )`
   border-top: 0;
-  padding-top: 0;
+  padding-top: ${ props => props.mobileTop ? '20px' : '0' };
+  ${props => props.mobileTop && `border-top: 4px solid #000;`}
   @media only screen and (min-width: ${md}px) {
     border-top: 4px solid #000;
     padding-top: 30px;
   }
   h2 {
     font-family: MontHeavy, sans-serif;
-    border-bottom: 4px solid #000;
-    padding-bottom: 30px;
+    ${props => props.mobileTop ? '' : `border-bottom: 4px solid #000;`}
+    padding-bottom: ${props => props.mobileTop ? '0' : '30px'};
+    line-height: 105.8%;
+    ${fluidRange(
+      {
+        prop: "font-size",
+        fromSize: "30px",
+        toSize: "48px",
+      },
+      `${md}px`,
+      `${xl}px`
+    )}
     @media only screen and (min-width: ${md}px) {
       border-bottom: 0;
       padding-bottom: 0;
@@ -161,7 +171,7 @@ export const BlockTitle = styled(
 )`
   font-family: MontHeavy, sans-serif;
   margin: 0;
-  padding: 30px 0;
+  padding: ${props => props.line === 'mobileTop' ? '30px 0 0 0' : '30px 0'};
   ${props =>
     props.lineHeight
       ? `line-height: ${props.lineHeight};`
@@ -244,7 +254,7 @@ export const Quote = styled(({ withSignature, children, ...rest }) => (
   ${fluidRange(
     {
       prop: "font-size",
-      fromSize: "24px",
+      fromSize: "27px",
       toSize: "64px",
     },
     `${md}px`,

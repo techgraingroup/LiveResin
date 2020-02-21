@@ -72,12 +72,13 @@ const Friends = () => {
   `)
   return (
     <Box>
-      <BlockTitle line="top" color="#000">
+      <BlockTitle line="mobileTop" color="#000">
         Friends of the Project
       </BlockTitle>
       <div style={{ textAlign: "left", marginTop: 60 }}>
         {friends.map(item => (
           <FriendImg
+            key={item.name}
             width={item.width}
             height={item.height}
             to={item.link}

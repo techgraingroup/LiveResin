@@ -93,7 +93,7 @@ const BottomBox = styled.div`
 const FindNearYou = () => {
   return (
     <Box>
-      <BlockTitle line="top" style={{ marginBottom: 60 }}>
+      <BlockTitle line="mobileTop" style={{ marginBottom: 60 }}>
         Find Live Resin Near You
       </BlockTitle>
       <Grid>

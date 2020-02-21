@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from "react"
+import { useState, useRef, useEffect, useLayoutEffect } from "react"
 export const getImageFromList = (name, list) =>
   list.find(item => item.node.relativePath === name).node
 
@@ -41,4 +41,30 @@ export function useScrollPosition(effect, deps, element, useWindow, wait) {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, deps)
+}
+
+export function useWindowSize() {
+  const isClient = typeof window === "object"
+  const getSize = () => {
+    return {
+      width: isClient ? window.innerWidth : undefined,
+      height: isClient ? window.innerHeight : undefined,
+    }
+  }
+  const [windowSize, setWindowSize] = useState(getSize)
+  useEffect(() => {
+    setWindowSize(getSize())
+  }, [])
+  useEffect(() => {
+    if (!isClient) {
+      return false
+    }
+    const handleResize = () => {
+      setWindowSize(getSize())
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+  // Empty array ensures that effect is only run on mount and unmount
+  return windowSize
 }

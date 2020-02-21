@@ -34,7 +34,7 @@ const SmallBox = styled(({ children, ...rest }) => (
   padding: 30px 20px;
   @media only screen and (min-width: ${md}px) {
     position: static;
-    width: 45%;
+    width: 47%;
     padding: 45px 60px 45px 133px;
   }
   h3 {

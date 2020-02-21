@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
@@ -13,7 +13,8 @@ import RedCongoleseBanner from "../components/redCongoleseBanner"
 import MeetTheTeam from "../components/meettheteam"
 import Friends from "../components/friends"
 import InstagramFeed from "../components/instagram"
-import { getImageFromList } from "../utils"
+import { OnlyMobile, OnlyDesktop } from "../components/responsive"
+import { getImageFromList, useWindowSize } from "../utils"
 import { THEME } from "../data"
 
 const halfSize = {
@@ -25,24 +26,9 @@ const {
   breakpoints: { md },
 } = THEME
 
-const OnlyMobile = styled(({ children, ...rest }) => (
-  <Grid {...rest}>{children}</Grid>
-))`
-  display: block;
-  @media only screen and (min-width: ${md}px) {
-    display: none;
-  }
-`
-
-const OnlyDesktop = styled.div`
-  display: none !important;
-  @media only screen and (min-width: ${md}px) {
-    display: block !important;
-  }
-`
-
 const IndexPage = () => {
   const { dispatch } = useContext(AppContext)
+  const size = useWindowSize()
   useEffect(() => {
     dispatch({
       type: "activeMenu",
@@ -133,17 +119,17 @@ const IndexPage = () => {
           </Grid.Unit>
         </Grid>
       </Box>
-      <Box top={190} bottom={190} bgColor="#FF4438">
+      <Box fullHeight top={190} bottom={190} bgColor="#FF4438">
         <Quote>
           The Live Resin Project began when we were harvesting fresh flower. We
           thought, “There must be a better way to harness this aroma, flavor,
           and sensation.” So, we found a way.
         </Quote>
       </Box>
-      <Grid>
+      <Grid reverse={size && size.width < md}>
         <Grid.Unit size={halfSize}>
           <SquareBox bgColor="#1DCAD3">
-            <BlockTitle color="#FFF" line="bottom">
+            <BlockTitle color="#FFF" line="bottom" style={{ paddingTop: 0 }}>
               {`The Inventor of\nLive Resin`}
             </BlockTitle>
             <Text color="#FFF">
@@ -161,16 +147,16 @@ const IndexPage = () => {
           </SquareBox>
         </Grid.Unit>
         <Grid.Unit size={halfSize}>
-          <SquareBox bgColor="#d4d4d4" bgImage={inventor} />
+          <SquareBox mobileHeight="65vh" bgColor="#d4d4d4" bgImage={inventor} />
         </Grid.Unit>
       </Grid>
       <Grid>
         <Grid.Unit size={halfSize}>
-          <SquareBox bgColor="#d4d4d4" bgImage={extract} />
+          <SquareBox mobileHeight="65vh" bgColor="#d4d4d4" bgImage={extract} />
         </Grid.Unit>
         <Grid.Unit size={halfSize}>
           <SquareBox bgColor="#FF9E18">
-            <BlockTitle color="#FFF" line="bottom">
+            <BlockTitle color="#FFF" line="bottom" style={{ paddingTop: 0 }}>
               An Extract Science
             </BlockTitle>
             <Text color="#FFF">
@@ -227,74 +213,76 @@ const IndexPage = () => {
         <RedCongoleseBanner />
       </OnlyDesktop>
       <OnlyMobile>
-        <Grid.Unit size={halfSize}>
-          <Box fullHeight bgColor="#BBA135">
-            <Text bottom={20}>Latest Collaboration</Text>
-            <BlockTitle
-              line="top"
-              fontSize="66px"
-              lineHeight="96%"
-              color="#000">
-              Red
-              <br />
-              Congolese
-            </BlockTitle>
-            <div>
-              <Collab right="0" />
-              <span
+        <Grid>
+          <Grid.Unit size={halfSize}>
+            <Box top={35} bottom={35} bgColor="#BBA135">
+              <Text bottom={20}>Latest Collaboration</Text>
+              <BlockTitle
+                line="mobileTop"
+                fontSize="66px"
+                lineHeight="96%"
+                color="#000">
+                Red
+                <br />
+                Congolese
+              </BlockTitle>
+              <div>
+                <Collab right="0" />
+                <span
+                  style={{
+                    display: "inline-block",
+                    marginLeft: 18,
+                    marginRight: 60,
+                  }}>
+                  GOLD SEAL SF
+                </span>
+              </div>
+              <Text
                 style={{
-                  display: "inline-block",
-                  marginLeft: 18,
-                  marginRight: 60,
+                  marginTop: 30,
+                  paddingTop: 30,
+                  borderTop: "1px solid #000",
                 }}>
-                GOLD SEAL SF
-              </span>
-            </div>
-            <Text
-              style={{
-                marginTop: 30,
-                paddingTop: 30,
-                borderTop: "1px solid #000",
-              }}>
-              This special collaboration showcases Gold Seal’s signature Red
-              Congolese, a 12+ week flowering Sativa that we believe is truly
-              special.
-            </Text>
-            <Button borderColor="#000" color="#000" bgColor="#BBA135">
-              Learn More
-            </Button>
-          </Box>
-        </Grid.Unit>
-        <Grid.Unit size={halfSize}>
-          <Box fullHeight bgColor="#000">
-            <Text color="#FFC700" bottom={20}>
-              Recent Drop
-            </Text>
-            <BlockTitle
-              line="top"
-              fontSize="66px"
-              lineHeight="96%"
-              color="#FFC700">
-              Skywalker
-              <br />
-              OG
-            </BlockTitle>
-            <Text
-              color="#FFC700"
-              style={{
-                marginTop: 70,
-                paddingTop: 30,
-                borderTop: "1px solid #FFC700",
-              }}>
-              It's everything we love about OG - gassy, rich a little earthy.
-            </Text>
-            <Button borderColor="#FFC700" color="#FFC700" bgColor="#000">
-              Learn More
-            </Button>
-          </Box>
-        </Grid.Unit>
+                This special collaboration showcases Gold Seal’s signature Red
+                Congolese, a 12+ week flowering Sativa that we believe is truly
+                special.
+              </Text>
+              <Button borderColor="#000" color="#000" bgColor="#BBA135">
+                Learn More
+              </Button>
+            </Box>
+          </Grid.Unit>
+          <Grid.Unit size={halfSize}>
+            <Box top={35} bottom={35} bgColor="#000">
+              <Text color="#FFC700" bottom={20}>
+                Recent Drop
+              </Text>
+              <BlockTitle
+                line="mobileTop"
+                fontSize="66px"
+                lineHeight="96%"
+                color="#FFC700">
+                Skywalker
+                <br />
+                OG
+              </BlockTitle>
+              <Text
+                color="#FFC700"
+                style={{
+                  marginTop: 70,
+                  paddingTop: 30,
+                  borderTop: "1px solid #FFC700",
+                }}>
+                It's everything we love about OG - gassy, rich a little earthy.
+              </Text>
+              <Button borderColor="#FFC700" color="#FFC700" bgColor="#000">
+                Learn More
+              </Button>
+            </Box>
+          </Grid.Unit>
+        </Grid>
       </OnlyMobile>
-      <Box top={190} bottom={190} bgColor="#FCD199">
+      <Box fullHeight top={190} bottom={190} bgColor="#FCD199">
         <Quote withSignature>
           “My philosophy is Japanese Materialism. That everything takes its
           higher form. And I believe that live resin is the highest form of the

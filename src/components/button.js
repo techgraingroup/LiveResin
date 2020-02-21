@@ -2,6 +2,11 @@ import React from "react"
 import { math, cover } from "polished"
 import styled from "styled-components"
 import { Arrow, Play, Facebook, Twitter, Instagram } from "./icons"
+import { THEME } from "../data"
+
+const {
+  breakpoints: { md },
+} = THEME
 
 export const Button = styled(
   ({ withArrow, bgColor, borderColor, color, children, ...rest }) => (
@@ -33,7 +38,7 @@ export const Button = styled(
   }
   &::before {
     ${cover()};
-    content: '';
+    content: "";
     display: block;
     transition: transform 0.1s ease-in-out;
     background: ${props => props.bgColor || "transparent"};
@@ -82,8 +87,11 @@ export const PlayButton = styled(({ color, ...rest }) => (
   background: none;
   border: 0;
   position: absolute;
-  top: 50%;
-  left: 50%;
   margin-left: -50px;
+  left: 50%;
   margin-top: -50px;
+  top: 20%;
+  @media only screen and (min-width: ${md}px) {
+    top: 50%;
+  }
 `
