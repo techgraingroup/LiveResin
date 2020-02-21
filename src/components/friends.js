@@ -5,6 +5,11 @@ import Grid from "styled-components-grid"
 import styled from "styled-components"
 import { Box } from "./box"
 import { BlockTitle } from "./text"
+import { THEME } from "../data"
+
+const {
+  breakpoints: { md },
+} = THEME
 
 const FriendImg = styled(({ width, height, src, to, alt, ...rest }) => (
   <div {...rest}>
@@ -22,7 +27,18 @@ const FriendImg = styled(({ width, height, src, to, alt, ...rest }) => (
     </a>
   </div>
 ))`
-  margin: 15px 15px 60px 15px;
+  width: ${props => (props.width ? `${props.width}px` : "100px")};
+  height: ${props => (props.height ? `${props.height}px` : "100px")};
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 60px;
+  display: block;
+  @media only screen and (min-width: ${md}px) {
+    margin-right: 70px;
+    margin-left: 0;
+    margin-bottom: 0;
+    display: inline-block;
+  }
   a {
     display: block;
     .gatsby-image-wrapper {
@@ -45,7 +61,7 @@ const Friends = () => {
           height
           image {
             childImageSharp {
-              fluid(maxWidth: 768) {
+              fluid(quality: 100, maxWidth: 768) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
@@ -59,19 +75,17 @@ const Friends = () => {
       <BlockTitle line="top" color="#000">
         Friends of the Project
       </BlockTitle>
-      <Grid halign="left" valign="center" style={{ marginTop: 40 }}>
+      <div style={{ textAlign: "left", marginTop: 60 }}>
         {friends.map(item => (
-          <Grid.Unit key={item.name} size={{ sm: 1 / 4, xs: 1 }}>
-            <FriendImg
-              width={item.width}
-              height={item.height}
-              to={item.link}
-              src={item.image}
-              alt={item.name}
-            />
-          </Grid.Unit>
+          <FriendImg
+            width={item.width}
+            height={item.height}
+            to={item.link}
+            src={item.image}
+            alt={item.name}
+          />
         ))}
-      </Grid>
+      </div>
     </Box>
   )
 }
