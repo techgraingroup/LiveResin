@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
             alignItems: "center",
             height: passed ? 0 : "70vh",
           }}>
-          <AgeGate passAgeGate={passAgeGate} />
+          <AgeGate passed={passed} passAgeGate={passAgeGate} />
         </div>
       </StateProvider>
     </ThemeProvider>

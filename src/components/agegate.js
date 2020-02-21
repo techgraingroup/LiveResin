@@ -27,7 +27,7 @@ const Button = styled.button`
   }
 `
 
-const AgeGate = ({ passAgeGate }) => {
+const AgeGate = ({ passed, passAgeGate }) => {
   const [selectedState, setSelectedState] = useState("")
   const {
     dataJson: { states },
@@ -51,7 +51,7 @@ const AgeGate = ({ passAgeGate }) => {
   }
   return (
     <>
-      <Helmet bodyAttributes={{ class: "age-gate" }} />
+      { !passed && <Helmet bodyAttributes={{ class: "age-gate" }} /> }
       <Box top="0" bottom="0" bgColor="#000">
         <Grid>
           <Grid.Unit size={{ xs: 1, sm: 3 / 4 }}>
