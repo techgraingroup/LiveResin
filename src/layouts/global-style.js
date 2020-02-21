@@ -40,9 +40,9 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     font-weight: normal;
     line-height: 140%;
-    padding-top: ${headerHeight.mobile}px;
+    padding-top: ${headerHeight.mobile};
     @media only screen and (min-width: ${md}px) {
-      padding-top: ${headerHeight.desktop}px;
+      padding-top: ${headerHeight.desktop};
     }
     p {
       color: white;

@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
+import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
@@ -8,15 +9,37 @@ import { Quote, BlockTitle, Text } from "../components/text"
 import { Button } from "../components/button"
 import { Arrow, Collab } from "../components/icons"
 import Banner from "../components/banner"
+import RedCongoleseBanner from "../components/redCongoleseBanner"
 import MeetTheTeam from "../components/meettheteam"
 import Friends from "../components/friends"
 import InstagramFeed from "../components/instagram"
 import { getImageFromList } from "../utils"
+import { THEME } from "../data"
 
 const halfSize = {
   sm: 1 / 1,
   md: 1 / 2,
 }
+
+const {
+  breakpoints: { md },
+} = THEME
+
+const OnlyMobile = styled(({ children, ...rest }) => (
+  <Grid {...rest}>{children}</Grid>
+))`
+  display: block;
+  @media only screen and (min-width: ${md}px) {
+    display: none;
+  }
+`
+
+const OnlyDesktop = styled.div`
+  display: none !important;
+  @media only screen and (min-width: ${md}px) {
+    display: block !important;
+  }
+`
 
 const IndexPage = () => {
   const { dispatch } = useContext(AppContext)
@@ -49,7 +72,7 @@ const IndexPage = () => {
             id
             relativePath
             childImageSharp {
-              fluid {
+              fluid(quality: 100) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
@@ -121,7 +144,7 @@ const IndexPage = () => {
         <Grid.Unit size={halfSize}>
           <SquareBox bgColor="#1DCAD3">
             <BlockTitle color="#FFF" line="bottom">
-              The Inventor of Live Resin
+              {`The Inventor of\nLive Resin`}
             </BlockTitle>
             <Text color="#FFF">
               Our fearless leader, William “Kind Bill” Fenger, was inspired by
@@ -166,6 +189,7 @@ const IndexPage = () => {
       </Grid>
       <Box
         bgColor="#D73121"
+        top={175}
         bottom={750}
         bgImage={products}
         bgSize="contain"
@@ -199,7 +223,10 @@ const IndexPage = () => {
           </Grid.Unit>
         </Grid>
       </Box>
-      <Grid>
+      <OnlyDesktop>
+        <RedCongoleseBanner />
+      </OnlyDesktop>
+      <OnlyMobile>
         <Grid.Unit size={halfSize}>
           <Box fullHeight bgColor="#BBA135">
             <Text bottom={20}>Latest Collaboration</Text>
@@ -266,7 +293,7 @@ const IndexPage = () => {
             </Button>
           </Box>
         </Grid.Unit>
-      </Grid>
+      </OnlyMobile>
       <Box bgColor="#FCD199">
         <Quote withSignature>
           “My philosophy is Japanese Materialism. That everything takes its

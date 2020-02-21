@@ -34,6 +34,8 @@ const Tagline = styled.p`
 `
 
 const Banner = ({
+  top,
+  bottom,
   bannerImg,
   title,
   tagLine,
@@ -43,7 +45,11 @@ const Banner = ({
   children,
 }) => {
   return (
-    <Box bgColor="#000" bgImage={bannerImg} top={240} bottom={215}>
+    <Box
+      bgColor="#000"
+      bgImage={bannerImg}
+      top={top || 240}
+      bottom={bottom || 215}>
       {children || (
         <>
           <BannerTitle>{title}</BannerTitle>

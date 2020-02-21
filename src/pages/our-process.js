@@ -1,11 +1,9 @@
 import React, { useEffect, useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Grid from "styled-components-grid"
-
 import SEO from "../components/seo"
 import Banner from "../components/banner"
-import FormsTextures from "../components/formsntextures"
-import { H2, PageTitle, Quote } from "../components/text"
+import { H2, BlockTitleHorz, PageTitle, Quote } from "../components/text"
 import { Box } from "../components/box"
 import { AppContext } from "../context"
 
@@ -18,7 +16,7 @@ const OurProcessPage = () => {
     query {
       file(relativePath: { eq: "process-banner-bg.jpg" }) {
         childImageSharp {
-          fluid {
+          fluid(quality: 100) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -69,7 +67,14 @@ const OurProcessPage = () => {
           </Grid>
         </Box>
       ))}
-      <FormsTextures />
+      <Box>
+        <BlockTitleHorz
+          title="Live Resin Forms & Textures"
+          ctaText="Learn More"
+          ctaLink="/products/"
+          description="Following the extraction process, we can make a consumable product in a variety of form factors. Explore each form factor and decide which product is right for you"
+        />
+      </Box>
       <Box bgColor="#FF9E18">
         <Quote withSignature>
           “The real thing about mastering a craft isn’t that you get to make it

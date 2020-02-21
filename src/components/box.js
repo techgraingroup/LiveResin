@@ -22,7 +22,11 @@ export const SquareBox = styled(
         {bgImage &&
           bgImage.childImageSharp &&
           bgImage.childImageSharp.fluid && (
-            <Img fluid={bgImage.childImageSharp.fluid} style={imageStyle} />
+            <Img
+              durationFadeIn={1000}
+              fluid={bgImage.childImageSharp.fluid}
+              style={imageStyle}
+            />
           )}
         <div className="content">{children}</div>
       </div>
@@ -82,13 +86,18 @@ export const Box = styled(
         {bgImage &&
           bgImage.childImageSharp &&
           bgImage.childImageSharp.fluid && (
-            <Img fluid={bgImage.childImageSharp.fluid} style={imageStyle} />
+            <Img
+              durationFadeIn={1000}
+              fluid={bgImage.childImageSharp.fluid}
+              style={imageStyle}
+            />
           )}
         <div style={{ position: "relative", zIndex: 100 }}>{children}</div>
       </div>
     )
   }
 )`
+  overflow: hidden;
   position: relative;
   padding-top: ${props => (props.top ? `${props.top}px` : "120px")};
   padding-bottom: ${props => (props.bottom ? `${props.bottom}px` : "120px")};
@@ -96,19 +105,27 @@ export const Box = styled(
   ${props =>
     props.left
       ? `padding-left: ${props.left}px;`
-      : fluidRange({
-          prop: "padding-left",
-          fromSize: "20px",
-          toSize: "135px",
-        }, `${md}px`, `${xl}px`)}
+      : fluidRange(
+          {
+            prop: "padding-left",
+            fromSize: "20px",
+            toSize: "135px",
+          },
+          `${md}px`,
+          `${xl}px`
+        )}
   ${props =>
     props.right
       ? `padding-right: ${props.right}px;`
-      : fluidRange({
-          prop: "padding-right",
-          fromSize: "20px",
-          toSize: "135px",
-        }, `${md}px`, `${xl}px`)}
+      : fluidRange(
+          {
+            prop: "padding-right",
+            fromSize: "20px",
+            toSize: "135px",
+          },
+          `${md}px`,
+          `${xl}px`
+        )}
   @media only screen and (min-width: ${sm}px) {
       height: ${props => (props.fullHeight ? "100%" : "auto")};
   }

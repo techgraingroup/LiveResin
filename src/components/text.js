@@ -123,10 +123,10 @@ export const PageTitle = styled(({ title, text, ...rest }) => (
 `
 
 export const BlockTitleHorz = styled(
-  ({ title, description, ctaText, ctaLink, ...rest }) => (
+  ({ title, titleStyle, description, ctaText, ctaLink, ...rest }) => (
     <Grid {...rest}>
       <Grid.Unit size={{ sm: 1, md: 1 / 2 }}>
-        <H2 style={{ marginTop: 0 }}>{title}</H2>
+        <H2 style={{ marginTop: 0, ...titleStyle }}>{title}</H2>
       </Grid.Unit>
       <Grid.Unit size={{ sm: 1, md: 1 / 2 }}>
         <Text>{description}</Text>

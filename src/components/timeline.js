@@ -173,7 +173,7 @@ const Timeline = () => {
           position
           photo {
             childImageSharp {
-              fluid(maxWidth: 250) {
+              fluid(maxWidth: 250, quality: 100) {
                 src
               }
             }
