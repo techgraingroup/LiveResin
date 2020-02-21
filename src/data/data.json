@@ -7,7 +7,7 @@
   ],
   "footerMenu": [
     { "link": "/", "label": "Home" },
-    { "link": "/products/", "label": "Products", "color": "#FF4438"},
+    { "link": "/products/", "label": "Products", "color": "#FF4438" },
     { "link": "/our-process/", "label": "Our Process", "color": "#FF9E18" },
     { "link": "/our-story/", "label": "Our Story", "color": "#1DCAD3" },
     { "link": "/faq/", "label": "FAQ" },
@@ -69,155 +69,94 @@
       "height": 136
     }
   ],
-  "formsTextures": [
+  "products": [
     {
       "name": "Budder",
       "icon": "TBudder",
-      "productLink": "/products/",
-      "store": "/store-locator/",
-      "image": "../images/t-p-budder.jpg",
-      "description": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
-      "level": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike."
+      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality.",
+      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
+      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "image": "../images/img-budder.jpg",
+      "strains": [
+          { "name": "Skywalker OG", "color": "#FFC700", "bg": "#000" },
+          { "name": "Sundae Driver", "color": "#6663DF", "bg": "#FFC700" },
+          { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
+      ]
     },
     {
       "name": "Sauce",
       "icon": "TSauce",
-      "productLink": "/products/",
-      "store": "/store-locator/",
-      "image": "../images/t-p-budder.jpg",
-      "description": "",
-      "level": ""
+      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality",
+      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
+      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "image": "../images/img-sauce.jpg",
+      "strains": [
+          { "name": "Skywalker OG", "color": "#FFC700", "bg": "#000" },
+          { "name": "Sundae Driver", "color": "#6663DF", "bg": "#FFC700" }
+      ]
     },
     {
       "name": "Sugar",
       "icon": "TSugar",
-      "productLink": "/products/",
-      "store": "/store-locator/",
-      "image": "../images/t-p-budder.jpg",
-      "description": "",
-      "level": ""
+      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality",
+      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
+      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "image": "../images/img-sugar.jpg",
+      "strains": [
+          { "name": "Skywalker OG", "color": "#FFC700", "bg": "#000" },
+          { "name": "Sundae Driver", "color": "#6663DF", "bg": "#FFC700" },
+          { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
+      ]
     },
     {
       "name": "Diamonds",
       "icon": "TDiamonds",
-      "productLink": "/products/",
-      "store": "/store-locator/",
-      "image": "../images/t-p-budder.jpg",
-      "description": "",
-      "level": ""
+      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality",
+      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
+      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "image": "../images/img-diamonds.jpg",
+      "strains": [
+          { "name": "Sundae Driver", "color": "#6663DF", "bg": "#FFC700" }
+      ]
     },
     {
-      "name": "THCA Crystalline",
+      "name": "THCa Chrystalline",
       "icon": "TThca",
-      "productLink": "/products/",
-      "store": "/store-locator/",
-      "image": "../images/t-p-budder.jpg",
-      "description": "",
-      "level": ""
+      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality",
+      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
+      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "image": "../images/img-thca.jpg",
+      "strains": [
+          { "name": "Skywalker OG", "color": "#FFC700", "bg": "#000" },
+          { "name": "Sundae Driver", "color": "#6663DF", "bg": "#FFC700" },
+          { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
+      ]
     },
     {
       "name": "Shatter",
       "icon": "TShatter",
-      "productLink": "/products/",
-      "store": "/store-locator/",
-      "image": "../images/t-p-budder.jpg",
-      "description": "",
-      "level": ""
+      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality",
+      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
+      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "image": "../images/img-shatter.jpg",
+      "strains": [
+          { "name": "Skywalker OG", "color": "#FFC700", "bg": "#000" },
+          { "name": "Sundae Driver", "color": "#6663DF", "bg": "#FFC700" },
+          { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
+      ]
     },
     {
-      "name": "Vapes",
+      "name": "Vape",
       "icon": "TVapes",
-      "productLink": "/products/",
-      "store": "/store-locator/",
-      "image": "../images/t-p-budder.jpg",
-      "description": "",
-      "level": ""
-    }
-  ],
-  "product": [
-    {
-      "name": "Red Congolese",
-      "goldSeal": true,
-      "bgColor": "#BBA135",
-      "color": "#000",
-      "description": "This special collaboration showcases Gold Seal’s signature Red Congolese, a 12+ week flowering Sativa that we believe is truly special. We harvested a stellar lot of Congo and extracted it into our favorite texture —which is live budder. The tropical funk flavor and soaring, electric Sativa effects this budder offers are some of our favorite things in the world.",
-      "link": "#",
-      "details": {
-        "form": "Live Resin Budder",
-        "thc": "70-77 %",
-        "thcpg": "700-800mg",
-        "cbd": "< 1%",
-        "cbdpg": "< 0.5mg"
-      },
-      "terpeneProfile": [
-        { "name": "Limonene (Citrus)", "value": 2.47 },
-        { "name": "B-Carophyllene (Earthy)", "value": 0.99 },
-        { "name": "B-Myrcene (Fruity)", "value": 0.59 }
-      ],
-      "images": ["../images/product-01.jpg", "../images/product-02.jpg"]
-    },
-    {
-      "name": "Skywalker OG",
-      "goldSeal": false,
-      "bgColor": "#000",
-      "color": "#FFC700",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia dictum molestie. Nulla mattis elit eu purus tincidunt vehicula. Nulla facilisis nisl sit amet pretium lobortis. Etiam pharetra mollis dignissim. Sed non lobortis leo. Proin nulla leo, euismod ac aliquam ac, efficitur sed orci. Praesent vel tortor vehicula, aliquet nibh vel, cursus neque. Phasellus mi augue, egestas et dolor et, fringilla bibendum ante.",
-      "link": "#",
-      "details": {
-        "form": "Live Resin Budder",
-        "thc": "70-77 %",
-        "thcpg": "700-800mg",
-        "cbd": "< 1%",
-        "cbdpg": "< 0.5mg"
-      },
-      "terpeneProfile": [
-        { "name": "Limonene (Citrus)", "value": 2.47 },
-        { "name": "B-Carophyllene (Earthy)", "value": 0.99 },
-        { "name": "B-Myrcene (Fruity)", "value": 0.59 }
-      ],
-      "images": ["../images/product-01.jpg", "../images/product-02.jpg"]
-    },
-    {
-      "name": "Sundae Driver",
-      "goldSeal": false,
-      "bgColor": "#FFC700",
-      "color": "#6663DF",
-      "description": "Donec risus nibh, venenatis porta laoreet at, consectetur eu felis. Suspendisse leo quam, viverra quis purus quis, ornare feugiat dolor. Praesent lacinia tempor sagittis. Aliquam sed libero fringilla enim tincidunt varius at tincidunt sem. Donec eget imperdiet dui. Mauris lorem lacus, porttitor quis vehicula vitae, pretium non purus. Morbi nec rhoncus massa.",
-      "link": "#",
-      "details": {
-        "form": "Live Resin Budder",
-        "thc": "70-77 %",
-        "thcpg": "700-800mg",
-        "cbd": "< 1%",
-        "cbdpg": "< 0.5mg"
-      },
-      "terpeneProfile": [
-        { "name": "Limonene (Citrus)", "value": 2.47 },
-        { "name": "B-Carophyllene (Earthy)", "value": 0.99 },
-        { "name": "B-Myrcene (Fruity)", "value": 0.59 }
-      ],
-      "images": ["../images/product-01.jpg", "../images/product-02.jpg"]
-    },
-    {
-      "name": "Chem 4",
-      "goldSeal": false,
-      "bgColor": "#616F39",
-      "color": "#F3DCAD",
-      "description": "Sed gravida eu nisl porttitor tristique. Donec rhoncus lorem in dictum vehicula. Nulla faucibus lectus sit amet libero aliquam finibus. Sed lobortis urna at orci consectetur condimentum. Morbi ornare erat a sollicitudin rhoncus. Sed placerat sed risus sit amet convallis. Vestibulum tincidunt orci a ante iaculis facilisis. Etiam et arcu a enim interdum finibus. Vivamus semper ipsum a tellus condimentum, at fermentum leo consequat.",
-      "link": "#",
-      "details": {
-        "form": "Live Resin Budder",
-        "thc": "70-77 %",
-        "thcpg": "700-800mg",
-        "cbd": "< 1%",
-        "cbdpg": "< 0.5mg"
-      },
-      "terpeneProfile": [
-        { "name": "Limonene (Citrus)", "value": 2.47 },
-        { "name": "B-Carophyllene (Earthy)", "value": 0.99 },
-        { "name": "B-Myrcene (Fruity)", "value": 0.59 }
-      ],
-      "images": ["../images/product-01.jpg", "../images/product-02.jpg"]
+      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality",
+      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
+      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "image": "../images/img-vape.jpg",
+      "strains": [
+          { "name": "Skywalker OG", "color": "#FFC700", "bg": "#000" },
+          { "name": "Sundae Driver", "color": "#6663DF", "bg": "#FFC700" },
+          { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
+      ]
     }
   ],
   "timeline": [
@@ -274,6 +213,244 @@
     {
       "q": "Question number Three?",
       "a": "Answer for Question Number Three"
+    }
+  ],
+  "states": [
+    {
+      "name": "Alabama",
+      "abbreviation": "AL"
+    },
+    {
+      "name": "Alaska",
+      "abbreviation": "AK"
+    },
+    {
+      "name": "American Samoa",
+      "abbreviation": "AS"
+    },
+    {
+      "name": "Arizona",
+      "abbreviation": "AZ"
+    },
+    {
+      "name": "Arkansas",
+      "abbreviation": "AR"
+    },
+    {
+      "name": "California",
+      "abbreviation": "CA"
+    },
+    {
+      "name": "Colorado",
+      "abbreviation": "CO"
+    },
+    {
+      "name": "Connecticut",
+      "abbreviation": "CT"
+    },
+    {
+      "name": "Delaware",
+      "abbreviation": "DE"
+    },
+    {
+      "name": "District Of Columbia",
+      "abbreviation": "DC"
+    },
+    {
+      "name": "Federated States Of Micronesia",
+      "abbreviation": "FM"
+    },
+    {
+      "name": "Florida",
+      "abbreviation": "FL"
+    },
+    {
+      "name": "Georgia",
+      "abbreviation": "GA"
+    },
+    {
+      "name": "Guam",
+      "abbreviation": "GU"
+    },
+    {
+      "name": "Hawaii",
+      "abbreviation": "HI"
+    },
+    {
+      "name": "Idaho",
+      "abbreviation": "ID"
+    },
+    {
+      "name": "Illinois",
+      "abbreviation": "IL"
+    },
+    {
+      "name": "Indiana",
+      "abbreviation": "IN"
+    },
+    {
+      "name": "Iowa",
+      "abbreviation": "IA"
+    },
+    {
+      "name": "Kansas",
+      "abbreviation": "KS"
+    },
+    {
+      "name": "Kentucky",
+      "abbreviation": "KY"
+    },
+    {
+      "name": "Louisiana",
+      "abbreviation": "LA"
+    },
+    {
+      "name": "Maine",
+      "abbreviation": "ME"
+    },
+    {
+      "name": "Marshall Islands",
+      "abbreviation": "MH"
+    },
+    {
+      "name": "Maryland",
+      "abbreviation": "MD"
+    },
+    {
+      "name": "Massachusetts",
+      "abbreviation": "MA"
+    },
+    {
+      "name": "Michigan",
+      "abbreviation": "MI"
+    },
+    {
+      "name": "Minnesota",
+      "abbreviation": "MN"
+    },
+    {
+      "name": "Mississippi",
+      "abbreviation": "MS"
+    },
+    {
+      "name": "Missouri",
+      "abbreviation": "MO"
+    },
+    {
+      "name": "Montana",
+      "abbreviation": "MT"
+    },
+    {
+      "name": "Nebraska",
+      "abbreviation": "NE"
+    },
+    {
+      "name": "Nevada",
+      "abbreviation": "NV"
+    },
+    {
+      "name": "New Hampshire",
+      "abbreviation": "NH"
+    },
+    {
+      "name": "New Jersey",
+      "abbreviation": "NJ"
+    },
+    {
+      "name": "New Mexico",
+      "abbreviation": "NM"
+    },
+    {
+      "name": "New York",
+      "abbreviation": "NY"
+    },
+    {
+      "name": "North Carolina",
+      "abbreviation": "NC"
+    },
+    {
+      "name": "North Dakota",
+      "abbreviation": "ND"
+    },
+    {
+      "name": "Northern Mariana Islands",
+      "abbreviation": "MP"
+    },
+    {
+      "name": "Ohio",
+      "abbreviation": "OH"
+    },
+    {
+      "name": "Oklahoma",
+      "abbreviation": "OK"
+    },
+    {
+      "name": "Oregon",
+      "abbreviation": "OR"
+    },
+    {
+      "name": "Palau",
+      "abbreviation": "PW"
+    },
+    {
+      "name": "Pennsylvania",
+      "abbreviation": "PA"
+    },
+    {
+      "name": "Puerto Rico",
+      "abbreviation": "PR"
+    },
+    {
+      "name": "Rhode Island",
+      "abbreviation": "RI"
+    },
+    {
+      "name": "South Carolina",
+      "abbreviation": "SC"
+    },
+    {
+      "name": "South Dakota",
+      "abbreviation": "SD"
+    },
+    {
+      "name": "Tennessee",
+      "abbreviation": "TN"
+    },
+    {
+      "name": "Texas",
+      "abbreviation": "TX"
+    },
+    {
+      "name": "Utah",
+      "abbreviation": "UT"
+    },
+    {
+      "name": "Vermont",
+      "abbreviation": "VT"
+    },
+    {
+      "name": "Virgin Islands",
+      "abbreviation": "VI"
+    },
+    {
+      "name": "Virginia",
+      "abbreviation": "VA"
+    },
+    {
+      "name": "Washington",
+      "abbreviation": "WA"
+    },
+    {
+      "name": "West Virginia",
+      "abbreviation": "WV"
+    },
+    {
+      "name": "Wisconsin",
+      "abbreviation": "WI"
+    },
+    {
+      "name": "Wyoming",
+      "abbreviation": "WY"
     }
   ]
 }
