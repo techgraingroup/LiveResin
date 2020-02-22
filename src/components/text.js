@@ -171,6 +171,7 @@ export const BlockTitle = styled(
 )`
   font-family: MontHeavy, sans-serif;
   margin: 0;
+  white-space: pre-wrap;
   padding: ${props => props.line === 'mobileTop' ? '30px 0 0 0' : '30px 0'};
   ${props =>
     props.lineHeight

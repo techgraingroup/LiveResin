@@ -8,7 +8,7 @@ import { Quote, BlockTitle, Text } from "../components/text"
 import { Button } from "../components/button"
 import { Arrow, Collab } from "../components/icons"
 import Banner from "../components/banner"
-import RedCongoleseBanner from "../components/redCongoleseBanner"
+import RCBanner from "../components/rcbanner"
 import MeetTheTeam from "../components/meettheteam"
 import Friends from "../components/friends"
 import InstagramFeed from "../components/instagram"
@@ -209,7 +209,7 @@ const IndexPage = () => {
         </Grid>
       </Box>
       <OnlyDesktop>
-        <RedCongoleseBanner />
+        <RCBanner />
       </OnlyDesktop>
       <OnlyMobile>
         <Grid>

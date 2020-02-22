@@ -3,13 +3,13 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
-import { fluidRange } from "polished"
+import { cover, fluidRange } from "polished"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import Banner from "../components/banner"
 import FindNearYou from "../components/findnearyou"
 import { Box } from "../components/box"
-import RedCongoleseBanner from "../components/redCongoleseBanner"
+import RCBanner from '../components/rcbanner'
 import { Text, BlockTitleHorz } from "../components/text"
 import { THEME } from "../data"
 import {
@@ -126,18 +126,60 @@ const ProductInfo = styled(props => (
   }
 `
 
-const StrainBox = styled.div`
-  width: 120px;
-  height: 120px;
-  background: ${props => props.bg || "#000"};
-  color: ${props => props.color || "#FFF"};
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 15px;
-  font-family: MontHeavy, sans-serif;
-  letter-spacing: -0.02em;
-  line-height: 100%;
-  margin: 0 30px 0 0;
+const StrainBox = styled(({ children, bg, color, ...rest }) => {
+  return (
+    <div {...rest}>
+      <div className="box">
+        <div className="content-wrap">
+          <div className="content">{children}</div>
+        </div>
+      </div>
+    </div>
+  )
+})`
+  margin: 0;
+  display: inline-block;
+  width: calc(50% - 10px);
+  &.even {
+    margin: 0 10px 15px 0;
+    @media only screen and (min-width: ${md}px) {
+      margin: 0 30px 20px 0;
+    }
+  }
+  &.odd {
+    margin: 0 0 15px 10px;
+    @media only screen and (min-width: ${md}px) {
+      margin: 0 30px 20px 0;
+    }
+  }
+  @media only screen and (min-width: ${md}px) {
+    width: 120px;
+  }
+  .box {
+    position: relative;
+    padding-top: 100%;
+    height: auto;
+    background: ${props => props.bg || "#000"};
+    .content-wrap {
+      ${cover()}
+      display: flex;
+      justify-content: flex-start;
+      align-items: left;
+      .content {
+        color: ${props => props.color || "#FFF"};
+        padding: 15px;
+        box-sizing: border-box;
+        font-family: MontHeavy, sans-serif;
+        letter-spacing: -0.02em;
+        line-height: 100%;
+        white-space: pre-wrap;
+        font-size: 32px;
+        @media only screen and (min-width: ${md}px) {
+          font-size: 15px;
+        }
+      }
+    }
+  }
 `
 
 const Title = styled.h2`
@@ -234,7 +276,7 @@ const ProductsPage = () => {
               size.sm = 1
             }
             return (
-              <Grid.Unit size={size}>
+              <Grid.Unit key={`${i}-item`} size={size}>
                 <span className="label">{p.name}</span>
                 <Icon active />
               </Grid.Unit>
@@ -274,17 +316,19 @@ const ProductsPage = () => {
                 <h3>Who is it for?</h3>
                 <Text>{p.who}</Text>
                 <h4>Popular Strain</h4>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "flex-start",
-                    alignItems: "top",
-                  }}>
-                  {p.strains.map(s => (
-                    <StrainBox color={s.color} bg={s.bg}>
-                      {s.name}
-                    </StrainBox>
-                  ))}
+                <div>
+                  {p.strains.map((s, i) => {
+                    const isEven = i % 2 === 0
+                    return (
+                      <StrainBox
+                        key={`${i}-item`}
+                        className={isEven ? "even" : "odd"}
+                        color={s.color}
+                        bg={s.bg}>
+                        {s.name}
+                      </StrainBox>
+                    )
+                  })}
                 </div>
               </ProductInfo>
             </Grid>
@@ -302,7 +346,7 @@ const ProductsPage = () => {
           description="Our current lineup won’t be our lineup forever. We’re always looking for new collaborations and the freshest flower. Here’s what we have today."
         />
       </Box>
-      <RedCongoleseBanner />
+      <RCBanner />
       <FindNearYou />
     </>
   )
