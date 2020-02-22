@@ -36,7 +36,7 @@ const OurProcessPage = () => {
     query {
       file(relativePath: { eq: "process-banner-bg.jpg" }) {
         childImageSharp {
-          fluid(quality: 100) {
+          fluid(quality: 100, maxWidth: 2880) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }

@@ -97,7 +97,7 @@ const MeetTheTeam = () => {
     query {
       image: file(relativePath: { eq: "the-team.jpg" }) {
         childImageSharp {
-          fluid(quality: 100) {
+          fluid(quality: 100, maxWidth: 2880) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }

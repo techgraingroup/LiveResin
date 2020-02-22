@@ -57,7 +57,7 @@ const IndexPage = () => {
             id
             relativePath
             childImageSharp {
-              fluid(quality: 100) {
+              fluid(quality: 100, maxWidth: 2880) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
@@ -173,7 +173,7 @@ const IndexPage = () => {
         </Grid.Unit>
       </Grid>
       <Box
-        bgColor="#D73121"
+        bgColor="rgba(217, 35, 25, 1)"
         top={175}
         bottom={750}
         bgImage={products}

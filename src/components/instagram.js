@@ -13,7 +13,7 @@ const InstagramFeed = () => {
           node {
             localFile {
               childImageSharp {
-                fluid(maxWidth: 500, quality: 100) {
+                fluid(maxWidth: 520, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
