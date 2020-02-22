@@ -11,15 +11,10 @@ import { SocialButton } from "./button"
 import MobileMenu from "./mobile-menu"
 import { ChevronDown } from "./icons"
 import arrow from "../images/sign-up-arrow.png"
-import { THEME, LOCATION_KEY } from "../data"
-
-const halfSize = {
-  sm: 1 / 1,
-  md: 1 / 2,
-}
+import { THEME } from "../data"
 
 const {
-  breakpoints: { sm, md, xl },
+  breakpoints: { md },
 } = THEME
 
 const FooterBlock = styled.footer`

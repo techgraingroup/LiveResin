@@ -83,7 +83,7 @@ const OurProcessPage = () => {
             <IconWrapper
               size={{ xs: 1, sm: 1 / 2 }}
               style={{ textAlign: "center" }}>
-              <img src={item.image.publicURL} />
+              <img src={item.image.publicURL} alt={item.title} />
             </IconWrapper>
             <TextWrapper size={{ xs: 1, sm: 1 / 2 }}>
               <H2

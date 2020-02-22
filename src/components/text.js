@@ -10,7 +10,7 @@ import { THEME } from "../data"
 import signature from "../images/signature.png"
 
 const {
-  breakpoints: { xs, sm, md, lg, xl },
+  breakpoints: { md, xl },
 } = THEME
 
 export const H1 = styled.h1`
@@ -232,7 +232,7 @@ export const Quote = styled(({ withSignature, children, ...rest }) => (
     {withSignature && (
       <>
         <br />
-        <img style={{ marginTop: 25 }} src={signature} />
+        <img alt="Signature" style={{ marginTop: 25 }} src={signature} />
       </>
     )}
   </div>

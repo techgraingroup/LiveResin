@@ -9,7 +9,7 @@ import { THEME } from "../data"
 import usMap from "../images/usmap.png"
 
 const {
-  breakpoints: { sm, md },
+  breakpoints: { md },
 } = THEME
 
 const BottomGrid = styled(({ children, ...rest }) => (

@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useEffect, useContext } from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
-import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import SEO from "../components/seo"

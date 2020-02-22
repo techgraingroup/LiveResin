@@ -1,6 +1,5 @@
 import React, { useEffect, useContext } from "react"
 import { navigate } from "gatsby"
-import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import { Box } from "../components/box"

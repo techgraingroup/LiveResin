@@ -7,7 +7,7 @@ import { Text } from "./text"
 import { THEME } from "../data"
 
 const {
-  breakpoints: { xs, sm, md, lg, xl },
+  breakpoints: { md },
 } = THEME
 
 const Wrapper = styled(({ children, ...rest }) => (

@@ -53,15 +53,13 @@ export function useWindowSize() {
   }
   const [windowSize, setWindowSize] = useState(getSize)
   useEffect(() => {
-    setWindowSize(getSize())
-  }, [])
-  useEffect(() => {
     if (!isClient) {
       return false
     }
     const handleResize = () => {
       setWindowSize(getSize())
     }
+    handleResize()
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])

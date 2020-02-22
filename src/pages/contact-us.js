@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from "react"
-import { Link } from "gatsby"
 import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import SEO from "../components/seo"

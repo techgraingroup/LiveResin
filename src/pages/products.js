@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react"
-import { useStaticQuery, graphql, Link, navigate } from "gatsby"
+import React, { useEffect, useContext } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
@@ -7,12 +7,10 @@ import { fluidRange } from "polished"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import Banner from "../components/banner"
-import { Collab } from "../components/icons"
 import FindNearYou from "../components/findnearyou"
 import { Box } from "../components/box"
 import RedCongoleseBanner from "../components/redCongoleseBanner"
-import { H4, Text, BlockTitle, BlockTitleHorz, Quote } from "../components/text"
-import { Button } from "../components/button"
+import { Text, BlockTitleHorz } from "../components/text"
 import { THEME } from "../data"
 import {
   TBudder,
@@ -25,13 +23,9 @@ import {
 } from "../components/icons"
 
 const icons = { TBudder, TDiamonds, TSauce, TSugar, TShatter, TThca, TVapes }
-const halfSize = {
-  sm: 1 / 1,
-  md: 1 / 2,
-}
 
 const {
-  breakpoints: { sm, md, xl },
+  breakpoints: { md, xl },
 } = THEME
 
 const IconsWrap = styled(props => <Grid {...props} />)`

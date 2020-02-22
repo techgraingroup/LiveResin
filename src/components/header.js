@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import styled from "styled-components"
@@ -7,10 +7,10 @@ import { AppContext } from "../context"
 import Logo from "./logo"
 import { Box } from "./box"
 import { Arrow, MenuHamburger, MenuNearMe, ChevronDown } from "./icons"
-import { THEME, LOCATION_KEY } from "../data"
+import { THEME } from "../data"
 
 const {
-  breakpoints: { md, lg, xl },
+  breakpoints: { md, xl },
   headerHeight,
 } = THEME
 

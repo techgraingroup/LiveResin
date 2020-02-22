@@ -5,7 +5,7 @@ import { fluidRange, cover } from "polished"
 import { THEME } from "../data"
 
 const {
-  breakpoints: { xs, sm, md, xl },
+  breakpoints: { md, xl },
 } = THEME
 
 export const SquareBox = styled(
