@@ -199,11 +199,17 @@ const IndexPage = () => {
             <BlockTitle color="#FFF" line="bottom" style={{ paddingTop: 0 }}>
               {`The Inventor of\nLive Resin`}
             </BlockTitle>
-            <Text color="#FFF">
-              Our fearless leader, William “Kind Bill” Fenger, was inspired by
-              his experience of growing cannabis, but frustrated by the quality
-              of extracts made from traditional techniques. In 2013, he did
-              something about it.
+            <Text color="#FFF" style={{ marginTop: 30 }}>
+              Our fearless leader, William “Kind Bill” <MobileBr />
+              Fenger, was <DesktopBr />
+              inspired by his experience of <MobileBr />
+              growing cannabis, but <DesktopBr />
+              frustrated by the <MobileBr />
+              quality of extracts made from <DesktopBr />
+              traditional <MobileBr />
+              techniques. In 2013, he did something <DesktopBr />
+              <MobileBr />
+              about it.
             </Text>
             <Button
               bgColor="#FFF"
@@ -226,10 +232,13 @@ const IndexPage = () => {
             <BlockTitle color="#FFF" line="bottom" style={{ paddingTop: 0 }}>
               An Extract Science
             </BlockTitle>
-            <Text color="#FFF">
-              Creating live resin is a scientific process designed to preserve
-              all the characteristics of fresh flower that dry out and degrade
-              in other form factors.
+            <Text color="#FFF" style={{ marginTop: 30 }}>
+              Creating live resin is a scientific process <MobileBr />
+              designed <DesktopBr />
+              to preserve all the characteristics <MobileBr />
+              of fresh flower <DesktopBr />
+              that dry out and degrade in <MobileBr />
+              other form factors.
             </Text>
             <Button
               bgColor="#FFF"
