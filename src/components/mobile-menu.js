@@ -137,7 +137,7 @@ const MobileMenu = ({ menu, userState, active, activeMenu }) => {
           </li>
         </SocialList>
         <Link
-          to="/"
+          to="/privacy-terms"
           style={{
             color: "#000",
             textDecoration: "none",

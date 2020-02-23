@@ -236,7 +236,7 @@ const Footer = ({ userState }) => {
           <Grid.Unit size={1}>
             <Box top="0">
               <Link
-                to="/"
+                to="/privacy-terms"
                 style={{
                   color: "#FFF",
                   textDecoration: "none",
