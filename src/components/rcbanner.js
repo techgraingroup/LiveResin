@@ -64,7 +64,7 @@ const SmallBox = styled(({ children, ...rest }) => (
       width: 100%;
       margin-top: -1px;
       @media only screen and (min-width: ${md}px) {
-       width: 653px;
+       width: 700px;
        margin-top: 0;
       }
       ${fluidRange(
@@ -98,7 +98,7 @@ const SmallBox = styled(({ children, ...rest }) => (
         {
           prop: "padding-left",
           fromSize: "20px",
-          toSize: sideGutter,
+          toSize: "195px",
         },
         `${md}px`,
         `${xl}px`
