@@ -219,7 +219,7 @@ const Header = ({ passed, userState, hideNav }) => {
               </DesktopMenu>
               <MobileMenu>
                 <MenuItem>
-                  <MenuLink external href="#">
+                  <MenuLink to="/store-locator/">
                     <MenuNearMe style={{ position: "relative", top: 7 }} />
                   </MenuLink>
                 </MenuItem>
