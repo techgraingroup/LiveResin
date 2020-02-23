@@ -66,7 +66,14 @@ const OurProcessPage = () => {
       <SEO title="Our Process" />
       <Banner
         bannerImg={file}
-        title={`The true essence\nof cannabis.`}
+        title={() => (
+          <>
+            The true <MobileBr />
+            essence <DesktopBr />
+            of <MobileBr />
+            cannabis.
+          </>
+        )}
         tagLine="Live Resin is the purest way to consume cannabis. It harnesses all of the flavor, aroma, and potency of a live cannabis plant, and delivers it in an authentic concentrate."
       />
       <PageTitle

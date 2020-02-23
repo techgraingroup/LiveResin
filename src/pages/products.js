@@ -9,8 +9,9 @@ import SEO from "../components/seo"
 import Banner from "../components/banner"
 import FindNearYou from "../components/findnearyou"
 import { Box } from "../components/box"
-import RCBanner from '../components/rcbanner'
+import RCBanner from "../components/rcbanner"
 import { Text, BlockTitleHorz } from "../components/text"
+import { MobileBr, DesktopBr } from "../components/responsive"
 import { THEME } from "../data"
 import {
   TBudder,
@@ -183,7 +184,7 @@ const StrainBox = styled(({ children, bg, color, ...rest }) => {
 `
 
 const Title = styled.h2`
-  width: 80%;
+  width: 82.5%;
   color: #fff;
   font-family: MontHeavy, sans-serif;
   letter-spacing: -0.04em;
@@ -247,7 +248,14 @@ const ProductsPage = () => {
     <>
       <SEO title="Products" />
       <Banner top={500} bottom={100} bannerImg={banner}>
-        <Title>We create fresh extracts in a variety of formats.</Title>
+        <Title>
+          We create <MobileBr />
+          fresh <DesktopBr />
+          extracts <MobileBr />
+          in a variety <DesktopBr />
+          of <MobileBr />
+          formats.
+        </Title>
       </Banner>
       <Box bottom="0">
         <BlockTitleHorz

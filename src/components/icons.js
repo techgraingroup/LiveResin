@@ -70,7 +70,7 @@ export const ChevronDown = ({ color }) => (
     xmlns="http://www.w3.org/2000/svg">
     <path
       d="M1.24316 1.24341L7.49651 7.50583L13.7498 1.24341"
-      stroke={ color || '#000' }
+      stroke={color || "#000"}
       strokeMiterlimit="10"
     />
   </svg>
@@ -723,6 +723,7 @@ export const Arrow = ({ left, borderColor }) => (
     height="19"
     viewBox="0 0 28 19"
     fill="none"
+    className="arrow"
     style={{ position: "relative", top: 3, left: left || 35 }}
     xmlns="http://www.w3.org/2000/svg">
     <g clipPath="url(#clip0)">

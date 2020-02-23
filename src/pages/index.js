@@ -39,6 +39,24 @@ const GoldGrid = styled(props => <Grid.Unit {...props} />)`
     top: -5px;
     text-align: right;
   }
+  svg.arrow {
+    position: absolute !important;
+    left: auto !important;
+    right: 0;
+    top: -17px !important;
+    @media only screen and (min-width: ${md}px) {
+      top: 17px !important;
+    }
+  }
+`
+
+const ProductBox = styled(props => <Box {...props} />)`
+  padding-top: 250px;
+  padding-bottom: 900px;
+  @media only screen and (min-width: ${md}px) {
+    padding-top: 175px;
+    padding-bottom: 750px;
+  }
 `
 
 const IndexPage = () => {
@@ -95,7 +113,14 @@ const IndexPage = () => {
         bannerImg={bannerImg}
         linkText="Our Process"
         link="/our-process/"
-        title={`Our Adventure \n in extraction.`}
+        title={() => (
+          <>
+            Our <MobileBr />
+            Adventures <DesktopBr />
+            in <MobileBr />
+            extraction.
+          </>
+        )}
         tagLine="Learn more about the Live Resin Project"
       />
       <Box bgColor="#BBA135" top={20} bottom={20}>
@@ -201,7 +226,7 @@ const IndexPage = () => {
           </SquareBox>
         </Grid.Unit>
       </Grid>
-      <Box
+      <ProductBox
         bgColor="rgba(217, 35, 25, 1)"
         top={175}
         bottom={750}
@@ -237,7 +262,7 @@ const IndexPage = () => {
             </Button>
           </Grid.Unit>
         </Grid>
-      </Box>
+      </ProductBox>
       <OnlyDesktop>
         <RCBanner />
       </OnlyDesktop>
@@ -313,9 +338,20 @@ const IndexPage = () => {
       </OnlyMobile>
       <Box fullHeight top={190} bottom={190} bgColor="#FCD199">
         <Quote withSignature>
-            “My philosophy is <MobileBr /><DesktopBr />Japanese <MobileBr />Materialism. <DesktopBr />That <MobileBr />everything takes its<MobileBr /><DesktopBr />
-                higher form. And I <MobileBr />believe <DesktopBr />that live resin <MobileBr />is the highest <DesktopBr />form of <MobileBr />the
-          cannabis plant.”
+          “My philosophy is <MobileBr />
+          <DesktopBr />
+          Japanese <MobileBr />
+          Materialism. <DesktopBr />
+          That <MobileBr />
+          everything takes its
+          <MobileBr />
+          <DesktopBr />
+          higher form. And I <MobileBr />
+          believe <DesktopBr />
+          that live resin <MobileBr />
+          is the highest <DesktopBr />
+          form of <MobileBr />
+          the cannabis plant.”
         </Quote>
       </Box>
       <MeetTheTeam />

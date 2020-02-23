@@ -6,6 +6,7 @@ import styled from "styled-components"
 import { Box } from "./box"
 import { H1 } from "./text"
 import { Select } from "./forms"
+import { MobileBr, DesktopBr } from "./responsive"
 
 const Button = styled.button`
   width: 120px;
@@ -50,11 +51,16 @@ const AgeGate = ({ passed, passAgeGate }) => {
   }
   return (
     <>
-      { !passed && <Helmet bodyAttributes={{ class: "age-gate" }} /> }
+      {!passed && <Helmet bodyAttributes={{ class: "age-gate" }} />}
       <Box top="0" bottom="0" bgColor="#000">
         <Grid>
-          <Grid.Unit size={{ xs: 1, sm: 3 / 4 }}>
-            <H1 style={{ marginTop: 0, color: "#FFF" }}>Are you at least 21 years of age?</H1>
+          <Grid.Unit size={1}>
+            <H1 style={{ marginTop: 0, color: "#FFF" }}>
+              Are you at <MobileBr />
+              least 21 <DesktopBr />
+              years <MobileBr />
+              of age?
+            </H1>
             <Select
               color="#FFF"
               bgColor="#000"

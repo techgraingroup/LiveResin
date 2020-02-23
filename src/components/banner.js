@@ -44,6 +44,7 @@ const Banner = ({
   linkText,
   children,
 }) => {
+  const Title = title
   return (
     <Box
       bgColor="#000"
@@ -52,7 +53,9 @@ const Banner = ({
       bottom={bottom || 215}>
       {children || (
         <>
-          <BannerTitle>{title}</BannerTitle>
+          <BannerTitle>
+            <Title />
+          </BannerTitle>
           <Grid>
             <Grid.Unit size={{ xs: 1, sm: 1 / 2 }}>
               <Tagline>{tagLine}</Tagline>
