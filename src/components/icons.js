@@ -696,14 +696,15 @@ export const Play = ({ color }) => (
   </svg>
 )
 
-export const Collab = ({ borderColor, right }) => (
+export const Collab = ({ size, borderColor, right, ...rest }) => (
   <svg
-    width="32"
-    height="32"
+    width={size || 32}
+    height={size || 32}
     viewBox="0 0 32 32"
     fill="none"
     style={{ position: "relative", top: 10, right: right || 25 }}
-    xmlns="http://www.w3.org/2000/svg">
+    xmlns="http://www.w3.org/2000/svg"
+    {...rest}>
     <path
       d="M15.6131 30.9912C15.7409 30.9934 15.8708 31 15.9985 31C16.1263 31 16.2562 30.9934 16.3839 30.9912C24.4903 30.7863 31 24.1542 31 15.9956C31 7.837 24.4925 1.20705 16.3861 1C20.3501 1.20044 23.5015 4.47797 23.5015 8.49339C23.5015 12.6366 20.1431 15.9956 16.0007 15.9956C11.8584 15.9956 8.5 19.3546 8.5 23.4978C8.4978 27.5132 11.6492 30.7907 15.6131 30.9912Z"
       stroke={borderColor || "black"}

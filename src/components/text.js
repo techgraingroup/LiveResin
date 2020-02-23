@@ -180,6 +180,7 @@ export const BlockTitle = styled(
   font-family: MontHeavy, sans-serif;
   margin: 0;
   white-space: pre-wrap;
+  letter-spacing: -0.035em;
   padding: ${props => (props.line === "mobileTop" ? "30px 0 0 0" : "30px 0")};
   ${props =>
     props.lineHeight
@@ -233,6 +234,7 @@ export const Text = styled.p`
   color: ${props => props.color || "#000"};
   font-size: 16px;
   line-height: 140%;
+  white-space: pre-wrap;
 `
 
 export const Quote = styled(({ withSignature, children, ...rest }) => (

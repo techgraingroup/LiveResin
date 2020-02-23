@@ -83,6 +83,7 @@ const ProductTitle = styled(props => <Grid {...props} />)`
     align-items: center;
     svg {
       width: auto;
+      margin-right: 10px;
       ${fluidRange(
         {
           prop: "height",
@@ -182,23 +183,6 @@ const StrainBox = styled(({ children, bg, color, ...rest }) => {
       }
     }
   }
-`
-
-const Title = styled.h2`
-  width: 82.5%;
-  color: #fff;
-  font-family: MontHeavy, sans-serif;
-  letter-spacing: -0.04em;
-  ${fluidRange({
-    prop: "line-height",
-    fromSize: "41px",
-    toSize: "87px",
-  })}
-  ${fluidRange({
-    prop: "font-size",
-    fromSize: "45px",
-    toSize: "96px",
-  })}
 `
 
 const ProductsPage = () => {
