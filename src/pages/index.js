@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
+import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
@@ -12,7 +13,12 @@ import RCBanner from "../components/rcbanner"
 import MeetTheTeam from "../components/meettheteam"
 import Friends from "../components/friends"
 import InstagramFeed from "../components/instagram"
-import { OnlyMobile, OnlyDesktop } from "../components/responsive"
+import {
+  OnlyMobile,
+  OnlyDesktop,
+  MobileBr,
+  DesktopBr,
+} from "../components/responsive"
 import { getImageFromList, useWindowSize } from "../utils"
 import { THEME } from "../data"
 
@@ -24,6 +30,16 @@ const halfSize = {
 const {
   breakpoints: { md },
 } = THEME
+
+const GoldGrid = styled(props => <Grid.Unit {...props} />)`
+  position: relative;
+  top: 0;
+  text-align: left;
+  @media only screen and (min-width: ${md}px) {
+    top: -5px;
+    text-align: right;
+  }
+`
 
 const IndexPage = () => {
   const { dispatch } = useContext(AppContext)
@@ -104,7 +120,7 @@ const IndexPage = () => {
               Red Congolese
             </span>
           </Grid.Unit>
-          <Grid.Unit size={halfSize} style={{ textAlign: "right" }}>
+          <GoldGrid size={halfSize}>
             <Collab right="0" />
             <span
               style={{
@@ -115,14 +131,27 @@ const IndexPage = () => {
               GOLD SEAL SF
             </span>
             <Arrow borderColor="#000" left="0" />
-          </Grid.Unit>
+          </GoldGrid>
         </Grid>
       </Box>
       <Box fullHeight top={190} bottom={190} bgColor="#FF4438">
         <Quote>
-          The Live Resin Project began when we were harvesting fresh flower. We
-          thought, “There must be a better way to harness this aroma, flavor,
-          and sensation.” So, we found a way.
+          The Live Resin Project <MobileBr />
+          began <DesktopBr />
+          when we were <MobileBr />
+          harvesting <DesktopBr />
+          fresh <MobileBr />
+          flower. We thought, <MobileBr />
+          <DesktopBr />
+          “There must be a <MobileBr />
+          better way <DesktopBr />
+          to <MobileBr />
+          harness this aroma, <MobileBr />
+          <DesktopBr />
+          flavor, and <MobileBr />
+          sensation.” So, <DesktopBr />
+          we <MobileBr />
+          found a way.
         </Quote>
       </Box>
       <Grid reverse={size && size.width < md}>
@@ -177,6 +206,7 @@ const IndexPage = () => {
         top={175}
         bottom={750}
         bgImage={products}
+        bgImageMobile={productsMobile}
         bgSize="contain"
         bgPosition="bottom center">
         <BlockTitle line="top" color="#FFF">
@@ -283,8 +313,8 @@ const IndexPage = () => {
       </OnlyMobile>
       <Box fullHeight top={190} bottom={190} bgColor="#FCD199">
         <Quote withSignature>
-          “My philosophy is Japanese Materialism. That everything takes its
-          higher form. And I believe that live resin is the highest form of the
+            “My philosophy is <MobileBr /><DesktopBr />Japanese <MobileBr />Materialism. <DesktopBr />That <MobileBr />everything takes its<MobileBr /><DesktopBr />
+                higher form. And I <MobileBr />believe <DesktopBr />that live resin <MobileBr />is the highest <DesktopBr />form of <MobileBr />the
           cannabis plant.”
         </Quote>
       </Box>

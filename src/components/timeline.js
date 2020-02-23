@@ -111,7 +111,7 @@ const TimelineItem = styled(
               box-sizing: border-box;
               background: url(${
                 props.photo.childImageSharp.fluid.src
-              }) center center no-repeat transparent;
+              }) center center no-repeat #000;
               background-size: 100%;
               bottom: -50%;
               left: -40px;

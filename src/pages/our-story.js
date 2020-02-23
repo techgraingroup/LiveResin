@@ -8,6 +8,7 @@ import { H2, Quote, PageTitle, BlockTitleHorz } from "../components/text"
 import Timeline from "../components/timeline"
 import MeetTheTeam from "../components/meettheteam"
 import Friends from "../components/friends"
+import { MobileBr, DesktopBr } from "../components/responsive"
 
 const OurStoryPage = () => {
   const { dispatch } = useContext(AppContext)
@@ -32,8 +33,20 @@ const OurStoryPage = () => {
       <MeetTheTeam />
       <Box fullHeight top={190} bottom={190} bgColor="#1DCAD3">
         <Quote withSignature>
-          “Believe me, you’ve never felt something like this. You will taste
-          color and smell flavor. There’s a multidimensional experience waiting
+          “Believe me, you’ve <MobileBr />
+          never <DesktopBr />
+          felt something <MobileBr />
+          like this. You <DesktopBr />
+          will taste
+          <MobileBr />
+          color and smell <MobileBr />
+          <DesktopBr />
+          flavor. There’s a <MobileBr />
+          <DesktopBr />
+          multidimensional <MobileBr />
+          <DesktopBr />
+          experience waiting
+          <MobileBr />
           for you.”
         </Quote>
       </Box>

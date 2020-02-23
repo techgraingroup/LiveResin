@@ -11,7 +11,7 @@ const Button = styled.button`
   width: 120px;
   height: 120px;
   border-radius: 60px;
-  display: inline-block;
+  display: inline-block !important;
   line-height: 120px;
   font-size: 18px;
   font-family: MontHeavy, sans-serif;

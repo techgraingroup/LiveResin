@@ -10,6 +10,7 @@ import { THEME } from "../data"
 
 const {
   breakpoints: { md, xl },
+  sideGutter,
 } = THEME
 
 const ImgWrap = styled(({ children, ...rest }) => (
@@ -93,7 +94,7 @@ const SmallBox = styled(({ children, ...rest }) => (
         {
           prop: "padding-left",
           fromSize: "20px",
-          toSize: "135px",
+          toSize: sideGutter,
         },
         `${md}px`,
         `${xl}px`

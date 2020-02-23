@@ -6,6 +6,7 @@ import { THEME } from "../data"
 
 const {
   breakpoints: { md, xl },
+  sideGutter,
 } = THEME
 
 export const SquareBox = styled(
@@ -37,7 +38,7 @@ export const SquareBox = styled(
 )`
   position: relative;
   padding-top: 0;
-  height: ${props => props.mobileHeight || '100vh'};
+  height: ${props => props.mobileHeight || "100vh"};
   @media only screen and (min-width: ${md}px) {
     padding-top: 100%;
     height: auto;
@@ -53,7 +54,7 @@ export const SquareBox = styled(
         {
           prop: "padding-right",
           fromSize: "20px",
-          toSize: "135px",
+          toSize: sideGutter,
         },
         `${md}px`,
         `${xl}px`
@@ -62,12 +63,26 @@ export const SquareBox = styled(
         {
           prop: "padding-left",
           fromSize: "20px",
-          toSize: "135px",
+          toSize: sideGutter,
         },
         `${md}px`,
         `${xl}px`
       )}
     }
+  }
+`
+
+const MobileImg = styled(props => <Img {...props} />)`
+  display: block !important;
+  @media only screen and (min-width: ${md}px) {
+    display: none !important;
+  }
+`
+
+const DesktopImg = styled(props => <Img {...props} />)`
+  display: none !important;
+  @media only screen and (min-width: ${md}px) {
+    display: block !important;
   }
 `
 
@@ -79,6 +94,7 @@ export const Box = styled(
     left,
     bgColor,
     bgImage,
+    bgImageMobile,
     bgPosition,
     bgSize,
     fullHeight,
@@ -108,9 +124,18 @@ export const Box = styled(
         {bgImage &&
           bgImage.childImageSharp &&
           bgImage.childImageSharp.fluid && (
-            <Img
+            <DesktopImg
               durationFadeIn={1000}
               fluid={bgImage.childImageSharp.fluid}
+              style={imageStyle}
+            />
+          )}
+        {bgImageMobile &&
+          bgImageMobile.childImageSharp &&
+          bgImageMobile.childImageSharp.fluid && (
+            <MobileImg
+              durationFadeIn={1000}
+              fluid={bgImageMobile.childImageSharp.fluid}
               style={imageStyle}
             />
           )}
@@ -142,7 +167,7 @@ export const Box = styled(
           {
             prop: "padding-left",
             fromSize: "20px",
-            toSize: "135px",
+            toSize: sideGutter,
           },
           `${md}px`,
           `${xl}px`
@@ -154,7 +179,7 @@ export const Box = styled(
           {
             prop: "padding-right",
             fromSize: "20px",
-            toSize: "135px",
+            toSize: sideGutter,
           },
           `${md}px`,
           `${xl}px`
@@ -167,4 +192,12 @@ export const Box = styled(
   background-position: ${props => props.bgPosition || "center center"};
   background-size: ${props => props.bgSize || "cover"};
   background-repeat: no-repeat;
+  button {
+    display: block;
+    margin-bottom: 20px;
+    @media only screen and (min-width: ${md}px) {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+  }
 `

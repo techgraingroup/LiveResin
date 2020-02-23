@@ -138,7 +138,7 @@ const RightBox = styled(({ children, ...rest }) => (
 `
 
 const LocationButton = styled.button`
-  display: none;
+  display: none !important;
   margin-bottom: 50px;
   @media only screen and (min-width: ${md}px) {
     display: block;

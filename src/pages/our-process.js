@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import Banner from "../components/banner"
 import { H2, BlockTitleHorz, PageTitle, Quote } from "../components/text"
 import { Box } from "../components/box"
+import { DesktopBr, MobileBr } from "../components/responsive"
 import { AppContext } from "../context"
 import { THEME } from "../data"
 
@@ -105,8 +106,17 @@ const OurProcessPage = () => {
       </Box>
       <Box fullHeight top={190} bottom={190} bgColor="#FF9E18">
         <Quote withSignature>
-          “The real thing about mastering a craft isn’t that you get to make it
-          perfect, but it’s about really knowing how great it can be.”
+          “The real thing about <MobileBr />
+          <DesktopBr />
+          mastering a craft <MobileBr />
+          isn’t that <DesktopBr />
+          you get to <MobileBr />
+          make it perfect, <DesktopBr />
+          but <MobileBr />
+          it’s about really <MobileBr />
+          knowing <DesktopBr />
+          how great it <MobileBr />
+          can be.”
         </Quote>
       </Box>
     </>

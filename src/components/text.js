@@ -122,7 +122,15 @@ export const PageTitle = styled(({ title, text, ...rest }) => (
 `
 
 export const BlockTitleHorz = styled(
-  ({ title, mobileTop, titleStyle, description, ctaText, ctaLink, ...rest }) => (
+  ({
+    title,
+    mobileTop,
+    titleStyle,
+    description,
+    ctaText,
+    ctaLink,
+    ...rest
+  }) => (
     <Grid {...rest}>
       <Grid.Unit size={{ sm: 1, md: 1 / 2 }}>
         <h2 style={{ marginTop: 0, ...titleStyle }}>{title}</h2>
@@ -139,7 +147,7 @@ export const BlockTitleHorz = styled(
   )
 )`
   border-top: 0;
-  padding-top: ${ props => props.mobileTop ? '20px' : '0' };
+  padding-top: ${props => (props.mobileTop ? "20px" : "0")};
   ${props => props.mobileTop && `border-top: 4px solid #000;`}
   @media only screen and (min-width: ${md}px) {
     border-top: 4px solid #000;
@@ -147,8 +155,8 @@ export const BlockTitleHorz = styled(
   }
   h2 {
     font-family: MontHeavy, sans-serif;
-    ${props => props.mobileTop ? '' : `border-bottom: 4px solid #000;`}
-    padding-bottom: ${props => props.mobileTop ? '0' : '30px'};
+    ${props => (props.mobileTop ? "" : `border-bottom: 4px solid #000;`)}
+    padding-bottom: ${props => (props.mobileTop ? "0" : "30px")};
     line-height: 105.8%;
     ${fluidRange(
       {
@@ -172,7 +180,7 @@ export const BlockTitle = styled(
   font-family: MontHeavy, sans-serif;
   margin: 0;
   white-space: pre-wrap;
-  padding: ${props => props.line === 'mobileTop' ? '30px 0 0 0' : '30px 0'};
+  padding: ${props => (props.line === "mobileTop" ? "30px 0 0 0" : "30px 0")};
   ${props =>
     props.lineHeight
       ? `line-height: ${props.lineHeight};`
@@ -229,36 +237,35 @@ export const Text = styled.p`
 
 export const Quote = styled(({ withSignature, children, ...rest }) => (
   <div {...rest}>
-    {children}
-    {withSignature && (
-      <>
-        <br />
-        <img alt="Signature" style={{ marginTop: 25 }} src={signature} />
-      </>
-    )}
+    <div className="quote-wrap">
+      {children}
+      {withSignature && (
+        <>
+          <br />
+          <img alt="Signature" style={{ marginTop: 25 }} src={signature} />
+        </>
+      )}
+    </div>
   </div>
 ))`
-  margin: 0 auto;
-  color: white;
-  font-family: MontHeavy, sans-serif;
-  line-height: 105.8%;
-  letter-spacing: -0.035rem;
-  ${fluidRange(
-    {
-      prop: "width",
-      fromSize: "280px",
-      toSize: "900px",
-    },
-    `${md}px`,
-    `${xl}px`
-  )}
-  ${fluidRange(
-    {
-      prop: "font-size",
-      fromSize: "27px",
-      toSize: "64px",
-    },
-    `${md}px`,
-    `${xl}px`
-  )}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .quote-wrap {
+    margin: 0 auto;
+    color: white;
+    font-family: MontHeavy, sans-serif;
+    line-height: 105.8%;
+    letter-spacing: -0.035rem;
+    width: auto;
+    ${fluidRange(
+      {
+        prop: "font-size",
+        fromSize: "27px",
+        toSize: "64px",
+      },
+      `${md}px`,
+      `${xl}px`
+    )}
+  }
 `

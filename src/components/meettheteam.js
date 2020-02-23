@@ -10,6 +10,7 @@ import { THEME } from "../data"
 
 const {
   breakpoints: { md, xl },
+  sideGutter,
 } = THEME
 
 const MeetTheTeamBox = styled(({ children, ...rest }) => (
@@ -69,7 +70,7 @@ const TheGrid = styled(props => <Grid {...props} />)`
     {
       prop: "margin-left",
       fromSize: "20px",
-      toSize: "135px",
+      toSize: sideGutter,
     },
     `${md}px`,
     `${xl}px`
@@ -78,7 +79,7 @@ const TheGrid = styled(props => <Grid {...props} />)`
     {
       prop: "margin-right",
       fromSize: "20px",
-      toSize: "135px",
+      toSize: sideGutter,
     },
     `${md}px`,
     `${xl}px`
