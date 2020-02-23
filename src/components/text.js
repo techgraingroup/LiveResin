@@ -136,7 +136,7 @@ export const BlockTitleHorz = styled(
         <h2 style={{ marginTop: 0, ...titleStyle }}>{title}</h2>
       </Grid.Unit>
       <Grid.Unit size={{ sm: 1, md: 1 / 2 }}>
-        <Text>{description}</Text>
+        <Text style={{ marginTop: 0 }}>{description}</Text>
         {ctaText && (
           <Button color="#FFF" bgColor="#000" onClick={() => navigate(ctaLink)}>
             {ctaText}
