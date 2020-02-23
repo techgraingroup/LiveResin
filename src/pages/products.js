@@ -176,7 +176,7 @@ const StrainBox = styled(({ children, bg, color, ...rest }) => {
         letter-spacing: -0.02em;
         line-height: 100%;
         white-space: pre-wrap;
-        font-size: 32px;
+        font-size: 28px;
         @media only screen and (min-width: ${md}px) {
           font-size: 15px;
         }

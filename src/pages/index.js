@@ -14,6 +14,14 @@ import MeetTheTeam from "../components/meettheteam"
 import Friends from "../components/friends"
 import InstagramFeed from "../components/instagram"
 import {
+  SubTitle,
+  CollabWrap,
+  CollabLabel,
+  CollabIcon,
+  Description,
+  LowerBlock,
+} from "../components/rcbanner"
+import {
   OnlyMobile,
   OnlyDesktop,
   MobileBr,
@@ -276,73 +284,68 @@ const IndexPage = () => {
         <Grid>
           <Grid.Unit size={halfSize}>
             <Box top={35} bottom={35} bgColor="#BBA135">
-              <Text bottom={20}>Latest Collaboration</Text>
+              <SubTitle>Latest Collaboration</SubTitle>
               <BlockTitle
                 line="mobileTop"
                 fontSize="66px"
-                lineHeight="96%"
+                lineHeight="100%"
                 color="#000">
-                Red
-                <br />
-                Congolese
+                {`Red\nCongolese`}
               </BlockTitle>
-              <div>
-                <Collab right="0" />
-                <span
-                  style={{
-                    display: "inline-block",
-                    marginLeft: 18,
-                    marginRight: 60,
-                  }}>
-                  GOLD SEAL SF
-                </span>
-              </div>
-              <Text
-                style={{
-                  marginTop: 30,
-                  paddingTop: 30,
-                  borderTop: "1px solid #000",
-                }}>
-                This special collaboration showcases Gold Seal’s signature Red
-                Congolese, a 12+ week flowering Sativa that we believe is truly
-                special.
-              </Text>
-              <Button borderColor="#000" color="#000" bgColor="#BBA135">
-                Learn More
-              </Button>
+              <CollabWrap>
+                <CollabIcon right="0" />
+                <CollabLabel>GOLD SEAL SF</CollabLabel>
+              </CollabWrap>
+              <Grid>
+                <Grid.Unit size={{ xs: 1, sm: 1, md: 2 / 3 }}>
+                  <Description style={{ minHeight: 120 }}>
+                    This special collaboration <DesktopBr />
+                    showcases <MobileBr />
+                    Gold Seal’s signature <DesktopBr />
+                    Red Congolese, a 12+ <MobileBr />
+                    week <DesktopBr />
+                    flowering Sativa that we believe <DesktopBr />
+                    is <MobileBr />
+                    truly special.
+                  </Description>
+                </Grid.Unit>
+                <LowerBlock size={{ xs: 1, sm: 1, md: 1 / 3 }}>
+                  <Button color="#000" bgColor="#bba123" borderColor="#000">
+                    Learn More
+                  </Button>
+                </LowerBlock>
+              </Grid>
             </Box>
           </Grid.Unit>
           <Grid.Unit size={halfSize}>
             <Box top={35} bottom={35} bgColor="#000">
-              <Text color="#FFC700" bottom={20}>
-                Recent Drop
-              </Text>
+              <SubTitle color="#FFC700">Recent Drop</SubTitle>
               <BlockTitle
                 line="mobileTop"
                 fontSize="66px"
-                lineHeight="96%"
+                lineHeight="100%"
                 color="#FFC700">
-                Skywalker
-                <br />
-                OG
+                {`Skywalker\nOG`}
               </BlockTitle>
-              <Text
-                color="#FFC700"
-                style={{
-                  marginTop: 70,
-                  paddingTop: 30,
-                  borderTop: "1px solid #FFC700",
-                }}>
-                It's everything we love about OG - gassy, rich a little earthy.
-              </Text>
-              <Button borderColor="#FFC700" color="#FFC700" bgColor="#000">
-                Learn More
-              </Button>
+              <CollabWrap borderColor="#FFC700">{`&nbsp;`}</CollabWrap>
+              <Grid>
+                <Grid.Unit size={{ xs: 1, sm: 1, md: 2 / 3 }}>
+                  <Description color="#FFC700" style={{ minHeight: 120 }}>
+                    It's everything we love about OG - gassy, <MobileBr />
+                    rich a little earthy.
+                  </Description>
+                </Grid.Unit>
+                <LowerBlock size={{ xs: 1, sm: 1, md: 1 / 3 }}>
+                  <Button bgColor="#000" color="#FFC700" borderColor="#FFC700">
+                    Learn More
+                  </Button>
+                </LowerBlock>
+              </Grid>
             </Box>
           </Grid.Unit>
         </Grid>
       </OnlyMobile>
-      <Box fullHeight top={190} bottom={190} bgColor="#FCD199">
+      <Box fullHeight top={190} bottom={190} bgColor="#F3DCAD">
         <Quote withSignature>
           “My philosophy is <MobileBr />
           <DesktopBr />

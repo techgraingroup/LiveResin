@@ -117,9 +117,10 @@ const SmallBox = styled(({ children, ...rest }) => (
     }
 `
 
-const SubTitle = styled.h4`
+export const SubTitle = styled.h4`
   font-family: MontHeavy, sans-serif;
   line-height: 140%;
+  color: ${props => props.color || '#000'};
   ${fluidRange(
     {
       prop: "font-size",
@@ -140,10 +141,12 @@ const SubTitle = styled.h4`
   )}
 `
 
-const CollabWrap = styled.div`
-  border-bottom: 1px solid #000;
+export const CollabWrap = styled.div`
   padding-bottom: 29px;
   margin-bottom: 20px;
+  border-bottom: 1px solid #000;
+  border-bottom: ${props =>
+    props.borderColor ? `1px solid ${props.borderColor}` : `1px solid #000`};
   ${fluidRange(
     {
       prop: "margin-top",
@@ -155,7 +158,7 @@ const CollabWrap = styled.div`
   )}
 `
 
-const CollabLabel = styled.span`
+export const CollabLabel = styled.span`
   letter-spacing: 0.1em;
   line-height: 100%;
   font-family: Mont, sans-serif;
@@ -171,7 +174,7 @@ const CollabLabel = styled.span`
   )}
 `
 
-const CollabIcon = styled(props => <Collab {...props} />)`
+export const CollabIcon = styled(props => <Collab {...props} />)`
   ${fluidRange(
     {
       prop: "width",
@@ -192,8 +195,8 @@ const CollabIcon = styled(props => <Collab {...props} />)`
   )}
 `
 
-const Description = styled.p`
-  color: #000;
+export const Description = styled.p`
+  color: ${props => props.color || "#000"};
   margin-top: 0;
   ${fluidRange(
     {
@@ -206,7 +209,7 @@ const Description = styled.p`
   )}
 `
 
-const LowerBlock = styled(props => <Grid.Unit {...props} />)`
+export const LowerBlock = styled(props => <Grid.Unit {...props} />)`
   display: flex;
   justify-content: space-between;
   align-items: center;
