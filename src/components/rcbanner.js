@@ -6,6 +6,8 @@ import { fluidRange, cover } from "polished"
 import { useStaticQuery, graphql } from "gatsby"
 import { Collab } from "./icons"
 import { BlockTitle } from "./text"
+import { OnlyMobile, DesktopBr, MobileBr } from "./responsive"
+import { Button } from "./button"
 import { THEME } from "../data"
 
 const {
@@ -60,8 +62,10 @@ const SmallBox = styled(({ children, ...rest }) => (
       background-color: #bba123;
       box-sizing: border-box;
       width: 100%;
+      margin-top: -1px;
       @media only screen and (min-width: ${md}px) {
-      width: 47.5%;
+       width: 653px;
+       margin-top: 0;
       }
       ${fluidRange(
         {
@@ -113,6 +117,104 @@ const SmallBox = styled(({ children, ...rest }) => (
     }
 `
 
+const SubTitle = styled.h4`
+  font-family: MontHeavy, sans-serif;
+  line-height: 140%;
+  ${fluidRange(
+    {
+      prop: "font-size",
+      fromSize: "12px",
+      toSize: "16px",
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+  ${fluidRange(
+    {
+      prop: "margin-bottom",
+      fromSize: "21px",
+      toSize: "24px",
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+`
+
+const CollabWrap = styled.div`
+  border-bottom: 1px solid #000;
+  padding-bottom: 29px;
+  margin-bottom: 20px;
+  ${fluidRange(
+    {
+      prop: "margin-top",
+      fromSize: "18px",
+      toSize: "43px",
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+`
+
+const CollabLabel = styled.span`
+  letter-spacing: 0.1em;
+  line-height: 100%;
+  font-family: Mont, sans-serif;
+  text-transform: uppercase;
+  ${fluidRange(
+    {
+      prop: "font-size",
+      fromSize: "14px",
+      toSize: "24px",
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+`
+
+const CollabIcon = styled(props => <Collab {...props} />)`
+  ${fluidRange(
+    {
+      prop: "width",
+      fromSize: "20px",
+      toSize: "30px",
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+  ${fluidRange(
+    {
+      prop: "margin-right",
+      fromSize: "10px",
+      toSize: "20px",
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+`
+
+const Description = styled.p`
+  color: #000;
+  margin-top: 0;
+  ${fluidRange(
+    {
+      prop: "margin-bottom",
+      fromSize: "20px",
+      toSize: "50px",
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+`
+
+const LowerBlock = styled(props => <Grid.Unit {...props} />)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media only screen and (min-width: ${md}px) {
+    justify-content: flex-end;
+  }
+`
+
 const RCBanner = () => {
   const { winner, banner } = useStaticQuery(graphql`
     query {
@@ -138,38 +240,34 @@ const RCBanner = () => {
         <BgImg fluid={banner.childImageSharp.fluid} />
       </ImgWrap>
       <SmallBox>
-        <h4 style={{ fontSize: 24, fontFamily: "MontHeavy, sans-serif" }}>
-          Latest Colloboration
-        </h4>
+        <SubTitle>Latest Colloboration</SubTitle>
         <BlockTitle
           lineHeight="100%"
           fontSize="66px"
           line="mobileTop">{`Red\nCongolese`}</BlockTitle>
-        <div
-          style={{
-            borderBottom: "1px solid #000",
-            paddingBottom: 30,
-            marginBottom: 20,
-          }}>
-          <Collab right="0" />
-          <span
-            style={{
-              display: "inline-block",
-              marginLeft: 18,
-              marginRight: 60,
-            }}>
-            GOLD SEAL SF
-          </span>
-        </div>
+        <CollabWrap>
+          <CollabIcon right="0" />
+          <CollabLabel>GOLD SEAL SF</CollabLabel>
+        </CollabWrap>
         <Grid>
-          <Grid.Unit size={2 / 3}>
-            <p style={{ color: "#000", marginTop: 0, marginBottom: 50 }}>
-              This special collaboration showcases Gold Seal’s signature Red
-              Congolese, a 12+ week flowering Sativa that we believe is truly
-              special.
-            </p>
+          <Grid.Unit size={{ xs: 1, sm: 1, md: 2 / 3 }}>
+            <Description>
+              This special collaboration <DesktopBr />
+              showcases <MobileBr />
+              Gold Seal’s signature <DesktopBr />
+              Red Congolese, a 12+ <MobileBr />
+              week <DesktopBr />
+              flowering Sativa that we believe <DesktopBr />
+              is <MobileBr />
+              truly special.
+            </Description>
           </Grid.Unit>
-          <Grid.Unit size={1 / 3} style={{ textAlign: "right" }}>
+          <LowerBlock size={{ xs: 1, sm: 1, md: 1 / 3 }}>
+            <OnlyMobile>
+              <Button color="#000" bgColor="#bba123" borderColor="#000">
+                Learn More
+              </Button>
+            </OnlyMobile>
             <Img
               style={{
                 marginTop: 10,
@@ -179,7 +277,7 @@ const RCBanner = () => {
               }}
               fluid={winner.childImageSharp.fluid}
             />
-          </Grid.Unit>
+          </LowerBlock>
         </Grid>
       </SmallBox>
     </div>
