@@ -100,22 +100,22 @@ const FindNearYou = () => {
         <BottomGrid>
           <BottomBox className="first">
             <div className="text">
-              <H4>Ancient Remedies Cannabis Weed Dispensary</H4>
+              <H4>{`Ancient Remedies\nCannabis Weed\nDispensary`}</H4>
               <Text>{`2350 State Street\nSalem, OR 97301`}</Text>
             </div>
             <Link to="#">
-              Get Direction <Arrow borderColor="#000" />
+              Get Directions <Arrow borderColor="#000" />
             </Link>
           </BottomBox>
         </BottomGrid>
         <BottomGrid>
           <BottomBox>
             <div className="text">
-              <H4>Ancient Remedies Cannabis Weed Dispensary</H4>
+              <H4>{`Ancient Remedies\nCannabis Weed\nDispensary`}</H4>
               <Text>{`2350 State Street\nSalem, OR 97301`}</Text>
             </div>
             <Link to="#">
-              Get Direction <Arrow borderColor="#000" />
+              Get Directions <Arrow borderColor="#000" />
             </Link>
           </BottomBox>
         </BottomGrid>
