@@ -1,19 +1,25 @@
 import React, { useState, useEffect, useContext } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
+import { fluidRange } from "polished"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import { Box } from "../components/box"
 import { H2, Text } from "../components/text"
 import { PageTitle } from "../components/text"
+import { THEME } from "../data"
+
+const {
+  breakpoints: { md, xl },
+} = THEME
 
 const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
   const eleClass = `${className} ${active && "active"}`
   return (
     <div {...rest} className={eleClass}>
-      <H2>
+      <h2>
         <button onClick={onClick}>{`Q. ${data.q}`}</button>
-      </H2>
+      </h2>
       <div className={active ? "active text-wrap" : "text-wrap"}>
         <Text>{data.a}</Text>
       </div>
@@ -22,9 +28,21 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
 })`
   h2 {
     font-family: MontHeavy, sans-serif;
-    padding-bottom: 30px;
     border-bottom: 4px solid #000;
     position: relative;
+    ${fluidRange(
+      {
+        prop: "font-size",
+        fromSize: "30px",
+        toSize: "48px",
+      },
+      `${md}px`,
+      `${xl}px`
+    )}
+    padding-bottom: 0;
+    @media only screen and (min-width: ${md}px) {
+      padding-bottom: 30px;
+    }
     button {
       border: 0;
       outline: none;
