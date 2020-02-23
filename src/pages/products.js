@@ -252,6 +252,7 @@ const ProductsPage = () => {
         bgImage={banner}
         bgImageMobile={bannerMobile}
         vAlign="flex-end"
+        vAlignMobile="flex-end"
         title={() => (
           <>
             We create <MobileBr />

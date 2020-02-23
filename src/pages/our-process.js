@@ -85,7 +85,8 @@ const OurProcessPage = () => {
         aspectRatioMobile={896 / 375}
         bgImage={banner}
         bgImageMobile={bannerMobile}
-        vAlign="flex-end"
+        vAlign="center"
+        vAlignMobile="flex-end"
         title={() => (
           <>
             The true <MobileBr />
@@ -94,7 +95,17 @@ const OurProcessPage = () => {
             cannabis.
           </>
         )}
-        description="Live Resin is the purest way to consume cannabis. It harnesses all of the flavor, aroma, and potency of a live cannabis plant, and delivers it in an authentic concentrate."
+        description={() => (
+          <>
+            Live resin delivers an authentic, multi-sensory <DesktopBr />
+            <MobileBr />
+            cannabis experience. It harnesses all the aroma, <DesktopBr />
+            <MobileBr />
+            flavor, and uniqueness of a live cannabis plant in a <DesktopBr />
+            <MobileBr />
+            variety of concentrate forms.
+          </>
+        )}
       />
       <PageTitle
         title={`Our\nProcess`}

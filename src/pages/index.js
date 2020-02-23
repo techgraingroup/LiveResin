@@ -115,7 +115,8 @@ const IndexPage = () => {
         aspectRatioMobile={829 / 375}
         bgImage={bannerImg}
         bgImageMobile={bannerMobileImg}
-        vAlign="flex-end"
+        vAlign="center"
+        vAlignMobile="flex-end"
         title={() => (
           <>
             Our <MobileBr />
@@ -124,7 +125,7 @@ const IndexPage = () => {
             extraction.
           </>
         )}
-        description="Learn more about the Live Resin Project"
+        description={() => <>Learn more about the Live Resin Project</>}
         btnText="Our Process"
         btnLink="/our-process/"
       />

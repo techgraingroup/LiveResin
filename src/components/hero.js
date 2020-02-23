@@ -16,18 +16,18 @@ const BannerTitle = styled.h2`
   color: #fff;
   font-family: MontHeavy, sans-serif;
   font-weight: 800;
-  line-spacing: -0.04em;
+  letter-spacing: -0.04em;
   ${props =>
     props.withDescription
       ? `
         padding-bottom: 30px;
         margin-bottom: 15px;
         @media only screen and (min-width: ${md}px) {
-            padding-bottom: 50px;
+            padding-bottom: 20px;
             margin-bottom: 30px;
         }
       `
-      : ""}
+      : `margin-bottom: 0;`}
   border-bottom: ${props => (props.withDescription ? "4px solid #FFF" : 0)};
   ${fluidRange(
     {
@@ -69,6 +69,7 @@ const Hero = styled(
     aspectRatio,
     aspectRatioMobile,
     vAlign,
+    vAlignMobile,
     bgSize,
     bgImage,
     bgImageMobile,
@@ -86,6 +87,7 @@ const Hero = styled(
       height: bgSize === "contain" ? "auto" : "100%",
     }
     const Title = title
+    const Description = description
     return (
       <div {...rest}>
         <OnlyDesktop>
@@ -115,7 +117,11 @@ const Hero = styled(
             <BannerTitle withDescription={!!description}>
               <Title />
             </BannerTitle>
-            <Tagline>{description}</Tagline>
+            {description && (
+              <Tagline>
+                <Description />
+              </Tagline>
+            )}
             {btnText && btnLink && (
               <Button
                 bgColor="#FFF"
@@ -141,7 +147,10 @@ const Hero = styled(
     ${cover()}
     display: flex;
     justify-content: center;
-    align-items: ${props => props.vAlign || "center"};
+    align-items: ${props => props.vAlignMobile || "center"};
+    @media only screen and (min-width: ${md}px) {
+      align-items: ${props => props.vAlign || "center"};
+    }
     .content {
       width: 100%;
       box-sizing: border-box;
