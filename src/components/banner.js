@@ -37,6 +37,7 @@ const Banner = ({
   top,
   bottom,
   bannerImg,
+  bannerMobileImg,
   title,
   tagLine,
   withButton,
@@ -49,6 +50,7 @@ const Banner = ({
     <Box
       bgColor="#000"
       bgImage={bannerImg}
+      bgImageMobile={bannerMobileImg}
       top={top || 240}
       bottom={bottom || 215}>
       {children || (

@@ -12,6 +12,7 @@ import { Box } from "../components/box"
 import RCBanner from "../components/rcbanner"
 import { Text, BlockTitleHorz } from "../components/text"
 import { MobileBr, DesktopBr } from "../components/responsive"
+import { getImageFromList } from "../utils"
 import { THEME } from "../data"
 import {
   TBudder,
@@ -211,7 +212,7 @@ const ProductsPage = () => {
   }, [])
   const {
     dataJson: { products },
-    banner,
+    banners: { edges },
   } = useStaticQuery(graphql`
     query {
       dataJson {
@@ -235,19 +236,37 @@ const ProductsPage = () => {
           }
         }
       }
-      banner: file(relativePath: { eq: "products-banner.jpg" }) {
-        childImageSharp {
-          fluid(quality: 100, maxWidth: 2880) {
-            ...GatsbyImageSharpFluid_withWebp
+      banners: allFile(
+        filter: {
+          relativePath: {
+            in: ["products-banner.jpg", "products-banner-mobile.jpg"]
+          }
+        }
+      ) {
+        edges {
+          node {
+            id
+            relativePath
+            childImageSharp {
+              fluid(quality: 100, maxWidth: 2880) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
           }
         }
       }
     }
   `)
+  const banner = getImageFromList("products-banner.jpg", edges)
+  const bannerMobile = getImageFromList("products-banner-mobile.jpg", edges)
   return (
     <>
       <SEO title="Products" />
-      <Banner top={500} bottom={100} bannerImg={banner}>
+      <Banner
+        top={500}
+        bottom={100}
+        bannerImg={banner}
+        bannerMobileImg={bannerMobile}>
         <Title>
           We create <MobileBr />
           fresh <DesktopBr />

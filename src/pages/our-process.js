@@ -8,6 +8,7 @@ import { H2, BlockTitleHorz, PageTitle, Quote } from "../components/text"
 import { Box } from "../components/box"
 import { DesktopBr, MobileBr } from "../components/responsive"
 import { AppContext } from "../context"
+import { getImageFromList } from "../utils"
 import { THEME } from "../data"
 
 const {
@@ -31,17 +32,10 @@ const TextWrapper = styled(props => <Grid.Unit {...props} />)`
 const OurProcessPage = () => {
   const { dispatch } = useContext(AppContext)
   const {
-    file,
     dataJson: { processSteps },
+    banners: { edges },
   } = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "process-banner-bg.jpg" }) {
-        childImageSharp {
-          fluid(quality: 100, maxWidth: 2880) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
       dataJson {
         processSteps {
           color
@@ -49,6 +43,25 @@ const OurProcessPage = () => {
           title
           image {
             publicURL
+          }
+        }
+      }
+      banners: allFile(
+        filter: {
+          relativePath: {
+            in: ["process-banner-bg.jpg", "process-banner-mobile-bg.jpg"]
+          }
+        }
+      ) {
+        edges {
+          node {
+            id
+            relativePath
+            childImageSharp {
+              fluid(quality: 100, maxWidth: 2880) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
           }
         }
       }
@@ -61,11 +74,14 @@ const OurProcessPage = () => {
     })
     dispatch({ type: "mobileMenu", value: false })
   }, [])
+  const banner = getImageFromList("process-banner-bg.jpg", edges)
+  const bannerMobile = getImageFromList("process-banner-mobile-bg.jpg", edges)
   return (
     <>
       <SEO title="Our Process" />
       <Banner
-        bannerImg={file}
+        bannerImg={banner}
+        bannerMobileImg={bannerMobile}
         title={() => (
           <>
             The true <MobileBr />

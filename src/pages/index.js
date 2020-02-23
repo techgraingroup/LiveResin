@@ -78,6 +78,7 @@ const IndexPage = () => {
           relativePath: {
             in: [
               "home-banner-bg.jpg"
+              "home-banner-mobile-bg.jpg"
               "inventor.png"
               "extract.jpg"
               "products.jpg"
@@ -101,6 +102,7 @@ const IndexPage = () => {
     }
   `)
   const bannerImg = getImageFromList("home-banner-bg.jpg", edges)
+  const bannerMobileImg = getImageFromList("home-banner-mobile-bg.jpg", edges)
   const inventor = getImageFromList("inventor.png", edges)
   const extract = getImageFromList("extract.jpg", edges)
   const products = getImageFromList("products.jpg", edges)
@@ -111,6 +113,7 @@ const IndexPage = () => {
       <Banner
         withButton
         bannerImg={bannerImg}
+        bannerMobileImg={bannerMobileImg}
         linkText="Our Process"
         link="/our-process/"
         title={() => (
