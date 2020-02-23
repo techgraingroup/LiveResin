@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Grid from "styled-components-grid"
 import SEO from "../components/seo"
 import Banner from "../components/banner"
+import Hero from "../components/hero"
 import { H2, BlockTitleHorz, PageTitle, Quote } from "../components/text"
 import { Box } from "../components/box"
 import { DesktopBr, MobileBr } from "../components/responsive"
@@ -79,9 +80,12 @@ const OurProcessPage = () => {
   return (
     <>
       <SEO title="Our Process" />
-      <Banner
-        bannerImg={banner}
-        bannerMobileImg={bannerMobile}
+      <Hero
+        aspectRatio={900 / 1440}
+        aspectRatioMobile={896 / 375}
+        bgImage={banner}
+        bgImageMobile={bannerMobile}
+        vAlign="flex-end"
         title={() => (
           <>
             The true <MobileBr />
@@ -90,7 +94,7 @@ const OurProcessPage = () => {
             cannabis.
           </>
         )}
-        tagLine="Live Resin is the purest way to consume cannabis. It harnesses all of the flavor, aroma, and potency of a live cannabis plant, and delivers it in an authentic concentrate."
+        description="Live Resin is the purest way to consume cannabis. It harnesses all of the flavor, aroma, and potency of a live cannabis plant, and delivers it in an authentic concentrate."
       />
       <PageTitle
         title={`Our\nProcess`}

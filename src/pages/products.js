@@ -6,7 +6,7 @@ import Grid from "styled-components-grid"
 import { cover, fluidRange } from "polished"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
-import Banner from "../components/banner"
+import Hero from "../components/hero"
 import FindNearYou from "../components/findnearyou"
 import { Box } from "../components/box"
 import RCBanner from "../components/rcbanner"
@@ -262,20 +262,23 @@ const ProductsPage = () => {
   return (
     <>
       <SEO title="Products" />
-      <Banner
-        top={500}
-        bottom={100}
-        bannerImg={banner}
-        bannerMobileImg={bannerMobile}>
-        <Title>
-          We create <MobileBr />
-          fresh <DesktopBr />
-          extracts <MobileBr />
-          in a variety <DesktopBr />
-          of <MobileBr />
-          formats.
-        </Title>
-      </Banner>
+      <Hero
+        aspectRatio={900 / 1440}
+        aspectRatioMobile={640 / 375}
+        bgImage={banner}
+        bgImageMobile={bannerMobile}
+        vAlign="flex-end"
+        title={() => (
+          <>
+            We create <MobileBr />
+            fresh <DesktopBr />
+            extracts <MobileBr />
+            in a variety <DesktopBr />
+            of <MobileBr />
+            formats.
+          </>
+        )}
+      />
       <Box bottom="0">
         <BlockTitleHorz
           title="Our Formats"

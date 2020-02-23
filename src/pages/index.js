@@ -8,7 +8,7 @@ import { Box, SquareBox } from "../components/box"
 import { Quote, BlockTitle, Text } from "../components/text"
 import { Button } from "../components/button"
 import { Arrow, Collab } from "../components/icons"
-import Banner from "../components/banner"
+import Hero from "../components/hero"
 import RCBanner from "../components/rcbanner"
 import MeetTheTeam from "../components/meettheteam"
 import Friends from "../components/friends"
@@ -110,12 +110,12 @@ const IndexPage = () => {
   return (
     <>
       <SEO title="Home" />
-      <Banner
-        withButton
-        bannerImg={bannerImg}
-        bannerMobileImg={bannerMobileImg}
-        linkText="Our Process"
-        link="/our-process/"
+      <Hero
+        aspectRatio={800 / 1440}
+        aspectRatioMobile={829 / 375}
+        bgImage={bannerImg}
+        bgImageMobile={bannerMobileImg}
+        vAlign="flex-end"
         title={() => (
           <>
             Our <MobileBr />
@@ -124,7 +124,9 @@ const IndexPage = () => {
             extraction.
           </>
         )}
-        tagLine="Learn more about the Live Resin Project"
+        description="Learn more about the Live Resin Project"
+        btnText="Our Process"
+        btnLink="/our-process/"
       />
       <Box bgColor="#BBA135" top={20} bottom={20}>
         <Grid valign="center">
