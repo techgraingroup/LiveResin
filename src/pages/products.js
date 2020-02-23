@@ -27,26 +27,32 @@ import {
 const icons = { TBudder, TDiamonds, TSauce, TSugar, TShatter, TThca, TVapes }
 
 const {
-  breakpoints: { md, xl },
+  breakpoints: { md, lg, xl },
 } = THEME
 
-const IconsWrap = styled(props => <Grid {...props} />)`
+const IconsWrap = styled.div`
   margin-bottom: 0;
   padding-top: 30px;
   border-top: 1px solid #000;
   text-align: center;
   padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   @media only screen and (min-width: ${md}px) {
     padding-bottom: 75px;
   }
   span {
     display: block;
-    font-family: 16px;
+    font-size: 16px;
     font-family: MontHeavy, sans-serif;
     line-height: 100%;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     min-height: 32px;
+    max-width: 140px;
+    margin-left: auto;
+    margin-right: auto;
   }
   svg {
     display: inline-block;
@@ -55,6 +61,41 @@ const IconsWrap = styled(props => <Grid {...props} />)`
     @media only screen and (min-width: ${md}px) {
       margin-top: 40px;
       margin-bottom: 0;
+    }
+  }
+`
+
+const IconWrap = styled.div`
+  width: 50%;
+  flex-basis: 50%;
+  ${fluidRange(
+    {
+      prop: "padding-left",
+      fromSize: "0px",
+      toSize: "15px",
+    },
+    `${lg}px`,
+    `${xl}px`
+  )}
+  ${fluidRange(
+    {
+      prop: "padding-right",
+      fromSize: "0px",
+      toSize: "15px",
+    },
+    `${lg}px`,
+    `${xl}px`
+  )}
+  @media only screen and (min-width: ${lg}px) {
+    width: auto;
+    flex-basis: auto;
+  }
+  &.last-odd {
+    width: 100%;
+    flex-basis: 100%;
+    @media only screen and (min-width: ${lg}px) {
+      width: auto;
+      flex-basis: auto;
     }
   }
 `
@@ -97,35 +138,60 @@ const ProductTitle = styled(props => <Grid {...props} />)`
   }
 `
 
-const ProductInfo = styled(props => (
-  <Grid.Unit size={{ xs: 1, sm: 1, md: 1 / 2 }} {...props} />
+const ProductInfo = styled(({ children, ...rest }) => (
+  <Grid.Unit {...rest}>
+    <div className="info-wrap">{children}</div>
+  </Grid.Unit>
 ))`
   padding-top: 20px;
-  h3 {
-    margin-top: 0;
-    text-transform: uppercase;
-    font-family: MontHeavy, sans-serif;
-    line-height: 100%;
-    letter-spacing: 0.1em;
-    ${fluidRange(
-      {
-        prop: "font-size",
-        fromSize: "20px",
-        toSize: "24px",
-      },
-      `${md}px`,
-      `${xl}px`
-    )}
+  .info-wrap {
+    padding-right: 0;
+    @media only screen and (min-width: ${md}px) {
+      padding-right: 15px;
+    }
+    h3 {
+      margin-top: 0;
+      text-transform: uppercase;
+      font-family: MontHeavy, sans-serif;
+      line-height: 100%;
+      letter-spacing: 0.1em;
+      ${fluidRange(
+        {
+          prop: "font-size",
+          fromSize: "20px",
+          toSize: "24px",
+        },
+        `${md}px`,
+        `${xl}px`
+      )}
+    }
+    h4 {
+      font-family: MontHeavy, sans-serif;
+      font-size: 16px;
+      line-height: 140%;
+      padding-top: 20px;
+      border-top: 1px solid #000;
+    }
+    p {
+      margin-bottom: 55px;
+    }
   }
-  h4 {
-    font-family: MontHeavy, sans-serif;
-    font-size: 16px;
-    line-height: 140%;
-    padding-top: 20px;
-    border-top: 1px solid #000;
-  }
-  p {
-    margin-bottom: 55px;
+`
+
+const ImgWrapper = styled(props => <Grid.Unit {...props} />)`
+  padding-right: 20px;
+  box-sizing: border-box;
+`
+
+const ProductImg = styled(props => <Img {...props} />)`
+  width: 510px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  @media only screen and (min-width: ${lg}px) {
+    margin-left: 0;
   }
 `
 
@@ -281,20 +347,15 @@ const ProductsPage = () => {
             const Icon = icons[p.icon]
             const isEven = products.length % 2 === 0
             const isLastElement = i + 1 === products.length
-            const size = {
-              xs: 1 / 2,
-              sm: 1 / 2,
-              md: 1 / products.length,
-            }
+            let className = "icon-item"
             if (!isEven && isLastElement) {
-              size.xs = 1
-              size.sm = 1
+              className = "icon-item last-odd"
             }
             return (
-              <Grid.Unit key={`${i}-item`} size={size}>
+              <IconWrap key={`${i}-item`} className={className}>
                 <span className="label">{p.name}</span>
                 <Icon active />
-              </Grid.Unit>
+              </IconWrap>
             )
           })}
         </IconsWrap>
@@ -312,18 +373,10 @@ const ProductsPage = () => {
               </Grid.Unit>
             </ProductTitle>
             <Grid>
-              <Grid.Unit size={{ xs: 1, sm: 1, md: 1 / 2 }}>
-                <Img
-                  style={{
-                    width: "100%",
-                    maxWidth: 510,
-                    height: "auto",
-                    marginBottom: 40,
-                  }}
-                  fluid={p.image.childImageSharp.fluid}
-                />
-              </Grid.Unit>
-              <ProductInfo>
+              <ImgWrapper size={{ xs: 1, sm: 1, md: 1, lg: 1 / 2 }}>
+                <ProductImg fluid={p.image.childImageSharp.fluid} />
+              </ImgWrapper>
+              <ProductInfo size={{ xs: 1, sm: 1, md: 1, lg: 1 / 2 }}>
                 <h3>What is it?</h3>
                 <Text>{p.what}</Text>
                 <h3>How is it made?</h3>
