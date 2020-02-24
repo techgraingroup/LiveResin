@@ -117,7 +117,7 @@ const MenuLink = styled(({ activeColor, isActive, external, ...rest }) => {
     top: 0;
     right: 0;
     left: 0;
-    height: 5px;
+    height: 10px;
     background: ${props =>
       props.isActive && props.activeColor ? props.activeColor : "transparent"};
   }

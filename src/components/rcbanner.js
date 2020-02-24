@@ -121,20 +121,12 @@ export const SubTitle = styled.h4`
   font-family: MontHeavy, sans-serif;
   line-height: 140%;
   color: ${props => props.color || '#000'};
+  margin-bottom: 24px;
   ${fluidRange(
     {
       prop: "font-size",
       fromSize: "12px",
       toSize: "16px",
-    },
-    `${md}px`,
-    `${xl}px`
-  )}
-  ${fluidRange(
-    {
-      prop: "margin-bottom",
-      fromSize: "21px",
-      toSize: "24px",
     },
     `${md}px`,
     `${xl}px`

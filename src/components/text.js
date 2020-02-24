@@ -181,7 +181,7 @@ export const BlockTitle = styled(
   margin: 0;
   white-space: pre-wrap;
   letter-spacing: -0.035em;
-  padding: ${props => (props.line === "mobileTop" ? "30px 0 0 0" : "30px 0")};
+  padding: ${props => (props.line === "mobileTop" ? "30px 0 10px 0" : "20px 0")};
   ${props =>
     props.lineHeight
       ? `line-height: ${props.lineHeight};`
@@ -219,6 +219,7 @@ export const BlockTitle = styled(
     `
         border-top: 4px solid ${props.color || "#000"};
         border-bottom: 0;
+        padding: 30px 0 10px 0;
     `}
   ${props =>
     props.line === "bottom" &&

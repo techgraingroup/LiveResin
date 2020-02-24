@@ -165,7 +165,7 @@ const MeetTheTeam = () => {
             <BlockTitle line="bottom" color="#FFF">
               Meet the Team
             </BlockTitle>
-            <Text color="#FFF">
+            <Text color="#FFF" style={{ marginTop: 30 }}>
               Creating live resin is a scientific process designed to preserve
               all the characteristics of fresh flower that dry out and degrade
               in other form factors.

@@ -1,9 +1,8 @@
 import React, { useContext } from "react"
-import { Link } from "gatsby"
-import { useStaticQuery, graphql } from "gatsby"
-import Logo from "./logo"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import Logo from "./logo"
 import { AppContext } from "../context"
 import { BlockTitle } from "./text"
 import { Box } from "./box"
@@ -163,6 +162,13 @@ const LocationButton = styled.button`
   }
 `
 
+const NotifiedBox = styled.p`
+  margin-top: 20px;
+  @media only screen and (min-width: ${md}px) {
+    margin-top: 15px;
+  }
+`
+
 const Footer = ({ userState }) => {
   const {
     state: { data },
@@ -210,10 +216,10 @@ const Footer = ({ userState }) => {
               <BlockTitle color="#FFF" line="top">
                 Get Notified
               </BlockTitle>
-              <p>
+              <NotifiedBox>
                 We will be launching soon in California and Oregon. Sign up to
                 stay up to date on when you can get your hands on Live Resin.
-              </p>
+              </NotifiedBox>
               <SubscribeForm method="POST" action="#">
                 <input type="text" placeholder="Your email" />
                 <button type="submit">Sign Up</button>

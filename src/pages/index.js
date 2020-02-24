@@ -67,6 +67,13 @@ const ProductBox = styled(props => <Box {...props} />)`
   }
 `
 
+const ProductText = styled(props => <Grid.Unit {...props} />)`
+  margin-top: 10px;
+  @media only screen and (min-width: ${md}px) {
+    margin-top: 0;
+  }
+`
+
 const IndexPage = () => {
   const { dispatch } = useContext(AppContext)
   const size = useWindowSize()
@@ -261,7 +268,7 @@ const IndexPage = () => {
           Our Products
         </BlockTitle>
         <Grid>
-          <Grid.Unit size={{ sm: 2 / 5, xs: 1 }}>
+          <ProductText size={{ sm: 2 / 5, xs: 1 }}>
             <Text color="#FFF">
               Our goal is to preserve the essence of a live plant until you’re
               holding our concentrates in your hand. We’re always looking for
@@ -283,7 +290,7 @@ const IndexPage = () => {
               onClick={() => navigate("/store-locator/")}>
               Store Locator
             </Button>
-          </Grid.Unit>
+          </ProductText>
         </Grid>
       </ProductBox>
       <OnlyDesktop>

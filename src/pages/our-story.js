@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from "react"
+import styled from "styled-components"
 import { navigate } from "gatsby"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
@@ -9,6 +10,18 @@ import Timeline from "../components/timeline"
 import MeetTheTeam from "../components/meettheteam"
 import Friends from "../components/friends"
 import { MobileBr, DesktopBr } from "../components/responsive"
+import { THEME } from "../data"
+
+const {
+  breakpoints: { md },
+} = THEME
+
+const BlockTitle = styled(props => <BlockTitleHorz {...props} />)`
+  margin-bottom: 0;
+  @media only screen and (min-width: ${md}px) {
+    margin-bottom: 100px;
+  }
+`
 
 const OurStoryPage = () => {
   const { dispatch } = useContext(AppContext)
@@ -52,9 +65,8 @@ const OurStoryPage = () => {
       </Box>
       <Friends />
       <Box top="0">
-        <BlockTitleHorz
+        <BlockTitle
           mobileTop
-          style={{ marginBottom: 100 }}
           title="Get In Touch"
           description="Donec eget imperdiet dui. Mauris lorem lacus, porttitor quis vehicula vitae, pretium non purus."
         />

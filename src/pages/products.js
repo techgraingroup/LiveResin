@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react"
+import React, { useEffect, useContext, useRef } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
@@ -12,7 +12,7 @@ import { Box } from "../components/box"
 import RCBanner from "../components/rcbanner"
 import { Text, BlockTitleHorz } from "../components/text"
 import { MobileBr, DesktopBr } from "../components/responsive"
-import { getImageFromList } from "../utils"
+import { useScrollPosition, getImageFromList } from "../utils"
 import { THEME } from "../data"
 import {
   TBudder,
@@ -32,13 +32,12 @@ const {
 
 const IconsWrap = styled.div`
   margin-bottom: 0;
-  padding-top: 30px;
   border-top: 1px solid #000;
   text-align: center;
-  padding-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding-bottom: 20px;
   @media only screen and (min-width: ${md}px) {
     padding-bottom: 75px;
   }
@@ -65,7 +64,11 @@ const IconsWrap = styled.div`
   }
 `
 
-const IconWrap = styled.div`
+const IconWrap = styled(({ target, isActive, children, ...rest }) => (
+  <div {...rest}>
+    <a href={target || "#"}>{children}</a>
+  </div>
+))`
   width: 50%;
   flex-basis: 50%;
   ${fluidRange(
@@ -97,6 +100,28 @@ const IconWrap = styled.div`
       width: auto;
       flex-basis: auto;
     }
+  }
+  a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    padding-top: 30px;
+    ${props =>
+      props.isActive &&
+      `
+    &::before {
+        display: block;
+        content: '';
+        width: 100%;
+        height: 10px;
+        background: #FF4438;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+    `}
   }
 `
 
@@ -252,6 +277,7 @@ const StrainBox = styled(({ children, bg, color, ...rest }) => {
 `
 
 const ProductsPage = () => {
+  const iconsMenu = useRef(null)
   const { dispatch } = useContext(AppContext)
   useEffect(() => {
     dispatch({
@@ -260,6 +286,15 @@ const ProductsPage = () => {
     })
     dispatch({ type: "mobileMenu", value: false })
   }, [])
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      console.log(prevPos, currPos)
+    },
+    [],
+    iconsMenu,
+    null,
+    500
+  )
   const {
     dataJson: { products },
     banners: { edges },
@@ -342,7 +377,7 @@ const ProductsPage = () => {
         />
       </Box>
       <Box top="0" bottom="0">
-        <IconsWrap>
+        <IconsWrap ref={iconsMenu}>
           {products.map((p, i) => {
             const Icon = icons[p.icon]
             const isEven = products.length % 2 === 0
@@ -352,7 +387,10 @@ const ProductsPage = () => {
               className = "icon-item last-odd"
             }
             return (
-              <IconWrap key={`${i}-item`} className={className}>
+              <IconWrap
+                key={`${i}-item`}
+                className={className}
+                isActive={i === 2}>
                 <span className="label">{p.name}</span>
                 <Icon active />
               </IconWrap>
