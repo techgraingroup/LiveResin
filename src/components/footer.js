@@ -186,7 +186,6 @@ const Footer = ({ userState }) => {
       }
     }
   `)
-    console.log('footer', userState)
   return (
     <>
       <FooterBlock>
