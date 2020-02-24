@@ -140,7 +140,7 @@ const LocationButton = styled.button`
   display: none !important;
   margin-bottom: 50px;
   @media only screen and (min-width: ${md}px) {
-    display: block;
+    display: block !important;
     background: #000;
     color: #fff;
     font-family: MontHeavy, sans-serif;
@@ -186,6 +186,7 @@ const Footer = ({ userState }) => {
       }
     }
   `)
+    console.log('footer', userState)
   return (
     <>
       <FooterBlock>

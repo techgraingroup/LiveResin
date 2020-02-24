@@ -13,15 +13,6 @@ const Layout = ({ children }) => {
   const [userState, setUserState] = useState("")
   const [hideNav, setHideNav] = useState(false)
   useEffect(() => {
-    window.addEventListener("storage", () => {
-      console.log("change")
-    })
-    return () =>
-      window.removeEventListener("storage", () => {
-        console.log("removed")
-      })
-  })
-  useEffect(() => {
     const checkStatus = localStorage.getItem(AGE_GATE_KEY)
     const checkState = localStorage.getItem(LOCATION_KEY)
     setUserState(JSON.parse(checkState))
@@ -70,7 +61,7 @@ const Layout = ({ children }) => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            height: passed ? 0 : "70vh",
+            height: !passed ? "70vh" : "0",
           }}>
           <AgeGate passed={passed} passAgeGate={passAgeGate} />
         </div>
