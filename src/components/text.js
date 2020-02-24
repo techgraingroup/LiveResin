@@ -158,6 +158,7 @@ export const BlockTitleHorz = styled(
     ${props => (props.mobileTop ? "" : `border-bottom: 4px solid #000;`)}
     padding-bottom: ${props => (props.mobileTop ? "0" : "30px")};
     line-height: 105.8%;
+    white-space: pre-wrap;
     ${fluidRange(
       {
         prop: "font-size",

@@ -139,7 +139,7 @@ const OurProcessPage = () => {
       ))}
       <Box>
         <BlockTitleHorz
-          title="Live Resin Forms & Textures"
+          title={`Live Resin Forms &\nTextures`}
           ctaText="Learn More"
           ctaLink="/products/"
           description="Following the extraction process, we can make a consumable product in a variety of form factors. Explore each form factor and decide which product is right for you"
