@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react"
 import styled from "styled-components"
 
-import chevronDown from '../images/chevron-down.svg'
+import chevronDown from "../images/chevron-down.svg"
 
 export const Select = styled(
   ({
@@ -61,7 +61,19 @@ export const Select = styled(
 `
 
 export const TextInput = styled(
-  ({ label, name, type, onChange, value, placeholder, className, ...rest }) => {
+  ({
+    label,
+    name,
+    type,
+    onChange,
+    onBlur,
+    value,
+    dirty,
+    placeholder,
+    className,
+    error,
+    ...rest
+  }) => {
     const [active, setActive] = useState(false)
     const inputEl = useRef(null)
     const eleClass = `${className} ${active && "active"}`
@@ -75,7 +87,7 @@ export const TextInput = styled(
     }
     return (
       <div {...rest} className={eleClass}>
-        <label htmlFor={name}>{label}</label>
+        <label htmlFor={name}>{ dirty && error ? error : label }</label>
         {type === "textarea" ? (
           <textarea
             ref={inputEl}
@@ -85,7 +97,10 @@ export const TextInput = styled(
             value={value}
             onChange={onChange}
             onFocus={() => toggleActive(true)}
-            onBlur={() => toggleActive(false)}
+            onBlur={() => {
+              onBlur()
+              toggleActive(false)
+            }}
           />
         ) : (
           <input
@@ -95,7 +110,10 @@ export const TextInput = styled(
             value={value}
             onChange={onChange}
             onFocus={() => toggleActive(true)}
-            onBlur={() => toggleActive(false)}
+            onBlur={() => {
+              onBlur()
+              toggleActive(false)
+            }}
           />
         )}
       </div>
@@ -103,9 +121,9 @@ export const TextInput = styled(
   }
 )`
   margin-bottom: 25px;
-  border: 1px solid #000;
   position: relative;
   padding: 0 24px;
+  border: ${props => (props.dirty && props.error ? "1px solid #FF4438" : "1px solid #000")};
   &.active {
     label {
       transform: translate(0, 2px) scale(0.75);
@@ -121,6 +139,7 @@ export const TextInput = styled(
     transform: translate(0, 16px) scale(1);
     transition: all 0.1s ease-in-out;
     font-family: MontBold, sans-serif;
+    color: ${props => (props.dirty && props.error ? "#FF4438" : "#000")};
   }
   input,
   textarea {
@@ -129,5 +148,6 @@ export const TextInput = styled(
     font-size: 18px;
     padding: 34px 0 12px;
     width: 100%;
+    font-family: MontBold, sans-serif;
   }
 `
