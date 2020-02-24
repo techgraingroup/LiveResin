@@ -235,7 +235,7 @@ const RCBanner = () => {
         <BgImg fluid={banner.childImageSharp.fluid} />
       </ImgWrap>
       <SmallBox>
-        <SubTitle>Latest Colloboration</SubTitle>
+        <SubTitle>Latest Collaboration</SubTitle>
         <BlockTitle
           lineHeight="100%"
           fontSize="66px"
