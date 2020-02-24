@@ -21,10 +21,9 @@ const BannerTitle = styled.h2`
     props.withDescription
       ? `
         padding-bottom: 30px;
-        margin-bottom: 15px;
+        margin-bottom: 30px;
         @media only screen and (min-width: ${md}px) {
             padding-bottom: 20px;
-            margin-bottom: 30px;
         }
       `
       : `margin-bottom: 0;`}
