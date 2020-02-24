@@ -1,7 +1,15 @@
-import React, { useEffect, useContext, useRef } from "react"
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useRef,
+  createRef,
+  forwardRef,
+} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import AnchorLink from "react-anchor-link-smooth-scroll"
 import Grid from "styled-components-grid"
 import { cover, fluidRange } from "polished"
 import { AppContext } from "../context"
@@ -12,7 +20,7 @@ import { Box } from "../components/box"
 import RCBanner from "../components/rcbanner"
 import { Text, BlockTitleHorz } from "../components/text"
 import { MobileBr, DesktopBr } from "../components/responsive"
-import { useScrollPosition, getImageFromList } from "../utils"
+import { useScrollPosition, getImageFromList, useOnScreen } from "../utils"
 import { THEME } from "../data"
 import {
   TBudder,
@@ -29,6 +37,19 @@ const icons = { TBudder, TDiamonds, TSauce, TSugar, TShatter, TThca, TVapes }
 const {
   breakpoints: { md, lg, xl },
 } = THEME
+
+const IconsWrapNav = styled(props => <Box {...props} />)`
+  @media only screen and (min-width: ${md}px) {
+    &.sticky {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      background: #fff;
+      z-index: 1200;
+    }
+  }
+`
 
 const IconsWrap = styled.div`
   margin-bottom: 0;
@@ -64,9 +85,11 @@ const IconsWrap = styled.div`
   }
 `
 
-const IconWrap = styled(({ target, isActive, children, ...rest }) => (
+const IconWrap = styled(({ offset, target, isActive, children, ...rest }) => (
   <div {...rest}>
-    <a href={target || "#"}>{children}</a>
+    <AnchorLink offset={offset || 0} href={target || "#"}>
+      {children}
+    </AnchorLink>
   </div>
 ))`
   width: 50%;
@@ -276,19 +299,73 @@ const StrainBox = styled(({ children, bg, color, ...rest }) => {
   }
 `
 
+const ProductBlock = forwardRef(({ p, setActive }, ref) => {
+  const Icon = icons[p.icon]
+  const itemInView = useOnScreen(ref)
+  if (itemInView) setActive(p.icon)
+  return (
+    <Box id={p.icon} top="0" bottom="0" style={{ marginBottom: 100 }}>
+      <div ref={ref}>
+        <ProductTitle>
+          <Grid.Unit size={1 / 2}>
+            <h2>{p.name}</h2>
+          </Grid.Unit>
+          <Grid.Unit size={1 / 2} className="icon-wrap">
+            <Icon active />
+          </Grid.Unit>
+        </ProductTitle>
+        <Grid>
+          <ImgWrapper size={{ xs: 1, sm: 1, md: 1, lg: 1 / 2 }}>
+            <ProductImg fluid={p.image.childImageSharp.fluid} />
+          </ImgWrapper>
+          <ProductInfo size={{ xs: 1, sm: 1, md: 1, lg: 1 / 2 }}>
+            <h3>What is it?</h3>
+            <Text>{p.what}</Text>
+            <h3>How is it made?</h3>
+            <Text>{p.how}</Text>
+            <h3>Who is it for?</h3>
+            <Text>{p.who}</Text>
+            <h4>Popular Strain</h4>
+            <div>
+              {p.strains.map((s, i) => {
+                const isEven = i % 2 === 0
+                return (
+                  <StrainBox
+                    key={`${i}-item`}
+                    className={isEven ? "even" : "odd"}
+                    color={s.color}
+                    bg={s.bg}>
+                    {s.name}
+                  </StrainBox>
+                )
+              })}
+            </div>
+          </ProductInfo>
+        </Grid>
+      </div>
+    </Box>
+  )
+})
+
 const ProductsPage = () => {
+  const [activeIcon, setActiveIcon] = useState("")
+  const [iconsPosition, setIconsPosition] = useState(0)
+  const [iconsHeight, setIconsHeight] = useState(0)
   const iconsMenu = useRef(null)
   const { dispatch } = useContext(AppContext)
+  const productsRef = useRef()
+  const isProductsInView = useOnScreen(productsRef)
   useEffect(() => {
     dispatch({
       type: "activeMenu",
       value: "/products/",
     })
     dispatch({ type: "mobileMenu", value: false })
+    setIconsHeight(iconsMenu.current.getBoundingClientRect().height)
   }, [])
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      console.log(prevPos, currPos)
+      setIconsPosition(currPos.y)
     },
     [],
     iconsMenu,
@@ -344,6 +421,7 @@ const ProductsPage = () => {
   `)
   const banner = getImageFromList("products-banner.jpg", edges)
   const bannerMobile = getImageFromList("products-banner-mobile.jpg", edges)
+  const itemRefs = useRef(products.map(() => createRef()))
   return (
     <>
       <SEO title="Products" />
@@ -376,7 +454,10 @@ const ProductsPage = () => {
           description="Live resin is both a cannabis extraction process and a type of concentrate. It exclusively uses fresh plants, harvested at their absolute peak. The plants are then frozen and extracted at cryogenic temperatures using solvents to help preserve the terpenes. Terpenes are crucial for aroma and flavor, giving each strain its own unique profile."
         />
       </Box>
-      <Box top="0" bottom="0">
+      <IconsWrapNav
+        top="0"
+        bottom="0"
+        className={isProductsInView ? "sticky" : ""}>
         <IconsWrap ref={iconsMenu}>
           {products.map((p, i) => {
             const Icon = icons[p.icon]
@@ -390,60 +471,33 @@ const ProductsPage = () => {
               <IconWrap
                 key={`${i}-item`}
                 className={className}
-                isActive={i === 2}>
+                isActive={p.icon === activeIcon}
+                offset={iconsHeight}
+                target={`#${p.icon}`}>
                 <span className="label">{p.name}</span>
                 <Icon active />
               </IconWrap>
             )
           })}
         </IconsWrap>
-      </Box>
-      {products.map(p => {
-        const Icon = icons[p.icon]
-        return (
-          <Box top="0" bottom="0" key={p.name} style={{ marginBottom: 100 }}>
-            <ProductTitle>
-              <Grid.Unit size={1 / 2}>
-                <h2>{p.name}</h2>
-              </Grid.Unit>
-              <Grid.Unit size={1 / 2} className="icon-wrap">
-                <Icon active />
-              </Grid.Unit>
-            </ProductTitle>
-            <Grid>
-              <ImgWrapper size={{ xs: 1, sm: 1, md: 1, lg: 1 / 2 }}>
-                <ProductImg fluid={p.image.childImageSharp.fluid} />
-              </ImgWrapper>
-              <ProductInfo size={{ xs: 1, sm: 1, md: 1, lg: 1 / 2 }}>
-                <h3>What is it?</h3>
-                <Text>{p.what}</Text>
-                <h3>How is it made?</h3>
-                <Text>{p.how}</Text>
-                <h3>Who is it for?</h3>
-                <Text>{p.who}</Text>
-                <h4>Popular Strain</h4>
-                <div>
-                  {p.strains.map((s, i) => {
-                    const isEven = i % 2 === 0
-                    return (
-                      <StrainBox
-                        key={`${i}-item`}
-                        className={isEven ? "even" : "odd"}
-                        color={s.color}
-                        bg={s.bg}>
-                        {s.name}
-                      </StrainBox>
-                    )
-                  })}
-                </div>
-              </ProductInfo>
-            </Grid>
-          </Box>
-        )
-      })}
+      </IconsWrapNav>
+      <div id="products-wrapper" ref={productsRef}>
+        {products.map((p, i) => {
+          return (
+            <ProductBlock
+              key={p.icon}
+              p={p}
+              ref={itemRefs.current[i]}
+              setActive={name => {
+                setActiveIcon(name)
+              }}
+            />
+          )
+        })}
+      </div>
       <Box bottom={40}>
         <BlockTitleHorz
-          title="Colloborations"
+          title="Collaborations"
           titleStyle={{
             fontSize: 24,
             textTransform: "uppercase",
