@@ -12,10 +12,14 @@ function getScrollPosition({ element, useWindow }) {
     ? {
         x: window.scrollX,
         y: window.scrollY,
+        width: position.width,
+        height: position.height,
       }
     : {
         x: position.left,
         y: position.top,
+        width: position.width,
+        height: position.height,
       }
 }
 
@@ -43,27 +47,13 @@ export function useScrollPosition(effect, deps, element, useWindow, wait) {
   }, deps)
 }
 
-export function useWindowSize() {
-  const isClient = typeof window === "object"
-  const getSize = () => {
-    return {
-      width: isClient ? window.innerWidth : undefined,
-      height: isClient ? window.innerHeight : undefined,
-    }
+export const isClient = typeof window === "object"
+
+export function getWindowSize() {
+  return {
+    width: isClient ? window.innerWidth : undefined,
+    height: isClient ? window.innerHeight : undefined,
   }
-  const [windowSize, setWindowSize] = useState(getSize)
-  useEffect(() => {
-    if (!isClient) {
-      return false
-    }
-    const handleResize = () => {
-      setWindowSize(getSize())
-    }
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-  return windowSize
 }
 
 export function useOnScreen(ref, rootMargin = "0px") {

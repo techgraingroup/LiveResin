@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
@@ -27,7 +27,7 @@ import {
   MobileBr,
   DesktopBr,
 } from "../components/responsive"
-import { getImageFromList, useWindowSize } from "../utils"
+import { getImageFromList, isClient, getWindowSize } from "../utils"
 import { THEME } from "../data"
 
 const halfSize = {
@@ -75,15 +75,28 @@ const ProductText = styled(props => <Grid.Unit {...props} />)`
 `
 
 const IndexPage = () => {
+  const [isMobile, setIsMobile] = useState(false)
   const { dispatch } = useContext(AppContext)
-  const size = useWindowSize()
+
   useEffect(() => {
     dispatch({
       type: "activeMenu",
       value: "/",
     })
     dispatch({ type: "mobileMenu", value: false })
+    const { width } = getWindowSize()
+    setIsMobile(width < md)
+  }, [setIsMobile])
+
+  useEffect(() => {
+    const handleResize = () => {
+      const { width } = getWindowSize()
+      setIsMobile(width < md)
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
   }, [])
+
   const {
     allFile: { edges },
   } = useStaticQuery(graphql`
@@ -201,7 +214,7 @@ const IndexPage = () => {
           found a way.
         </Quote>
       </Box>
-      <Grid reverse={size && size.width < md}>
+      <Grid reverse={isMobile}>
         <Grid.Unit size={halfSize}>
           <SquareBox bgColor="#1DCAD3">
             <BlockTitle color="#FFF" line="bottom" style={{ paddingTop: 0 }}>
