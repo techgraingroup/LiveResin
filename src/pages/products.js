@@ -20,7 +20,13 @@ import { Box } from "../components/box"
 import RCBanner from "../components/rcbanner"
 import { Text, BlockTitleHorz } from "../components/text"
 import { MobileBr, DesktopBr } from "../components/responsive"
-import { useScrollPosition, getImageFromList, useOnScreen } from "../utils"
+import {
+  useScrollPosition,
+  getImageFromList,
+  getWindowSize,
+  isClient,
+  useOnScreen,
+} from "../utils"
 import { THEME } from "../data"
 import {
   TBudder,
@@ -227,8 +233,11 @@ const ProductInfo = styled(({ children, ...rest }) => (
 `
 
 const ImgWrapper = styled(props => <Grid.Unit {...props} />)`
-  padding-right: 20px;
   box-sizing: border-box;
+  padding-right: 0;
+  @media only screen and (min-width: ${md}px) {
+    padding-right: 20px;
+  }
 `
 
 const ProductImg = styled(props => <Img {...props} />)`
@@ -351,27 +360,59 @@ const ProductsPage = () => {
   const [activeIcon, setActiveIcon] = useState("")
   const [iconsPosition, setIconsPosition] = useState(0)
   const [iconsHeight, setIconsHeight] = useState(0)
+  const [iconsMenuSticky, setIconsMenuSticky] = useState(false)
   const iconsMenu = useRef(null)
   const { dispatch } = useContext(AppContext)
   const productsRef = useRef()
-  const isProductsInView = useOnScreen(productsRef)
+
   useEffect(() => {
     dispatch({
       type: "activeMenu",
       value: "/products/",
     })
     dispatch({ type: "mobileMenu", value: false })
-    setIconsHeight(iconsMenu.current.getBoundingClientRect().height)
+    setTimeout(() => {
+      const { width } = getWindowSize()
+      if (width < md) {
+        setIconsHeight(0)
+      } else {
+        const iconsPos = iconsMenu.current.getBoundingClientRect()
+        setIconsHeight(iconsPos.height)
+      }
+    }, 100)
+  }, [setIconsHeight])
+
+  useEffect(() => {
+    const handleResize = () => {
+      const { width } = getWindowSize()
+      if (width < md) {
+        setIconsHeight(0)
+      } else {
+        const height = iconsMenu.current.getBoundingClientRect().height
+        setIconsHeight(height)
+      }
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
   }, [])
+
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      setIconsPosition(currPos.y)
+      if (
+        currPos.y < iconsHeight &&
+        currPos.y + currPos.height >= iconsHeight
+      ) {
+        setIconsMenuSticky(true)
+      } else {
+        setIconsMenuSticky(false)
+      }
     },
-    [],
-    iconsMenu,
+    [iconsHeight, setIconsMenuSticky],
+    productsRef,
     null,
-    500
+    100
   )
+
   const {
     dataJson: { products },
     banners: { edges },
@@ -454,10 +495,7 @@ const ProductsPage = () => {
           description="Live resin is both a cannabis extraction process and a type of concentrate. It exclusively uses fresh plants, harvested at their absolute peak. The plants are then frozen and extracted at cryogenic temperatures using solvents to help preserve the terpenes. Terpenes are crucial for aroma and flavor, giving each strain its own unique profile."
         />
       </Box>
-      <IconsWrapNav
-        top="0"
-        bottom="0"
-        className={isProductsInView ? "sticky" : ""}>
+      <IconsWrapNav top="0" bottom="0" className={iconsMenuSticky && "sticky"}>
         <IconsWrap ref={iconsMenu}>
           {products.map((p, i) => {
             const Icon = icons[p.icon]
@@ -481,7 +519,12 @@ const ProductsPage = () => {
           })}
         </IconsWrap>
       </IconsWrapNav>
-      <div id="products-wrapper" ref={productsRef}>
+      <div
+        id="products-wrapper"
+        ref={productsRef}
+        style={{
+          paddingTop: iconsMenuSticky ? iconsHeight : 0,
+        }}>
         {products.map((p, i) => {
           return (
             <ProductBlock
