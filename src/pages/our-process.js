@@ -81,6 +81,7 @@ const OurProcessPage = () => {
     <>
       <SEO title="Our Process" />
       <Hero
+        withOverlay
         aspectRatio={900 / 1440}
         aspectRatioMobile={896 / 375}
         bgImage={banner}
@@ -97,11 +98,13 @@ const OurProcessPage = () => {
         )}
         description={() => (
           <>
-            Live resin delivers an authentic, multi-sensory <DesktopBr />
-            <MobileBr />
-            cannabis experience. It harnesses all the aroma, <DesktopBr />
-            <MobileBr />
-            flavor, and uniqueness of a live cannabis plant in a <DesktopBr />
+            Live resin delivers an authentic, <MobileBr />
+            multi-sensory <DesktopBr />
+            cannabis experience. <MobileBr />
+            It harnesses all the aroma, <MobileBr />
+            <DesktopBr />
+            flavor, and uniqueness <MobileBr />
+            of a live cannabis plant in a <DesktopBr />
             <MobileBr />
             variety of concentrate forms.
           </>

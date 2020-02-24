@@ -126,6 +126,7 @@ const IndexPage = () => {
     <>
       <SEO title="Home" />
       <Hero
+        withOverlay
         aspectRatio={800 / 1440}
         aspectRatioMobile={829 / 375}
         bgImage={bannerImg}

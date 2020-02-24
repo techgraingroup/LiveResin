@@ -76,6 +76,7 @@ const Hero = styled(
     description,
     btnText,
     btnLink,
+    withOverlay,
     ...rest
   }) => {
     let imageStyle = {
@@ -111,6 +112,14 @@ const Hero = styled(
               />
             )}
         </OnlyMobile>
+        {withOverlay && (
+          <div
+            style={{
+              ...cover(),
+              backgroundColor: "rgba(0, 0, 0, 0.2)",
+            }}
+          />
+        )}
         <div className="content-wrap">
           <div className="content">
             <BannerTitle withDescription={!!description}>
