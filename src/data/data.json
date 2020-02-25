@@ -18,32 +18,32 @@
     {
       "image": "../images/01-best-plant.svg",
       "color": "#A2D45E",
-      "title": "Flower Power",
-      "text": "We select only the finest cannabis plants and harvest them at their aromatic peak when they are full of essential oils. Each plant we select has been chosen because of its unique qualities, whether that is its aroma, flavor, effect, or cannabinoid profile. Expressing the uniqueness of cannabis and creating a multi-sensory, full-bodied experience is our focus."
+      "title": "Pick the Best Plant",
+      "text": "We select only the finest cannabis plants and harvest them at their aromatic peak when they are full of essential oils. Each plant we select has been chosen because of its unique qualities, whether that is its aroma, flavor, effect, or cannabinoid profile. "
     },
     {
       "image": "../images/02-flash-frozen.svg",
       "color": "#1DCAD3",
-      "title": "Stone Cold Flavor",
+      "title": "Flash Frozen for Flavor",
       "text": "At the moment of harvest, we flash-freeze our plants and keep them cool throughout the extraction process. This helps us preserve the volatile terpenes – the source of the plant’s unique flavor profile."
     },
     {
       "image": "../images/03-extract.svg",
       "color": "#FCD199",
-      "title": "Extract",
-      "text": "In order to extract and preserve the things that you love most about cannabis, we use hydrocarbons (100% n-butane) as our solvent of choice. By using such a selective solvent and extracting at very low temperatures, we are able to safely remove the delicate cannabinoids, terpenes, flavonoids, and other essential oils from the cannabis plant. Whether its aroma, flavor, or effect you're after, these compounds are what give each plant its unique character. Our process also leaves behind the things we don't want in a final product such as chlorophyll, plant matter, and plant waxes."
+      "title": "Extracting the Good Stuff",
+      "text": "In order to extract and preserve the things that you love most about cannabis, we use hydrocarbons (100% n-butane) as our solvent of choice. By using such a selective solvent and extracting at very low temperatures, we are able to safely remove the delicate cannabinoids, terpenes, flavonoids, and other essential oils that give each plant its unique character. "
     },
     {
       "image": "../images/04-pure.svg",
       "color": "#FF9E18",
-      "title": "Just Concentrate",
+      "title": "Pure Concentration",
       "text": "From there, we remove the solvent and finish the resin into its purest concentrate form – vape cartridges, budders, sauces, diamonds, sugars, shatters, and THCA crystalline."
     },
     {
       "image": "../images/05-enjoy.svg",
       "color": "#FF4438",
-      "title": "Enjoy",
-      "text": "Straight from the seed and into your hand -- you're holding the essence of a living cannabis plant. Pure and simple. Take a hit and enjoy a peek into the grow room."
+      "title": "And Enjoy",
+      "text": "Straight from the seed and into your hand -- you're holding the essence of a living cannabis plant. Pure and simple. Take a hit and enjoy a peek into the grow room.  "
     }
   ],
   "friends": [
@@ -73,9 +73,9 @@
     {
       "name": "Budder",
       "icon": "TBudder",
-      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality.",
-      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
-      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "what": "Budder is an opaque concentrate that contains a homogenous mixture of cannabinoids and terpenes and has a soft, pliable texture. The process is sometimes known as “wax” or “batter,” but we call it budder because when done correctly, it has a texture similar to room-temperature butter.",
+      "how": "After extraction, we whip the concentrate by hand to make an emulsion, combining the cannabinoids and terpenes similar to how you would combine oil and vinegar to make a vinaigrette. Because everything is mixed, it delivers a consistent flavor experience. Budder is also the easiest concentrate to dab because it sticks to the tool, so you can grab the right amount and easily collect it from the bottom of the jar, resulting in less waste. Budder can also be spread on a rolling paper to give a flavor and potency punch to your favorite flower.",
+      "why": "Follow your nose! Sauce is incredibly aromatic and allows you to choose your own mix of THCA crystals and flavorful sauce to customize your dabbing experience. Because of its texture, sauce is an “exposed” product (unlike budder and shatter which are more encapsulated), so storing it in cold temperatures helps to preserve the especially volatile terpenes.",
       "image": "../images/img-budder.jpg",
       "strains": [
           { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
@@ -86,9 +86,9 @@
     {
       "name": "Sauce",
       "icon": "TSauce",
-      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality",
-      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
-      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "what": "With small THCA crystals floating in a terpene-rich liquid, sauce is perhaps the most popular overall texture for live resin products and delivers an incredible flavor punch and a very strong aroma. The texture is semi-liquid and greasy, so occasionally it can be difficult to manipulate and apply with the tool, but it offers a great balance of potency and flavor.",
+      "how": "Sauce is made in a process similar to diamonds, where a solution is allowed to separate into THCA crystals and terpene sauce. Sauce has a smaller crystal size and the terpenes and crystals are combined for final packaging, delivering a fairly homogenous and reliable experience between budder and diamonds.",
+      "why": "Follow your nose! Sauce is incredibly aromatic and allows you to choose your own mix of THCA crystals and flavorful sauce to customize your dabbing experience. Because of its texture, sauce is an “exposed” product (unlike budder and shatter which are more encapsulated), so storing it in cold temperatures helps to preserve the especially volatile terpenes.",
       "image": "../images/img-sauce.jpg",
       "strains": [
           { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
@@ -98,9 +98,9 @@
     {
       "name": "Sugar",
       "icon": "TSugar",
-      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality",
-      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
-      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "what": "With a texture similar to soft brown sugar, this texture is generally higher potency than sauce due to having less terpene content. It is easy to use because of its less oily texture and offers a great balance of flavor and potency. ",
+      "how": "Similar to sauce and diamonds, sugar is made by allowing the THCA crystals to separate from the terpene sauce and then combining them by stirring. Because cannabis strains have different terpene content, sugar is generally produced from cannabis varietals which have a lower terpene and higher THCA content. ",
+      "why": "Sugar, like budder, offers a consistent experience in each dab, so you always get the balance of flavor and potency that nature intended. Sugar’s dry and non-sticky qualities and its potent nature make it easy to mix into flower for a major upgrade to your usual joint experience.",
       "image": "../images/img-sugar.jpg",
       "strains": [
           { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
@@ -111,9 +111,9 @@
     {
       "name": "Diamonds",
       "icon": "TDiamonds",
-      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality",
-      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
-      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "what": "Unlike the other crystalline textures, which produce smaller-grain, sandy crystals, our diamond process results in large, faceted THCA crystals floating in a golden, extremely fluid terpene sauce. Diamonds give users the ability to consume almost entirely THCA for maximum potency or consume entirely sauce for maximum flavor.",
+      "how": "The concentrate solution is allowed to separate very slowly and form natural THCA crystals, in a process that can take up to 8 weeks to complete. Because the process moves slow and intentionally, the crystals that result can exceed 1 gram in size. For final packaging, the fully-formed THCA crystals are combined with the terpene sauce at the ratio they produced naturally to ensure the right balance of potency and flavor in each strain.",
+      "why": "A true feast for the senses, diamonds are both beautiful to look at, aromatic, and very potent. Like sauce, you can choose the mixture of your dab to get more potency or more flavor. Adding crushed diamonds to a joint provides the ultimate potency increase with just the right amount of flavor.",
       "image": "../images/img-diamonds.jpg",
       "strains": [
           { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" }
@@ -122,9 +122,9 @@
     {
       "name": "THCa Chrystalline",
       "icon": "TThca",
-      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality",
-      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
-      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "what": "Pure THCA crystalline is grown using the same process as diamonds, and then we take it one step further by filtering or washing away the vast majority of terpenes, leaving behind 95%+ THCA with a clean, light flavor and ultimate potency.",
+      "how": "After separation during the diamond process, the THCA crystals are collected and packaged on their own, with just a small amount of terpenes to provide a flavor punch.",
+      "why": "THCA crystalline is the clear choice for the absolute highest potency. Crystalline can easily be added to a joint mixture for the ultimate in flower-plus-concentrate potency experience. Unlike many THCA products, Live Resin Project THCA Crystalline is exclusively made from high-quality fresh-frozen plants for the best formation and flavor.",
       "image": "../images/img-thca.jpg",
       "strains": [
           { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
@@ -135,9 +135,9 @@
     {
       "name": "Shatter",
       "icon": "TShatter",
-      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality",
-      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
-      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "what": "We invented live resin back in 2013, when we lived by the phrase, “If it don’t shatter, it don’t matter.” This is the original live resin texture, and this time capsule product can take you all the way back to how we first created this unique product. ",
+      "how": "For the shatter process, the concentrate solution is laid flat on a sheet of parchment paper during purging, which results in a transparent golden product with a texture that can range from a hard candy to a tacky honey. In the scientific community, we call this type of solution a \"concrete.\"",
+      "why": "Shatter (otherwise known as sap) is perhaps best for more experienced concentrate users, as it has a sticky texture that can be difficult to work with at times. But the long-term storage potential and the homogenous experience gives a top-flight user experience. Note: Shatter/sap needs to be stored cold to prevent degradation and nucleation which leads to sugaring.",
       "image": "../images/img-shatter.jpg",
       "strains": [
           { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
@@ -148,9 +148,9 @@
     {
       "name": "Vape",
       "icon": "TVapes",
-      "what": "Extracted directly from the fresh frozen plant, budder is opaque and looks almost exactly like cake batter, with a sumptuous, smooth, creamy quality",
-      "how": "After extraction, we whip the concentrate by hand to combine the cannabinoids and terpenes in a method similar to making a vinaigrette using oil and vinegar. Budder is the easiest concentrate to dab with because it sticks to the tool, so you can grab the right amount, and easily collect it from the bottom of the jar, resulting in less waste.",
-      "who": "Deep flavor combined with ease of use makes budder a superb choice for newer users and connoisseurs alike.",
+      "what": "Our live resin vape cartridges are 100% live resin with zero distillate, cutting agents, or non-cannabis ingredients. Unlike many “live resin” vape products on the market, our formula is exactly the same oil that we package in our jars, delivered in a liquid format.",
+      "how": "We make one change to our finishing process to keep our live resin in an oil format, enabling it to be put into 510 cartridges or pod systems. There is no separation or recombination required, which differentiates our process from many other vape products that claim to be live resin.",
+      "why": "Our live resin vape gives you the deeply flavorful concentrate experience you expect from our raw concentrate products, delivered in the most convenient and ubiquitous format. Utilizing a multi-temperature button battery lets allows the user to dial in the perfect balance of flavor and potency to tailor the experience.",
       "image": "../images/img-vape.jpg",
       "strains": [
           { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
@@ -162,36 +162,36 @@
   "timeline": [
     {
       "title": "Recreational Legalization Begins",
-      "description": "In 2012, Colorado and Washington become the first two states to legalize the recreational use of cannabis, following the passage of Amendment 64 and Initiative 502. Massachusetts approved a ballot measure to legalize medical cannabis",
+      "description": "In 2012, Colorado and Washington become the first two states to legalize the recreational use of cannabis, following the passage of Amendment 64 and Initiative 502. Massachusetts approved a ballot measure to legalize medical cannabis. ",
       "position": "left"
     },
     {
       "title": "Kind Bill",
-      "description": "Live resin originated in late 2013 with William “Kind Bill” Fenger, who developed the unique extraction process alongside a talented, terpene-chasing few who dared to try something different.",
+      "description": "Live resin originated in late 2013 with William “Kind Bill” Fenger, who developed the unique extraction process alongside a talented, terpene-chasing few who dared to try something different. ",
       "photo": "../images/story-01.jpg",
       "position": "right"
     },
     {
       "title": "Live Resin",
-      "description": "When seeing this entirely new product for the first time and deciding what to call it on the shelf, Phillip “Tierra Rojo” Hague (the head cultivator at the facility) suggested the name “Live Resin”, which stuck, and the product was put onto Colorado dispensary shelves immediately, sparking the cannabis flavor revolution.",
+      "description": "When seeing this entirely new product for the first time and deciding what to call it on the shelf, Phillip “Tierra Rojo” Hague (the head cultivator at the facility) suggested the name Live Resin, which stuck, and the product was put onto Colorado dispensary shelves immediately, sparking the cannabis flavor revolution.",
       "photo": "../images/story-02.jpg",
       "position": "left"
     },
     {
       "title": "Absolute Best",
-      "description": "Quickly, instead of thinking about concentrate as a by product of flower production, it started to be the focus, with Bill and Phillip going through the entire “Indoor Acre” facility and picking only a handful of the absolute best plants for the purposes of live resin extraction.",
+      "description": "Quickly, instead of thinking about concentrates as a byproduct of flower production, it started to be the focus, with Bill and Phillip going through the entire Indoor Acre facility and picking only a handful of the absolute best plants for the purposes of live resin extraction.",
       "photo": "../images/story-03.jpg",
       "position": "right"
     },
     {
       "title": "Live Resin Project",
-      "description": "Today, Bill and Phillip have joined forces with a passionate team of of trailblazers, taste-makers and high-flying cannabis connoisseurs to bring you Live Resin Project.",
+      "description": "Today, Bill and Phillip have joined forces with a passionate team of trailblazers, taste-makers and high-flying cannabis connoisseurs to bring you the Live Resin Project.",
       "photo": "../images/story-04.jpg",
       "position": "left"
     },
     {
       "title": "Award Winning",
-      "description": "Since that point, live resin has won the vast majority of cannabis extract competitions and has single-handedly changed the way growers think about their plants, how they are harvested, and even how customers shop.",
+      "description": "Since that point, live resin has won the vast majority of cannabis extract competitions and has singlehandedly changed the way growers think about their plants, how they are harvested, and even how customers shop. ",
       "position": "right"
     }
   ],
