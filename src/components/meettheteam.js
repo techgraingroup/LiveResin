@@ -7,6 +7,8 @@ import Grid from "styled-components-grid"
 import { Button, PlayButton } from "./button"
 import { BlockTitle, Text } from "./text"
 import { THEME } from "../data"
+import videoMp4 from '../videos/video.mp4'
+import videoWebm from '../videos/video.webm'
 
 const {
   breakpoints: { md, xl },
@@ -94,35 +96,12 @@ const TheGrid = styled(props => <Grid {...props} />)`
 const MeetTheTeam = () => {
   const videoPlayer = useRef(null)
   const [showVideo, setShowVideo] = useState(false)
-  const { image, videos } = useStaticQuery(graphql`
+  const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "the-team.jpg" }) {
         childImageSharp {
           fluid(quality: 100, maxWidth: 2880) {
             ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-      videos: file(relativePath: { eq: "video.mp4" }) {
-        childVideoFfmpeg {
-          webm: transcode(
-            codec: "libvpx-vp9"
-            maxWidth: 1280
-            maxHeight: 720
-            fileExtension: "webm"
-            outputOptions: ["-crf 20", "-b:v 0"]
-          ) {
-            src
-          }
-          mp4: transcode(
-            codec: "libx264"
-            maxWidth: 1280
-            maxHeight: 720
-            fileExtension: "mp4"
-            options: [["-profile:v", "main"], ["-pix_fmt", "yuv420p"]]
-            outputOptions: ["-movflags faststart"]
-          ) {
-            src
           }
         }
       }
@@ -156,8 +135,8 @@ const MeetTheTeam = () => {
           width: "100%",
           height: "auto",
         }}>
-        <source src={videos.childVideoFfmpeg.mp4.src} type="video/mp4" />
-        <source src={videos.childVideoFfmpeg.webm.src} type="video/webm" />
+        <source src={videoMp4} type="video/mp4" />
+        <source src={videoWebm} type="video/webm" />
       </video>
       <TheGrid className={showVideo ? "show-video" : ""}>
         <TextWrapper size={{ xs: 1, sm: 1, md: 1 / 3 }}>
