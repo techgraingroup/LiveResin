@@ -61,10 +61,7 @@ const StoreLocatorPage = () => {
   return (
     <>
       <SEO title="Store Locator" />
-      <PageTitle
-        title={`Store Locator`}
-        text={`Donec eget imperdiet dui. Mauris lorem lacus, porttitor quis vehicula vitae, pretium non purus. Morbi nec rhoncus massa`}
-      />
+      <PageTitle title={`Store Locator`} />
       <Box top="0">
         {storeLocator.map((store, i) => (
           <Store key={`item-${i}`}>
