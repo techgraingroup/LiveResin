@@ -63,7 +63,7 @@ const ProductBox = styled(props => <Box {...props} />)`
   padding-bottom: 900px;
   @media only screen and (min-width: ${md}px) {
     padding-top: 175px;
-    padding-bottom: 750px;
+    padding-bottom: 52.5%;
   }
 `
 

@@ -73,6 +73,10 @@ const TimelineItem = styled(
   )
 )`
   margin-bottom: 60px;
+  height: auto;
+  @media only screen and (min-width: ${md}px) {
+    height: 350px;
+  }
   .text-wrap {
     padding-left: 40px;
     @media only screen and (min-width: ${md}px) {

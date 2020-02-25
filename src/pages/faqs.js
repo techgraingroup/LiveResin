@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import { Box } from "../components/box"
 import { H2, Text } from "../components/text"
 import { PageTitle } from "../components/text"
+import { PlusMin } from "../components/icons"
 import { THEME } from "../data"
 
 const {
@@ -19,6 +20,7 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
     <div {...rest} className={eleClass}>
       <h2>
         <button onClick={onClick}>{`Q. ${data.q}`}</button>
+        <PlusMin isPlus={!active} />
       </h2>
       <div className={active ? "active text-wrap" : "text-wrap"}>
         <Text>{data.a}</Text>
@@ -51,15 +53,9 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
       display: inline-block;
       color: #000;
       text-decoration: none;
-      width: calc(100% - 60px);
+      width: calc(100% - 27px);
       &:hover {
         cursor: pointer;
-      }
-      &::after {
-        content: "+";
-        position: absolute;
-        right: 0;
-        font-family: Mont, sans-serif;
       }
     }
   }
@@ -75,13 +71,6 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
     }
   }
   &.active {
-    h2 {
-      button {
-        &::after {
-          content: "-";
-        }
-      }
-    }
     .text-wrap {
       max-height: 100rem;
     }

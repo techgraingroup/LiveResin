@@ -72,8 +72,8 @@ export const H4 = styled.h4`
   white-space: pre-wrap;
 `
 
-export const PageTitle = styled(({ title, text, ...rest }) => (
-  <Box>
+export const PageTitle = styled(({ title, text, top, bottom, ...rest }) => (
+  <Box top={top || null} bottom={bottom || null}>
     <div {...rest}>
       <Grid>
         <Grid.Unit size={{ xs: 1, md: 1 / 2 }}>
@@ -182,7 +182,8 @@ export const BlockTitle = styled(
   margin: 0;
   white-space: pre-wrap;
   letter-spacing: -0.035em;
-  padding: ${props => (props.line === "mobileTop" ? "30px 0 10px 0" : "20px 0")};
+  padding: ${props =>
+    props.line === "mobileTop" ? "30px 0 10px 0" : "20px 0"};
   ${props =>
     props.lineHeight
       ? `line-height: ${props.lineHeight};`

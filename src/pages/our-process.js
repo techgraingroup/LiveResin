@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
+import { fluidRange } from 'polished'
 import Grid from "styled-components-grid"
 import SEO from "../components/seo"
 import Banner from "../components/banner"
@@ -13,7 +14,8 @@ import { getImageFromList } from "../utils"
 import { THEME } from "../data"
 
 const {
-  breakpoints: { md },
+  breakpoints: { md, xl },
+  sideGutter,
 } = THEME
 
 const IconWrapper = styled(props => <Grid.Unit {...props} />)`
@@ -27,6 +29,36 @@ const TextWrapper = styled(props => <Grid.Unit {...props} />)`
   text-align: center;
   @media only screen and (min-width: ${md}px) {
     text-align: left;
+  }
+`
+
+const ProcessBox = styled.div`
+  height: 100vh;
+  background-color: ${props => props.bgColor || "#000"};
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${fluidRange(
+    {
+      prop: "padding-left",
+      fromSize: "20px",
+      toSize: sideGutter,
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+  ${fluidRange(
+    {
+      prop: "padding-right",
+      fromSize: "20px",
+      toSize: sideGutter,
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+  @media only screen and (min-width: ${md}px) {
+    height: 500px;
   }
 `
 
@@ -115,12 +147,7 @@ const OurProcessPage = () => {
         text="Creating live resin is an intensive labor of love. It requires precision and care from the beginning to end, to ensure we harness the greatest qualities of cannabis and extract them into a powerful dab. And we should know. After all, we invented it."
       />
       {processSteps.map(item => (
-        <Box
-          fullHeight
-          top={90}
-          bottom={90}
-          key={`box-${item.color}`}
-          bgColor={item.color}>
+        <ProcessBox key={`box-${item.color}`} bgColor={item.color}>
           <Grid valign="center">
             <IconWrapper
               size={{ xs: 1, sm: 1 / 2 }}
@@ -135,7 +162,7 @@ const OurProcessPage = () => {
               <p>{item.text}</p>
             </TextWrapper>
           </Grid>
-        </Box>
+        </ProcessBox>
       ))}
       <Box>
         <BlockTitleHorz

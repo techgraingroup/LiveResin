@@ -213,7 +213,7 @@ const Header = ({ passed, userState, hideNav }) => {
                 <li className="store-locator">
                   <Link to="/store-locator/">
                     Store Locator
-                    <Arrow borderColor="#FFF" left="20" />
+                    <Arrow borderColor="#FFF" left="20px" />
                   </Link>
                 </li>
               </DesktopMenu>

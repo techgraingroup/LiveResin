@@ -3,14 +3,14 @@
     { "link": "/products/", "label": "Products", "color": "#FF4438" },
     { "link": "/our-process/", "label": "Our Process", "color": "#FF9E18" },
     { "link": "/our-story/", "label": "Our Story", "color": "#1DCAD3" },
-    { "link": "/faq/", "label": "FAQ", "color": null }
+    { "link": "/faqs/", "label": "FAQS", "color": null }
   ],
   "footerMenu": [
     { "link": "/", "label": "Home" },
     { "link": "/products/", "label": "Products", "color": "#FF4438" },
     { "link": "/our-process/", "label": "Our Process", "color": "#FF9E18" },
     { "link": "/our-story/", "label": "Our Story", "color": "#1DCAD3" },
-    { "link": "/faq/", "label": "FAQ" },
+    { "link": "/faqs/", "label": "FAQs" },
     { "link": "/contact-us/", "label": "Contact" },
     { "link": "/store-locator/", "label": "Store Locator" }
   ],
