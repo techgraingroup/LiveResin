@@ -51,7 +51,7 @@ const AgeGate = ({ passed, passAgeGate }) => {
   }
   return (
     <>
-      {!passed && <Helmet bodyAttributes={{ class: "age-gate" }} />}
+      <Helmet bodyAttributes={{ class: passed ? "" : "age-gate" }} />
       <Box top="0" bottom="0" bgColor="#000">
         <Grid>
           <Grid.Unit size={1}>
