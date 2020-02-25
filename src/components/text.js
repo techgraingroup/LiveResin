@@ -113,6 +113,7 @@ export const PageTitle = styled(
     margin-bottom: 20px;
     border-bottom: 4px solid #000;
     padding-bottom: 16px;
+    letter-spacing: -0.04em;
     @media only screen and (min-width: ${md}px) {
       border-bottom: 0;
       padding-bottom: 0;
