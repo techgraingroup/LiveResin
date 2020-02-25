@@ -19,8 +19,10 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
   return (
     <div {...rest} className={eleClass}>
       <h2>
-        <button onClick={onClick}>{`Q. ${data.q}`}</button>
-        <PlusMin isPlus={!active} />
+        <button onClick={onClick}>
+          <span>{`Q. ${data.q}`}</span>
+          <PlusMin isPlus={!active} />
+        </button>
       </h2>
       <div className={active ? "active text-wrap" : "text-wrap"}>
         <Text>{data.a}</Text>
@@ -50,12 +52,24 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
       outline: none;
       background: transparent;
       text-align: left;
-      display: inline-block;
+      display: block;
+      width: 100%;
       color: #000;
       text-decoration: none;
-      width: calc(100% - 27px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       &:hover {
         cursor: pointer;
+      }
+      span {
+        display: block;
+        width: calc(100% - 27px);
+        flex: 1;
+      }
+      svg {
+        display: block;
+        width: 27px;
       }
     }
   }
@@ -109,10 +123,7 @@ const FaqPage = () => {
   return (
     <>
       <SEO title="FAQ" />
-      <PageTitle
-        title={`FAQs`}
-        text={`Donec eget imperdiet dui. Mauris lorem lacus, porttitor quis vehicula vitae, pretium non purus. Morbi nec rhoncus massa`}
-      />
+      <PageTitle title={`FAQs`} />
       <Box top="0">
         {faqs.map((faq, i) => (
           <FaqItem
