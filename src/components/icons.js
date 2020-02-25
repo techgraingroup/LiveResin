@@ -711,13 +711,12 @@ export const Play = ({ color }) => (
   </svg>
 )
 
-export const Collab = ({ size, borderColor, right, ...rest }) => (
+export const Collab = ({ size, borderColor, ...rest }) => (
   <svg
     width={size || 32}
     height={size || 32}
     viewBox="0 0 32 32"
     fill="none"
-    style={{ position: "relative", top: 10, right: right || 25 }}
     xmlns="http://www.w3.org/2000/svg"
     {...rest}>
     <path

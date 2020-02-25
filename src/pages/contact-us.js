@@ -57,7 +57,7 @@ const ContactUsPage = () => {
   return (
     <>
       <SEO title="Contact Us" />
-      <PageTitle bottom="60" title={`Contact Us`} />
+      <PageTitle top="200" bottom="60" mobileTop="72" title={`Contact Us`} />
       <Box top="0">
         <Grid>
           <Grid.Unit size={{ md: 1, lg: 3 / 5 }}>

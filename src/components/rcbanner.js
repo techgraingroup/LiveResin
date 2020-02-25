@@ -26,7 +26,7 @@ const ImgWrap = styled(({ children, ...rest }) => (
   .wrap {
     height: auto;
     position: relative;
-    padding-top: 100%;
+    padding-top: 112.267%;
     @media only screen and (min-width: ${md}px) {
       padding-top: 62.5%;
     }
@@ -59,7 +59,7 @@ const SmallBox = styled(({ children, ...rest }) => (
    ${cover()}
   }
     .wrap {
-      background-color: #bba123;
+      background-color: #bba135;
       box-sizing: border-box;
       width: 100%;
       margin-top: -1px;
@@ -120,7 +120,7 @@ const SmallBox = styled(({ children, ...rest }) => (
 export const SubTitle = styled.h4`
   font-family: MontHeavy, sans-serif;
   line-height: 140%;
-  color: ${props => props.color || '#000'};
+  color: ${props => props.color || "#000"};
   margin-bottom: 24px;
   ${fluidRange(
     {
@@ -142,8 +142,8 @@ export const CollabWrap = styled.div`
   ${fluidRange(
     {
       prop: "margin-top",
-      fromSize: "18px",
-      toSize: "43px",
+      fromSize: "0px",
+      toSize: "30px",
     },
     `${md}px`,
     `${xl}px`
@@ -185,6 +185,12 @@ export const CollabIcon = styled(props => <Collab {...props} />)`
     `${md}px`,
     `${xl}px`
   )}
+  position: relative;
+  right: 0;
+  top: 10px;
+  @media only screen and (min-width: ${md}px) {
+    top: 7px;
+  }
 `
 
 export const Description = styled.p`
@@ -241,7 +247,7 @@ const RCBanner = () => {
           fontSize="66px"
           line="mobileTop">{`Red\nCongolese`}</BlockTitle>
         <CollabWrap>
-          <CollabIcon right="0" />
+          <CollabIcon />
           <CollabLabel>GOLD SEAL SF</CollabLabel>
         </CollabWrap>
         <Grid>
@@ -259,7 +265,7 @@ const RCBanner = () => {
           </Grid.Unit>
           <LowerBlock size={{ xs: 1, sm: 1, md: 1 / 3 }}>
             <OnlyMobile>
-              <Button color="#000" bgColor="#bba123" borderColor="#000">
+              <Button color="#000" bgColor="#bba135" borderColor="#000">
                 Learn More
               </Button>
             </OnlyMobile>

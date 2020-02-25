@@ -30,10 +30,15 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
     </div>
   )
 })`
+  margin-bottom: 30px;
+  @media only screen and (min-width: ${md}px) {
+    margin-bottom: 0px;
+  }
   h2 {
     font-family: MontHeavy, sans-serif;
     border-bottom: 4px solid #000;
     position: relative;
+    margin-top: 0;
     ${fluidRange(
       {
         prop: "font-size",
@@ -45,7 +50,9 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
     )}
     padding-bottom: 0;
     @media only screen and (min-width: ${md}px) {
-      padding-bottom: 30px;
+      padding-top: 0;
+      padding-bottom: 60px;
+      margin-bottom: 54px;
     }
     button {
       border: 0;
@@ -123,7 +130,13 @@ const FaqPage = () => {
   return (
     <>
       <SEO title="FAQ" />
-      <PageTitle title={`FAQs`} />
+      <PageTitle
+        top="200"
+        bottom="140"
+        mobileTop="72"
+        mobileBottom="60"
+        title={`FAQs`}
+      />
       <Box top="0">
         {faqs.map((faq, i) => (
           <FaqItem

@@ -45,14 +45,17 @@ const {
 } = THEME
 
 const IconsWrapNav = styled(props => <Box {...props} />)`
-  @media only screen and (min-width: ${md}px) {
-    &.sticky {
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      background: #fff;
-      z-index: 1200;
+  &.sticky {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: #fff;
+    z-index: 1200;
+    span.label {
+      display: none;
+    }
+    @media only screen and (min-width: ${md}px) {
     }
   }
 `
@@ -332,8 +335,8 @@ const ProductBlock = forwardRef(({ p, setActive }, ref) => {
             <Text>{p.what}</Text>
             <h3>How is it made?</h3>
             <Text>{p.how}</Text>
-            <h3>Who is it for?</h3>
-            <Text>{p.who}</Text>
+            <h3>Why Live {p.name}?</h3>
+            <Text>{p.why}</Text>
             <h4>Popular Strain</h4>
             <div>
               {p.strains.map((s, i) => {
@@ -373,24 +376,16 @@ const ProductsPage = () => {
     dispatch({ type: "mobileMenu", value: false })
     setTimeout(() => {
       const { width } = getWindowSize()
-      if (width < md) {
-        setIconsHeight(0)
-      } else {
-        const iconsPos = iconsMenu.current.getBoundingClientRect()
-        setIconsHeight(iconsPos.height)
-      }
+      const iconsPos = iconsMenu.current.getBoundingClientRect()
+      setIconsHeight(iconsPos.height)
     }, 100)
   }, [setIconsHeight])
 
   useEffect(() => {
     const handleResize = () => {
       const { width } = getWindowSize()
-      if (width < md) {
-        setIconsHeight(0)
-      } else {
-        const height = iconsMenu.current.getBoundingClientRect().height
-        setIconsHeight(height)
-      }
+      const height = iconsMenu.current.getBoundingClientRect().height
+      setIconsHeight(height)
     }
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
@@ -424,7 +419,7 @@ const ProductsPage = () => {
           icon
           what
           how
-          who
+          why
           strains {
             name
             color
@@ -492,7 +487,7 @@ const ProductsPage = () => {
             textTransform: "uppercase",
             letterSpacing: "0.1em",
           }}
-          description="Live resin is both a cannabis extraction process and a type of concentrate. It exclusively uses fresh plants, harvested at their absolute peak. The plants are then frozen and extracted at cryogenic temperatures using solvents to help preserve the terpenes. Terpenes are crucial for aroma and flavor, giving each strain its own unique profile."
+          description="Live resin is both a cannabis extraction process and a type of concentrate. It exclusively uses fresh plants, harvested at their absolute peak. The plants are then frozen and extracted at cryogenic temperatures using solvents to help preserve the terpenes. Terpenes are crucial for aroma and flavor, giving each strain its own unique profile. Pretty important stuff."
         />
       </Box>
       <IconsWrapNav top="0" bottom="0" className={iconsMenuSticky && "sticky"}>

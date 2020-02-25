@@ -7,8 +7,8 @@ import Grid from "styled-components-grid"
 import { Button, PlayButton } from "./button"
 import { BlockTitle, Text } from "./text"
 import { THEME } from "../data"
-import videoMp4 from '../videos/video.mp4'
-import videoWebm from '../videos/video.webm'
+import videoMp4 from "../videos/video.mp4"
+import videoWebm from "../videos/video.webm"
 
 const {
   breakpoints: { md, xl },
@@ -68,6 +68,7 @@ const ImgBox = styled(props => <Img {...props} />)`
 `
 
 const TheGrid = styled(props => <Grid {...props} />)`
+  width: 100%;
   ${fluidRange(
     {
       prop: "margin-left",
@@ -140,20 +141,18 @@ const MeetTheTeam = () => {
       </video>
       <TheGrid className={showVideo ? "show-video" : ""}>
         <TextWrapper size={{ xs: 1, sm: 1, md: 1 / 3 }}>
-          <div>
+          <div style={{ width: '100%' }}>
             <BlockTitle line="bottom" color="#FFF">
               Meet the Team
             </BlockTitle>
             <Text color="#FFF" style={{ marginTop: 30 }}>
-              Creating live resin is a scientific process designed to preserve
-              all the characteristics of fresh flower that dry out and degrade
-              in other form factors.
+              Say hello to Bill, Philip and Ry.
             </Text>
             <Button
               bgColor="#FFF"
               color="#A2D45E"
               onClick={() => navigate("/our-story")}>
-              About Us
+              Our Team
             </Button>
           </div>
         </TextWrapper>

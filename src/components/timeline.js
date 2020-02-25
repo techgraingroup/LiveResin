@@ -19,7 +19,10 @@ const Wrapper = styled(({ children, ...rest }) => (
   position: relative;
   min-height: 450px;
   border-top: 1px solid #000;
-  padding-top: 150px;
+  padding-top: 80px;
+  @media only screen and (min-width: ${md}px) {
+    padding-top: 150px;
+  }
   span {
     display: block;
     width: 4px;
@@ -75,7 +78,7 @@ const TimelineItem = styled(
   margin-bottom: 60px;
   height: auto;
   @media only screen and (min-width: ${md}px) {
-    height: 350px;
+    height: 300px;
   }
   .text-wrap {
     padding-left: 40px;

@@ -58,6 +58,18 @@ const GoldGrid = styled(props => <Grid.Unit {...props} />)`
   }
 `
 
+const GoldSeal = styled(props => <span {...props}>Gold Seal SF</span>)`
+  display: inline-box;
+  margin-left: 18px;
+  margin-right: 60px;
+  position: relative;
+  text-transform: uppercase;
+  top: 1px;
+  @media only screen and (min-width: ${md}px) {
+    top: -2px;
+  }
+`
+
 const ProductBox = styled(props => <Box {...props} />)`
   padding-top: 250px;
   padding-bottom: 900px;
@@ -181,15 +193,8 @@ const IndexPage = () => {
             </span>
           </Grid.Unit>
           <GoldGrid size={halfSize}>
-            <Collab right="0" />
-            <span
-              style={{
-                display: "inline-block",
-                marginLeft: 18,
-                marginRight: 60,
-              }}>
-              GOLD SEAL SF
-            </span>
+            <CollabIcon />
+            <GoldSeal />
             <Arrow borderColor="#000" left="0" />
           </GoldGrid>
         </Grid>
@@ -299,7 +304,7 @@ const IndexPage = () => {
             <Button
               withArrow
               color="#FFF"
-              bgColor="#D73121"
+              bgColor="transparent"
               borderColor="#FFF"
               onClick={() => navigate("/store-locator/")}>
               Store Locator
@@ -323,7 +328,7 @@ const IndexPage = () => {
                 {`Red\nCongolese`}
               </BlockTitle>
               <CollabWrap>
-                <CollabIcon right="0" />
+                <CollabIcon />
                 <CollabLabel>GOLD SEAL SF</CollabLabel>
               </CollabWrap>
               <Grid>
@@ -340,7 +345,7 @@ const IndexPage = () => {
                   </Description>
                 </Grid.Unit>
                 <LowerBlock size={{ xs: 1, sm: 1, md: 1 / 3 }}>
-                  <Button color="#000" bgColor="#bba123" borderColor="#000">
+                  <Button color="#000" bgColor="#BBA135" borderColor="#000">
                     Learn More
                   </Button>
                 </LowerBlock>

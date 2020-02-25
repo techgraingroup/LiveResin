@@ -61,6 +61,9 @@ const SubscribeForm = styled.form`
       flex: 1;
       margin-bottom: 0;
     }
+    ::placeholder { color: #000; }
+    ::-webkit-input-placeholder { color: #000; }
+    ::-ms-input-placeholder { color: #000; }
   }
   button {
     background: #ff9e18;
@@ -118,7 +121,7 @@ const LeftBox = styled(({ children, ...rest }) => (
   <Box {...rest}>{children}</Box>
 ))`
   padding-top: 50px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   @media only screen and (min-width: ${md}px) {
     padding-top: 120px;
     padding-bottom: 30px;
@@ -169,6 +172,24 @@ const NotifiedBox = styled.p`
   }
 `
 
+const GetNotified = styled(props => <h3 {...props}>Get Notified</h3>)`
+  color: #fff;
+  font-size: 45px;
+  font-family: MontHeavy, sans-serif;
+  line-height: 105.8%;
+  letter-spacing: -0.035em;
+  border-top: 0;
+  border-bottom: 4px solid #fff;
+  padding: 30px 0 10px 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  @media only screen and (min-width: ${md}px) {
+    border-top: 4px solid #fff;
+    border-bottom: 0;
+    font-size: 48px;
+  }
+`
+
 const Footer = ({ userState }) => {
   const {
     state: { data },
@@ -213,12 +234,10 @@ const Footer = ({ userState }) => {
           <Grid.Unit size={{ sm: 1, md: 1 / 8 }} />
           <Grid.Unit size={{ sm: 1, md: 1 / 2 }}>
             <RightBox>
-              <BlockTitle color="#FFF" line="top">
-                Get Notified
-              </BlockTitle>
+              <GetNotified />
               <NotifiedBox>
-                We will be launching soon in California and Oregon. Sign up to
-                stay up to date on when you can get your hands on Live Resin.
+                Sign up for our newsletter and we’ll let you know about news and
+                upcoming product releases.
               </NotifiedBox>
               <SubscribeForm method="POST" action="#">
                 <input type="text" placeholder="Your email" />

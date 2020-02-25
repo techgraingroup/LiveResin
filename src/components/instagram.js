@@ -1,9 +1,27 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 import Grid from "styled-components-grid"
 import Img from "gatsby-image"
 import { Box } from "./box"
 import { Text } from "./text"
+import { THEME } from "../data"
+
+const {
+  breakpoints: { md },
+} = THEME
+
+const InstagramBox = styled(props => <Box {...props} />)`
+  padding-top: 60px;
+  padding-bottom: 50px;
+  @media only screen and (min-width: ${md}px) {
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+  p {
+    margin: 0;
+  }
+`
 
 const InstagramFeed = () => {
   const { allInstaNode } = useStaticQuery(graphql`
@@ -25,7 +43,7 @@ const InstagramFeed = () => {
   `)
   return (
     <div>
-      <Box bgColor="#000" top={100} bottom={100}>
+      <InstagramBox bgColor="#000">
         <Text color="#FFF">
           <span
             style={{
@@ -48,7 +66,7 @@ const InstagramFeed = () => {
             VIEW INSTAGRAM
           </a>
         </Text>
-      </Box>
+      </InstagramBox>
       <Grid>
         {allInstaNode.edges.map(item => (
           <Grid.Unit

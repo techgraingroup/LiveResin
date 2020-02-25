@@ -72,22 +72,37 @@ export const H4 = styled.h4`
   white-space: pre-wrap;
 `
 
-export const PageTitle = styled(({ title, text, top, bottom, ...rest }) => (
-  <Box top={top || null} bottom={bottom || null}>
-    <div {...rest}>
-      <Grid>
-        <Grid.Unit size={{ xs: 1, md: 1 / 2 }}>
-          <H1>{title}</H1>
-        </Grid.Unit>
-        {text && (
-          <Grid.Unit size={{ xs: 1, md: 1 / 2 }}>
-            <p>{text}</p>
+const PageTitleBox = styled(({ top, bottom, mobileTop, mobileBottom, ...rest }) => <Box {...rest} />)`
+  padding-top: ${props => (props.mobileTop ? `${props.mobileTop}px` : "120px")};
+  padding-bottom: ${props => (props.mobileBottom ? `${props.mobileBottom}px` : "80px")};
+  @media only screen and (min-width: ${md}px) {
+    padding-top: ${props => (props.top ? `${props.top}px` : "120px")};
+    padding-bottom: ${props => (props.bottom ? `${props.bottom}px` : "120px")};
+  }
+`
+
+export const PageTitle = styled(
+  ({ title, text, top, bottom, mobileTop, mobileBottom, ...rest }) => (
+    <PageTitleBox
+      top={top || null}
+      bottom={bottom || null}
+      mobileTop={mobileTop || null}
+      mobileBottom={mobileBottom || null}>
+      <div {...rest}>
+        <Grid>
+          <Grid.Unit size={{ xs: 1, md: text ? 1 / 2 : 1 }}>
+            <H1>{title}</H1>
           </Grid.Unit>
-        )}
-      </Grid>
-    </div>
-  </Box>
-))`
+          {text && (
+            <Grid.Unit size={{ xs: 1, md: 1 / 2 }}>
+              <p>{text}</p>
+            </Grid.Unit>
+          )}
+        </Grid>
+      </div>
+    </PageTitleBox>
+  )
+)`
   border-top: 0;
   @media only screen and (min-width: ${md}px) {
     border-top: 4px solid #000;
@@ -95,8 +110,9 @@ export const PageTitle = styled(({ title, text, top, bottom, ...rest }) => (
   }
   h1 {
     margin-top: 0;
+    margin-bottom: 20px;
     border-bottom: 4px solid #000;
-    padding-bottom: 30px;
+    padding-bottom: 16px;
     @media only screen and (min-width: ${md}px) {
       border-bottom: 0;
       padding-bottom: 0;
@@ -272,5 +288,11 @@ export const Quote = styled(({ withSignature, children, ...rest }) => (
       `${md}px`,
       `${xl}px`
     )}
+    img {
+      width: 60%;
+      @media only screen and (min-width: ${md}px) {
+        width: auto;
+      }
+    }
   }
 `

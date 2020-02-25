@@ -61,7 +61,7 @@ const StoreLocatorPage = () => {
   return (
     <>
       <SEO title="Store Locator" />
-      <PageTitle title={`Store Locator`} />
+      <PageTitle top="200" bottom="140" mobileTop="72" mobileBottom="60" title={`Store Locator`} />
       <Box top="0">
         {storeLocator.map((store, i) => (
           <Store key={`item-${i}`}>

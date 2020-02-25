@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { fluidRange } from 'polished'
+import { fluidRange } from "polished"
 import Grid from "styled-components-grid"
 import SEO from "../components/seo"
 import Banner from "../components/banner"
@@ -22,6 +22,12 @@ const IconWrapper = styled(props => <Grid.Unit {...props} />)`
   margin-bottom: 80px;
   @media only screen and (min-width: ${md}px) {
     margin-bottom: 0;
+  }
+  img {
+    max-width: 50%;
+    @media only screen and (min-width: ${md}px) {
+      max-width: auto;
+    }
   }
 `
 
@@ -144,7 +150,7 @@ const OurProcessPage = () => {
       />
       <PageTitle
         title={`Our\nProcess`}
-        text="Creating live resin is an intensive labor of love. It requires precision and care from the beginning to end, to ensure we harness the greatest qualities of cannabis and extract them into a powerful dab. And we should know. After all, we invented it."
+        text="Creating live resin is an intensive labor of love. It requires precision and care from beginning to end to extract the essence of living cannabis and convert it into a variety of textures. As the inventors of live resin, we’ve been at it longer than anyone. "
       />
       {processSteps.map(item => (
         <ProcessBox key={`box-${item.color}`} bgColor={item.color}>
@@ -169,7 +175,7 @@ const OurProcessPage = () => {
           title={`Live Resin Forms &\nTextures`}
           ctaText="Learn More"
           ctaLink="/products/"
-          description="Following the extraction process, we can make a consumable product in a variety of form factors. Explore each form factor and decide which product is right for you"
+          description="Following the extraction process, we can make a consumable product in a variety of form factors. Explore each form factor and decide which product is right for you."
         />
       </Box>
       <Box fullHeight top={190} bottom={190} bgColor="#FF9E18">

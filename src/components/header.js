@@ -60,7 +60,8 @@ const Menu = styled.ul`
       padding-left: 30px;
       padding-right: 50px;
       text-transform: uppercase;
-      font-family: MontBold, sans-serif;
+      font-family: MontHeavy, sans-serif;
+      letter-spacing: 0.1em;
     }
   }
 `
@@ -103,8 +104,9 @@ const MenuLink = styled(({ activeColor, isActive, external, ...rest }) => {
   position: relative;
   font-size: 16px;
   font-weight: 800;
-  font-family: MontBold, sans-serif;
+  font-family: MontHeavy, sans-serif;
   line-height: ${headerHeight.mobile};
+  letter-spacing: 0.1em;
   @media only screen and (min-width: ${md}px) {
     line-height: ${headerHeight.desktop};
   }

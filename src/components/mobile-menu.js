@@ -88,6 +88,7 @@ const LocationButton = styled.button`
   padding: 13px 0;
   text-transform: uppercase;
   position: relative;
+  margin-bottom: 0 !important;
   svg {
     position: absolute;
     right: 0;

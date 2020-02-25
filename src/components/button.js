@@ -16,22 +16,31 @@ export const Button = styled(
     </button>
   )
 )`
-  height: 60px;
-  font-family: MontHeavy, sans-serif;
+  height: 50px;
+  font-size: 14px;
   padding: ${props => (props.withArrow ? "0 70px 0 30px" : "0 30px")};
-  font-size: 16px;
+  font-family: MontHeavy, sans-serif;
   text-transform: uppercase;
   color: ${props => props.color || "#000"};
   position: relative;
   background: transparent;
   border: 0;
   outline: none;
+  @media only screen and (min-width: ${md}px) {
+    height: 60px;
+    font-size: 16px;
+    padding: ${props => (props.withArrow ? "0 80px 0 45.5px" : "0 45.5px")};
+  }
   .text {
     position: relative;
     z-index: 10;
-    line-height: 61px;
     height: 100%;
     display: inline-block;
+    letter-spacing: 0.1em;
+    line-height: 51px;
+    @media only screen and (min-width: ${md}px) {
+      line-height: 61px;
+    }
   }
   svg {
     transition: transform 0.1s ease-in-out;
