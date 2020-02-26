@@ -182,8 +182,8 @@ const Footer = ({ userState }) => {
             <RightBox>
               <GetNotified />
               <NotifiedBox>
-                Sign up for our newsletter and we’ll let you know about news and
-                upcoming product releases.
+                Sign up here to stay up-to-date on our upcoming retail
+                locations, events, and new product drops
               </NotifiedBox>
               <Subscribe />
               <SocialList>
