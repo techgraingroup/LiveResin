@@ -24,7 +24,6 @@ import {
   useScrollPosition,
   getImageFromList,
   getWindowSize,
-  isClient,
   useOnScreen,
 } from "../utils"
 import { THEME } from "../data"
@@ -41,19 +40,58 @@ import {
 const icons = { TBudder, TDiamonds, TSauce, TSugar, TShatter, TThca, TVapes }
 
 const {
+  sideGutter,
   breakpoints: { md, lg, xl },
 } = THEME
 
-const IconsWrapNav = styled(props => <Box {...props} />)`
+const IconsWrapNav = styled(({ navHeight, ...rest }) => <div {...rest} />)`
+  padding-top: 0;
+  padding-bottom: 0;
+  ${fluidRange(
+    {
+      prop: "padding-left",
+      fromSize: "20px",
+      toSize: sideGutter,
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+  ${fluidRange(
+    {
+      prop: "padding-right",
+      fromSize: "20px",
+      toSize: sideGutter,
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
   &.sticky {
+    height: ${props =>
+      props.navHeight ? `${props.navHeight}px` : `${ICONS_HEIGHTS[1]}px`};
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     background: #fff;
     z-index: 1200;
-    span.label {
-      display: none;
+    .icons-wrap {
+      padding-bottom: 0;
+      height: 100%;
+      .icon-item {
+        a {
+          height: 100%;
+          padding-top: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          span.label {
+            display: none;
+          }
+          svg {
+            margin-top: 0;
+          }
+        }
+      }
     }
     @media only screen and (min-width: ${md}px) {
     }
@@ -359,6 +397,8 @@ const ProductBlock = forwardRef(({ p, setActive }, ref) => {
   )
 })
 
+const ICONS_HEIGHTS = [100, 200]
+
 const ProductsPage = () => {
   const [activeIcon, setActiveIcon] = useState("")
   const [iconsPosition, setIconsPosition] = useState(0)
@@ -376,16 +416,22 @@ const ProductsPage = () => {
     dispatch({ type: "mobileMenu", value: false })
     setTimeout(() => {
       const { width } = getWindowSize()
-      const iconsPos = iconsMenu.current.getBoundingClientRect()
-      setIconsHeight(iconsPos.height)
+      if (width <= md) {
+        setIconsHeight(ICONS_HEIGHTS[0])
+      } else {
+        setIconsHeight(ICONS_HEIGHTS[1])
+      }
     }, 100)
   }, [setIconsHeight])
 
   useEffect(() => {
     const handleResize = () => {
       const { width } = getWindowSize()
-      const height = iconsMenu.current.getBoundingClientRect().height
-      setIconsHeight(height)
+      if (width <= md) {
+        setIconsHeight(ICONS_HEIGHTS[0])
+      } else {
+        setIconsHeight(ICONS_HEIGHTS[1])
+      }
     }
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
@@ -393,9 +439,11 @@ const ProductsPage = () => {
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
+      const iconsMenuHeight = iconsMenu.current.getBoundingClientRect().height
+      console.log(currPos.y, iconsHeight, iconsMenuHeight)
       if (
-        currPos.y < iconsHeight &&
-        currPos.y + currPos.height >= iconsHeight
+        currPos.y < iconsMenuHeight &&
+        currPos.y + currPos.height >= iconsMenuHeight
       ) {
         setIconsMenuSticky(true)
       } else {
@@ -490,8 +538,10 @@ const ProductsPage = () => {
           description="Live resin is both a cannabis extraction process and a type of concentrate. It exclusively uses fresh plants, harvested at their absolute peak. The plants are then frozen and extracted at cryogenic temperatures using solvents to help preserve the terpenes. Terpenes are crucial for aroma and flavor, giving each strain its own unique profile. Pretty important stuff."
         />
       </Box>
-      <IconsWrapNav top="0" bottom="0" className={iconsMenuSticky && "sticky"}>
-        <IconsWrap ref={iconsMenu}>
+      <IconsWrapNav
+        navHeight={iconsHeight}
+        className={iconsMenuSticky && "sticky"}>
+        <IconsWrap className="icons-wrap" ref={iconsMenu}>
           {products.map((p, i) => {
             const Icon = icons[p.icon]
             const isEven = products.length % 2 === 0
