@@ -49,6 +49,15 @@ const SubscribeForm = styled.form`
   }
 `
 
+const EmailInput = styled(props => <TextInput {...props} />)`
+  background-color: #fff;
+  flex: 1;
+  margin-bottom: 10px;
+  @media only screen and (min-width: ${md}px) {
+    margin-bottom: 0;
+  }
+`
+
 const Subscribe = () => {
   const [message, setMessage] = useState("")
   const initialValues = { email: "" }
@@ -80,13 +89,12 @@ const Subscribe = () => {
   return (
     <>
       <SubscribeForm onSubmit={formik.handleSubmit}>
-        <TextInput
+        <EmailInput
           black
           type="text"
           label="Your email"
           name="email"
           borderColor="#FFF"
-          style={{ backgroundColor: "#FFF", flex: 1 }}
           error={formik.errors.email}
           value={formik.values.email}
           dirty={formik.touched.email}

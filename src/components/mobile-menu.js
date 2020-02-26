@@ -63,7 +63,7 @@ const MobileMenuWrap = styled(({ children, active, activeMenu, ...rest }) => (
 `
 
 const Socials = styled(props => <SocialList {...props} />)`
-  margin: 20px 0 30px 0 !important; 
+  margin: 20px 0 30px 0 !important;
   @media only screen and (min-width: ${sm}px) {
     margin-bottom: 30px 0 60px 0 !important;
   }
@@ -113,6 +113,14 @@ const LocationButton = styled.button`
 
 const MobileMenu = ({ menu, userState, active, activeMenu }) => {
   const mobileMenus = menu.filter((m, i) => i !== 0)
+  const handleMobileMenuClick = (e, link) => {
+    const scrollY = document.body.style.top
+    document.body.style.position = ""
+    document.body.style.top = ""
+    window.scrollTo(0, parseInt(scrollY || "0", 10) * -1)
+    e.preventDefault()
+    navigate(link)
+  }
   return (
     <MobileMenuWrap active={active}>
       <Box top="0">
@@ -127,10 +135,7 @@ const MobileMenu = ({ menu, userState, active, activeMenu }) => {
             <li className="menu-item" key={item.link}>
               <MenuItem
                 href="#"
-                onClick={e => {
-                  e.preventDefault()
-                  navigate(item.link)
-                }}
+                onClick={e => handleMobileMenuClick(e, item.link)}
                 isActive={item.link === activeMenu}
                 activeColor={item.color}>
                 {item.label}

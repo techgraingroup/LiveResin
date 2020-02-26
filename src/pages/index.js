@@ -17,6 +17,7 @@ import InstagramFeed from "../components/instagram"
 import {
   SubTitle,
   CollabWrap,
+  CollabIcon,
   CollabLabel,
   Description,
   LowerBlock,
@@ -39,7 +40,7 @@ const {
   breakpoints: { md, xl },
 } = THEME
 
-export const CollabIcon = styled(props => <Collab {...props} />)`
+export const LocalCollabIcon = styled(props => <Collab {...props} />)`
   ${fluidRange(
     {
       prop: "width",
@@ -217,7 +218,7 @@ const IndexPage = () => {
             </span>
           </Grid.Unit>
           <GoldGrid size={halfSize}>
-            <CollabIcon />
+            <LocalCollabIcon />
             <GoldSeal />
             <Arrow borderColor="#000" left="0" />
           </GoldGrid>
