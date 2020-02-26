@@ -20,8 +20,21 @@ const HeaderWrap = styled.header`
   left: 0;
   right: 0;
   background: #fff;
-  z-index: 1000;
+  z-index: 1001;
   transition: all 0.3s ease-in-out;
+  ${props =>
+    !props.passed
+      ? `
+        height: 30vh;
+        position: static;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        @media only screen and (max-width: ${md}px) and (max-aspect-ratio: 16/9) {
+            height: 20vh;
+        }
+  `
+      : ""}
   &.hidden {
     transform: translate3d(0, -100%, 0);
   }
@@ -133,7 +146,7 @@ const LocationButton = styled.button`
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 1001;
     background: transparent;
     border: 0;
     outline: none;
@@ -149,6 +162,14 @@ const LocationButton = styled.button`
       margin-left: 10px;
       top: -1px;
     }
+  }
+`
+
+const BrandLogo = styled(props => <Logo {...props} />)`
+  width: ${props => (props.passed ? "450px" : "auto")};
+  height: ${props => (props.passed ? "auto" : "120px")};
+  @media only screen and (max-width: ${md}px) and (max-aspect-ratio: 16/9) {
+    height: ${props => (props.passed ? "auto" : "80px")};
   }
 `
 
@@ -171,28 +192,12 @@ const Header = ({ passed, userState, hideNav }) => {
     }
   `)
   return (
-    <HeaderWrap
-      className={hideNav ? "hidden" : ""}
-      style={
-        passed
-          ? null
-          : {
-              height: "30vh",
-              position: "static",
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }
-      }>
+    <HeaderWrap passed={passed} className={hideNav ? "hidden" : ""}>
       <Grid>
         <BrandWrapper size={passed ? { xs: 1 / 3, sm: 1 / 4 } : 1}>
           <Box top="0" bottom="0" right="0">
             <Link to="/">
-              <Logo
-                width={passed ? "450px" : "auto"}
-                height={passed ? "auto" : "120px"}
-                showSubtext={!passed}
-              />
+              <BrandLogo passed={passed} />
             </Link>
           </Box>
         </BrandWrapper>

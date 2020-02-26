@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import styled from "styled-components"
 import { ThemeProvider } from "styled-components"
 import Header from "../components/header"
 import Footer from "../components/footer"
@@ -7,6 +8,26 @@ import { StateProvider } from "../context"
 import { GlobalStyle } from "./global-style"
 import { THEME, AGE_GATE_KEY, LOCATION_KEY } from "../data"
 import { useScrollPosition } from "../utils"
+
+const {
+  breakpoints: { md },
+} = THEME
+
+const AgeGateWrapper = styled.div`
+  background-color: #000;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: ${props => (props.passed ? "none" : "flex")};
+  height: ${props => (props.passed ? "0px" : "70vh")};
+  @media only screen and (max-width: ${md}px) and (max-aspect-ratio: 16/9) {
+    height: ${props => (props.passed ? "0px" : "80vh")};
+  }
+`
+
+const ContentWrapper = styled.div`
+  display: ${props => (props.passed ? "block" : "none")};
+`
 
 const Layout = ({ children }) => {
   const [passed, setPassed] = useState(false)
@@ -50,21 +71,13 @@ const Layout = ({ children }) => {
       <StateProvider>
         <GlobalStyle />
         <Header passed={passed} hideNav={hideNav} userState={userState} />
-        <div style={{ display: passed ? "block" : "none" }}>
+        <ContentWrapper passed={passed}>
           <main>{children}</main>
           <Footer userState={userState} />
-        </div>
-        <div
-          style={{
-            backgroundColor: "#000",
-            display: passed ? "none" : "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            height: !passed ? "70vh" : "0",
-          }}>
+        </ContentWrapper>
+        <AgeGateWrapper passed={passed}>
           <AgeGate passed={passed} passAgeGate={passAgeGate} />
-        </div>
+        </AgeGateWrapper>
       </StateProvider>
     </ThemeProvider>
   )

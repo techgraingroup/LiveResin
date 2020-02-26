@@ -8,17 +8,18 @@ import { Arrow, ChevronDown } from "./icons"
 import { THEME } from "../data"
 
 const {
-  breakpoints: { md },
+  breakpoints: { md, sm },
 } = THEME
 
 const MobileMenuWrap = styled(({ children, active, activeMenu, ...rest }) => (
   <div {...rest}>{children}</div>
 ))`
   position: fixed;
-  top: 100px;
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  padding-top: 100px;
   background: #fff;
   z-index: 1000;
   transition: all 0.2s ease-in-out;
@@ -35,22 +36,36 @@ const MobileMenuWrap = styled(({ children, active, activeMenu, ...rest }) => (
     li.menu-item {
       a {
         display: block;
-        line-height: 60px;
-        font-size: 40px;
         font-family: MontHeavy, sans-serif;
         text-decoration: none;
         border-bottom: 1px solid #000;
         color: #000;
         padding-top: 4px;
         position: relative;
+        font-size: 26px;
+        line-height: 38px;
+        @media only screen and (min-width: ${sm}px) {
+          line-height: 60px;
+          font-size: 40px;
+        }
         svg {
           position: absolute !important;
           left: auto !important;
-          top: 25px !important;
           right: 0;
+          top: 11px !important;
+          @media only screen and (min-width: ${sm}px) {
+            top: 25px !important;
+          }
         }
       }
     }
+  }
+`
+
+const Socials = styled(props => <SocialList {...props} />)`
+  margin: 20px 0 30px 0 !important; 
+  @media only screen and (min-width: ${sm}px) {
+    margin-bottom: 30px 0 60px 0 !important;
   }
 `
 
@@ -126,7 +141,7 @@ const MobileMenu = ({ menu, userState, active, activeMenu }) => {
             </li>
           ))}
         </ul>
-        <SocialList style={{ marginBottom: 60 }}>
+        <Socials>
           <li>
             <SocialButton dark href="#" target="_blank" type="facebook" />
           </li>
@@ -136,7 +151,7 @@ const MobileMenu = ({ menu, userState, active, activeMenu }) => {
           <li>
             <SocialButton dark href="#" target="_blank" type="instagram" />
           </li>
-        </SocialList>
+        </Socials>
         <Link
           to="/privacy-terms"
           style={{
