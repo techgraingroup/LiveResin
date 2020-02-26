@@ -48,6 +48,12 @@ module.exports = {
         username: `${process.env.INSTAGRAM_USER}`,
       },
     },
+    {
+      resolve: `gatsby-plugin-mailchimp`,
+      options: {
+        endpoint: `${process.env.MAILCHIMP_ACTION}`,
+      },
+    },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-robots-txt`,

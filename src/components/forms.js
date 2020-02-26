@@ -71,6 +71,7 @@ export const TextInput = styled(
     dirty,
     placeholder,
     className,
+      black,
     error,
     ...rest
   }) => {
@@ -87,7 +88,9 @@ export const TextInput = styled(
     }
     return (
       <div {...rest} className={eleClass}>
-        <label htmlFor={name}>{ dirty && error ? error : label }</label>
+        {label && (
+          <label htmlFor={name}>{dirty && error ? error : label}</label>
+        )}
         {type === "textarea" ? (
           <textarea
             ref={inputEl}
@@ -123,7 +126,8 @@ export const TextInput = styled(
   margin-bottom: 25px;
   position: relative;
   padding: 0 24px;
-  border: ${props => (props.dirty && props.error ? "1px solid #FF4438" : "1px solid #000")};
+  border: ${props =>
+    props.dirty && props.error ? "1px solid #FF4438" : "1px solid #000"};
   &.active {
     label {
       transform: translate(0, 2px) scale(0.75);
@@ -131,7 +135,6 @@ export const TextInput = styled(
     }
   }
   label {
-    opacity: 0.3;
     position: absolute;
     font-size: 18px;
     margin-top: 10px;
@@ -139,6 +142,7 @@ export const TextInput = styled(
     transform: translate(0, 16px) scale(1);
     transition: all 0.1s ease-in-out;
     font-family: MontBold, sans-serif;
+    opacity: ${props => props.black ? '1' : '0.3'};
     color: ${props => (props.dirty && props.error ? "#FF4438" : "#000")};
   }
   input,

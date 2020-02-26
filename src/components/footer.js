@@ -6,10 +6,10 @@ import Logo from "./logo"
 import { AppContext } from "../context"
 import { BlockTitle } from "./text"
 import { Box } from "./box"
+import Subscribe from "./signupform"
 import { SocialButton } from "./button"
 import MobileMenu from "./mobile-menu"
 import { ChevronDown } from "./icons"
-import arrow from "../images/sign-up-arrow.png"
 import { THEME } from "../data"
 
 const {
@@ -39,60 +39,6 @@ const FooterMenu = styled.ul`
   }
   @media only screen and (max-width: ${md}px) {
     display: none;
-  }
-`
-
-const SubscribeForm = styled.form`
-  margin: 50px 0 0 0;
-  width: 100%;
-  display: block;
-  @media only screen and (min-width: ${md}px) {
-    display: flex;
-  }
-  input[type="text"] {
-    border: 0;
-    padding: 25px;
-    color: #000;
-    width: calc(100% - 50px);
-    font-family: MontBold, sans-serif;
-    margin-bottom: 10px;
-    @media only screen and (min-width: ${md}px) {
-      width: auto;
-      flex: 1;
-      margin-bottom: 0;
-    }
-    ::placeholder { color: #000; }
-    ::-webkit-input-placeholder { color: #000; }
-    ::-ms-input-placeholder { color: #000; }
-  }
-  button {
-    background: #ff9e18;
-    color: white;
-    text-transform: uppercase;
-    font-size: 18px;
-    border: 0;
-    height: 72px;
-    letter-spacing: 0.1em;
-    position: relative;
-    padding: 0 30px;
-    width: 100%;
-    text-align: left;
-    font-family: MontHeavy, sans-serif;
-    &:after {
-      content: "";
-      display: block;
-      width: 28px;
-      height: 19px;
-      background: url(${arrow}) center center no-repeat;
-      background-size: 100% 100%;
-      position: absolute;
-      margin-top: -9.5px;
-      top: 50%;
-      right: 30px;
-    }
-    @media only screen and (min-width: ${md}px) {
-      width: 200px;
-    }
   }
 `
 
@@ -239,19 +185,31 @@ const Footer = ({ userState }) => {
                 Sign up for our newsletter and we’ll let you know about news and
                 upcoming product releases.
               </NotifiedBox>
-              <SubscribeForm method="POST" action="#">
-                <input type="text" placeholder="Your email" />
-                <button type="submit">Sign Up</button>
-              </SubscribeForm>
+              <Subscribe />
               <SocialList>
                 <li>
-                  <SocialButton href="#" target="_blank" type="facebook" />
+                  <SocialButton
+                    href={`${process.env.FACEBOOK_URL}`}
+                    rel="noreferrer noopener"
+                    target="_blank"
+                    type="facebook"
+                  />
                 </li>
                 <li>
-                  <SocialButton href="#" target="_blank" type="twitter" />
+                  <SocialButton
+                    href={`https://twitter.com/${process.env.TWITTER_USER}`}
+                    rel="noreferrer noopener"
+                    target="_blank"
+                    type="twitter"
+                  />
                 </li>
                 <li>
-                  <SocialButton href="#" target="_blank" type="instagram" />
+                  <SocialButton
+                    href={`https://www.instagram.com/${process.env.INSTAGRAM_USER}`}
+                    rel="noreferrer noopener"
+                    target="_blank"
+                    type="instagram"
+                  />
                 </li>
               </SocialList>
             </RightBox>
