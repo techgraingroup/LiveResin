@@ -29,7 +29,7 @@ export const Button = styled(
   @media only screen and (min-width: ${md}px) {
     height: 60px;
     font-size: 16px;
-    padding: ${props => (props.withArrow ? "0 80px 0 45.5px" : "0 45.5px")};
+    padding: ${props => (props.withArrow ? "0 70px 0 30px" : "0 30px")};
   }
   .text {
     position: relative;
@@ -44,6 +44,10 @@ export const Button = styled(
   }
   svg {
     transition: transform 0.1s ease-in-out;
+    position: absolute;
+    left: auto;
+    top: 20px;
+    right: 30px;
   }
   &::before {
     ${cover()};
