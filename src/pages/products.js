@@ -445,6 +445,7 @@ const ICONS_HEIGHTS = [100, 200]
 const ProductsPage = () => {
   const [activeIcon, setActiveIcon] = useState("")
   const [iconsHeight, setIconsHeight] = useState(0)
+  const [iconsMenuHeight, setIconsMenuHeight] = useState(0)
   const [iconsMenuSticky, setIconsMenuSticky] = useState(false)
   const iconsMenu = useRef(null)
   const { dispatch } = useContext(AppContext)
@@ -457,7 +458,9 @@ const ProductsPage = () => {
     })
     dispatch({ type: "mobileMenu", value: false })
     setTimeout(() => {
+      const theHeight = iconsMenu.current.getBoundingClientRect().height
       const { width } = getWindowSize()
+      setIconsMenuHeight(theHeight)
       if (width <= md) {
         setIconsHeight(ICONS_HEIGHTS[0])
       } else {
@@ -469,6 +472,8 @@ const ProductsPage = () => {
   useEffect(() => {
     const handleResize = () => {
       const { width } = getWindowSize()
+      const theHeight = iconsMenu.current.getBoundingClientRect().height
+      setIconsMenuHeight(theHeight)
       if (width <= md) {
         setIconsHeight(ICONS_HEIGHTS[0])
       } else {
@@ -481,7 +486,6 @@ const ProductsPage = () => {
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      const iconsMenuHeight = iconsMenu.current.getBoundingClientRect().height
       if (
         currPos.y < iconsMenuHeight &&
         currPos.y + currPos.height >= iconsMenuHeight
