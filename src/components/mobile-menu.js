@@ -148,13 +148,28 @@ const MobileMenu = ({ menu, userState, active, activeMenu }) => {
         </ul>
         <Socials>
           <li>
-            <SocialButton dark href="#" target="_blank" type="facebook" />
+            <SocialButton
+              dark
+              href={`${process.env.FACEBOOK_URL}`}
+              target="_blank"
+              type="facebook"
+            />
           </li>
           <li>
-            <SocialButton dark href="#" target="_blank" type="twitter" />
+            <SocialButton
+              dark
+              href={`https://twitter.com/${process.env.TWITTER_USER}`}
+              target="_blank"
+              type="twitter"
+            />
           </li>
           <li>
-            <SocialButton dark href="#" target="_blank" type="instagram" />
+            <SocialButton
+              dark
+              href={`https://www.instagram.com/${process.env.INSTAGRAM_USER}`}
+              target="_blank"
+              type="instagram"
+            />
           </li>
         </Socials>
         <Link
