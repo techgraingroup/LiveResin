@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { useFormik } from "formik"
 import * as Yup from "yup"
@@ -20,11 +20,11 @@ const SubscribeForm = styled.form`
   }
   button {
     background: #ff9e18;
+    border: 1px solid #ff9e18;
     color: white;
     text-transform: uppercase;
     font-size: 18px;
-    border: 0;
-    height: 68px;
+    height: 71px;
     letter-spacing: 0.1em;
     position: relative;
     padding: 0 30px;
@@ -50,6 +50,7 @@ const SubscribeForm = styled.form`
 `
 
 const Subscribe = () => {
+  const [message, setMessage] = useState("")
   const initialValues = { email: "" }
   const formik = useFormik({
     initialValues,
@@ -60,36 +61,44 @@ const Subscribe = () => {
     }),
     onSubmit: (values, { setSubmitting, resetForm }) => {
       setSubmitting(true)
-      addToMailchimp(values.email)
-        .then(data => {
-          console.log(data)
+      addToMailchimp(values.email, {
+        EMAIL: values.email,
+      })
+        .then(({ msg }) => {
+          setMessage(msg)
           setSubmitting(false)
           resetForm(initialValues)
+          setTimeout(() => {
+            setMessage("")
+          }, 2500)
         })
         .catch(err => {
-          console.log(err)
           setSubmitting(false)
         })
     },
   })
   return (
-    <SubscribeForm onSubmit={formik.handleSubmit}>
-      <TextInput
-        black
-        type="text"
-        label="Your email"
-        name="email"
-        style={{ backgroundColor: "#FFF", flex: 1 }}
-        error={formik.errors.email}
-        value={formik.values.email}
-        dirty={formik.touched.email}
-        onChange={formik.handleChange}
-        onBlur={() => formik.setFieldTouched("email", true)}
-      />
-      <button type="submit" disabled={formik.isSubmitting || !formik.isValid}>
-        Sign Up
-      </button>
-    </SubscribeForm>
+    <>
+      <SubscribeForm onSubmit={formik.handleSubmit}>
+        <TextInput
+          black
+          type="text"
+          label="Your email"
+          name="email"
+          borderColor="#FFF"
+          style={{ backgroundColor: "#FFF", flex: 1 }}
+          error={formik.errors.email}
+          value={formik.values.email}
+          dirty={formik.touched.email}
+          onChange={formik.handleChange}
+          onBlur={() => formik.setFieldTouched("email", true)}
+        />
+        <button type="submit" disabled={formik.isSubmitting || !formik.isValid}>
+          Sign Up
+        </button>
+      </SubscribeForm>
+      {message && <span style={{ color: "#FFF" }}>{message}</span>}
+    </>
   )
 }
 

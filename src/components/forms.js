@@ -69,9 +69,10 @@ export const TextInput = styled(
     onBlur,
     value,
     dirty,
+    borderColor,
     placeholder,
     className,
-      black,
+    black,
     error,
     ...rest
   }) => {
@@ -126,8 +127,20 @@ export const TextInput = styled(
   margin-bottom: 25px;
   position: relative;
   padding: 0 24px;
-  border: ${props =>
-    props.dirty && props.error ? "1px solid #FF4438" : "1px solid #000"};
+  ${props =>
+    props.borderColor
+      ? `
+          border : ${
+            props.dirty && props.error
+              ? `1px solid #FF4438`
+              : `1px solid ${props.borderColor}`
+          };
+            `
+      : `
+          border : ${
+            props.dirty && props.error ? `1px solid #FF4438` : `1px solid #000`
+          };
+          `}
   &.active {
     label {
       transform: translate(0, 2px) scale(0.75);
@@ -142,7 +155,7 @@ export const TextInput = styled(
     transform: translate(0, 16px) scale(1);
     transition: all 0.1s ease-in-out;
     font-family: MontBold, sans-serif;
-    opacity: ${props => props.black ? '1' : '0.3'};
+    opacity: ${props => (props.black ? "1" : "0.3")};
     color: ${props => (props.dirty && props.error ? "#FF4438" : "#000")};
   }
   input,
