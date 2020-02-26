@@ -354,15 +354,7 @@ const StrainBox = styled(({ children, bg, color, ...rest }) => {
         letter-spacing: -0.02em;
         line-height: 100%;
         white-space: pre-wrap;
-        ${fluidRange(
-          {
-            prop: "font-size",
-            fromSize: "24px",
-            toSize: "15px",
-          },
-          `${sm}px`,
-          `${xl}px`
-        )}
+        font-size: 15px;
       }
     }
   }
