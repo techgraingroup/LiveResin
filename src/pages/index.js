@@ -183,7 +183,7 @@ const IndexPage = () => {
         btnText="Our Process"
         btnLink="/our-process/"
       />
-      <Box bgColor="#BBA135" top={20} bottom={20}>
+      <Box bgColor="#BBA135" top={23} bottom={23}>
         <Grid valign="center">
           <Grid.Unit size={halfSize}>
             <span
@@ -300,7 +300,7 @@ const IndexPage = () => {
           Our Products
         </BlockTitle>
         <Grid>
-          <ProductText size={{ sm: 2 / 5, xs: 1 }}>
+          <ProductText size={{ sm: 9 / 25, xs: 1 }}>
             <Text color="#FFF">
               Our goal is to preserve the essence of a live plant until you’re
               holding our concentrates in your hand. We’re always looking for
@@ -347,14 +347,9 @@ const IndexPage = () => {
               <Grid>
                 <Grid.Unit size={{ xs: 1, sm: 1, md: 2 / 3 }}>
                   <Description style={{ minHeight: 120 }}>
-                    This special collaboration <DesktopBr />
-                    showcases <MobileBr />
-                    Gold Seal’s signature <DesktopBr />
-                    Red Congolese, a 12+ <MobileBr />
-                    week <DesktopBr />
-                    flowering Sativa that we believe <DesktopBr />
-                    is <MobileBr />
-                    truly special.
+                    This special collaboration showcases Gold Seal’s signature
+                    Red Congolese, a 12+ week flowering Sativa that we believe
+                    is truly special.
                   </Description>
                 </Grid.Unit>
                 <LowerBlock size={{ xs: 1, sm: 1, md: 1 / 3 }}>
@@ -375,8 +370,8 @@ const IndexPage = () => {
               <Grid>
                 <Grid.Unit size={{ xs: 1, sm: 1, md: 2 / 3 }}>
                   <Description color="#FFC700" style={{ minHeight: 120 }}>
-                    It's everything we love about OG - gassy, <MobileBr />
-                    rich a little earthy.
+                    It's everything we love about OG - gassy, rich a little
+                    earthy.
                   </Description>
                 </Grid.Unit>
                 <LowerBlock size={{ xs: 1, sm: 1, md: 1 / 3 }}>
