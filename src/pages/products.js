@@ -78,6 +78,8 @@ const IconsWrapNav = styled(({ navHeight, ...rest }) => <div {...rest} />)`
       padding-bottom: 0;
       height: 100%;
       .icon-item {
+        width: auto;
+        flex-basis: auto;
         a {
           height: 100%;
           padding-top: 0;
@@ -88,12 +90,21 @@ const IconsWrapNav = styled(({ navHeight, ...rest }) => <div {...rest} />)`
             display: none;
           }
           svg {
+            height: auto;
+            margin-bottom: 0;
             margin-top: 0;
+            ${fluidRange(
+              {
+                prop: "width",
+                fromSize: "30px",
+                toSize: "80px",
+              },
+              `${md}px`,
+              `${xl}px`
+            )}
           }
         }
       }
-    }
-    @media only screen and (min-width: ${md}px) {
     }
   }
 `
@@ -184,12 +195,15 @@ const IconWrap = styled(({ offset, target, isActive, children, ...rest }) => (
         display: block;
         content: '';
         width: 100%;
-        height: 10px;
         background: #FF4438;
         position: absolute;
         top: 0;
         right: 0;
         left: 0;
+        height: 4px;
+        @media only screen and (min-width: ${md}px) {
+        height: 10px;
+        }
     }
     `}
   }
