@@ -32,7 +32,7 @@ const BannerTitle = styled.h2`
   ${fluidRange(
     {
       prop: "font-size",
-      fromSize: "36px",
+      fromSize: "40px",
       toSize: "96px",
     },
     `${sm}px`,
