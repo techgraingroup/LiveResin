@@ -202,7 +202,7 @@ const IconWrap = styled(({ offset, target, isActive, children, ...rest }) => (
         left: 0;
         height: 4px;
         @media only screen and (min-width: ${md}px) {
-        height: 10px;
+         height: 10px;
         }
     }
     `}
@@ -363,59 +363,87 @@ const StrainBox = styled(({ children, bg, color, ...rest }) => {
   }
 `
 
-const ProductBlock = forwardRef(({ p, setActive }, ref) => {
-  const Icon = icons[p.icon]
-  const itemInView = useOnScreen(ref)
-  if (itemInView) setActive(p.icon)
-  return (
-    <Box id={p.icon} top="0" bottom="0" style={{ marginBottom: 100 }}>
-      <div ref={ref}>
-        <ProductTitle>
-          <Grid.Unit size={1 / 2}>
-            <h2>{p.name}</h2>
-          </Grid.Unit>
-          <Grid.Unit size={1 / 2} className="icon-wrap">
-            <Icon active />
-          </Grid.Unit>
-        </ProductTitle>
-        <Grid>
-          <ImgWrapper size={{ xs: 1, sm: 1, md: 1, lg: 1 / 2 }}>
-            <ProductImg fluid={p.image.childImageSharp.fluid} />
-          </ImgWrapper>
-          <ProductInfo size={{ xs: 1, sm: 1, md: 1, lg: 1 / 2 }}>
-            <h3>What is it?</h3>
-            <Text>{p.what}</Text>
-            <h3>How is it made?</h3>
-            <Text>{p.how}</Text>
-            <h3>Why Live {p.name}?</h3>
-            <Text>{p.why}</Text>
-            <h4>Popular Strain</h4>
-            <div>
-              {p.strains.map((s, i) => {
-                const isEven = i % 2 === 0
-                return (
-                  <StrainBox
-                    key={`${i}-item`}
-                    className={isEven ? "even" : "odd"}
-                    color={s.color}
-                    bg={s.bg}>
-                    {s.name}
-                  </StrainBox>
-                )
-              })}
-            </div>
-          </ProductInfo>
-        </Grid>
+const ProductBlock = styled(
+  forwardRef(({ p, setActive, ...rest }, ref) => {
+    const Icon = icons[p.icon]
+    const itemInView = useOnScreen(ref)
+    if (itemInView) setActive(p.icon)
+    return (
+      <div id={p.icon} {...rest}>
+        <div ref={ref}>
+          <ProductTitle>
+            <Grid.Unit size={1 / 2}>
+              <h2>{p.name}</h2>
+            </Grid.Unit>
+            <Grid.Unit size={1 / 2} className="icon-wrap">
+              <Icon active />
+            </Grid.Unit>
+          </ProductTitle>
+          <Grid>
+            <ImgWrapper size={{ xs: 1, sm: 1, md: 1, lg: 1 / 2 }}>
+              <ProductImg fluid={p.image.childImageSharp.fluid} />
+            </ImgWrapper>
+            <ProductInfo size={{ xs: 1, sm: 1, md: 1, lg: 1 / 2 }}>
+              <h3>What is it?</h3>
+              <Text>{p.what}</Text>
+              <h3>How is it made?</h3>
+              <Text>{p.how}</Text>
+              <h3>Why Live {p.name}?</h3>
+              <Text>{p.why}</Text>
+              <h4>Popular Strain</h4>
+              <div>
+                {p.strains.map((s, i) => {
+                  const isEven = i % 2 === 0
+                  return (
+                    <StrainBox
+                      key={`${i}-item`}
+                      className={isEven ? "even" : "odd"}
+                      color={s.color}
+                      bg={s.bg}>
+                      {s.name}
+                    </StrainBox>
+                  )
+                })}
+              </div>
+            </ProductInfo>
+          </Grid>
+        </div>
       </div>
-    </Box>
-  )
-})
+    )
+  })
+)`
+  padding-top: 0;
+  padding-bottom: 0;
+  ${fluidRange(
+    {
+      prop: "padding-left",
+      fromSize: "20px",
+      toSize: sideGutter,
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+  ${fluidRange(
+    {
+      prop: "padding-right",
+      fromSize: "20px",
+      toSize: sideGutter,
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+  > div {
+    padding-bottom: 60px;
+    @media only screen and (min-width: ${md}px) {
+      padding-bottom: 100px;
+    }
+  }
+`
 
 const ICONS_HEIGHTS = [100, 200]
 
 const ProductsPage = () => {
   const [activeIcon, setActiveIcon] = useState("")
-  const [iconsPosition, setIconsPosition] = useState(0)
   const [iconsHeight, setIconsHeight] = useState(0)
   const [iconsMenuSticky, setIconsMenuSticky] = useState(false)
   const iconsMenu = useRef(null)
@@ -454,7 +482,6 @@ const ProductsPage = () => {
   useScrollPosition(
     ({ prevPos, currPos }) => {
       const iconsMenuHeight = iconsMenu.current.getBoundingClientRect().height
-      console.log(currPos.y, iconsHeight, iconsMenuHeight)
       if (
         currPos.y < iconsMenuHeight &&
         currPos.y + currPos.height >= iconsMenuHeight
