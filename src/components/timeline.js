@@ -19,8 +19,9 @@ const Wrapper = styled(({ children, ...rest }) => (
   position: relative;
   min-height: 450px;
   border-top: 1px solid #000;
-  padding-top: 80px;
+  padding-top: 60px;
   @media only screen and (min-width: ${md}px) {
+    padding-top: 80px;
     padding-top: 150px;
   }
   span {
@@ -28,11 +29,12 @@ const Wrapper = styled(({ children, ...rest }) => (
     width: 4px;
     background: #000;
     position: absolute;
-    top: 150px;
     bottom: 0;
     margin-left: -2px;
     left: 40px;
+    top: 60px;
     @media only screen and (min-width: ${md}px) {
+      top: 150px;
       left: 50%;
     }
     &::before {
@@ -79,6 +81,12 @@ const TimelineItem = styled(
   height: auto;
   @media only screen and (min-width: ${md}px) {
     height: 300px;
+  }
+  &.first-item {
+    padding-top: 60px;
+    @media only screen and (min-width: ${md}px) {
+      padding-top: 0px;
+    }
   }
   .text-wrap {
     padding-left: 40px;
@@ -166,6 +174,13 @@ const TimelineItem = styled(
       }
     }
   }
+  &.last-item {
+    .text {
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
 `
 
 const Timeline = () => {
@@ -193,7 +208,12 @@ const Timeline = () => {
     <Box top="0" bottom="0">
       <Wrapper>
         {timeline.map((item, i) => {
-          return <TimelineItem key={`item-${i}`} {...item} />
+          let className
+          if (i === 0) className = "first-item"
+          if (i + 1 === timeline.length) className = "last-item"
+          return (
+            <TimelineItem key={`item-${i}`} {...item} className={className} />
+          )
         })}
       </Wrapper>
     </Box>
