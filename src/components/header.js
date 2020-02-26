@@ -230,7 +230,7 @@ const Header = ({ passed, userState, hideNav }) => {
                     <MenuNearMe style={{ position: "relative", top: 7 }} />
                   </MenuLink>
                 </MenuItem>
-                <MenuItem style={{ marginLeft: 40, marginRight: 20 }}>
+                <MenuItem style={{ marginLeft: 20, marginRight: 20 }}>
                   <MenuLink
                     external
                     href="#"
