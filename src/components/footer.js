@@ -224,7 +224,7 @@ const Footer = ({ userState }) => {
                   color: "#FFF",
                   textDecoration: "none",
                   fontSize: "10px",
-                  fontFamily: "MontHeavy, sans-serif",
+                  fontFamily: "Mont, sans-serif",
                 }}>
                 Privacy and Terms
               </Link>

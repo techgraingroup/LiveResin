@@ -41,7 +41,7 @@ const icons = { TBudder, TDiamonds, TSauce, TSugar, TShatter, TThca, TVapes }
 
 const {
   sideGutter,
-  breakpoints: { md, lg, xl },
+  breakpoints: { sm, md, lg, xl },
 } = THEME
 
 const IconsWrapNav = styled(({ navHeight, ...rest }) => <div {...rest} />)`
@@ -354,10 +354,15 @@ const StrainBox = styled(({ children, bg, color, ...rest }) => {
         letter-spacing: -0.02em;
         line-height: 100%;
         white-space: pre-wrap;
-        font-size: 28px;
-        @media only screen and (min-width: ${md}px) {
-          font-size: 15px;
-        }
+        ${fluidRange(
+          {
+            prop: "font-size",
+            fromSize: "24px",
+            toSize: "15px",
+          },
+          `${sm}px`,
+          `${xl}px`
+        )}
       }
     }
   }
@@ -437,6 +442,14 @@ const ProductBlock = styled(
     @media only screen and (min-width: ${md}px) {
       padding-bottom: 100px;
     }
+  }
+`
+
+const CollaborationBox = styled(props => <Box {...props} />)`
+  padding-top: 120px;
+  padding-bottom: 0;
+  @media only screen and (min-width: ${md}px) {
+    padding-bottom: 40px;
   }
 `
 
@@ -628,7 +641,7 @@ const ProductsPage = () => {
           )
         })}
       </div>
-      <Box bottom={40}>
+      <CollaborationBox>
         <BlockTitleHorz
           title="Collaborations"
           titleStyle={{
@@ -638,7 +651,7 @@ const ProductsPage = () => {
           }}
           description="Our current lineup won’t be our lineup forever. We’re always looking for new collaborations and the freshest flower. Here’s what we have today."
         />
-      </Box>
+      </CollaborationBox>
       <RCBanner />
       <FindNearYou />
     </>

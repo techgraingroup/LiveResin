@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
+import { fluidRange } from "polished"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import { Box, SquareBox } from "../components/box"
@@ -36,7 +37,7 @@ const halfSize = {
 }
 
 const {
-  breakpoints: { md },
+  breakpoints: { md, xl },
 } = THEME
 
 const GoldGrid = styled(props => <Grid.Unit {...props} />)`
@@ -84,6 +85,18 @@ const ProductText = styled(props => <Grid.Unit {...props} />)`
   @media only screen and (min-width: ${md}px) {
     margin-top: 0;
   }
+`
+
+const LatestTitle = styled(props => <BlockTitle {...props} />)`
+  ${fluidRange(
+    {
+      prop: "font-size",
+      fromSize: "45px",
+      toSize: "66px",
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
 `
 
 const IndexPage = () => {
@@ -320,13 +333,9 @@ const IndexPage = () => {
           <Grid.Unit size={halfSize}>
             <Box top={35} bottom={35} bgColor="#BBA135">
               <SubTitle>Latest Collaboration</SubTitle>
-              <BlockTitle
-                line="mobileTop"
-                fontSize="66px"
-                lineHeight="100%"
-                color="#000">
+              <LatestTitle line="mobileTop" lineHeight="100%" color="#000">
                 {`Red\nCongolese`}
-              </BlockTitle>
+              </LatestTitle>
               <CollabWrap>
                 <CollabIcon />
                 <CollabLabel>GOLD SEAL SF</CollabLabel>
@@ -355,13 +364,9 @@ const IndexPage = () => {
           <Grid.Unit size={halfSize}>
             <Box top={35} bottom={35} bgColor="#000">
               <SubTitle color="#FFC700">Recent Drop</SubTitle>
-              <BlockTitle
-                line="mobileTop"
-                fontSize="66px"
-                lineHeight="100%"
-                color="#FFC700">
+              <LatestTitle line="mobileTop" lineHeight="100%" color="#FFC700">
                 {`Skywalker\nOG`}
-              </BlockTitle>
+              </LatestTitle>
               <CollabWrap borderColor="#FFC700">{`&nbsp;`}</CollabWrap>
               <Grid>
                 <Grid.Unit size={{ xs: 1, sm: 1, md: 2 / 3 }}>

@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import { fluidRange } from "polished"
 import Grid from "styled-components-grid"
 import SEO from "../components/seo"
-import Banner from "../components/banner"
 import Hero from "../components/hero"
 import { H2, BlockTitleHorz, PageTitle, Quote } from "../components/text"
 import { Box } from "../components/box"
@@ -14,12 +13,20 @@ import { getImageFromList } from "../utils"
 import { THEME } from "../data"
 
 const {
-  breakpoints: { md, xl },
+  breakpoints: { sm, md, xl },
   sideGutter,
 } = THEME
 
 const IconWrapper = styled(props => <Grid.Unit {...props} />)`
-  margin-bottom: 80px;
+  ${fluidRange(
+    {
+      prop: "margin-bottom",
+      fromSize: "20px",
+      toSize: "60px",
+    },
+    `${sm}px`,
+    `${md}px`
+  )}
   @media only screen and (min-width: ${md}px) {
     margin-bottom: 0;
   }
@@ -149,6 +156,8 @@ const OurProcessPage = () => {
         )}
       />
       <PageTitle
+        mobileTop={70}
+        mobileBottom={70}
         title={`Our\nProcess`}
         text="Creating live resin is an intensive labor of love. It requires precision and care from beginning to end to extract the essence of living cannabis and convert it into a variety of textures. As the inventors of live resin, we’ve been at it longer than anyone. "
       />

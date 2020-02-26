@@ -5,6 +5,7 @@ import Grid from "styled-components-grid"
 import { Box } from "./box"
 import { H4, Text, BlockTitle } from "./text"
 import { Arrow } from "./icons"
+import { MobileBr } from "./responsive"
 import { THEME } from "../data"
 import usMap from "../images/usmap.png"
 
@@ -25,12 +26,12 @@ const BottomGrid = styled(({ children, ...rest }) => (
 
 const BottomBox = styled.div`
   border: 4px solid #000;
-  height: 100%;
   min-height: 250px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  height: auto;
   @media only screen and (min-width: ${md}px) {
+    height: 100%;
     min-height: auto;
     margin-bottom: 0;
     margin-left: 15px;
@@ -43,11 +44,18 @@ const BottomBox = styled.div`
     }
   }
   .text {
-    padding: 30px;
     border-bottom: 1px solid #000;
+    padding: 30px 25px;
     flex: 1;
+    @media only screen and (min-width: ${md}px) {
+      padding: 30px;
+    }
     h4 {
       margin-top: 0;
+      margin-bottom: 20px;
+      @media only screen and (min-width: ${md}px) {
+        margin-bottom: 30px;
+      }
     }
     p {
       margin-bottom: 0;
@@ -90,12 +98,22 @@ const BottomBox = styled.div`
   }
 `
 
+const TheTitle = styled(props => <BlockTitle {...props} />)`
+  margin-bottom: 40px;
+  padding: 30px 0 0 0;
+  @media only screen and (min-width: ${md}px) {
+    margin-bottom: 60px;
+    padding: 30px 0 10px 0;
+  }
+`
+
 const FindNearYou = () => {
   return (
     <Box>
-      <BlockTitle line="mobileTop" style={{ marginBottom: 60 }}>
-        Find Live Resin Near You
-      </BlockTitle>
+      <TheTitle line="mobileTop">
+        Find Live Resin <MobileBr />
+        Near You
+      </TheTitle>
       <Grid>
         <BottomGrid>
           <BottomBox className="first">

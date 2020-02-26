@@ -8,7 +8,7 @@ import { THEME } from "../data"
 import { OnlyDesktop, OnlyMobile } from "./responsive"
 
 const {
-  breakpoints: { md, xl },
+  breakpoints: { sm, md, xl },
   sideGutter,
 } = THEME
 
@@ -28,22 +28,14 @@ const BannerTitle = styled.h2`
       `
       : `margin-bottom: 0;`}
   border-bottom: ${props => (props.withDescription ? "4px solid #FFF" : 0)};
-  ${fluidRange(
-    {
-      prop: "line-height",
-      fromSize: "41px",
-      toSize: "87px",
-    },
-    `${md}px`,
-    `${xl}px`
-  )}
+  line-height: 90.24%;
   ${fluidRange(
     {
       prop: "font-size",
-      fromSize: "45px",
+      fromSize: "36px",
       toSize: "96px",
     },
-    `${md}px`,
+    `${sm}px`,
     `${xl}px`
   )}
 `

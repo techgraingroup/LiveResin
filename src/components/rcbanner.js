@@ -11,8 +11,7 @@ import { Button } from "./button"
 import { THEME } from "../data"
 
 const {
-  breakpoints: { md, xl },
-  sideGutter,
+  breakpoints: { sm, md, xl },
 } = THEME
 
 const ImgWrap = styled(({ children, ...rest }) => (
@@ -204,6 +203,15 @@ export const Description = styled.p`
     },
     `${md}px`,
     `${xl}px`
+  )}
+  ${fluidRange(
+    {
+      prop: "font-size",
+      fromSize: "14px",
+      toSize: "16px",
+    },
+    `${sm}px`,
+    `${md}px`
   )}
 `
 

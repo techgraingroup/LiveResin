@@ -56,6 +56,7 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
     }
     button {
       border: 0;
+      padding: 0;
       outline: none;
       background: transparent;
       text-align: left;

@@ -129,7 +129,7 @@ export const PageTitle = styled(
     ${fluidRange(
       {
         prop: "font-size",
-        fromSize: "16px",
+        fromSize: "17px",
         toSize: "24px",
       },
       `${md}px`,
