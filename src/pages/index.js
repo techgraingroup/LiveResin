@@ -307,6 +307,10 @@ const IndexPage = () => {
               the best fresh flower to turn into vape cartridges, sauces,
               budders, diamonds, sugars, shatters and THCA crystalline.
             </Text>
+          </ProductText>
+        </Grid>
+        <Grid>
+          <Grid.Unit size={1}>
             <Button
               style={{ marginRight: 30 }}
               bgColor="#FFF"
@@ -322,7 +326,7 @@ const IndexPage = () => {
               onClick={() => navigate("/store-locator/")}>
               Store Locator
             </Button>
-          </ProductText>
+          </Grid.Unit>
         </Grid>
       </ProductBox>
       <OnlyDesktop>
