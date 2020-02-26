@@ -195,6 +195,7 @@ export const CollabIcon = styled(props => <Collab {...props} />)`
 export const Description = styled.p`
   color: ${props => props.color || "#000"};
   margin-top: 0;
+  font-size: 16px;
   ${fluidRange(
     {
       prop: "margin-bottom",
@@ -203,15 +204,6 @@ export const Description = styled.p`
     },
     `${md}px`,
     `${xl}px`
-  )}
-  ${fluidRange(
-    {
-      prop: "font-size",
-      fromSize: "14px",
-      toSize: "16px",
-    },
-    `${sm}px`,
-    `${md}px`
   )}
 `
 
@@ -261,14 +253,9 @@ const RCBanner = () => {
         <Grid>
           <Grid.Unit size={{ xs: 1, sm: 1, md: 2 / 3 }}>
             <Description>
-              This special collaboration <DesktopBr />
-              showcases <MobileBr />
-              Gold Seal’s signature <DesktopBr />
-              Red Congolese, a 12+ <MobileBr />
-              week <DesktopBr />
-              flowering Sativa that we believe <DesktopBr />
-              is <MobileBr />
-              truly special.
+              This special collaboration showcases Gold Seal’s signature Red
+              Congolese, a 12+ week flowering Sativa that we believe is truly
+              special.
             </Description>
           </Grid.Unit>
           <LowerBlock size={{ xs: 1, sm: 1, md: 1 / 3 }}>
