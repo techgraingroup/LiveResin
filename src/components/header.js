@@ -38,6 +38,9 @@ const HeaderWrap = styled.header`
   &.hidden {
     transform: translate3d(0, -100%, 0);
   }
+  &.higher {
+    z-index: 1500;
+  }
 `
 
 const BrandWrapper = styled(props => <Grid.Unit {...props} />)`
@@ -191,8 +194,36 @@ const Header = ({ passed, userState, hideNav }) => {
       }
     }
   `)
+  // kalau data.mobileMenuVisible,
+  let hideHeader = false
+  if (data.mobileMenuVisible) {
+    hideHeader = false
+  } else {
+    hideHeader = hideNav
+  }
+  let className = ""
+  if (hideHeader) className = "hidden"
+  if (data.mobileMenuVisible) className = "higher"
+
+  const handleMobileMenuClick = e => {
+    e.preventDefault()
+    const value = !data.mobileMenuVisible
+    if (value) {
+        document.body.style.position = 'fixed'
+        document.body.style.top = `-${window.scrollY}px`
+    } else {
+        const scrollY = document.body.style.top
+        document.body.style.position = ''
+        document.body.style.top = ''
+        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1)
+    }
+    dispatch({
+      type: "mobileMenu",
+      value,
+    })
+  }
   return (
-    <HeaderWrap passed={passed} className={hideNav ? "hidden" : ""}>
+    <HeaderWrap passed={passed} className={className}>
       <Grid>
         <BrandWrapper size={passed ? { xs: 1 / 3, sm: 1 / 4 } : 1}>
           <Box top="0" bottom="0" right="0">
@@ -231,16 +262,7 @@ const Header = ({ passed, userState, hideNav }) => {
                   </MenuLink>
                 </MenuItem>
                 <MenuItem style={{ marginLeft: 20, marginRight: 20 }}>
-                  <MenuLink
-                    external
-                    href="#"
-                    onClick={e => {
-                      e.preventDefault()
-                      dispatch({
-                        type: "mobileMenu",
-                        value: !data.mobileMenuVisible,
-                      })
-                    }}>
+                  <MenuLink external href="#" onClick={handleMobileMenuClick}>
                     <MenuHamburger
                       active={data.mobileMenuVisible}
                       style={{ position: "relative", top: 7 }}
