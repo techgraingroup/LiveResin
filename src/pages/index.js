@@ -18,7 +18,6 @@ import {
   SubTitle,
   CollabWrap,
   CollabLabel,
-  CollabIcon,
   Description,
   LowerBlock,
 } from "../components/rcbanner"
@@ -40,34 +39,46 @@ const {
   breakpoints: { md, xl },
 } = THEME
 
-const GoldGrid = styled(props => <Grid.Unit {...props} />)`
+export const CollabIcon = styled(props => <Collab {...props} />)`
+  ${fluidRange(
+    {
+      prop: "width",
+      fromSize: "20px",
+      toSize: "30px",
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
   position: relative;
-  top: 0;
-  text-align: left;
+  top: -1px;
+  right: 0;
+`
+
+const GoldGrid = styled(props => <Grid.Unit {...props} />)`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   @media only screen and (min-width: ${md}px) {
-    top: -5px;
-    text-align: right;
+    justify-content: flex-end;
   }
   svg.arrow {
     position: absolute !important;
     left: auto !important;
     right: 0;
-    top: -17px !important;
-    @media only screen and (min-width: ${md}px) {
-      top: 17px !important;
-    }
+    top: 50%;
+    margin-top: -9px;
   }
 `
 
 const GoldSeal = styled(props => <span {...props}>Gold Seal SF</span>)`
   display: inline-box;
-  margin-left: 18px;
-  margin-right: 60px;
   position: relative;
   text-transform: uppercase;
-  top: 1px;
+  margin-right: 60px;
+  margin-left: 10px;
   @media only screen and (min-width: ${md}px) {
-    top: -2px;
+    margin-right: 88px;
+    margin-left: 18px;
   }
 `
 
