@@ -194,7 +194,6 @@ const Header = ({ passed, userState, hideNav }) => {
       }
     }
   `)
-  // kalau data.mobileMenuVisible,
   let hideHeader = false
   if (data.mobileMenuVisible) {
     hideHeader = false

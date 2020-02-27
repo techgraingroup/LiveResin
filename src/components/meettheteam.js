@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react"
-import Img from "gatsby-image"
 import styled from "styled-components"
 import { fluidRange, cover } from "polished"
 import { navigate, useStaticQuery, graphql } from "gatsby"
 import Grid from "styled-components-grid"
+import Img from 'gatsby-image'
 import { Button, PlayButton } from "./button"
 import { BlockTitle, Text } from "./text"
 import { THEME } from "../data"

@@ -5,6 +5,7 @@ import { fluidRange } from "polished"
 import Grid from "styled-components-grid"
 import SEO from "../components/seo"
 import Hero from "../components/hero"
+import { Animate } from "../components/animations"
 import { H2, BlockTitleHorz, PageTitle, Quote } from "../components/text"
 import { Box } from "../components/box"
 import { DesktopBr, MobileBr } from "../components/responsive"
@@ -163,20 +164,25 @@ const OurProcessPage = () => {
       />
       {processSteps.map(item => (
         <ProcessBox key={`box-${item.color}`} bgColor={item.color}>
-          <Grid valign="center">
-            <IconWrapper
-              size={{ xs: 1, sm: 1 / 2 }}
-              style={{ textAlign: "center" }}>
-              <img src={item.image.publicURL} alt={item.title} />
-            </IconWrapper>
-            <TextWrapper size={{ xs: 1, sm: 1 / 2 }}>
-              <H2
-                style={{ fontFamily: "MontHeavy, sans-serif", color: "white" }}>
-                {item.title}
-              </H2>
-              <p>{item.text}</p>
-            </TextWrapper>
-          </Grid>
+          <Animate>
+            <Grid valign="center">
+              <IconWrapper
+                size={{ xs: 1, sm: 1 / 2 }}
+                style={{ textAlign: "center" }}>
+                <img src={item.image.publicURL} alt={item.title} />
+              </IconWrapper>
+              <TextWrapper size={{ xs: 1, sm: 1 / 2 }}>
+                <H2
+                  style={{
+                    fontFamily: "MontHeavy, sans-serif",
+                    color: "white",
+                  }}>
+                  {item.title}
+                </H2>
+                <p>{item.text}</p>
+              </TextWrapper>
+            </Grid>
+          </Animate>
         </ProcessBox>
       ))}
       <Box>

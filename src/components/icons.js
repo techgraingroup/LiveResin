@@ -5,7 +5,6 @@ export const PlusMin = ({ size, color, isPlus, ...rest }) => (
   <svg
     width={size || 27}
     height={size || 27}
-    viewBox="0 0 27 27"
     viewBox={`0 0 ${size || 27} ${size || 27}`}
     fill="none"
     xmlns="http://www.w3.org/2000/svg">

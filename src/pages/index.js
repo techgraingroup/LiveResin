@@ -29,7 +29,7 @@ import {
   MobileBr,
   DesktopBr,
 } from "../components/responsive"
-import { getImageFromList, isClient, getWindowSize } from "../utils"
+import { getImageFromList, getWindowSize } from "../utils"
 import { THEME } from "../data"
 
 const halfSize = {

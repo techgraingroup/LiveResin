@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useEffect, useContext } from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import { Box } from "../components/box"
-import { H2, Text } from "../components/text"
+import { Text } from "../components/text"
 import { PageTitle } from "../components/text"
 
 const PrivacyTermsPage = () => {
@@ -20,6 +19,10 @@ const PrivacyTermsPage = () => {
     <>
       <SEO title="Privacy and Terms" />
       <PageTitle
+        top="200"
+        bottom="140"
+        mobileTop="72"
+        mobileBottom="60"
         title={`Privacy\nand Terms`}
       />
       <Box top="0">

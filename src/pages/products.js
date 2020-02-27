@@ -7,11 +7,11 @@ import React, {
   forwardRef,
 } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 import styled from "styled-components"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Grid from "styled-components-grid"
 import { cover, fluidRange } from "polished"
+import { Image } from "../components/animations"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import Hero from "../components/hero"
@@ -41,7 +41,7 @@ const icons = { TBudder, TDiamonds, TSauce, TSugar, TShatter, TThca, TVapes }
 
 const {
   sideGutter,
-  breakpoints: { sm, md, lg, xl },
+  breakpoints: { md, lg, xl },
 } = THEME
 
 const IconsWrapNav = styled(({ navHeight, ...rest }) => <div {...rest} />)`
@@ -295,7 +295,7 @@ const ImgWrapper = styled(props => <Grid.Unit {...props} />)`
   }
 `
 
-const ProductImg = styled(props => <Img {...props} />)`
+const ProductImg = styled(props => <Image {...props} />)`
   width: 510px;
   max-width: 100%;
   height: auto;

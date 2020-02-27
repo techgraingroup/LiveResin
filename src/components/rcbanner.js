@@ -1,17 +1,18 @@
 import React from "react"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
-import Img from "gatsby-image"
 import { fluidRange, cover } from "polished"
+import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from "gatsby"
+import { Image } from './animations'
 import { Collab } from "./icons"
 import { BlockTitle } from "./text"
-import { OnlyMobile, DesktopBr, MobileBr } from "./responsive"
+import { OnlyMobile } from "./responsive"
 import { Button } from "./button"
 import { THEME } from "../data"
 
 const {
-  breakpoints: { sm, md, xl },
+  breakpoints: { md, xl },
 } = THEME
 
 const ImgWrap = styled(({ children, ...rest }) => (
@@ -35,7 +36,7 @@ const ImgWrap = styled(({ children, ...rest }) => (
   }
 `
 
-const BgImg = styled(props => <Img {...props} />)`
+const BgImg = styled(props => <Image {...props} />)`
   width: auto;
   height: 100%;
   @media only screen and (min-width: ${md}px) {
