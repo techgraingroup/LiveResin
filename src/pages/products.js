@@ -498,13 +498,6 @@ const ProductsPage = () => {
       ) {
         isSticky = true
       }
-      console.log(
-        "iconsMenuHeight",
-        iconsMenuHeight,
-        "iconsHeight",
-        iconsHeight
-      )
-      console.log("currPos", currPos)
       setIconsMenuSticky(isSticky)
     },
     [iconsHeight, setIconsMenuSticky],
