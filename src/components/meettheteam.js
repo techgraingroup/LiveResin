@@ -152,7 +152,7 @@ const MeetTheTeam = () => {
               bgColor="#FFF"
               color="#A2D45E"
               onClick={() => navigate("/our-story")}>
-              Our Team
+              Our Story
             </Button>
           </div>
         </TextWrapper>
