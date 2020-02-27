@@ -50,21 +50,21 @@
     {
       "name": "Gold Seal",
       "image": "../images/f-gold-seal.png",
-      "link": "#",
+      "link": "http://www.goldsealsf.com/",
       "width": 212,
       "height": 161
     },
     {
       "name": "Cookies",
       "image": "../images/f-cookies.png",
-      "link": "#",
+      "link": "https://www.cookiesmelrose.com/",
       "width": 292,
       "height": 136
     },
     {
       "name": "Sherbinskis",
       "image": "../images/f-sherbinskis.png",
-      "link": "#",
+      "link": "https://www.sherbinskis.com/",
       "width": 292,
       "height": 136
     }
@@ -198,7 +198,8 @@
   "storeLocator": [
     {
       "name": "Cookies Melrose",
-      "address": "8360 Melrose Ave #101\nLos Angeles, CA 90069"
+      "address": "8360 Melrose Ave #101\nLos Angeles, CA 90069",
+      "link": "https://goo.gl/maps/KsWudKUP9LTSgXmd7"
     }
   ],
   "faqs": [

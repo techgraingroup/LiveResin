@@ -16,7 +16,7 @@ const BannerTitle = styled.h2`
   color: #fff;
   font-family: MontHeavy, sans-serif;
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   ${props =>
     props.withDescription
       ? `
@@ -32,7 +32,7 @@ const BannerTitle = styled.h2`
   ${fluidRange(
     {
       prop: "font-size",
-      fromSize: "40px",
+      fromSize: "45px",
       toSize: "96px",
     },
     `${sm}px`,

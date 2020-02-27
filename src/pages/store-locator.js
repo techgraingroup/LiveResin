@@ -15,8 +15,11 @@ const {
   breakpoints: { md, xl },
 } = THEME
 
-const Store = styled.div`
+const Store = styled.a`
+  display: block;
   border-bottom: 4px solid #000;
+  color: #000;
+  text-decoration: none;
   h2 {
     font-family: MontHeavy, sans-serif;
     margin-top: 0;
@@ -47,6 +50,7 @@ const StoreLocatorPage = () => {
         storeLocator {
           name
           address
+          link
         }
       }
     }
@@ -61,10 +65,20 @@ const StoreLocatorPage = () => {
   return (
     <>
       <SEO title="Store Locator" />
-      <PageTitle top="200" bottom="140" mobileTop="72" mobileBottom="60" title={`Store Locator`} />
+      <PageTitle
+        top="200"
+        bottom="140"
+        mobileTop="72"
+        mobileBottom="60"
+        title={`Store Locator`}
+      />
       <Box top="0">
         {storeLocator.map((store, i) => (
-          <Store key={`item-${i}`}>
+          <Store
+            key={`item-${i}`}
+            href={store.link}
+            target="_blank"
+            rel="noopener noreferrer">
             <Grid>
               <Grid.Unit size={11 / 12}>
                 <h2>{store.name}</h2>

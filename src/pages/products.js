@@ -560,6 +560,7 @@ const ProductsPage = () => {
     <>
       <SEO title="Products" />
       <Hero
+          withOverlay
         aspectRatio={900 / 1440}
         aspectRatioMobile={640 / 375}
         bgImage={banner}
