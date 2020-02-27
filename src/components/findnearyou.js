@@ -121,7 +121,7 @@ const FindNearYou = () => {
               <H4>{`Ancient Remedies\nCannabis Weed\nDispensary`}</H4>
               <Text>{`2350 State Street\nSalem, OR 97301`}</Text>
             </div>
-            <Link to="#">
+            <Link to="/">
               Get Directions <Arrow borderColor="#000" />
             </Link>
           </BottomBox>
@@ -132,7 +132,7 @@ const FindNearYou = () => {
               <H4>{`Ancient Remedies\nCannabis Weed\nDispensary`}</H4>
               <Text>{`2350 State Street\nSalem, OR 97301`}</Text>
             </div>
-            <Link to="#">
+            <Link to="/">
               Get Directions <Arrow borderColor="#000" />
             </Link>
           </BottomBox>

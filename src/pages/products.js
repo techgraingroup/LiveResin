@@ -491,14 +491,21 @@ const ProductsPage = () => {
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
+      let isSticky = false
       if (
         currPos.y < iconsMenuHeight &&
         currPos.y + currPos.height >= iconsMenuHeight
       ) {
-        setIconsMenuSticky(true)
-      } else {
-        setIconsMenuSticky(false)
+        isSticky = true
       }
+      console.log(
+        "iconsMenuHeight",
+        iconsMenuHeight,
+        "iconsHeight",
+        iconsHeight
+      )
+      console.log("currPos", currPos)
+      setIconsMenuSticky(isSticky)
     },
     [iconsHeight, setIconsMenuSticky],
     productsRef,
@@ -560,7 +567,7 @@ const ProductsPage = () => {
     <>
       <SEO title="Products" />
       <Hero
-          withOverlay
+        withOverlay
         aspectRatio={900 / 1440}
         aspectRatioMobile={640 / 375}
         bgImage={banner}
@@ -619,7 +626,7 @@ const ProductsPage = () => {
         id="products-wrapper"
         ref={productsRef}
         style={{
-          paddingTop: iconsMenuSticky ? iconsHeight : 0,
+          marginTop: iconsMenuSticky ? iconsMenuHeight : 0,
         }}>
         {products.map((p, i) => {
           return (
