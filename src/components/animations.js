@@ -9,7 +9,7 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import { timingFunctions } from "polished"
 
-export const Image = styled(({ className, style, ...rest }) => {
+export const Image = styled(({ className, ...rest }) => {
   const imgRef = useRef(null)
   const [isFullSize, setIsFullSize] = useState(false)
   let imgClassName = `${className} prepare-in-view`
@@ -42,7 +42,7 @@ export const Image = styled(({ className, style, ...rest }) => {
     return () => window.removeEventListener("scroll", getImagePosition)
   }, [])
   return (
-    <div style={style} className={imgClassName}>
+    <div className={imgClassName}>
       <Img ref={imgRef} {...rest} />
     </div>
   )

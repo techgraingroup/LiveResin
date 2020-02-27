@@ -40,6 +40,7 @@ export const SquareBox = styled(
 )`
   position: relative;
   padding-top: 0;
+  overflow: hidden;
   height: ${props => props.mobileHeight || "100vh"};
   @media only screen and (min-width: ${md}px) {
     padding-top: 100%;
