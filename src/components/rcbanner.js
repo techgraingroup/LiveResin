@@ -216,7 +216,7 @@ export const LowerBlock = styled(props => <Grid.Unit {...props} />)`
   }
 `
 
-const RCBanner = () => {
+const RCBanner = props => {
   const { winner, banner } = useStaticQuery(graphql`
     query {
       winner: file(relativePath: { eq: "2019-winner.png" }) {
@@ -236,7 +236,7 @@ const RCBanner = () => {
     }
   `)
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative" }} {...props}>
       <ImgWrap>
         <BgImg fluid={banner.childImageSharp.fluid} />
       </ImgWrap>

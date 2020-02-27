@@ -3,6 +3,7 @@ import { useStaticQuery, graphql, navigate } from "gatsby"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { fluidRange } from "polished"
+import AnchorLink from "react-anchor-link-smooth-scroll"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import { Box, SquareBox } from "../components/box"
@@ -72,6 +73,8 @@ const GoldGrid = styled(props => <Grid.Unit {...props} />)`
 `
 
 const GoldSeal = styled(props => <span {...props}>Gold Seal SF</span>)`
+  color: #000;
+  text-docartion: none;
   display: inline-box;
   position: relative;
   text-transform: uppercase;
@@ -196,33 +199,41 @@ const IndexPage = () => {
         btnLink="/our-process/"
       />
       <Box bgColor="#BBA135" top={23} bottom={18}>
-        <Grid valign="center">
-          <Grid.Unit size={halfSize}>
-            <span
-              style={{
-                fontFamily: "MontHeavy, sans-serif",
-                display: "block",
-                lineHeight: "140%",
-              }}>
-              Latest Collaboration
-            </span>
-            <span
-              style={{
-                display: "block",
-                fontSize: 36,
-                fontFamily: "MontHeavy, sans-serif",
-                letterSpacing: "-0.04em",
-                lineHeight: "96%",
-              }}>
-              Red Congolese
-            </span>
-          </Grid.Unit>
-          <GoldGrid size={halfSize}>
-            <LocalCollabIcon />
-            <GoldSeal />
-            <Arrow borderColor="#000" left="0" />
-          </GoldGrid>
-        </Grid>
+        <AnchorLink
+          style={{ display: 'block', color: "#000", textDecoration: "none" }}
+          href={isMobile ? "#rc-banner-mobile" : "#rc-banner-desktop"}>
+          <Grid valign="center">
+            <Grid.Unit size={halfSize}>
+              <span
+                style={{
+                  fontFamily: "MontHeavy, sans-serif",
+                  display: "block",
+                  lineHeight: "140%",
+                  color: "#000",
+                  textDecoration: "none",
+                }}>
+                Latest Collaboration
+              </span>
+              <span
+                style={{
+                  display: "block",
+                  fontSize: 36,
+                  fontFamily: "MontHeavy, sans-serif",
+                  letterSpacing: "-0.04em",
+                  lineHeight: "96%",
+                  color: "#000",
+                  textDecoration: "none",
+                }}>
+                Red Congolese
+              </span>
+            </Grid.Unit>
+            <GoldGrid size={halfSize}>
+              <LocalCollabIcon />
+              <GoldSeal />
+              <Arrow borderColor="#000" left="0" />
+            </GoldGrid>
+          </Grid>
+        </AnchorLink>
       </Box>
       <Box fullHeight top={190} bottom={190} bgColor="#FF4438">
         <Quote>
@@ -333,12 +344,12 @@ const IndexPage = () => {
         </Grid>
       </ProductBox>
       <OnlyDesktop>
-        <RCBanner />
+        <RCBanner id="rc-banner-desktop" />
       </OnlyDesktop>
       <OnlyMobile>
         <Grid>
           <Grid.Unit size={halfSize}>
-            <Box top={35} bottom={35} bgColor="#BBA135">
+            <Box id="rc-banner-mobile" top={35} bottom={35} bgColor="#BBA135">
               <SubTitle>Latest Collaboration</SubTitle>
               <LatestTitle line="mobileTop" lineHeight="100%" color="#000">
                 {`Red\nCongolese`}
