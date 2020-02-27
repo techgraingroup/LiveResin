@@ -5,8 +5,6 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@mdi/js": "^4.8.95",
-    "@mdi/react": "^1.2.1",
     "babel-plugin-styled-components": "^1.10.7",
     "formik": "^2.1.4",
     "gatsby": "^2.19.7",
