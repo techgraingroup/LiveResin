@@ -16,31 +16,31 @@
   ],
   "processSteps": [
     {
-      "image": "../images/01-best-plant.svg",
+      "image": "../images/01-best-plant.png",
       "color": "#A2D45E",
       "title": "Pick the Best Plant",
       "text": "We select only the finest cannabis plants and harvest them at their aromatic peak when they are full of essential oils. Each plant we select has been chosen because of its unique qualities, whether that is its aroma, flavor, effect, or cannabinoid profile. "
     },
     {
-      "image": "../images/02-flash-frozen.svg",
+      "image": "../images/02-flash-frozen.png",
       "color": "#1DCAD3",
       "title": "Flash Frozen for Flavor",
       "text": "At the moment of harvest, we flash-freeze our plants and keep them cool throughout the extraction process. This helps us preserve the volatile terpenes – the source of the plant’s unique flavor profile."
     },
     {
-      "image": "../images/03-extract.svg",
+      "image": "../images/03-extract.png",
       "color": "#FCD199",
       "title": "Extracting the Good Stuff",
       "text": "In order to extract and preserve the things that you love most about cannabis, we use hydrocarbons (100% n-butane) as our solvent of choice. By using such a selective solvent and extracting at very low temperatures, we are able to safely remove the delicate cannabinoids, terpenes, flavonoids, and other essential oils that give each plant its unique character. "
     },
     {
-      "image": "../images/04-pure.svg",
+      "image": "../images/04-pure.png",
       "color": "#FF9E18",
       "title": "Pure Concentration",
       "text": "From there, we remove the solvent and finish the resin into its purest concentrate form – vape cartridges, budders, sauces, diamonds, sugars, shatters, and THCA crystalline."
     },
     {
-      "image": "../images/05-enjoy.svg",
+      "image": "../images/05-enjoy.png",
       "color": "#FF4438",
       "title": "And Enjoy",
       "text": "Straight from the seed and into your hand -- you're holding the essence of a living cannabis plant. Pure and simple. Take a hit and enjoy a peek into the grow room.  "

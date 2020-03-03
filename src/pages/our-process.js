@@ -30,6 +30,14 @@ const IconWrapper = styled(props => <Grid.Unit {...props} />)`
   @media only screen and (min-width: ${md}px) {
     margin-bottom: 0;
   }
+  img {
+    max-width: 75%;
+    max-height: auto;
+    @media only screen and (min-width: ${md}px) {
+        max-width: auto;
+        max-height: 350px;
+    }
+  }
 `
 
 const IconGrid = styled(props => <Grid {...props} />)`
