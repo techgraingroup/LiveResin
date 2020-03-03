@@ -51,6 +51,14 @@ const TextWrapper = styled(props => <Grid.Unit {...props} />)`
   }
 `
 
+const Title = styled(props => <H2 {...props} />)`
+  margin-top: 0;
+`
+
+const Paragraph = styled(props => <p {...props} />)`
+  margin-bottom: 0;
+`
+
 const ProcessBox = styled.div`
   height: 100vh;
   background-color: ${props => props.bgColor || "#000"};
@@ -176,14 +184,14 @@ const OurProcessPage = () => {
               <img src={item.image.publicURL} alt={item.title} />
             </IconWrapper>
             <TextWrapper size={{ xs: 1, sm: 1 / 2 }}>
-              <H2
+              <Title
                 style={{
                   fontFamily: "MontHeavy, sans-serif",
                   color: "white",
                 }}>
                 {item.title}
-              </H2>
-              <p>{item.text}</p>
+              </Title>
+              <Paragraph>{item.text}</Paragraph>
             </TextWrapper>
           </IconGrid>
         </ProcessBox>
