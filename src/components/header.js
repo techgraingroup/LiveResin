@@ -11,7 +11,7 @@ import { Arrow, MenuHamburger, MenuNearMe, ChevronDown } from "./icons"
 import { THEME } from "../data"
 
 const {
-  breakpoints: { md, xl },
+  breakpoints: { md, lg, xl, xxl },
   headerHeight,
   sideGutter,
 } = THEME
@@ -93,21 +93,38 @@ const Menu = styled.ul`
   text-align: right;
   padding: 0;
   margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  height: ${headerHeight.mobile};
+  @media only screen and (min-width: ${md}px) {
+    height: ${headerHeight.desktop};
+  }
+  align-items: center;
   .store-locator {
     display: inline-block;
-    margin-left: 55px;
+    margin-left: 25px;
+    @media only screen and (min-width: ${xl}px) {
+      margin-left: 55px;
+    }
     a {
       display: block;
       background: #ff9e18;
       color: #fff;
       text-decoration: none;
-      padding-left: 30px;
-      padding-right: 50px;
       text-transform: uppercase;
       font-family: MontBold, sans-serif;
       letter-spacing: 0.1em;
       height: 60px;
-      line-height: 64px;
+      line-height: 20px;
+      text-align: left;
+      padding-left: 15px;
+      padding-right: 25px;
+      @media only screen and (min-width: ${xl}px) {
+        line-height: 64px;
+        text-align: center;
+        padding-left: 30px;
+        padding-right: 50px;
+      }
     }
   }
 `
@@ -124,12 +141,60 @@ const MobileMenu = styled(props => <Menu {...props} />)`
   }
 `
 
-const MenuItem = styled.li`
+const MenuItem = styled(({ isActive, activeColor, ...rest }) => (
+  <li {...rest} />
+))`
   display: inline-block;
   margin: 0;
   padding: 0 10px;
-  @media only screen and (min-width: ${xl}px) {
-    padding: 0 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: ${headerHeight.desktop};
+  ${fluidRange(
+    {
+      prop: "padding-left",
+      fromSize: "7px",
+      toSize: "25px",
+    },
+    `${lg}px`,
+    `${xxl}px`
+  )}
+  ${fluidRange(
+    {
+      prop: "padding-right",
+      fromSize: "7px",
+      toSize: "25px",
+    },
+    `${lg}px`,
+    `${xxl}px`
+  )}
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    ${fluidRange(
+      {
+        prop: "left",
+        fromSize: "7px",
+        toSize: "25px",
+      },
+      `${md}px`,
+      `${xxl}px`
+    )}
+    ${fluidRange(
+      {
+        prop: "right",
+        fromSize: "7px",
+        toSize: "25px",
+      },
+      `${md}px`,
+      `${xxl}px`
+    )}
+    height: 10px;
+    background: ${props =>
+      props.isActive && props.activeColor ? props.activeColor : "transparent"};
   }
 `
 
@@ -143,31 +208,18 @@ const MenuLink = styled(({ activeColor, isActive, external, ...rest }) => {
   return ele
 })`
   display: block;
+  text-align: center;
   color: #000;
   text-transform: uppercase;
-  height: 100%;
   text-decoration: none;
-  position: relative;
   font-size: 16px;
   font-weight: 800;
   font-family: MontBold, sans-serif;
-  line-height: ${headerHeight.mobile};
   letter-spacing: 0.1em;
-  @media only screen and (min-width: ${md}px) {
-    line-height: ${headerHeight.desktop};
-  }
+  line-height: 20px;
+  height: auto;
   &:hover {
     opacity: 0.4;
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 10px;
-    background: ${props =>
-      props.isActive && props.activeColor ? props.activeColor : "transparent"};
   }
 `
 
@@ -265,13 +317,12 @@ const Header = ({ passed, userState, hideNav }) => {
           <Nav>
             <DesktopMenu>
               {mainMenu.map(item => (
-                <MenuItem key={item.link}>
-                  <MenuLink
-                    activeColor={item.color}
-                    isActive={data.activeMenu === item.link}
-                    to={item.link}>
-                    {item.label}
-                  </MenuLink>
+                <MenuItem
+                  key={item.link}
+                  activeColor={item.color}
+                  to={item.link}
+                  isActive={data.activeMenu === item.link}>
+                  <MenuLink>{item.label}</MenuLink>
                 </MenuItem>
               ))}
               <li className="store-locator">
