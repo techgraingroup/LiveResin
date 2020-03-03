@@ -1,4 +1,5 @@
 import React, {
+  Component,
   useState,
   useRef,
   createRef,
@@ -9,41 +10,59 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import { timingFunctions } from "polished"
 
-export const Image = styled(({ className, ...rest }) => {
-  const imgRef = useRef(null)
-  const [isFullSize, setIsFullSize] = useState(false)
-  let imgClassName = `${className} prepare-in-view`
-  if (isFullSize) {
-    imgClassName = className
-  }
+export const Animate = styled(({ children, className, ...rest }) => {
+  const [ready, setReady] = useState("")
+  const animRef = useRef(null)
   useEffect(() => {
-    const getImagePosition = () => {
-      if (
-        imgRef.current &&
-        imgRef.current.imageRef &&
-        imgRef.current.imageRef.current
-      ) {
-        const wHeight = window.innerHeight
-        const observer = new IntersectionObserver(
-          () => {
-            if (!isFullSize) {
-              setIsFullSize(true)
-            }
-          },
-          {
-            rootMargin: `${wHeight / 2}px`,
-          }
-        )
-        observer.observe(imgRef.current.imageRef.current)
+    const getPosition = () => {
+      const wHeight = window.innerHeight
+      if (animRef && animRef.current) {
+        const myPosition = animRef.current.getBoundingClientRect()
+        if (myPosition.top < wHeight / 2) {
+          setReady("ready")
+        }
       }
     }
-    getImagePosition()
-    window.addEventListener("scroll", getImagePosition)
-    return () => window.removeEventListener("scroll", getImagePosition)
+    window.addEventListener("scroll", getPosition)
+    return () => window.removeEventListener("scroll", getPosition)
   }, [])
   return (
-    <div className={imgClassName}>
-      <Img ref={imgRef} {...rest} />
+    <div
+      ref={animRef}
+      style={{ position: "relative" }}
+      className={`${ready} ${className}`}>
+      {children}
+    </div>
+  )
+})`
+  transition: all 0.5s ${timingFunctions("easeOutQuart")};
+  transform: translate3d(0, 50px, 0);
+  opacity: 0;
+  &.ready {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+`
+
+export const Image = styled(({ className, ...rest }) => {
+  const [ready, setReady] = useState("")
+  const imgRef = useRef(null)
+  useEffect(() => {
+    const getPosition = () => {
+      const wHeight = window.innerHeight
+      if (imgRef && imgRef.current) {
+        const myPosition = imgRef.current.getBoundingClientRect()
+        if (myPosition.top < (wHeight * 4) / 5) {
+          setReady("ready")
+        }
+      }
+    }
+    window.addEventListener("scroll", getPosition)
+    return () => window.removeEventListener("scroll", getPosition)
+  }, [])
+  return (
+    <div ref={imgRef} className={`${ready} ${className}`}>
+      <Img {...rest} />
     </div>
   )
 })`
@@ -52,57 +71,14 @@ export const Image = styled(({ className, ...rest }) => {
   margin: 0;
   .gatsby-image-wrapper {
     transform-origin: bottom center;
-    opacity: 1;
-    transform: scale3d(1, 1, 1);
     transition: all 0.5s ${timingFunctions("easeOutQuart")};
+    transform: scale3d(1.15, 1.15, 1.15);
+    opacity: 0.3;
   }
-  &.prepare-in-view {
+  &.ready {
     .gatsby-image-wrapper {
-      transform: scale3d(1.15, 1.15, 1.15);
-      opacity: 0.3;
+      transform: scale3d(1, 1, 1);
+      opacity: 1;
     }
-  }
-`
-
-export const Animate = styled(({ children, className, ...rest }) => {
-  const animRef = useRef(null)
-  const [doneAnimating, setDoneAnimating] = useState(false)
-  let animClassName = `${className} animate prepare-in-view`
-  if (doneAnimating) {
-    animClassName = `${className} animate`
-  }
-  useEffect(() => {
-    const getAnimPosition = () => {
-      if (animRef.current) {
-        const wHeight = window.innerHeight
-        const observer = new IntersectionObserver(
-          () => {
-            if (!doneAnimating) {
-              setDoneAnimating(true)
-            }
-          },
-          {
-            rootMargin: `${wHeight * 2}px`,
-          }
-        )
-        observer.observe(animRef.current)
-      }
-    }
-    getAnimPosition()
-    window.addEventListener("scroll", getAnimPosition)
-    return () => window.removeEventListener("scroll", getAnimPosition)
-  }, [])
-  return (
-    <div ref={animRef} className={animClassName} {...rest}>
-      {children}
-    </div>
-  )
-})`
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  transition: all 1s ${timingFunctions("easeOutQuart")} 1s;
-  &.prepare-in-view {
-    transform: translate3d(0, 50px, 0);
-    opacity: 0;
   }
 `

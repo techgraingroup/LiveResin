@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
+import { fluidRange } from "polished"
 import { AppContext } from "../context"
 import Logo from "./logo"
 import { Box } from "./box"
@@ -12,6 +13,7 @@ import { THEME } from "../data"
 const {
   breakpoints: { md, xl },
   headerHeight,
+  sideGutter,
 } = THEME
 
 const HeaderWrap = styled.header`
@@ -43,11 +45,39 @@ const HeaderWrap = styled.header`
   }
 `
 
-const BrandWrapper = styled(props => <Grid.Unit {...props} />)`
+const BrandWrapper = styled(({ children, ...rest }) => (
+  <Grid.Unit {...rest}>
+    <div>{children}</div>
+  </Grid.Unit>
+))`
   display: flex;
   align-items: center;
-  svg {
-    max-width: 100%;
+  div {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    ${fluidRange(
+      {
+        prop: "padding-left",
+        fromSize: "20px",
+        toSize: sideGutter,
+      },
+      `${md}px`,
+      `${xl}px`
+    )}
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        width: 130px;
+        height: auto;
+        @media only screen and (min-width: ${md}px) {
+          width: 250px;
+          height: auto;
+        }
+      }
+    }
   }
 `
 
@@ -208,13 +238,13 @@ const Header = ({ passed, userState, hideNav }) => {
     e.preventDefault()
     const value = !data.mobileMenuVisible
     if (value) {
-        document.body.style.position = 'fixed'
-        document.body.style.top = `-${window.scrollY}px`
+      document.body.style.position = "fixed"
+      document.body.style.top = `-${window.scrollY}px`
     } else {
-        const scrollY = document.body.style.top
-        document.body.style.position = ''
-        document.body.style.top = ''
-        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1)
+      const scrollY = document.body.style.top
+      document.body.style.position = ""
+      document.body.style.top = ""
+      window.scrollTo(0, parseInt(scrollY || "0", 10) * -1)
     }
     dispatch({
       type: "mobileMenu",
@@ -225,52 +255,48 @@ const Header = ({ passed, userState, hideNav }) => {
     <HeaderWrap passed={passed} className={className}>
       <Grid>
         <BrandWrapper size={passed ? { xs: 1 / 3, sm: 1 / 4 } : 1}>
-          <Box top="0" bottom="0" right="0">
-            <Link to="/">
-              <BrandLogo passed={passed} />
-            </Link>
-          </Box>
+          <Link to="/">
+            <BrandLogo passed={passed} />
+          </Link>
         </BrandWrapper>
         <Grid.Unit
           size={{ xs: 2 / 3, sm: 3 / 4 }}
           style={{ display: passed ? "block" : "none" }}>
-          <Box right="0" top="0" bottom="0">
-            <Nav>
-              <DesktopMenu>
-                {mainMenu.map(item => (
-                  <MenuItem key={item.link}>
-                    <MenuLink
-                      activeColor={item.color}
-                      isActive={data.activeMenu === item.link}
-                      to={item.link}>
-                      {item.label}
-                    </MenuLink>
-                  </MenuItem>
-                ))}
-                <li className="store-locator">
-                  <Link to="/store-locator/">
-                    Store Locator
-                    <Arrow borderColor="#FFF" left="20px" />
-                  </Link>
-                </li>
-              </DesktopMenu>
-              <MobileMenu>
-                <MenuItem>
-                  <MenuLink to="/store-locator/">
-                    <MenuNearMe style={{ position: "relative", top: 7 }} />
+          <Nav>
+            <DesktopMenu>
+              {mainMenu.map(item => (
+                <MenuItem key={item.link}>
+                  <MenuLink
+                    activeColor={item.color}
+                    isActive={data.activeMenu === item.link}
+                    to={item.link}>
+                    {item.label}
                   </MenuLink>
                 </MenuItem>
-                <MenuItem style={{ marginLeft: 20, marginRight: 20 }}>
-                  <MenuLink external href="#" onClick={handleMobileMenuClick}>
-                    <MenuHamburger
-                      active={data.mobileMenuVisible}
-                      style={{ position: "relative", top: 7 }}
-                    />
-                  </MenuLink>
-                </MenuItem>
-              </MobileMenu>
-            </Nav>
-          </Box>
+              ))}
+              <li className="store-locator">
+                <Link to="/store-locator/">
+                  Store Locator
+                  <Arrow borderColor="#FFF" left="20px" />
+                </Link>
+              </li>
+            </DesktopMenu>
+            <MobileMenu>
+              <MenuItem>
+                <MenuLink to="/store-locator/">
+                  <MenuNearMe style={{ position: "relative", top: 7 }} />
+                </MenuLink>
+              </MenuItem>
+              <MenuItem style={{ marginLeft: 20, marginRight: 20 }}>
+                <MenuLink external href="#" onClick={handleMobileMenuClick}>
+                  <MenuHamburger
+                    active={data.mobileMenuVisible}
+                    style={{ position: "relative", top: 7 }}
+                  />
+                </MenuLink>
+              </MenuItem>
+            </MobileMenu>
+          </Nav>
         </Grid.Unit>
       </Grid>
       {passed && userState && (

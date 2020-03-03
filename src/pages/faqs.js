@@ -5,7 +5,7 @@ import { fluidRange } from "polished"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import { Box } from "../components/box"
-import { H2, Text } from "../components/text"
+import { Text } from "../components/text"
 import { PageTitle } from "../components/text"
 import { PlusMin } from "../components/icons"
 import { THEME } from "../data"
@@ -82,9 +82,9 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
     }
   }
   .text-wrap {
-    max-height: 0;
+    height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
+    transition: height .35s ease;
     &::after {
       content: "";
       width: 100%;
@@ -94,7 +94,12 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
   }
   &.active {
     .text-wrap {
-      max-height: 100rem;
+      height: auto;
+    }
+  }
+  &:not(.active) {
+    .text-wrap {
+      display: none;
     }
   }
 `
