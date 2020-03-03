@@ -51,7 +51,7 @@ const Layout = ({ children }) => {
   useScrollPosition(
     ({ prevPos, currPos }) => {
       const threshold = 150
-      const isScrollDown = currPos.y > prevPos.y
+        const isScrollDown = currPos.y >= prevPos.y
       const absY = Math.abs(currPos.y)
       if (isScrollDown) {
         setHideNav(false)
@@ -64,7 +64,7 @@ const Layout = ({ children }) => {
     [hideNav],
     null,
     null,
-    500
+    0
   )
   return (
     <ThemeProvider theme={THEME}>
