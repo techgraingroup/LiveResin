@@ -387,7 +387,7 @@ const ProductBlock = styled(
               <Text>{p.how}</Text>
               <h3>Why Live {p.name}?</h3>
               <Text>{p.why}</Text>
-              <h4>Popular Strain</h4>
+              <h4>Popular Strains</h4>
               <div>
                 {p.strains.map((s, i) => {
                   const isEven = i % 2 === 0
