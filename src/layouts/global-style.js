@@ -2,8 +2,6 @@ import { createGlobalStyle } from "styled-components"
 import { normalize } from "polished"
 import { THEME } from "../data"
 
-import 'animate.css/animate.min.css'
-
 import montBold from "../fonts/mont/Mont-Bold.otf"
 import montBook from "../fonts/mont/Mont-Book.otf"
 import montHeavy from "../fonts/mont/Mont-Heavy.otf"
