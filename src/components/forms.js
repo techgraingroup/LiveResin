@@ -40,6 +40,7 @@ export const Select = styled(
   }
   select {
     height: 60px;
+    line-height: 62px;
     border: 1px solid ${props => props.color || "#000"};
     border-radius: 0;
     color: ${props => props.color || "#000"};
