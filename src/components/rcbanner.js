@@ -4,7 +4,6 @@ import Grid from "styled-components-grid"
 import { fluidRange, cover } from "polished"
 import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from "gatsby"
-import { Image } from './animations'
 import { Collab } from "./icons"
 import { BlockTitle } from "./text"
 import { OnlyMobile } from "./responsive"
@@ -36,7 +35,7 @@ const ImgWrap = styled(({ children, ...rest }) => (
   }
 `
 
-const BgImg = styled(props => <Image {...props} />)`
+const BgImg = styled(props => <Img {...props} />)`
   width: auto;
   height: 100%;
   @media only screen and (min-width: ${md}px) {
