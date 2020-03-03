@@ -167,5 +167,6 @@ export const TextInput = styled(
     padding: 34px 0 12px;
     width: 100%;
     font-family: MontBold, sans-serif;
+    background: transparent;
   }
 `
