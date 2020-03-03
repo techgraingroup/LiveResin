@@ -112,7 +112,7 @@ const MeetTheTeam = () => {
     setShowVideo(true)
     videoPlayer.current.play()
   }
-  const pauseVideo = () => {
+  const endedVideo = () => {
     setShowVideo(false)
     videoPlayer.current.currentTime = 0
   }
@@ -126,7 +126,7 @@ const MeetTheTeam = () => {
       <video
         controls
         ref={videoPlayer}
-        onPause={pauseVideo}
+        onEnded={endedVideo}
         style={{
           display: showVideo ? "block" : "none",
           position: "absolute",
