@@ -42,6 +42,12 @@ const SubscribeForm = styled.form`
       margin-top: -9.5px;
       top: 50%;
       right: 30px;
+      transition: transform 0.1s ease-in-out;
+    }
+    &:hover {
+      &:after {
+        transform: translateX(5px);
+      }
     }
     @media only screen and (min-width: ${md}px) {
       width: 200px;
