@@ -100,14 +100,14 @@ const Menu = styled.ul`
       display: block;
       background: #ff9e18;
       color: #fff;
-      height: 60px;
       text-decoration: none;
-      line-height: 60px;
       padding-left: 30px;
       padding-right: 50px;
       text-transform: uppercase;
       font-family: MontBold, sans-serif;
       letter-spacing: 0.1em;
+      height: 60px;
+      line-height: 64px;
     }
   }
 `
@@ -277,7 +277,7 @@ const Header = ({ passed, userState, hideNav }) => {
               <li className="store-locator">
                 <Link to="/store-locator/">
                   Store Locator
-                  <Arrow borderColor="#FFF" left="20px" />
+                  <Arrow borderColor="#FFF" left="20px" top="4px" />
                 </Link>
               </li>
             </DesktopMenu>
