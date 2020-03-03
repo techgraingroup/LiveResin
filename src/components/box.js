@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Image, Animate } from "./animations"
+import Img from "gatsby-image"
 import { fluidRange, cover } from "polished"
 import { THEME } from "../data"
 
@@ -23,16 +23,14 @@ export const SquareBox = styled(
         {bgImage &&
           bgImage.childImageSharp &&
           bgImage.childImageSharp.fluid && (
-            <Image
+            <Img
               durationFadeIn={1000}
               fluid={bgImage.childImageSharp.fluid}
               style={imageStyle}
             />
           )}
         <div className="content-wrap">
-          <Animate>
-            <div className="content">{children}</div>
-          </Animate>
+          <div className="content">{children}</div>
         </div>
       </div>
     )
@@ -75,14 +73,14 @@ export const SquareBox = styled(
   }
 `
 
-const MobileImg = styled(props => <Image {...props} />)`
+const MobileImg = styled(props => <Img {...props} />)`
   display: block !important;
   @media only screen and (min-width: ${md}px) {
     display: none !important;
   }
 `
 
-const DesktopImg = styled(props => <Image {...props} />)`
+const DesktopImg = styled(props => <Img {...props} />)`
   display: none !important;
   @media only screen and (min-width: ${md}px) {
     display: block !important;
@@ -142,9 +140,7 @@ export const Box = styled(
               style={imageStyle}
             />
           )}
-        <Animate>
-          <div style={{ position: "relative", zIndex: 100 }}>{children}</div>
-        </Animate>
+        <div style={{ position: "relative", zIndex: 100 }}>{children}</div>
       </div>
     )
   }

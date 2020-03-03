@@ -1,8 +1,8 @@
 import React from "react"
 import { navigate } from "gatsby"
+import Img from "gatsby-image"
 import styled from "styled-components"
 import { cover, fluidRange } from "polished"
-import { Image, Animate } from "./animations"
 import { Button } from "./button"
 import { THEME } from "../data"
 import { OnlyDesktop, OnlyMobile } from "./responsive"
@@ -86,7 +86,7 @@ const Hero = styled(
           {bgImage &&
             bgImage.childImageSharp &&
             bgImage.childImageSharp.fluid && (
-              <Image
+              <Img
                 durationFadeIn={1000}
                 fluid={bgImage.childImageSharp.fluid}
                 style={imageStyle}
@@ -97,7 +97,7 @@ const Hero = styled(
           {bgImageMobile &&
             bgImageMobile.childImageSharp &&
             bgImageMobile.childImageSharp.fluid && (
-              <Image
+              <Img
                 durationFadeIn={1000}
                 fluid={bgImageMobile.childImageSharp.fluid}
                 style={imageStyle}
@@ -114,24 +114,22 @@ const Hero = styled(
         )}
         <div className="content-wrap">
           <div className="content">
-            <Animate>
-              <BannerTitle withDescription={!!description}>
-                <Title />
-              </BannerTitle>
-              {description && (
-                <Tagline>
-                  <Description />
-                </Tagline>
-              )}
-              {btnText && btnLink && (
-                <Button
-                  bgColor="#FFF"
-                  color="#000"
-                  onClick={() => navigate(btnLink)}>
-                  {btnText}
-                </Button>
-              )}
-            </Animate>
+            <BannerTitle withDescription={!!description}>
+              <Title />
+            </BannerTitle>
+            {description && (
+              <Tagline>
+                <Description />
+              </Tagline>
+            )}
+            {btnText && btnLink && (
+              <Button
+                bgColor="#FFF"
+                color="#000"
+                onClick={() => navigate(btnLink)}>
+                {btnText}
+              </Button>
+            )}
           </div>
         </div>
       </div>
