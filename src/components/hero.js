@@ -9,6 +9,7 @@ import { OnlyDesktop, OnlyMobile } from "./responsive"
 
 const {
   breakpoints: { sm, md, xl },
+  headerHeight,
   sideGutter,
 } = THEME
 
@@ -57,8 +58,6 @@ const Tagline = styled.p`
 
 const Hero = styled(
   ({
-    aspectRatio,
-    aspectRatioMobile,
     vAlign,
     vAlignMobile,
     bgSize,
@@ -69,6 +68,7 @@ const Hero = styled(
     btnText,
     btnLink,
     withOverlay,
+    childElement,
     ...rest
   }) => {
     let imageStyle = {
@@ -80,68 +80,76 @@ const Hero = styled(
     }
     const Title = title
     const Description = description
+    const ChildElement = childElement
     return (
-      <div {...rest}>
-        <OnlyDesktop>
-          {bgImage &&
-            bgImage.childImageSharp &&
-            bgImage.childImageSharp.fluid && (
-              <Img
-                durationFadeIn={1000}
-                fluid={bgImage.childImageSharp.fluid}
-                style={imageStyle}
-              />
-            )}
-        </OnlyDesktop>
-        <OnlyMobile>
-          {bgImageMobile &&
-            bgImageMobile.childImageSharp &&
-            bgImageMobile.childImageSharp.fluid && (
-              <Img
-                durationFadeIn={1000}
-                fluid={bgImageMobile.childImageSharp.fluid}
-                style={imageStyle}
-              />
-            )}
-        </OnlyMobile>
-        {withOverlay && (
-          <div
-            style={{
-              ...cover(),
-              backgroundColor: "rgba(0, 0, 0, 0.2)",
-            }}
-          />
-        )}
-        <div className="content-wrap">
-          <div className="content">
-            <BannerTitle withDescription={!!description}>
-              <Title />
-            </BannerTitle>
-            {description && (
-              <Tagline>
-                <Description />
-              </Tagline>
-            )}
-            {btnText && btnLink && (
-              <Button
-                bgColor="#FFF"
-                color="#000"
-                onClick={() => navigate(btnLink)}>
-                {btnText}
-              </Button>
-            )}
+      <>
+        <div {...rest}>
+          <OnlyDesktop>
+            {bgImage &&
+              bgImage.childImageSharp &&
+              bgImage.childImageSharp.fluid && (
+                <Img
+                  durationFadeIn={1000}
+                  fluid={bgImage.childImageSharp.fluid}
+                  style={imageStyle}
+                />
+              )}
+          </OnlyDesktop>
+          <OnlyMobile>
+            {bgImageMobile &&
+              bgImageMobile.childImageSharp &&
+              bgImageMobile.childImageSharp.fluid && (
+                <Img
+                  durationFadeIn={1000}
+                  fluid={bgImageMobile.childImageSharp.fluid}
+                  style={imageStyle}
+                />
+              )}
+          </OnlyMobile>
+          {withOverlay && (
+            <div
+              style={{
+                ...cover(),
+                backgroundColor: "rgba(0, 0, 0, 0.2)",
+              }}
+            />
+          )}
+          <div className="content-wrap">
+            <div className="content">
+              <BannerTitle withDescription={!!description}>
+                <Title />
+              </BannerTitle>
+              {description && (
+                <Tagline>
+                  <Description />
+                </Tagline>
+              )}
+              {btnText && btnLink && (
+                <Button
+                  bgColor="#FFF"
+                  color="#000"
+                  onClick={() => navigate(btnLink)}>
+                  {btnText}
+                </Button>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+        {childElement && <ChildElement />}
+      </>
     )
   }
 )`
   position: relative;
-  padding-top: ${props =>
-    props.aspectRatioMobile ? props.aspectRatioMobile * 100 : 100}%;
+  height: ${props =>
+    props.childElement
+      ? `calc(100vh - ${headerHeight.mobile} - 120px)`
+      : `calc(100vh - ${headerHeight.mobile})`};
   @media only screen and (min-width: ${md}px) {
-    padding-top: ${props =>
-      props.aspectRatio ? props.aspectRatio * 100 : 100}%;
+      height: ${props =>
+        props.childElement
+          ? `calc(100vh - ${headerHeight.desktop} - 100px)`
+          : `calc(100vh - ${headerHeight.desktop})`};
   }
   .content-wrap {
     ${cover()}

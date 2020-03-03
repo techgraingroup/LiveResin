@@ -69,14 +69,6 @@ const BrandWrapper = styled(({ children, ...rest }) => (
       display: flex;
       justify-content: center;
       align-items: center;
-      svg {
-        width: 130px;
-        height: auto;
-        @media only screen and (min-width: ${md}px) {
-          width: 250px;
-          height: auto;
-        }
-      }
     }
   }
 `
@@ -151,7 +143,10 @@ const MenuItem = styled(({ isActive, activeColor, ...rest }) => (
   justify-content: center;
   align-items: center;
   position: relative;
-  height: ${headerHeight.desktop};
+  height: ${headerHeight.mobile};
+  @media only screen and (min-width: ${md}px) {
+    height: ${headerHeight.desktop};
+  }
   ${fluidRange(
     {
       prop: "padding-left",
@@ -227,7 +222,7 @@ const LocationButton = styled.button`
   display: none;
   @media only screen and (min-width: ${md}px) {
     display: block;
-    height: 70px;
+    height: 50px;
     position: fixed;
     top: 0;
     right: 0;
@@ -251,11 +246,20 @@ const LocationButton = styled.button`
 `
 
 const BrandLogo = styled(props => <Logo {...props} />)`
-  width: ${props => (props.passed ? "450px" : "auto")};
-  height: ${props => (props.passed ? "auto" : "120px")};
-  @media only screen and (max-width: ${md}px) and (max-aspect-ratio: 16/9) {
-    height: ${props => (props.passed ? "auto" : "80px")};
-  }
+  ${props =>
+    props.passed
+      ? `
+      width: auto;
+      height: ${0.58 * 150}px;
+      @media only screen and (max-width: ${md}px) and (max-aspect-ratio: 16/9) {
+        height: ${0.58 * 80}px;
+      }`
+      : `
+      width: auto;
+      height: 220px;
+      @media only screen and (max-width: ${md}px) and (max-aspect-ratio: 16/9) {
+        height: 120px;
+      }`}
 `
 
 const Header = ({ passed, userState, hideNav }) => {
@@ -320,9 +324,8 @@ const Header = ({ passed, userState, hideNav }) => {
                 <MenuItem
                   key={item.link}
                   activeColor={item.color}
-                  to={item.link}
                   isActive={data.activeMenu === item.link}>
-                  <MenuLink>{item.label}</MenuLink>
+                  <MenuLink to={item.link}>{item.label}</MenuLink>
                 </MenuItem>
               ))}
               <li className="store-locator">
@@ -335,14 +338,14 @@ const Header = ({ passed, userState, hideNav }) => {
             <MobileMenu>
               <MenuItem>
                 <MenuLink to="/store-locator/">
-                  <MenuNearMe style={{ position: "relative", top: 7 }} />
+                  <MenuNearMe style={{ position: "relative", top: 3 }} />
                 </MenuLink>
               </MenuItem>
               <MenuItem style={{ marginLeft: 20, marginRight: 20 }}>
                 <MenuLink external href="#" onClick={handleMobileMenuClick}>
                   <MenuHamburger
                     active={data.mobileMenuVisible}
-                    style={{ position: "relative", top: 7 }}
+                    style={{ position: "relative", top: 3 }}
                   />
                 </MenuLink>
               </MenuItem>

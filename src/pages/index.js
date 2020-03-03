@@ -56,12 +56,43 @@ export const LocalCollabIcon = styled(props => <Collab {...props} />)`
   right: 0;
 `
 
-const GoldGrid = styled(props => <Grid.Unit {...props} />)`
+const LatestCollabSpan = styled(props => <span {...props} />)`
+  font-family: MontHeavy, sans-serif;
+  display: block;
+  line-height: 140%;
+  color: #000;
+  text-decoration: none;
+  margin-bottom: 7px;
+  @media only screen and (min-width: ${md}px) {
+    margin-bottom: 0;
+  }
+`
+
+const GoldGridWrap = styled(props => <Grid {...props} />)`
+  box-sizing: border-box;
+  height: 120px;
+  @media only screen and (min-width: ${md}px) {
+    height: 100px;
+  }
+`
+
+const GoldGridLeft = styled(props => <Grid.Unit {...props} />)`
+  margin-bottom: 0;
+  margin-top: 10px;
+  @media only screen and (min-width: ${md}px) {
+    margin-top: 0;
+  }
+`
+
+const GoldGridRight = styled(props => <Grid.Unit {...props} />)`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  margin-top: 0;
+  margin-bottom: 10px;
   @media only screen and (min-width: ${md}px) {
     justify-content: flex-end;
+    margin-bottom: 0;
   }
   svg.arrow {
     position: absolute !important;
@@ -180,8 +211,6 @@ const IndexPage = () => {
       <SEO title="Home" />
       <Hero
         withOverlay
-        aspectRatio={800 / 1440}
-        aspectRatioMobile={829 / 375}
         bgImage={bannerImg}
         bgImageMobile={bannerMobileImg}
         vAlign="center"
@@ -195,46 +224,45 @@ const IndexPage = () => {
           </>
         )}
         description={() => <>Learn more about the Live Resin Project</>}
+        childElement={() => (
+          <Box bgColor="#BBA135" top="0" bottom="0">
+            <AnchorLink
+              style={{
+                display: "block",
+                color: "#000",
+                textDecoration: "none",
+              }}
+              href={isMobile ? "#rc-banner-mobile" : "#rc-banner-desktop"}>
+              <GoldGridWrap valign="center">
+                <GoldGridLeft size={halfSize}>
+                  <LatestCollabSpan style={{}}>
+                    Latest Collaboration
+                  </LatestCollabSpan>
+                  <span
+                    style={{
+                      display: "block",
+                      fontSize: 36,
+                      fontFamily: "MontHeavy, sans-serif",
+                      letterSpacing: "-0.04em",
+                      lineHeight: "96%",
+                      color: "#000",
+                      textDecoration: "none",
+                    }}>
+                    Red Congolese
+                  </span>
+                </GoldGridLeft>
+                <GoldGridRight size={halfSize}>
+                  <LocalCollabIcon />
+                  <GoldSeal />
+                  <Arrow borderColor="#000" left="0" />
+                </GoldGridRight>
+              </GoldGridWrap>
+            </AnchorLink>
+          </Box>
+        )}
         btnText="Our Process"
         btnLink="/our-process/"
       />
-      <Box bgColor="#BBA135" top={23} bottom={18}>
-        <AnchorLink
-          style={{ display: 'block', color: "#000", textDecoration: "none" }}
-          href={isMobile ? "#rc-banner-mobile" : "#rc-banner-desktop"}>
-          <Grid valign="center">
-            <Grid.Unit size={halfSize}>
-              <span
-                style={{
-                  fontFamily: "MontHeavy, sans-serif",
-                  display: "block",
-                  lineHeight: "140%",
-                  color: "#000",
-                  textDecoration: "none",
-                }}>
-                Latest Collaboration
-              </span>
-              <span
-                style={{
-                  display: "block",
-                  fontSize: 36,
-                  fontFamily: "MontHeavy, sans-serif",
-                  letterSpacing: "-0.04em",
-                  lineHeight: "96%",
-                  color: "#000",
-                  textDecoration: "none",
-                }}>
-                Red Congolese
-              </span>
-            </Grid.Unit>
-            <GoldGrid size={halfSize}>
-              <LocalCollabIcon />
-              <GoldSeal />
-              <Arrow borderColor="#000" left="0" />
-            </GoldGrid>
-          </Grid>
-        </AnchorLink>
-      </Box>
       <Box fullHeight top={190} bottom={190} bgColor="#FF4438">
         <Quote>
           The Live Resin Project <MobileBr />

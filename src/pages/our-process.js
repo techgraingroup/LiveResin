@@ -141,8 +141,6 @@ const OurProcessPage = () => {
       <SEO title="Our Process" />
       <Hero
         withOverlay
-        aspectRatio={900 / 1440}
-        aspectRatioMobile={896 / 375}
         bgImage={banner}
         bgImageMobile={bannerMobile}
         vAlign="center"
