@@ -15,7 +15,7 @@ const {
 } = THEME
 
 const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
-  const eleClass = `${className} ${active && "active"}`
+  const eleClass = `${className} ${active ? "active" : ""}`
   return (
     <div {...rest} className={eleClass}>
       <h2>
@@ -82,9 +82,9 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
     }
   }
   .text-wrap {
-    height: 0;
+    max-height: 0;
     overflow: hidden;
-    transition: height .35s ease;
+    transition: max-height 1s ease-in-out;
     &::after {
       content: "";
       width: 100%;
@@ -94,12 +94,7 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
   }
   &.active {
     .text-wrap {
-      height: auto;
-    }
-  }
-  &:not(.active) {
-    .text-wrap {
-      display: none;
+      max-height: 1000em;
     }
   }
 `

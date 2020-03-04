@@ -78,9 +78,9 @@
       "why": "Deep, consistent flavor and mouthfeel combined with ease of use makes budder a superb choice for newer users and connoisseurs alike. It also stores very well – even if the exterior dries out slightly, the inside remains terpy and delicious.",
       "image": "../images/img-budder.jpg",
       "strains": [
-          { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
-          { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" },
-          { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
+        { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
+        { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" },
+        { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
       ]
     },
     {
@@ -91,8 +91,8 @@
       "why": "Follow your nose! Sauce is incredibly aromatic and allows you to choose your own mix of THCA crystals and flavorful sauce to customize your dabbing experience. Because of its texture, sauce is an “exposed” product (unlike budder and shatter which are more encapsulated), so storing it in cold temperatures helps to preserve the especially volatile terpenes.",
       "image": "../images/img-sauce.jpg",
       "strains": [
-          { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
-          { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" }
+        { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
+        { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" }
       ]
     },
     {
@@ -103,9 +103,9 @@
       "why": "Sugar, like budder, offers a consistent experience in each dab, so you always get the balance of flavor and potency that nature intended. Sugar’s dry and non-sticky qualities and its potent nature make it easy to mix into flower for a major upgrade to your usual joint experience.",
       "image": "../images/img-sugar.jpg",
       "strains": [
-          { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
-          { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" },
-          { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
+        { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
+        { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" },
+        { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
       ]
     },
     {
@@ -116,7 +116,7 @@
       "why": "A true feast for the senses, diamonds are both beautiful to look at, aromatic, and very potent. Like sauce, you can choose the mixture of your dab to get more potency or more flavor. Adding crushed diamonds to a joint provides the ultimate potency increase with just the right amount of flavor.",
       "image": "../images/img-diamonds.jpg",
       "strains": [
-          { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" }
+        { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" }
       ]
     },
     {
@@ -127,9 +127,9 @@
       "why": "THCA crystalline is the clear choice for the absolute highest potency. Crystalline can easily be added to a joint mixture for the ultimate in flower-plus-concentrate potency experience. Unlike many THCA products, Live Resin Project THCA Crystalline is exclusively made from high-quality fresh-frozen plants for the best formation and flavor.",
       "image": "../images/img-thca.jpg",
       "strains": [
-          { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
-          { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" },
-          { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
+        { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
+        { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" },
+        { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
       ]
     },
     {
@@ -140,9 +140,9 @@
       "why": "Shatter (otherwise known as sap) is perhaps best for more experienced concentrate users, as it has a sticky texture that can be difficult to work with at times. But the long-term storage potential and the homogenous experience gives a top-flight user experience. Note: Shatter/sap needs to be stored cold to prevent degradation and nucleation which leads to sugaring.",
       "image": "../images/img-shatter.jpg",
       "strains": [
-          { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
-          { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" },
-          { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
+        { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
+        { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" },
+        { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
       ]
     },
     {
@@ -153,9 +153,9 @@
       "why": "Our live resin vape gives you the deeply flavorful concentrate experience you expect from our raw concentrate products, delivered in the most convenient and ubiquitous format. Utilizing a multi-temperature button battery lets allows the user to dial in the perfect balance of flavor and potency to tailor the experience.",
       "image": "../images/img-vape.jpg",
       "strains": [
-          { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
-          { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" },
-          { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
+        { "name": "Skywalker\nOG", "color": "#FFC700", "bg": "#000" },
+        { "name": "Sundae\nDriver", "color": "#6663DF", "bg": "#FFC700" },
+        { "name": "Chem 4", "color": "#F3DCAD", "bg": "#616F39" }
       ]
     }
   ],
@@ -204,16 +204,52 @@
   ],
   "faqs": [
     {
-      "q": "What exactly is Live Resin?",
-      "a": "Live resin is both a cannabis extraction process and a type of concentrate. It exclusively utilizes fresh-frozen plants, harvested at their absolute peak. The plants are then frozen and extracted at cryogenic temperatures using hydrocarbon solvents (generally n-butane), which helps to preserve the volatile terpenes that are not only crucial for aroma and flavor, but also create the unique qualities that make strains different from one another. Pretty important stuff."
+      "q": "What strains will be available from Live Resin Project?",
+      "a": "Live Resin Project will continuously source new and exciting strains to craft into our concentrates. Each of our products provide the strain name and terpene profile directly on the package to help you understand more about what you're consuming."
     },
     {
-      "q": "Question number Two?",
-      "a": "Answer for Question Number Two"
+      "q": "What is the shelf life of your products?",
+      "a": "The expiration date is set to one year after production date, primarily for regulatory reasons. Depending on how the product is stored (see below), it can retain its aroma and flavor at a high level for even longer than that and will remain safe to consume."
     },
     {
-      "q": "Question number Three?",
-      "a": "Answer for Question Number Three"
+      "q": "How do I store Live Resin Project?",
+      "a": "We recommend refrigerated or cool room temperature storage of the product to maximize the flavor and aroma over time. A great example of the ideal live resin storage climate is a wine cellar -- you want it to stay cool and remain dry. Live resin products can actually be \"cold cured\" to create additional nuance in flavor.\n\nNote: Air and light exposure are the primary causes of aroma/flavor degradation. Though our gram containers are airtight, it is suggested to keep them within another airtight container in case the lid is left slightly ajar, etc."
+    },
+    {
+      "q": "What’s the best way to consume Live Resin Project?",
+      "a": "Raw concentrates can be consumed using a range of vaporization devices and certain textures can also be added to flower for additional flavor and potency. Our recommended device categories for consuming live resin include: glass rigs (water pipe + quartz nail), portable electronic rigs (i.e. PuffCo Peak, Focus V Carta), \"load-your-own\" concentrate pens, and \"nectar collector\". Regardless of device, temperature is very important to creating the experience: low temperatures preserve terpenes and create a vapor with more flavor, higher temperatures create a vapor with higher potency."
+    },
+    {
+      "q": "Why is temperature important?",
+      "a": "When a live resin concentrate is consumed by heating, the amount of THCA in the product that is converted into active THC is dependent on the temperature of the vaporization device. A higher temperature creates more THCA to THC conversion, which means additional potency."
+    },
+    {
+      "q": "Why does Live Resin Project cost more than other similar products?",
+      "a": "To create our products, we use the finest input material by sourcing high-quality frozen plants that have been grown, harvested, and handled with care. Often, this comes at a higher cost. We then apply our industry-leading extraction and finishing processes to create the best products in each format. The quality of a concentrate can be judged by its aroma, flavor, color, and potency -- we believe that there truly aren't many concentrates on the market that we could call \"similar\"."
+    },
+    {
+      "q": "What extraction method do you use?",
+      "a": "Our products are extracted with 100% n-butane, which has been redistilled in-house in order to ensure the highest purity. Unlike many operators, we use solely n-butane (as opposed to gas blends which often incorporate propane and other solvents) because it is incredibly selective at low temperatures especially and isolates ONLY the compounds we want, leaving behind everything we don't."
+    },
+    {
+      "q": "Is butane extraction safe?",
+      "a": "Our extractions are performed inside fully compliant laboratory environment, equipped with industry-leading safety and quality standards. Under no circumstances should hydrocarbon concentrates be made anywhere other than a facility of this level. Further, our products are tested for residual solvents, pesticides, mycotoxins, and microbial contamination in addition to their cannabinoid and terpene content to give customers full transparency about what they are consuming."
+    },
+    {
+      "q": "Is this a distillate product?",
+      "a": "Live Resin Project does not utilize distillate for any of our products. While distillate has its place for providing base THC or CBD content in products such as edibles, topicals, and tinctures, it is counter to our goal of showcasing the uniqueness of the cannabis plant and delivering aromatic, flavorful, whole plant, multi-cannabinoid, multi-compound concentrates."
+    },
+    {
+      "q": "Do you use synthetic terpenes?",
+      "a": "Absolutely not. All Live Resin Project concentrates are 100% cannabis, with no flavorings, cutting agents, or added ingredients. Synthetic and botanical terpene blends do a very poor job of recreating the aroma/flavor profile of cannabis plants because the flavor of cannabis is composed of a wide variety of compounds, not simply terpenes. Flavonoids, phenols, and other compounds that are present in a true whole plant extraction are simply not there in a more refined product,"
+    },
+    {
+      "q": "Where can I find out more information about Live Resin Project?",
+      "a": "Instagram: @liveresinproject\nWebsite: liveresinproject.com\nFacebook: @LiveResinProject"
+    },
+    {
+      "q": "Who are your competitive set?",
+      "a": "Raw Concentrates – 710 Labs, Raw Garden, Beezle, Focus Concentrates, Field Extracts, Friendly Farms, Apex, Loudpack, Buddies, Nug\n Vape – (basically the same list, almost all of these companies now have a live resin vape of some kind, even if it is distillate + sauce and sold as a \"refined live resin\" vape a la Raw Garden)"
     }
   ],
   "states": [
