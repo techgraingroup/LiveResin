@@ -99,7 +99,6 @@ const Menu = styled.ul`
       margin-left: 55px;
     }
     a {
-      display: block;
       background: #ff9e18;
       color: #fff;
       text-decoration: none;
@@ -109,13 +108,23 @@ const Menu = styled.ul`
       height: 60px;
       line-height: 20px;
       text-align: left;
+      padding-top: 0;
       padding-left: 15px;
       padding-right: 25px;
+      width: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       @media only screen and (min-width: ${xl}px) {
-        line-height: 64px;
+        line-height: 60px;
         text-align: center;
+        padding-top: 3px;
         padding-left: 30px;
         padding-right: 50px;
+        width: auto;
+      }
+      span {
+
       }
     }
   }
@@ -330,8 +339,8 @@ const Header = ({ passed, userState, hideNav }) => {
               ))}
               <li className="store-locator">
                 <Link to="/store-locator/">
-                  Store Locator
-                  <Arrow borderColor="#FFF" left="20px" top="4px" />
+                  <span>Store Locator</span>
+                  <Arrow borderColor="#FFF" left="20px" style={{ top: '-1px' }} />
                 </Link>
               </li>
             </DesktopMenu>
