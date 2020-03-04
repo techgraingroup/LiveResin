@@ -71,6 +71,7 @@ const Hero = styled(
     btnLink,
     withOverlay,
     childElement,
+    bgColor,
     ...rest
   }) => {
     let imageStyle = {
@@ -163,6 +164,7 @@ const Hero = styled(
   }
 )`
   position: relative;
+  background-color: ${props => props.bgColor || "#000"};
   .content-wrap {
     ${cover()}
     display: flex;
