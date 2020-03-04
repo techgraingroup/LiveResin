@@ -100,11 +100,22 @@ export const PlayButton = styled(({ color, ...rest }) => (
   background: none;
   border: 0;
   position: absolute;
-  margin-left: -50px;
   left: 50%;
-  margin-top: -50px;
   top: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
   &:hover {
     cursor: pointer;
+  }
+  @media only screen and (min-width: ${md}px) {
+    margin-left: -50px;
+    margin-top: -50px;
+  }
+  svg {
+    width: 50px;
+    height: 50px @media only screen and (min-width: ${md}px) {
+      width: 100px;
+      height: 100px;
+    }
   }
 `

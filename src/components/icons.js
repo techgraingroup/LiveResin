@@ -696,10 +696,10 @@ export const Instagram = ({ dark }) => (
   </svg>
 )
 
-export const Play = ({ color }) => (
+export const Play = ({ size, color }) => (
   <svg
-    width="100"
-    height="100"
+    width={ size || 100 }
+    height={ size || 100 }
     viewBox="0 0 101 101"
     fill="none"
     xmlns="http://www.w3.org/2000/svg">
