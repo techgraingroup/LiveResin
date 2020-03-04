@@ -72,9 +72,12 @@ export const H4 = styled.h4`
   white-space: pre-wrap;
 `
 
-const PageTitleBox = styled(({ top, bottom, mobileTop, mobileBottom, ...rest }) => <Box {...rest} />)`
+const PageTitleBox = styled(
+  ({ top, bottom, mobileTop, mobileBottom, ...rest }) => <Box {...rest} />
+)`
   padding-top: ${props => (props.mobileTop ? `${props.mobileTop}px` : "120px")};
-  padding-bottom: ${props => (props.mobileBottom ? `${props.mobileBottom}px` : "80px")};
+  padding-bottom: ${props =>
+    props.mobileBottom ? `${props.mobileBottom}px` : "80px"};
   @media only screen and (min-width: ${md}px) {
     padding-top: ${props => (props.top ? `${props.top}px` : "120px")};
     padding-bottom: ${props => (props.bottom ? `${props.bottom}px` : "120px")};
@@ -255,6 +258,9 @@ export const Text = styled.p`
   font-size: 16px;
   line-height: 140%;
   white-space: pre-wrap;
+  strong {
+    font-family: MontBold, sans-serif;
+  }
 `
 
 export const Quote = styled(({ withSignature, children, ...rest }) => (
