@@ -6,24 +6,24 @@ import { Box } from "../components/box"
 import { Text } from "../components/text"
 import { PageTitle } from "../components/text"
 
-const PrivacyTermsPage = () => {
+const PrivacyPage = () => {
   const { dispatch } = useContext(AppContext)
   useEffect(() => {
     dispatch({
       type: "activeMenu",
-      value: "/privacy-terms/",
+      value: "/privacy/",
     })
     dispatch({ type: "mobileMenu", value: false })
   }, [])
   return (
     <>
-      <SEO title="Privacy and Terms" />
+      <SEO title="Privacy Policy" />
       <PageTitle
         top="200"
         bottom="140"
         mobileTop="72"
         mobileBottom="60"
-        title={`Privacy\nand Terms`}
+        title={`Privacy Policy`}
       />
       <Box top="0">
         <Text>
@@ -57,4 +57,4 @@ const PrivacyTermsPage = () => {
     </>
   )
 }
-export default PrivacyTermsPage
+export default PrivacyPage

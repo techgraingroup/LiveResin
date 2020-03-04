@@ -136,6 +136,13 @@ const GetNotified = styled(props => <h3 {...props}>Get Notified</h3>)`
   }
 `
 
+const LittleLink = styled(props => <Link {...props} />)`
+  color: #fff;
+  text-decoration: none;
+  font-size: 10px;
+  font-family: Mont, sans-serif;
+`
+
 const Footer = ({ userState }) => {
   const {
     state: { data },
@@ -218,16 +225,9 @@ const Footer = ({ userState }) => {
         <Grid>
           <Grid.Unit size={1}>
             <Box top="0">
-              <Link
-                to="/privacy-terms"
-                style={{
-                  color: "#FFF",
-                  textDecoration: "none",
-                  fontSize: "10px",
-                  fontFamily: "Mont, sans-serif",
-                }}>
-                Privacy and Terms
-              </Link>
+              <LittleLink to="/privacy">Privacy</LittleLink>
+              <span style={{ fontSize: 10, color: "#FFF", fontFamily: 'Mont, sans-serif' }}>{` and `}</span>
+              <LittleLink to="/terms">Terms</LittleLink>
             </Box>
           </Grid.Unit>
         </Grid>

@@ -111,6 +111,13 @@ const LocationButton = styled.button`
   }
 `
 
+const LittleLink = styled(props => <Link {...props} />)`
+  color: #000;
+  text-decoration: none;
+  font-size: 10px;
+  font-family: Mont, sans-serif;
+`
+
 const MobileMenu = ({ menu, userState, active, activeMenu }) => {
   const mobileMenus = menu.filter((m, i) => i !== 0)
   const handleMobileMenuClick = (e, link) => {
@@ -172,16 +179,9 @@ const MobileMenu = ({ menu, userState, active, activeMenu }) => {
             />
           </li>
         </Socials>
-        <Link
-          to="/privacy-terms"
-          style={{
-            color: "#000",
-            textDecoration: "none",
-            fontSize: "10px",
-            fontFamily: "Mont, sans-serif",
-          }}>
-          Privacy and Terms
-        </Link>
+        <LittleLink to="/privacy">Privacy</LittleLink>
+        <span style={{ fontSize: 10, color: '#000', fontFamily: 'Mont, sans-serif' }}>{` and `}</span>
+        <LittleLink to="/terms">Terms</LittleLink>
       </Box>
     </MobileMenuWrap>
   )
