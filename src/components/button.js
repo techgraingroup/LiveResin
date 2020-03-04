@@ -103,10 +103,7 @@ export const PlayButton = styled(({ color, ...rest }) => (
   margin-left: -50px;
   left: 50%;
   margin-top: -50px;
-  top: 20%;
-  @media only screen and (min-width: ${md}px) {
-    top: 50%;
-  }
+  top: 50%;
   &:hover {
     cursor: pointer;
   }
