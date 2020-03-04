@@ -5,7 +5,7 @@ import { Arrow, Play, Facebook, Twitter, Instagram } from "./icons"
 import { THEME } from "../data"
 
 const {
-  breakpoints: { md },
+  breakpoints: { sm, md },
 } = THEME
 
 export const Button = styled(
@@ -113,7 +113,8 @@ export const PlayButton = styled(({ color, ...rest }) => (
   }
   svg {
     width: 50px;
-    height: 50px @media only screen and (min-width: ${md}px) {
+    height: 50px;
+    @media only screen and (min-width: ${md}px) {
       width: 100px;
       height: 100px;
     }
