@@ -124,7 +124,7 @@ const MeetTheTeam = () => {
         <source src={videoWebm} type="video/webm" />
       </video>
       <TheGrid className={showVideo ? "show-video" : ""}>
-        <TextWrapper size={{ xs: 1 / 3, sm: 1 / 3, md: 1 / 3 }}>
+        <TextWrapper size={{ xs: 1 / 2, sm: 1 / 3, md: 1 / 3 }}>
           <div style={{ width: "100%" }}>
             <BlockTitle line="bottom" color="#FFF">
               Meet the Team
