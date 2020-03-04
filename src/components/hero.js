@@ -1,11 +1,13 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { navigate } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import debounce from "lodash/debounce"
 import { cover, fluidRange } from "polished"
 import { Button } from "./button"
 import { THEME } from "../data"
 import { OnlyDesktop, OnlyMobile } from "./responsive"
+import { getWindowSize } from "../utils"
 
 const {
   breakpoints: { sm, md, xl },
@@ -81,9 +83,29 @@ const Hero = styled(
     const Title = title
     const Description = description
     const ChildElement = childElement
+    const [heroHeight, setHeroHeight] = useState(0)
+    useEffect(() => {
+      const setHeroSize = debounce(() => {
+        const { width, height } = getWindowSize()
+        let theHeight
+        if (width >= md) {
+          theHeight = childElement
+            ? height - headerHeight.desktop - 100
+            : height - headerHeight.desktop
+        } else {
+          theHeight = childElement
+            ? height - headerHeight.mobile - 120
+            : height - headerHeight.mobile
+        }
+        setHeroHeight(theHeight)
+      }, 500)
+      setHeroSize()
+      window.addEventListener("resize", setHeroSize)
+      return () => window.removeEventListener("resize", setHeroSize)
+    }, [])
     return (
       <>
-        <div {...rest}>
+        <div style={{ height: heroHeight }} {...rest}>
           <OnlyDesktop>
             {bgImage &&
               bgImage.childImageSharp &&
@@ -141,16 +163,6 @@ const Hero = styled(
   }
 )`
   position: relative;
-  height: ${props =>
-    props.childElement
-      ? `calc(100vh - ${headerHeight.mobile} - 120px)`
-      : `calc(100vh - ${headerHeight.mobile})`};
-  @media only screen and (min-width: ${md}px) {
-      height: ${props =>
-        props.childElement
-          ? `calc(100vh - ${headerHeight.desktop} - 100px)`
-          : `calc(100vh - ${headerHeight.desktop})`};
-  }
   .content-wrap {
     ${cover()}
     display: flex;

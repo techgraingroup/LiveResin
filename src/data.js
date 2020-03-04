@@ -3,8 +3,8 @@ export const LOCATION_KEY = "_liveresin_agegate_state"
 
 export const THEME = {
   headerHeight: {
-    desktop: "150px",
-    mobile: "80px",
+    desktop: 150,
+    mobile: 80,
   },
   sideGutter: "135px",
   breakpoints: {

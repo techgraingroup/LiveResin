@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { fluidRange } from "polished"
 import AnchorLink from "react-anchor-link-smooth-scroll"
+import debounce from "lodash/debounce"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import { Box, SquareBox } from "../components/box"
@@ -160,10 +161,10 @@ const IndexPage = () => {
   }, [setIsMobile])
 
   useEffect(() => {
-    const handleResize = () => {
+    const handleResize = debounce(() => {
       const { width } = getWindowSize()
       setIsMobile(width < md)
-    }
+    }, 500)
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])

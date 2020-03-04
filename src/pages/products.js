@@ -11,6 +11,7 @@ import styled from "styled-components"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Grid from "styled-components-grid"
 import { cover, fluidRange } from "polished"
+import debounce from "lodash/debounce"
 import { Image } from "../components/animations"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
@@ -475,7 +476,7 @@ const ProductsPage = () => {
   }, [setIconsHeight])
 
   useEffect(() => {
-    const handleResize = () => {
+    const handleResize = debounce(() => {
       const { width } = getWindowSize()
       const theHeight = iconsMenu.current.getBoundingClientRect().height
       setIconsMenuHeight(theHeight)
@@ -484,7 +485,7 @@ const ProductsPage = () => {
       } else {
         setIconsHeight(ICONS_HEIGHTS[1])
       }
-    }
+    }, 500)
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])

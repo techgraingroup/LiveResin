@@ -74,9 +74,9 @@ const BrandWrapper = styled(({ children, ...rest }) => (
 `
 
 const Nav = styled.nav`
-  height: ${headerHeight.mobile};
+  height: ${headerHeight.mobile}px;
   @media only screen and (min-width: ${md}px) {
-    height: ${headerHeight.desktop};
+    height: ${headerHeight.desktop}px;
   }
 `
 
@@ -87,9 +87,9 @@ const Menu = styled.ul`
   margin: 0;
   display: flex;
   justify-content: flex-end;
-  height: ${headerHeight.mobile};
+  height: ${headerHeight.mobile}px;
   @media only screen and (min-width: ${md}px) {
-    height: ${headerHeight.desktop};
+    height: ${headerHeight.desktop}px;
   }
   align-items: center;
   .store-locator {
@@ -152,9 +152,9 @@ const MenuItem = styled(({ isActive, activeColor, ...rest }) => (
   justify-content: center;
   align-items: center;
   position: relative;
-  height: ${headerHeight.mobile};
+  height: ${headerHeight.mobile}px;
   @media only screen and (min-width: ${md}px) {
-    height: ${headerHeight.desktop};
+    height: ${headerHeight.desktop}px;
   }
   ${fluidRange(
     {

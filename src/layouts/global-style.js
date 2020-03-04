@@ -40,12 +40,12 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     font-weight: normal;
     line-height: 140%;
-    padding-top: ${headerHeight.mobile};
+    padding-top: ${headerHeight.mobile}px;
     &.age-gate {
       padding-top: 0;
     }
     @media only screen and (min-width: ${md}px) {
-      padding-top: ${headerHeight.desktop};
+      padding-top: ${headerHeight.desktop}px;
     }
     p {
       color: white;
