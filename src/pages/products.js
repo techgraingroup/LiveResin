@@ -10,9 +10,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Grid from "styled-components-grid"
+import Img from 'gatsby-image'
 import { cover, fluidRange } from "polished"
 import debounce from "lodash/debounce"
-import { Image } from "../components/animations"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import Hero from "../components/hero"
@@ -296,7 +296,7 @@ const ImgWrapper = styled(props => <Grid.Unit {...props} />)`
   }
 `
 
-const ProductImg = styled(props => <Image {...props} />)`
+const ProductImg = styled(props => <Img {...props} />)`
   width: 510px;
   max-width: 100%;
   height: auto;

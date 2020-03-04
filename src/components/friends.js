@@ -1,8 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
+import Img from 'gatsby-image'
 import { Box } from "./box"
-import { Image } from './animations'
 import { BlockTitle } from "./text"
 import { THEME } from "../data"
 
@@ -13,7 +13,7 @@ const {
 const FriendImg = styled(({ width, height, src, to, alt, ...rest }) => (
   <div {...rest}>
     <a href={to || "#"} target="_blank" rel="noopener noreferrer">
-      <Image
+      <Img
         style={{
           width: "100%",
           height: "auto",
