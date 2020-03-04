@@ -16,9 +16,6 @@ export const Button = styled(
     </button>
   )
 )`
-  height: 50px;
-  font-size: 14px;
-  padding: ${props => (props.withArrow ? "0 70px 0 30px" : "0 30px")};
   font-family: MontHeavy, sans-serif;
   text-transform: uppercase;
   color: ${props => props.color || "#000"};
@@ -26,9 +23,12 @@ export const Button = styled(
   background: transparent;
   border: 0;
   outline: none;
+  font-size: 14px;
+  height: 50px;
+  padding: ${props => (props.withArrow ? "0 70px 0 30px" : "0 30px")};
   @media only screen and (min-width: ${md}px) {
-    height: 60px;
     font-size: 16px;
+    height: 60px;
     padding: ${props => (props.withArrow ? "0 70px 0 30px" : "0 30px")};
   }
   .text {
@@ -63,15 +63,22 @@ export const Button = styled(
   &:hover {
     cursor: pointer;
     &::before {
-      padding: ${props => (props.withArrow ? "0 70px 0 22px" : "0 22px")};
-      transform: scale(${math("52/60")});
+      padding: ${props => (props.withArrow ? "0 70px 0 26px" : "0 26px")};
+      transform: scale(${math("46/50")});
+      @media only screen and (min-width: ${md}px) {
+        transform: scale(${math("56/60")});
+      }
     }
     ${props => (props.withArrow ? `svg { transform: translateX(5px); }` : "")}
   }
   &:active {
     &::before {
       padding: ${props => (props.withArrow ? "0 70px 0 26px" : "0 26px")};
-      transform: scale(${math("56/60")});
+      transform: scale(${math("46/50")});
+      @media only screen and (min-width: ${md}px) {
+        padding: ${props => (props.withArrow ? "0 70px 0 24px" : "0 24px")};
+        transform: scale(${math("54/60")});
+      }
     }
   }
   &:disabled {
