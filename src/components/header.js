@@ -23,7 +23,7 @@ const HeaderWrap = styled.header`
   right: 0;
   background: #fff;
   z-index: 1001;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease;
   ${props =>
     !props.passed
       ? `

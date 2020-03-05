@@ -179,8 +179,8 @@ const StickyIconsNav = styled.div`
   background: #fff;
   padding-top: 0;
   padding-bottom: 0;
-  transition: all 0.5s ease-in-out;
-  transform: translate3d(0, -100%, 0);
+  transition: all 0.1s ease;
+  transform: translate3d(0, -200%, 0);
   &.sticky {
     transform: translate3d(0, 0, 0);
   }
@@ -390,9 +390,9 @@ const StrainBox = styled(({ children, bg, color, ...rest }) => {
 `
 
 const ProductBlock = styled(
-  forwardRef(({ p, setActive, ...rest }, ref) => {
+  forwardRef(({ p, setActive, margin, ...rest }, ref) => {
     const Icon = icons[p.icon]
-    const itemInView = useOnScreen(ref)
+    const itemInView = useOnScreen(ref, `${margin}px`)
     if (itemInView) setActive(p.icon)
     return (
       <div id={p.icon} {...rest}>
@@ -477,9 +477,7 @@ const CollaborationBox = styled(props => <Box {...props} />)`
 const ProductsPage = () => {
   const [activeIcon, setActiveIcon] = useState("")
   const [iconsHeight, setIconsHeight] = useState(0)
-  const [iconsMenuHeight, setIconsMenuHeight] = useState(0)
   const [iconsMenuSticky, setIconsMenuSticky] = useState(false)
-  const iconsMenu = useRef(null)
   const { dispatch } = useContext(AppContext)
   const productsRef = useRef()
 
@@ -490,9 +488,7 @@ const ProductsPage = () => {
     })
     dispatch({ type: "mobileMenu", value: false })
     setTimeout(() => {
-      const theHeight = iconsMenu.current.getBoundingClientRect().height
       const { width } = getWindowSize()
-      setIconsMenuHeight(theHeight)
       if (width < md) {
         setIconsHeight(ICONS_HEIGHTS[0])
       } else {
@@ -504,8 +500,6 @@ const ProductsPage = () => {
   useEffect(() => {
     const handleResize = debounce(() => {
       const { width } = getWindowSize()
-      const theHeight = iconsMenu.current.getBoundingClientRect().height
-      setIconsMenuHeight(theHeight)
       if (width <= md) {
         setIconsHeight(ICONS_HEIGHTS[0])
       } else {
@@ -521,7 +515,7 @@ const ProductsPage = () => {
       let isSticky = false
       if (
         currPos.y <= iconsHeight + 4 &&
-        currPos.y + currPos.height >= iconsMenuHeight
+        currPos.y + currPos.height >= iconsHeight
       ) {
         isSticky = true
       }
@@ -530,7 +524,7 @@ const ProductsPage = () => {
     [iconsHeight, setIconsMenuSticky],
     productsRef,
     null,
-    10
+    0
   )
 
   const {
@@ -615,7 +609,7 @@ const ProductsPage = () => {
         />
       </Box>
       <IconsWrapBox>
-        <IconsWrap className="icons-wrap" ref={iconsMenu}>
+        <IconsWrap className="icons-wrap">
           {products.map((p, i) => {
             const Icon = icons[p.icon]
             const isEven = products.length % 2 === 0
@@ -661,6 +655,7 @@ const ProductsPage = () => {
               key={p.icon}
               p={p}
               ref={itemRefs.current[i]}
+              margin={iconsHeight}
               setActive={name => {
                 setActiveIcon(name)
               }}
