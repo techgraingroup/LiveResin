@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react"
 import styled from "styled-components"
-import { math, fluidRange, cover } from "polished"
+import { fluidRange, cover } from "polished"
 import { navigate, useStaticQuery, graphql } from "gatsby"
 import Grid from "styled-components-grid"
 import Img from "gatsby-image"
@@ -20,7 +20,7 @@ const MeetTheTeamBox = styled(({ children, ...rest }) => (
     <div className="box-container">{children}</div>
   </div>
 ))`
-  height: ${ math('100vh + 56.25vw') };
+  height: calc(100vh + 56.25vw);
   padding-top: 0;
   padding-bottom: 0;
   background-color: #a2d45e;
