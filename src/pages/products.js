@@ -10,7 +10,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Grid from "styled-components-grid"
-import Img from 'gatsby-image'
+import Img from "gatsby-image"
 import { cover, fluidRange } from "polished"
 import debounce from "lodash/debounce"
 import { AppContext } from "../context"
@@ -173,14 +173,14 @@ const IconWrap = styled(({ offset, target, isActive, children, ...rest }) => (
   )}
   @media only screen and (min-width: ${lg}px) {
     width: auto;
-    flex-basis: auto;
+    flex: 1;
   }
   &.last-odd {
     width: 100%;
     flex-basis: 100%;
     @media only screen and (min-width: ${lg}px) {
       width: auto;
-      flex-basis: auto;
+      flex: 1;
     }
   }
   a {
@@ -248,16 +248,25 @@ const ProductTitle = styled(props => <Grid {...props} />)`
   }
 `
 
+const ProductWrap = styled.div`
+  display: block;
+  @media only screen and (min-width: ${lg}px) {
+    display: flex;
+  }
+`
+
 const ProductInfo = styled(({ children, ...rest }) => (
-  <Grid.Unit {...rest}>
+  <div {...rest}>
     <div className="info-wrap">{children}</div>
-  </Grid.Unit>
+  </div>
 ))`
   padding-top: 20px;
   .info-wrap {
     padding-right: 0;
+    padding-left: 0;
     @media only screen and (min-width: ${md}px) {
       padding-right: 15px;
+      padding-left: 80px;
     }
     h3 {
       margin-top: 0;
@@ -288,12 +297,8 @@ const ProductInfo = styled(({ children, ...rest }) => (
   }
 `
 
-const ImgWrapper = styled(props => <Grid.Unit {...props} />)`
+const ImgWrapper = styled.div`
   box-sizing: border-box;
-  padding-right: 0;
-  @media only screen and (min-width: ${md}px) {
-    padding-right: 20px;
-  }
 `
 
 const ProductImg = styled(props => <Img {...props} />)`
@@ -377,11 +382,11 @@ const ProductBlock = styled(
               <Icon active />
             </Grid.Unit>
           </ProductTitle>
-          <Grid>
-            <ImgWrapper size={{ xs: 1, sm: 1, md: 1, lg: 1 / 2 }}>
+          <ProductWrap>
+            <ImgWrapper>
               <ProductImg fluid={p.image.childImageSharp.fluid} />
             </ImgWrapper>
-            <ProductInfo size={{ xs: 1, sm: 1, md: 1, lg: 1 / 2 }}>
+            <ProductInfo>
               <h3>What is it?</h3>
               <Text>{p.what}</Text>
               <h3>How is it made?</h3>
@@ -404,7 +409,7 @@ const ProductBlock = styled(
                 })}
               </div>
             </ProductInfo>
-          </Grid>
+          </ProductWrap>
         </div>
       </div>
     )
