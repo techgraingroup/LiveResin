@@ -123,8 +123,13 @@ const Menu = styled.ul`
         padding-right: 50px;
         width: auto;
       }
-      span {
-
+      svg {
+        transition: transform 0.1s ease-in-out;
+      }
+      &:hover {
+        svg {
+          transform: translateX(5px);
+        }
       }
     }
   }
@@ -340,7 +345,11 @@ const Header = ({ passed, userState, hideNav }) => {
               <li className="store-locator">
                 <Link to="/store-locator/">
                   <span>Store Locator</span>
-                  <Arrow borderColor="#FFF" left="20px" style={{ top: '-1px' }} />
+                  <Arrow
+                    borderColor="#FFF"
+                    left="20px"
+                    style={{ top: "-1px" }}
+                  />
                 </Link>
               </li>
             </DesktopMenu>
