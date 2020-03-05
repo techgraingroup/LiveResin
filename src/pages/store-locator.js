@@ -25,6 +25,7 @@ const Store = styled.a`
     margin-top: 0;
     margin-bottom: 0;
     line-height: 105.8%;
+    padding-top: 30px;
     ${fluidRange(
       {
         prop: "font-size",
@@ -34,6 +35,11 @@ const Store = styled.a`
       `${md}px`,
       `${xl}px`
     )}
+  }
+  &:first-child {
+    h2 {
+      padding-top: 0;
+    }
   }
   p {
     margin-bottom: 25px;

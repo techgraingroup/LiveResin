@@ -108,7 +108,7 @@ export const PlayButton = styled(({ color, ...rest }) => (
   border: 0;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: ${ 56.25 / 2 }vw;
   margin-left: -25px;
   margin-top: -25px;
   &:hover {

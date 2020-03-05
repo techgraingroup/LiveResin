@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react"
 import styled from "styled-components"
-import { fluidRange, cover } from "polished"
+import { math, fluidRange, cover } from "polished"
 import { navigate, useStaticQuery, graphql } from "gatsby"
 import Grid from "styled-components-grid"
 import Img from "gatsby-image"
@@ -20,28 +20,38 @@ const MeetTheTeamBox = styled(({ children, ...rest }) => (
     <div className="box-container">{children}</div>
   </div>
 ))`
+  height: ${ math('100vh + 56.25vw') };
+  padding-top: 0;
   padding-bottom: 0;
   background-color: #a2d45e;
   position: relative;
   overflow: hidden;
-  padding-top: 56.25%;
-  height: auto;
+  @media only screen and (min-width: ${md}px) {
+    padding-top: 56.25%;
+    height: auto;
+  }
   .box-container {
     ${cover()}
+    padding-top: 56.25vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 0;
+    @media only screen and (min-width: ${md}px) {
+      padding-top: 0;
+    }
   }
 `
 
 const TextWrapper = styled(props => <Grid.Unit {...props} />)`
   position: relative;
   z-index: 100;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
+  @media only screen and (min-width: ${md}px) {
+    height: auto;
+  }
 `
 
 const ImgBox = styled(props => <Img {...props} />)`
@@ -49,8 +59,11 @@ const ImgBox = styled(props => <Img {...props} />)`
   height: auto;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
+  @media only screen and (min-width: ${md}px) {
+    bottom: 0;
+    left: 0;
+  }
 `
 
 const TheGrid = styled(props => <Grid {...props} />)`
@@ -74,7 +87,9 @@ const TheGrid = styled(props => <Grid {...props} />)`
     `${xl}px`
   )}
   &.show-video {
-    display: none;
+    @media only screen and (min-width: ${md}px) {
+      display: none;
+    }
   }
 `
 
@@ -124,7 +139,7 @@ const MeetTheTeam = () => {
         <source src={videoWebm} type="video/webm" />
       </video>
       <TheGrid className={showVideo ? "show-video" : ""}>
-        <TextWrapper size={{ xs: 1 / 2, sm: 1 / 3, md: 1 / 3 }}>
+        <TextWrapper size={{ xs: 1, sm: 1, md: 1 / 3 }}>
           <div style={{ width: "100%" }}>
             <BlockTitle line="bottom" color="#FFF">
               Meet the Team

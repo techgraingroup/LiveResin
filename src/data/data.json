@@ -199,7 +199,32 @@
     {
       "name": "Cookies Melrose",
       "address": "8360 Melrose Ave #101\nLos Angeles, CA 90069",
-      "link": "https://goo.gl/maps/KsWudKUP9LTSgXmd7"
+      "link": "https://www.google.com/maps/place/COOKIES+MELROSE/@34.0834054,-118.3747031,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bfa44a5b80a5:0x92b405c443e40189!8m2!3d34.0834054!4d-118.3725144"
+    },
+    {
+      "name": "Cookies Maywood",
+      "address": "Los Angeles, CA",
+      "link": "https://www.google.com/maps/place/Cookies+Los+Angeles/@33.9897109,-118.2059635,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2ced36d9d488f:0x90367e2eec330227!8m2!3d33.9897109!4d-118.2037748"
+    },
+    {
+      "name": "Dr. Green Thumbs Sylmar ",
+      "address": "Los Angeles, CA",
+      "link": "https://www.google.com/maps/place/Dr.+Greenthumbs+Sylmar/@34.291779,-118.4149848,17z/data=!3m1!4b1!4m5!3m4!1s0x80c291e6a444ae49:0x3432fc0b9eb9f956!8m2!3d34.291779!4d-118.4127961"
+    },
+    {
+      "name": "Dr. Green Thumbs Los Angeles",
+      "address": "Los Angeles, CA",
+      "link": "https://www.google.com/maps/place/Dr.+Greenthumb's+Los+Angeles/@34.0748326,-118.2231699,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2c7df3a190311:0x71914b53cee399d9!8m2!3d34.0748326!4d-118.2209812"
+    },
+    {
+      "name": "Caña Harbor",
+      "address": "Los Angeles, CA",
+      "link": "https://www.google.com/maps/place/1227+W+253rd+St,+Harbor+City,+CA+90710/@33.7950015,-118.3004009,17z/data=!3m1!4b1!4m5!3m4!1s0x80dd3589c95b073f:0x7d3417cd8f080f42!8m2!3d33.7950015!4d-118.2982122"
+    },
+    {
+      "name": "Caña Sylmar",
+      "address": "Los Angeles, CA",
+      "link": "https://www.google.com/maps/place/13509+Hubbard+St,+Sylmar,+CA+91342/@34.3099158,-118.4300117,17z/data=!3m1!4b1!4m5!3m4!1s0x80c28e27d91d84b1:0xf4baef1c439aaf38!8m2!3d34.3099158!4d-118.427823"
     }
   ],
   "faqs": [
