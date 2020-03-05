@@ -130,7 +130,7 @@ const FaqPage = () => {
   }
   return (
     <>
-      <SEO title="FAQ" />
+      <SEO title="FAQs" />
       <PageTitle
         top="200"
         bottom="140"
