@@ -31,7 +31,7 @@ const IconWrapper = styled(props => <Grid.Unit {...props} />)`
     margin-bottom: 0;
   }
   img {
-    max-width: 75%;
+    max-width: 85%;
     max-height: auto;
     @media only screen and (min-width: ${md}px) {
         max-width: auto;
@@ -53,9 +53,14 @@ const TextWrapper = styled(props => <Grid.Unit {...props} />)`
 
 const Title = styled(props => <H2 {...props} />)`
   margin-top: 0;
+  margin-bottom: 20px;
+  @media only screen and (min-width: ${md}px) {
+    margin-bottom: 7px;
+  }
 `
 
 const Paragraph = styled(props => <p {...props} />)`
+  margin-top: 0;
   margin-bottom: 0;
 `
 
