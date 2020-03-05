@@ -45,7 +45,9 @@ const {
   breakpoints: { md, lg, xl },
 } = THEME
 
-const IconsWrapNav = styled(({ navHeight, ...rest }) => <div {...rest} />)`
+const ICONS_HEIGHTS = [100, 200]
+
+const IconsWrapBox = styled(props => <div {...props} />)`
   padding-top: 0;
   padding-bottom: 0;
   ${fluidRange(
@@ -66,48 +68,6 @@ const IconsWrapNav = styled(({ navHeight, ...rest }) => <div {...rest} />)`
     `${md}px`,
     `${xl}px`
   )}
-  &.sticky {
-    height: ${props =>
-      props.navHeight ? `${props.navHeight}px` : `${ICONS_HEIGHTS[1]}px`};
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    background: #fff;
-    z-index: 1200;
-    .icons-wrap {
-      padding-bottom: 0;
-      height: 100%;
-      .icon-item {
-        width: auto;
-        flex-basis: auto;
-        a {
-          height: 100%;
-          padding-top: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          span.label {
-            display: none;
-          }
-          svg {
-            height: auto;
-            margin-bottom: 0;
-            margin-top: 0;
-            ${fluidRange(
-              {
-                prop: "width",
-                fromSize: "30px",
-                toSize: "80px",
-              },
-              `${md}px`,
-              `${xl}px`
-            )}
-          }
-        }
-      }
-    }
-  }
 `
 
 const IconsWrap = styled.div`
@@ -207,6 +167,69 @@ const IconWrap = styled(({ offset, target, isActive, children, ...rest }) => (
         }
     }
     `}
+  }
+`
+
+const StickyIconsNav = styled.div`
+  position: fixed;
+  z-index: 1200;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: #fff;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: all 0.1s ease-in-out;
+  transform: translate3d(0, -100%, 0);
+  &.sticky {
+    transform: translate3d(0, 0, 0);
+  }
+  ${fluidRange(
+    {
+      prop: "padding-left",
+      fromSize: "20px",
+      toSize: sideGutter,
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+  ${fluidRange(
+    {
+      prop: "padding-right",
+      fromSize: "20px",
+      toSize: sideGutter,
+    },
+    `${md}px`,
+    `${xl}px`
+  )}
+  .icons-wrap {
+    border-top: 0;
+    padding-bottom: 0;
+    .icon-item {
+      width: auto;
+      flex: 1;
+      a {
+        padding-top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        @media only screen and (min-width: ${md}px) {
+          height: 200px;
+        }
+        svg {
+          width: 30px;
+          height: auto;
+          margin-top: 0;
+          @media only screen and (max-width: ${md}px) {
+            margin-bottom: 0;
+          }
+          @media only screen and (min-width: ${md}px) {
+            width: 80px;
+          }
+        }
+      }
+    }
   }
 `
 
@@ -451,8 +474,6 @@ const CollaborationBox = styled(props => <Box {...props} />)`
   }
 `
 
-const ICONS_HEIGHTS = [100, 200]
-
 const ProductsPage = () => {
   const [activeIcon, setActiveIcon] = useState("")
   const [iconsHeight, setIconsHeight] = useState(0)
@@ -472,7 +493,7 @@ const ProductsPage = () => {
       const theHeight = iconsMenu.current.getBoundingClientRect().height
       const { width } = getWindowSize()
       setIconsMenuHeight(theHeight)
-      if (width <= md) {
+      if (width < md) {
         setIconsHeight(ICONS_HEIGHTS[0])
       } else {
         setIconsHeight(ICONS_HEIGHTS[1])
@@ -499,7 +520,7 @@ const ProductsPage = () => {
     ({ prevPos, currPos }) => {
       let isSticky = false
       if (
-        currPos.y < iconsMenuHeight &&
+          currPos.y <= 0 &&
         currPos.y + currPos.height >= iconsMenuHeight
       ) {
         isSticky = true
@@ -509,7 +530,7 @@ const ProductsPage = () => {
     [iconsHeight, setIconsMenuSticky],
     productsRef,
     null,
-    100
+    10
   )
 
   const {
@@ -593,9 +614,7 @@ const ProductsPage = () => {
           description="Live resin is both a cannabis extraction process and a type of concentrate. It exclusively uses fresh plants, harvested at their absolute peak. The plants are then frozen and extracted at cryogenic temperatures using solvents to help preserve the terpenes. Terpenes are crucial for aroma and flavor, giving each strain its own unique profile. Pretty important stuff."
         />
       </Box>
-      <IconsWrapNav
-        navHeight={iconsHeight}
-        className={iconsMenuSticky && "sticky"}>
+      <IconsWrapBox>
         <IconsWrap className="icons-wrap" ref={iconsMenu}>
           {products.map((p, i) => {
             const Icon = icons[p.icon]
@@ -609,7 +628,6 @@ const ProductsPage = () => {
               <IconWrap
                 key={`${i}-item`}
                 className={className}
-                isActive={p.icon === activeIcon}
                 offset={iconsHeight}
                 target={`#${p.icon}`}>
                 <span className="label">{p.name}</span>
@@ -618,13 +636,24 @@ const ProductsPage = () => {
             )
           })}
         </IconsWrap>
-      </IconsWrapNav>
-      <div
-        id="products-wrapper"
-        ref={productsRef}
-        style={{
-          marginTop: iconsMenuSticky ? iconsMenuHeight : 0,
-        }}>
+      </IconsWrapBox>
+      <StickyIconsNav className={iconsMenuSticky ? "sticky" : ""}>
+        <IconsWrap className="icons-wrap">
+          {products.map((p, i) => {
+            const NavIcon = icons[p.icon]
+            return (
+              <IconWrap
+                key={`${i}-item`}
+                className="icon-item"
+                offset={iconsHeight}
+                target={`#${p.icon}`}>
+                <NavIcon active />
+              </IconWrap>
+            )
+          })}
+        </IconsWrap>
+      </StickyIconsNav>
+      <div id="products-wrapper" ref={productsRef}>
         {products.map((p, i) => {
           return (
             <ProductBlock
