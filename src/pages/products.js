@@ -179,7 +179,7 @@ const StickyIconsNav = styled.div`
   background: #fff;
   padding-top: 0;
   padding-bottom: 0;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.5s ease-in-out;
   transform: translate3d(0, -100%, 0);
   &.sticky {
     transform: translate3d(0, 0, 0);
@@ -520,7 +520,7 @@ const ProductsPage = () => {
     ({ prevPos, currPos }) => {
       let isSticky = false
       if (
-          currPos.y <= 0 &&
+        currPos.y <= iconsHeight + 4 &&
         currPos.y + currPos.height >= iconsMenuHeight
       ) {
         isSticky = true
@@ -644,6 +644,7 @@ const ProductsPage = () => {
             return (
               <IconWrap
                 key={`${i}-item`}
+                isActive={activeIcon === p.icon}
                 className="icon-item"
                 offset={iconsHeight}
                 target={`#${p.icon}`}>
