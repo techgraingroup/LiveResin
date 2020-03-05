@@ -17,6 +17,7 @@ const TermsPage = () => {
   }, [])
   const cellStyle = {
     width: 150,
+    paddingLeft: 0,
     verticalAlign: "top",
   }
   return (
@@ -437,7 +438,7 @@ const TermsPage = () => {
           in connection with a merger, consolidation, or reorganization for the
           sale of substantially all of our assets.
         </Text>
-        <H2>XIII. CHANGES TO THESE TERMS &AMP; CONDITIONS</H2>
+        <H2>XIII. CHANGES TO THESE TERMS & CONDITIONS</H2>
         <Text>
           We reserve the right to change, modify, or amend these Terms &amp;
           Conditions at any time to reflect changes in our practices and service
@@ -453,7 +454,7 @@ const TermsPage = () => {
         <H2>XIV. QUESTIONS</H2>
         <Text>
           If you have any questions about these Terms &amp; Conditions, please:
-          <table>
+          <table style={{ marginTop: 5 }} cellpadding="0" cellspacing="0">
             <tbody>
               <tr>
                 <td style={cellStyle}>Email us:</td>

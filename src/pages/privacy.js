@@ -16,6 +16,7 @@ const PrivacyPage = () => {
   }, [])
   const cellStyle = {
     width: 150,
+    paddingLeft: 0,
     verticalAlign: "top",
   }
   return (
@@ -534,7 +535,7 @@ const PrivacyPage = () => {
         </Text>
         <Text>
           To access, correct, or delete your Information, contact us at:
-          <table>
+          <table style={{ marginTop: 5 }} cellpadding="0" cellspacing="0">
             <tbody>
               <tr>
                 <td style={cellStyle}>Email us:</td>
@@ -584,7 +585,7 @@ New York, NY 10017 USA`}
           If you have any questions about this Website Privacy Policy or the
           Information we have collected about you, please contact us at the
           following:
-          <table>
+          <table style={{ marginTop: 5 }} cellpadding="0" cellspacing="0">
             <tbody>
               <tr>
                 <td style={cellStyle}>Email us:</td>

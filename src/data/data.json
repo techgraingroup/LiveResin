@@ -225,6 +225,56 @@
       "name": "Caña Sylmar",
       "address": "Los Angeles, CA",
       "link": "https://www.google.com/maps/place/13509+Hubbard+St,+Sylmar,+CA+91342/@34.3099158,-118.4300117,17z/data=!3m1!4b1!4m5!3m4!1s0x80c28e27d91d84b1:0xf4baef1c439aaf38!8m2!3d34.3099158!4d-118.427823"
+    },
+    {
+      "name": "Magnolia Wellness",
+      "address": "Oakland",
+      "link": "https://www.google.com/maps/place/Magnolia+Oakland/@37.8009572,-122.2919639,17z/data=!3m1!4b1!4m5!3m4!1s0x809ae128a138f563:0x1b62ddec2be62bd2!8m2!3d37.8009572!4d-122.2897752"
+    },
+    {
+      "name": "Irie Care Delivery",
+      "address": "Oakland",
+      "link": "https://www.google.com/maps/place/1036+47th+Ave,+Oakland,+CA+94601/@37.7682293,-122.2155458,17z/data=!3m1!4b1!4m5!3m4!1s0x808f867b4b896565:0x4b5f3b762a6a276a!8m2!3d37.7682293!4d-122.2133571"
+    },
+    {
+      "name": "CJ Exclusive",
+      "address": "Oakland",
+      "link": "#"
+    },
+    {
+      "name": "Dr. Green Thumbs San Francisco",
+      "address": "Bay Area",
+      "link": "https://www.google.com/maps/place/Dr.+Greenthumb/@37.7470162,-122.4209057,17z/data=!3m1!4b1!4m5!3m4!1s0x808f7e438be4aea3:0x59e358b35195b4d1!8m2!3d37.7470162!4d-122.418717?shorturl=1"
+    },
+    {
+      "name": "Dr. Green Thumbs Sacramento",
+      "address": "Bay Area",
+      "link": "https://www.google.com/maps/place/Dr+Greenthumb’s/@38.6074212,-121.4787237,17z/data=!3m1!4b1!4m5!3m4!1s0x809ad74fb8992459:0xae476752deabedca!8m2!3d38.6074212!4d-121.476535"
+    },
+    {
+      "name": "Dr. Green Thumbs Humboldt",
+      "address": "Bay Area",
+      "link": "https://www.google.com/maps/place/Dr.+GreenThumb’s/@40.7938451,-124.1381926,17z/data=!3m1!4b1!4m5!3m4!1s0x54d3ff0277702c05:0xdfaca109af1beeb6!8m2!3d40.7938451!4d-124.136004"
+    },
+    {
+      "name": "West Coast Premium Medz",
+      "address": "Walnut Creek, Bay Area",
+      "link": "#"
+    },
+    {
+      "name": "Indika Delivery",
+      "address": "Walnut Creek, Bay Area",
+      "link": "#"
+    },
+    {
+      "name": "Highway 29 Health Care",
+      "address": "Vallejo, Bay Area",
+      "link": "https://www.google.com/maps/place/Highway+29+Health+Care/@38.1255958,-122.2580815,17z/data=!3m1!4b1!4m5!3m4!1s0x80857352c375a233:0x9ce12e865ece0f61!8m2!3d38.1255958!4d-122.2558928"
+    },
+    {
+      "name": "OZ Distribution",
+      "address": "Santa Cruz",
+      "link": "https://www.google.com/maps/place/OZ+Distribution+Inc./@36.979764,-122.0551145,13.85z/data=!4m5!3m4!1s0x808e40346716ccd1:0xc4903a6ba4b2823!8m2!3d36.9835012!4d-122.0349777?shorturl=1"
     }
   ],
   "faqs": [
@@ -274,7 +324,7 @@
     },
     {
       "q": "Who are your competitive set?",
-      "a": "Raw Concentrates – 710 Labs, Raw Garden, Beezle, Focus Concentrates, Field Extracts, Friendly Farms, Apex, Loudpack, Buddies, Nug\n Vape – (basically the same list, almost all of these companies now have a live resin vape of some kind, even if it is distillate + sauce and sold as a \"refined live resin\" vape a la Raw Garden)"
+      "a": "Raw Concentrates – 710 Labs, Raw Garden, Beezle, Focus Concentrates, Field Extracts, Friendly Farms, Apex, Loudpack, Buddies, Nug\nVape – (basically the same list, almost all of these companies now have a live resin vape of some kind, even if it is distillate + sauce and sold as a \"refined live resin\" vape a la Raw Garden)"
     }
   ],
   "states": [
