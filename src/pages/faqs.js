@@ -25,7 +25,7 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
         </button>
       </h2>
       <div className={active ? "active text-wrap" : "text-wrap"}>
-        <Text>{data.a}</Text>
+        <Text dangerouslySetInnerHTML={{ __html: data.a }} />
       </div>
     </div>
   )
@@ -90,6 +90,12 @@ const FaqItem = styled(({ data, active, className, onClick, ...rest }) => {
       width: 100%;
       height: 60px;
       display: block;
+    }
+    a {
+      color: #000;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
   &.active {
