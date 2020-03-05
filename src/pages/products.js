@@ -392,8 +392,6 @@ const StrainBox = styled(({ children, bg, color, ...rest }) => {
 const ProductBlock = styled(
   forwardRef(({ p, setActive, margin, ...rest }, ref) => {
     const Icon = icons[p.icon]
-    const itemInView = useOnScreen(ref, `${margin}px`)
-    if (itemInView) setActive(p.icon)
     return (
       <div id={p.icon} {...rest}>
         <div ref={ref}>
@@ -577,6 +575,21 @@ const ProductsPage = () => {
   const banner = getImageFromList("products-banner.jpg", edges)
   const bannerMobile = getImageFromList("products-banner-mobile.jpg", edges)
   const itemRefs = useRef(products.map(() => createRef()))
+  useEffect(() => {
+    const handleScroll = () => {
+      const { height, y } = productsRef.current.getBoundingClientRect()
+      const itemHeight = height / products.length
+      const itemPosition = y * -1
+      const currentPosition = Math.round(
+        (itemPosition / height) * products.length
+      )
+      if (currentPosition >= 0) {
+        setActiveIcon(products[currentPosition].icon)
+      }
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
   return (
     <>
       <SEO title="Products" />
