@@ -78,3 +78,9 @@ export function useOnScreen(ref, rootMargin = "0px") {
 
   return isIntersecting
 }
+
+export const useStateWithCallback = (initialState, next) => {
+  const [state, setState] = useState(initialState)
+  useEffect(() => next(state), [state, next])
+  return [state, setState]
+}
