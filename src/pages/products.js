@@ -581,7 +581,6 @@ const ProductsPage = () => {
       const { height, y } = productsRef.current.getBoundingClientRect()
       const itemHeight = height / products.length
       const itemPosition = y * -1
-      //console.log("position", itemPosition, itemPosition + windowHeight / 2)
       const updatedPosition = itemPosition + windowHeight / 2
       const rawPosition = (updatedPosition / height) * products.length
       const currentPosition = Math.floor(rawPosition)
