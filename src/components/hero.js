@@ -85,8 +85,9 @@ const Hero = styled(
     const Description = description
     const ChildElement = childElement
     const [heroHeight, setHeroHeight] = useState(0)
-    const setNewHeroHeight = (width, height) => {
+    const setNewHeroHeight = () => {
       let theHeight
+      const { width, height } = getWindowSize()
       if (width >= md) {
         theHeight = childElement
           ? height - headerHeight.desktop - 100
@@ -100,10 +101,10 @@ const Hero = styled(
     }
     const [initialSize, setInitialSize] = useStateWithCallback(
       {},
-      ({ width, height }) => {
+      ({ width }) => {
         let theHeight
         if (width > 0) {
-          setNewHeroHeight(width, height)
+          setNewHeroHeight()
         }
       }
     )
@@ -111,9 +112,9 @@ const Hero = styled(
       const initSize = getWindowSize()
       setInitialSize(initSize)
       const setHeroSize = debounce(() => {
-        const { width, height } = getWindowSize()
+        const { width } = getWindowSize()
         if (width !== initialSize.width) {
-          setNewHeroHeight(width, height)
+          setNewHeroHeight()
         }
       }, 500)
       window.addEventListener("resize", setHeroSize)
@@ -194,7 +195,7 @@ const Hero = styled(
       ${fluidRange(
         {
           prop: "padding-top",
-          fromSize: "60px",
+          fromSize: "20px",
           toSize: "120px",
         },
         `${md}px`,
@@ -203,7 +204,7 @@ const Hero = styled(
       ${fluidRange(
         {
           prop: "padding-bottom",
-          fromSize: "60px",
+          fromSize: "30px",
           toSize: "120px",
         },
         `${md}px`,
@@ -227,6 +228,37 @@ const Hero = styled(
         `${md}px`,
         `${xl}px`
       )}
+      h2 {
+      ${fluidRange(
+        {
+          prop: "padding-bottom",
+          fromSize: "15px",
+          toSize: "30px",
+        },
+        `${md}px`,
+        `${xl}px`
+      )}
+      ${fluidRange(
+        {
+          prop: "margin-bottom",
+          fromSize: "15px",
+          toSize: "30px",
+        },
+        `${md}px`,
+        `${xl}px`
+      )}
+      }
+      p {
+      ${fluidRange(
+        {
+          prop: "margin-bottom",
+          fromSize: "15px",
+          toSize: "30px",
+        },
+        `${md}px`,
+        `${xl}px`
+      )}
+      }
     }
   }
 `
