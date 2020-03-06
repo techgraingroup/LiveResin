@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import { navigate } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
@@ -7,7 +7,7 @@ import { cover, fluidRange } from "polished"
 import { Button } from "./button"
 import { THEME } from "../data"
 import { OnlyDesktop, OnlyMobile } from "./responsive"
-import { getWindowSize } from "../utils"
+import { getWindowSize, useStateWithCallback } from "../utils"
 
 const {
   breakpoints: { sm, md, xl },
@@ -85,22 +85,37 @@ const Hero = styled(
     const Description = description
     const ChildElement = childElement
     const [heroHeight, setHeroHeight] = useState(0)
+    const setNewHeroHeight = (width, height) => {
+      let theHeight
+      if (width >= md) {
+        theHeight = childElement
+          ? height - headerHeight.desktop - 100
+          : height - headerHeight.desktop
+      } else {
+        theHeight = childElement
+          ? height - headerHeight.mobile - 120
+          : height - headerHeight.mobile
+      }
+      setHeroHeight(theHeight)
+    }
+    const [initialSize, setInitialSize] = useStateWithCallback(
+      {},
+      ({ width, height }) => {
+        let theHeight
+        if (width > 0) {
+          setNewHeroHeight(width, height)
+        }
+      }
+    )
     useEffect(() => {
+      const initSize = getWindowSize()
+      setInitialSize(initSize)
       const setHeroSize = debounce(() => {
         const { width, height } = getWindowSize()
-        let theHeight
-        if (width >= md) {
-          theHeight = childElement
-            ? height - headerHeight.desktop - 100
-            : height - headerHeight.desktop
-        } else {
-          theHeight = childElement
-            ? height - headerHeight.mobile - 120
-            : height - headerHeight.mobile
+        if (width !== initialSize.width) {
+          setNewHeroHeight(width, height)
         }
-        setHeroHeight(theHeight)
       }, 500)
-      setHeroSize()
       window.addEventListener("resize", setHeroSize)
       return () => window.removeEventListener("resize", setHeroSize)
     }, [])
