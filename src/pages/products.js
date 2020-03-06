@@ -577,13 +577,15 @@ const ProductsPage = () => {
   const itemRefs = useRef(products.map(() => createRef()))
   useEffect(() => {
     const handleScroll = () => {
+      const windowHeight = getWindowSize().height
       const { height, y } = productsRef.current.getBoundingClientRect()
       const itemHeight = height / products.length
       const itemPosition = y * -1
-      const currentPosition = Math.round(
-        (itemPosition / height) * products.length
-      )
-      if (currentPosition >= 0) {
+      //console.log("position", itemPosition, itemPosition + windowHeight / 2)
+      const updatedPosition = itemPosition + windowHeight / 2
+      const rawPosition = (updatedPosition / height) * products.length
+      const currentPosition = Math.floor(rawPosition)
+      if (currentPosition >= 0 && currentPosition < products.length) {
         setActiveIcon(products[currentPosition].icon)
       }
     }
