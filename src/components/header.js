@@ -6,7 +6,6 @@ import Grid from "styled-components-grid"
 import { fluidRange } from "polished"
 import { AppContext } from "../context"
 import Logo from "./logo"
-import { Box } from "./box"
 import { Arrow, MenuHamburger, MenuNearMe, ChevronDown } from "./icons"
 import { THEME } from "../data"
 

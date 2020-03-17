@@ -5,7 +5,7 @@ import { Arrow, Play, Facebook, Twitter, Instagram } from "./icons"
 import { THEME } from "../data"
 
 const {
-  breakpoints: { sm, md },
+  breakpoints: { md },
 } = THEME
 
 export const Button = styled(

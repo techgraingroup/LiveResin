@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { navigate } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
@@ -102,7 +102,6 @@ const Hero = styled(
     const [initialSize, setInitialSize] = useStateWithCallback(
       {},
       ({ width }) => {
-        let theHeight
         if (width > 0) {
           setNewHeroHeight()
         }

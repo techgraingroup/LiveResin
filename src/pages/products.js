@@ -21,12 +21,7 @@ import { Box } from "../components/box"
 import RCBanner from "../components/rcbanner"
 import { Text, BlockTitleHorz } from "../components/text"
 import { MobileBr, DesktopBr } from "../components/responsive"
-import {
-  useScrollPosition,
-  getImageFromList,
-  getWindowSize,
-  useOnScreen,
-} from "../utils"
+import { useScrollPosition, getImageFromList, getWindowSize } from "../utils"
 import { THEME } from "../data"
 import {
   TBudder,
@@ -579,7 +574,6 @@ const ProductsPage = () => {
     const handleScroll = () => {
       const windowHeight = getWindowSize().height
       const { height, y } = productsRef.current.getBoundingClientRect()
-      const itemHeight = height / products.length
       const itemPosition = y * -1
       const updatedPosition = itemPosition + windowHeight / 2
       const rawPosition = (updatedPosition / height) * products.length

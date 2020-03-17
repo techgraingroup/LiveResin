@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from "react"
-import styled from "styled-components"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import { Box } from "../components/box"
