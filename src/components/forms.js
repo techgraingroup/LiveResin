@@ -13,14 +13,16 @@ export const Select = styled(
     placeholder,
     color,
     bgColor,
+    borderColor,
     className,
+    defaultValue,
     ...rest
   }) => {
     return (
       <div className={className} {...rest}>
-        <label htmlFor={name}>{label}</label>
-        <select name={name} onChange={onChange}>
-          <option value="">{placeholder}</option>
+        {label && <label htmlFor={name}>{label}</label>}
+        <select name={name} onChange={onChange} defaultValue={defaultValue}>
+          {placeholder && <option value="">{placeholder}</option>}
           {options.map(item => (
             <option key={item.value} value={item.value}>
               {item.label}
@@ -41,7 +43,7 @@ export const Select = styled(
   select {
     height: 60px;
     line-height: 62px;
-    border: 1px solid ${props => props.color || "#000"};
+    border: 1px solid ${props => props.borderColor || "#000"};
     border-radius: 0;
     color: ${props => props.color || "#000"};
     width: 100%;

@@ -4,7 +4,8 @@ import styled from "styled-components"
 import { Box } from "./box"
 import { SocialList } from "./footer"
 import { SocialButton } from "./button"
-import { Arrow, ChevronDown } from "./icons"
+import { Arrow } from "./icons"
+import { Select } from "./forms"
 import { THEME } from "../data"
 
 const {
@@ -89,28 +90,6 @@ const MenuItem = styled(({ children, isActive, activeColor, ...rest }) => (
 `}
 `
 
-const LocationButton = styled.button`
-  display: block;
-  border: 0;
-  border-top: 4px solid #000;
-  outline: none;
-  background: transparent;
-  width: 100%;
-  font-family: MontHeavy, sans-serif;
-  font-size: 20px;
-  text-align: left;
-  letter-spacing: 0.1em;
-  padding: 13px 0;
-  text-transform: uppercase;
-  position: relative;
-  margin-bottom: 0 !important;
-  svg {
-    position: absolute;
-    right: 0;
-    top: 20px;
-  }
-`
-
 const LittleLink = styled(props => <Link {...props} />)`
   color: #000;
   text-decoration: none;
@@ -118,7 +97,21 @@ const LittleLink = styled(props => <Link {...props} />)`
   font-family: Mont, sans-serif;
 `
 
-const MobileMenu = ({ menu, userState, active, activeMenu }) => {
+const StateSelect = styled(props => <Select {...props} />)`
+  border-top: 4px solid #000;
+  select {
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    width: 100%;
+    max-width: 100%;
+    background-position: 100% 50%;
+  }
+`
+
+const MobileMenu = ({ menu, states, userState, active, activeMenu, onStateChange }) => {
   const mobileMenus = menu.filter((m, i) => i !== 0)
   const handleMobileMenuClick = (e, link) => {
     const scrollY = document.body.style.top
@@ -132,10 +125,14 @@ const MobileMenu = ({ menu, userState, active, activeMenu }) => {
     <MobileMenuWrap active={active}>
       <Box top="0">
         {userState && (
-          <LocationButton>
-            {userState.label}
-            <ChevronDown />
-          </LocationButton>
+          <StateSelect
+            borderColor="#FFF"
+            color="#000"
+            bgColor="#FFF"
+            options={states}
+            defaultValue={userState.value}
+            onChange={e => onStateChange(e.target.value)}
+          />
         )}
         <ul className="menu">
           {mobileMenus.map(item => (
@@ -180,7 +177,12 @@ const MobileMenu = ({ menu, userState, active, activeMenu }) => {
           </li>
         </Socials>
         <LittleLink to="/privacy">Privacy</LittleLink>
-        <span style={{ fontSize: 10, color: '#000', fontFamily: 'Mont, sans-serif' }}>{` and `}</span>
+        <span
+          style={{
+            fontSize: 10,
+            color: "#000",
+            fontFamily: "Mont, sans-serif",
+          }}>{` and `}</span>
         <LittleLink to="/terms">Terms</LittleLink>
       </Box>
     </MobileMenuWrap>

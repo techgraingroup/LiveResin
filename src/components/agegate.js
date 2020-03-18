@@ -96,6 +96,7 @@ const AgeGate = ({ passed, passAgeGate }) => {
             <StateSelect
               color="#FFF"
               bgColor="#000"
+              borderColor="#FFF"
               label="Your State"
               name="place"
               placeholder="Choose Your State"

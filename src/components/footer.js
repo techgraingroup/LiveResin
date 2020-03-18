@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useState, useContext } from "react"
 import styled from "styled-components"
 import Grid from "styled-components-grid"
 import { Link, useStaticQuery, graphql } from "gatsby"
@@ -8,8 +8,8 @@ import { Box } from "./box"
 import Subscribe from "./signupform"
 import { SocialButton } from "./button"
 import MobileMenu from "./mobile-menu"
-import { ChevronDown } from "./icons"
-import { THEME } from "../data"
+import { Select } from "./forms"
+import { LOCATION_KEY, THEME } from "../data"
 
 const {
   breakpoints: { md },
@@ -84,32 +84,6 @@ const RightBox = styled(({ children, ...rest }) => (
   }
 `
 
-const LocationButton = styled.button`
-  display: none !important;
-  margin-bottom: 50px;
-  @media only screen and (min-width: ${md}px) {
-    display: block !important;
-    background: #000;
-    color: #fff;
-    font-family: MontHeavy, sans-serif;
-    font-size: 16px;
-    text-transform: uppercase;
-    border: 0;
-    outline: none;
-    letter-spacing: 0.1em;
-    padding-left: 0;
-    padding-right: 30px;
-    &:hover {
-      cursor: pointer;
-    }
-    svg {
-      position: relative;
-      margin-left: 10px;
-      top: -1px;
-    }
-  }
-`
-
 const NotifiedBox = styled.p`
   margin-top: 20px;
   @media only screen and (min-width: ${md}px) {
@@ -142,15 +116,41 @@ const LittleLink = styled(props => <Link {...props} />)`
   font-family: Mont, sans-serif;
 `
 
+const StateSelect = styled(props => <Select {...props} />)`
+  height: 23px;
+  display: none !important;
+  @media only screen and (min-width: ${md}px) {
+    display: block !important;
+  }
+  select {
+    height: 23px;
+    line-height: 25px;
+    padding: 0 10px 0 0;
+    &:active {
+      outline: none;
+      border: 0;
+    }
+    &:focus {
+      outline: none;
+      border: 0;
+    }
+  }
+`
+
 const Footer = ({ userState }) => {
+  const [selectedState, setSelectedState] = useState("")
   const {
     state: { data },
   } = useContext(AppContext)
   const {
-    dataJson: { footerMenu },
+    dataJson: { footerMenu, states },
   } = useStaticQuery(graphql`
     query {
       dataJson {
+        states {
+          name
+          abbreviation
+        }
         footerMenu {
           label
           link
@@ -159,6 +159,16 @@ const Footer = ({ userState }) => {
       }
     }
   `)
+  const statesList = states.map(s => ({
+    label: s.name,
+    value: s.abbreviation,
+  }))
+  const selectState = abbr => {
+    const state = statesList.find(state => state.value === abbr)
+    setSelectedState(state)
+    localStorage.setItem(LOCATION_KEY, JSON.stringify(state))
+    window.location.reload()
+  }
   return (
     <>
       <FooterBlock>
@@ -176,10 +186,14 @@ const Footer = ({ userState }) => {
                 ))}
               </FooterMenu>
               {userState && (
-                <LocationButton>
-                  {userState.label}
-                  <ChevronDown color="#FFF" />
-                </LocationButton>
+                <StateSelect
+                  borderColor="#000"
+                  color="#FFF"
+                  bgColor="#000"
+                  defaultValue={userState ? userState.value : ""}
+                  options={statesList}
+                  onChange={e => selectState(e.target.value)}
+                />
               )}
             </LeftBox>
           </Grid.Unit>
@@ -225,17 +239,24 @@ const Footer = ({ userState }) => {
           <Grid.Unit size={1}>
             <Box top="0">
               <LittleLink to="/privacy">Privacy</LittleLink>
-              <span style={{ fontSize: 10, color: "#FFF", fontFamily: 'Mont, sans-serif' }}>{` and `}</span>
+              <span
+                style={{
+                  fontSize: 10,
+                  color: "#FFF",
+                  fontFamily: "Mont, sans-serif",
+                }}>{` and `}</span>
               <LittleLink to="/terms">Terms</LittleLink>
             </Box>
           </Grid.Unit>
         </Grid>
       </FooterBlock>
       <MobileMenu
+        states={statesList}
         userState={userState}
         menu={footerMenu}
         active={data.mobileMenuVisible}
         activeMenu={data.activeMenu}
+        onStateChange={selectState}
       />
     </>
   )

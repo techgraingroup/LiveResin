@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useState, useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import styled from "styled-components"
@@ -6,8 +6,9 @@ import Grid from "styled-components-grid"
 import { fluidRange } from "polished"
 import { AppContext } from "../context"
 import Logo from "./logo"
-import { Arrow, MenuHamburger, MenuNearMe, ChevronDown } from "./icons"
-import { THEME } from "../data"
+import { Arrow, MenuHamburger, MenuNearMe } from "./icons"
+import { Select } from "./forms"
+import { THEME, LOCATION_KEY } from "../data"
 
 const {
   breakpoints: { md, lg, xl, xxl },
@@ -231,29 +232,30 @@ const MenuLink = styled(({ activeColor, isActive, external, ...rest }) => {
   }
 `
 
-const LocationButton = styled.button`
-  display: none;
-  @media only screen and (min-width: ${md}px) {
-    display: block;
-    height: 50px;
+const StateSelect = styled(props => <Select {...props} />)`
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 45px;
+  z-index: 1001;
+  padding-right: 10px;
+  label {
     position: fixed;
     top: 0;
-    right: 0;
-    z-index: 1001;
-    background: transparent;
-    border: 0;
-    outline: none;
-    font-family: MontBold, sans-serif;
+    right: 60px;
+    height: 45px;
+    line-height: 45px;
     font-size: 16px;
-    color: #888;
-    padding-right: 30px;
-    &:hover {
-      cursor: pointer;
-    }
-    svg {
-      position: relative;
-      margin-left: 10px;
-      top: -1px;
+    color: rgba(136, 136, 136, 1);
+  }
+  select {
+    height: 45px;
+    line-height: 45px;
+    font-size: 16px;
+    color: transparent;
+    &:focus {
+      outline: none;
+      border: 0;
     }
   }
 `
@@ -276,15 +278,21 @@ const BrandLogo = styled(props => <Logo {...props} />)`
 `
 
 const Header = ({ passed, userState, hideNav }) => {
+  const [selectedState, setSelectedState] = useState("")
+  const [selectSize, setSelectSize] = useState("1")
   const {
     dispatch,
     state: { data },
   } = useContext(AppContext)
   const {
-    dataJson: { mainMenu },
+    dataJson: { mainMenu, states },
   } = useStaticQuery(graphql`
     query {
       dataJson {
+        states {
+          name
+          abbreviation
+        }
         mainMenu {
           color
           label
@@ -293,6 +301,16 @@ const Header = ({ passed, userState, hideNav }) => {
       }
     }
   `)
+  const statesList = states.map(s => ({
+    label: s.name,
+    value: s.abbreviation,
+  }))
+  const selectState = abbr => {
+    const state = statesList.find(state => state.value === abbr)
+    setSelectedState(state)
+    localStorage.setItem(LOCATION_KEY, JSON.stringify(state))
+    window.location.reload()
+  }
   let hideHeader = false
   if (data.mobileMenuVisible) {
     hideHeader = false
@@ -371,10 +389,15 @@ const Header = ({ passed, userState, hideNav }) => {
         </Grid.Unit>
       </Grid>
       {passed && userState && (
-        <LocationButton>
-          {userState.value}
-          <ChevronDown color="#888" />
-        </LocationButton>
+        <StateSelect
+          borderColor="transparent"
+          bgColor="transparent"
+          color="rgba(136,136,136,1)"
+          label={userState.value}
+          defaultValue={userState.value}
+          options={statesList}
+            onChange={e => selectState(e.target.value)}
+        />
       )}
     </HeaderWrap>
   )
