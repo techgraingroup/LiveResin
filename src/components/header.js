@@ -396,7 +396,7 @@ const Header = ({ passed, userState, hideNav }) => {
           label={userState.value}
           defaultValue={userState.value}
           options={statesList}
-            onChange={e => selectState(e.target.value)}
+          onChange={e => selectState(e.target.value)}
         />
       )}
     </HeaderWrap>
