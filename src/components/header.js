@@ -239,6 +239,10 @@ const StateSelect = styled(props => <Select {...props} />)`
   height: 45px;
   z-index: 1001;
   padding-right: 10px;
+  display: none !important;
+  @media only screen and (min-width: ${md}px) {
+    display: block !important;
+  }
   label {
     position: fixed;
     top: 0;
