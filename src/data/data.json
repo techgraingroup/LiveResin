@@ -195,86 +195,111 @@
       "position": "right"
     }
   ],
-  "storeLocator": [
+  "stores": [
     {
-      "name": "Cookies Melrose",
-      "address": "8360 Melrose Ave #101\nLos Angeles, CA 90069",
-      "link": "https://www.google.com/maps/place/COOKIES+MELROSE/@34.0834054,-118.3747031,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bfa44a5b80a5:0x92b405c443e40189!8m2!3d34.0834054!4d-118.3725144"
-    },
-    {
-      "name": "Cookies Maywood",
-      "address": "Los Angeles, CA",
-      "link": "https://www.google.com/maps/place/Cookies+Los+Angeles/@33.9897109,-118.2059635,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2ced36d9d488f:0x90367e2eec330227!8m2!3d33.9897109!4d-118.2037748"
-    },
-    {
-      "name": "Dr. Green Thumbs Sylmar ",
-      "address": "Los Angeles, CA",
-      "link": "https://www.google.com/maps/place/Dr.+Greenthumbs+Sylmar/@34.291779,-118.4149848,17z/data=!3m1!4b1!4m5!3m4!1s0x80c291e6a444ae49:0x3432fc0b9eb9f956!8m2!3d34.291779!4d-118.4127961"
-    },
-    {
-      "name": "Dr. Green Thumbs Los Angeles",
-      "address": "Los Angeles, CA",
-      "link": "https://www.google.com/maps/place/Dr.+Greenthumb's+Los+Angeles/@34.0748326,-118.2231699,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2c7df3a190311:0x71914b53cee399d9!8m2!3d34.0748326!4d-118.2209812"
-    },
-    {
-      "name": "Caña Harbor",
-      "address": "Los Angeles, CA",
-      "link": "https://www.google.com/maps/place/1227+W+253rd+St,+Harbor+City,+CA+90710/@33.7950015,-118.3004009,17z/data=!3m1!4b1!4m5!3m4!1s0x80dd3589c95b073f:0x7d3417cd8f080f42!8m2!3d33.7950015!4d-118.2982122"
-    },
-    {
-      "name": "Caña Sylmar",
-      "address": "Los Angeles, CA",
-      "link": "https://www.google.com/maps/place/13509+Hubbard+St,+Sylmar,+CA+91342/@34.3099158,-118.4300117,17z/data=!3m1!4b1!4m5!3m4!1s0x80c28e27d91d84b1:0xf4baef1c439aaf38!8m2!3d34.3099158!4d-118.427823"
-    },
-    {
-      "name": "Magnolia Wellness",
-      "address": "Oakland",
-      "link": "https://www.google.com/maps/place/Magnolia+Oakland/@37.8009572,-122.2919639,17z/data=!3m1!4b1!4m5!3m4!1s0x809ae128a138f563:0x1b62ddec2be62bd2!8m2!3d37.8009572!4d-122.2897752"
-    },
-    {
-      "name": "Irie Care Delivery",
-      "address": "Oakland",
-      "link": "https://www.google.com/maps/place/1036+47th+Ave,+Oakland,+CA+94601/@37.7682293,-122.2155458,17z/data=!3m1!4b1!4m5!3m4!1s0x808f867b4b896565:0x4b5f3b762a6a276a!8m2!3d37.7682293!4d-122.2133571"
-    },
-    {
-      "name": "CJ Exclusive",
-      "address": "Oakland",
-      "link": "#"
-    },
-    {
-      "name": "Dr. Green Thumbs San Francisco",
-      "address": "Bay Area",
-      "link": "https://www.google.com/maps/place/Dr.+Greenthumb/@37.7470162,-122.4209057,17z/data=!3m1!4b1!4m5!3m4!1s0x808f7e438be4aea3:0x59e358b35195b4d1!8m2!3d37.7470162!4d-122.418717?shorturl=1"
-    },
-    {
-      "name": "Dr. Green Thumbs Sacramento",
-      "address": "Bay Area",
-      "link": "https://www.google.com/maps/place/Dr+Greenthumb’s/@38.6074212,-121.4787237,17z/data=!3m1!4b1!4m5!3m4!1s0x809ad74fb8992459:0xae476752deabedca!8m2!3d38.6074212!4d-121.476535"
-    },
-    {
-      "name": "Dr. Green Thumbs Humboldt",
-      "address": "Bay Area",
-      "link": "https://www.google.com/maps/place/Dr.+GreenThumb’s/@40.7938451,-124.1381926,17z/data=!3m1!4b1!4m5!3m4!1s0x54d3ff0277702c05:0xdfaca109af1beeb6!8m2!3d40.7938451!4d-124.136004"
-    },
-    {
-      "name": "West Coast Premium Medz",
-      "address": "Walnut Creek, Bay Area",
-      "link": "#"
-    },
-    {
-      "name": "Indika Delivery",
-      "address": "Walnut Creek, Bay Area",
-      "link": "#"
-    },
-    {
-      "name": "Highway 29 Health Care",
-      "address": "Vallejo, Bay Area",
-      "link": "https://www.google.com/maps/place/Highway+29+Health+Care/@38.1255958,-122.2580815,17z/data=!3m1!4b1!4m5!3m4!1s0x80857352c375a233:0x9ce12e865ece0f61!8m2!3d38.1255958!4d-122.2558928"
-    },
-    {
-      "name": "OZ Distribution",
-      "address": "Santa Cruz",
-      "link": "https://www.google.com/maps/place/OZ+Distribution+Inc./@36.979764,-122.0551145,13.85z/data=!4m5!3m4!1s0x808e40346716ccd1:0xc4903a6ba4b2823!8m2!3d36.9835012!4d-122.0349777?shorturl=1"
+      "state": "California",
+      "locations": [
+        {
+          "name": "Los Angeles",
+          "stores": [
+            {
+              "name": "Cookies Melrose",
+              "address": "8360 Melrose Ave #101\nLos Angeles, CA 90069",
+              "link": "https://www.google.com/maps/place/COOKIES+MELROSE/@34.0834054,-118.3747031,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bfa44a5b80a5:0x92b405c443e40189!8m2!3d34.0834054!4d-118.3725144"
+            },
+            {
+              "name": "Cookies Maywood",
+              "address": "Los Angeles, CA",
+              "link": "https://www.google.com/maps/place/Cookies+Los+Angeles/@33.9897109,-118.2059635,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2ced36d9d488f:0x90367e2eec330227!8m2!3d33.9897109!4d-118.2037748"
+            },
+            {
+              "name": "Dr. Green Thumbs Sylmar ",
+              "address": "Los Angeles, CA",
+              "link": "https://www.google.com/maps/place/Dr.+Greenthumbs+Sylmar/@34.291779,-118.4149848,17z/data=!3m1!4b1!4m5!3m4!1s0x80c291e6a444ae49:0x3432fc0b9eb9f956!8m2!3d34.291779!4d-118.4127961"
+            },
+            {
+              "name": "Dr. Green Thumbs Los Angeles",
+              "address": "Los Angeles, CA",
+              "link": "https://www.google.com/maps/place/Dr.+Greenthumb's+Los+Angeles/@34.0748326,-118.2231699,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2c7df3a190311:0x71914b53cee399d9!8m2!3d34.0748326!4d-118.2209812"
+            },
+            {
+              "name": "Caña Harbor",
+              "address": "Los Angeles, CA",
+              "link": "https://www.google.com/maps/place/1227+W+253rd+St,+Harbor+City,+CA+90710/@33.7950015,-118.3004009,17z/data=!3m1!4b1!4m5!3m4!1s0x80dd3589c95b073f:0x7d3417cd8f080f42!8m2!3d33.7950015!4d-118.2982122"
+            },
+            {
+              "name": "Caña Sylmar",
+              "address": "Los Angeles, CA",
+              "link": "https://www.google.com/maps/place/13509+Hubbard+St,+Sylmar,+CA+91342/@34.3099158,-118.4300117,17z/data=!3m1!4b1!4m5!3m4!1s0x80c28e27d91d84b1:0xf4baef1c439aaf38!8m2!3d34.3099158!4d-118.427823"
+            }
+          ]
+        },
+        {
+          "name": "Oakland",
+          "stores": [
+            {
+              "name": "Magnolia Wellness",
+              "address": "Oakland",
+              "link": "https://www.google.com/maps/place/Magnolia+Oakland/@37.8009572,-122.2919639,17z/data=!3m1!4b1!4m5!3m4!1s0x809ae128a138f563:0x1b62ddec2be62bd2!8m2!3d37.8009572!4d-122.2897752"
+            },
+            {
+              "name": "Irie Care Delivery",
+              "address": "Oakland",
+              "link": "https://www.google.com/maps/place/1036+47th+Ave,+Oakland,+CA+94601/@37.7682293,-122.2155458,17z/data=!3m1!4b1!4m5!3m4!1s0x808f867b4b896565:0x4b5f3b762a6a276a!8m2!3d37.7682293!4d-122.2133571"
+            },
+            {
+              "name": "CJ Exclusive",
+              "address": "Oakland",
+              "link": "#"
+            }
+          ]
+        },
+        {
+          "name": "Bay Area",
+          "stores": [
+            {
+              "name": "Dr. Green Thumbs San Francisco",
+              "address": "Bay Area",
+              "link": "https://www.google.com/maps/place/Dr.+Greenthumb/@37.7470162,-122.4209057,17z/data=!3m1!4b1!4m5!3m4!1s0x808f7e438be4aea3:0x59e358b35195b4d1!8m2!3d37.7470162!4d-122.418717?shorturl=1"
+            },
+            {
+              "name": "Dr. Green Thumbs Sacramento",
+              "address": "Bay Area",
+              "link": "https://www.google.com/maps/place/Dr+Greenthumb’s/@38.6074212,-121.4787237,17z/data=!3m1!4b1!4m5!3m4!1s0x809ad74fb8992459:0xae476752deabedca!8m2!3d38.6074212!4d-121.476535"
+            },
+            {
+              "name": "Dr. Green Thumbs Humboldt",
+              "address": "Bay Area",
+              "link": "https://www.google.com/maps/place/Dr.+GreenThumb’s/@40.7938451,-124.1381926,17z/data=!3m1!4b1!4m5!3m4!1s0x54d3ff0277702c05:0xdfaca109af1beeb6!8m2!3d40.7938451!4d-124.136004"
+            },
+            {
+              "name": "West Coast Premium Medz",
+              "address": "Walnut Creek, Bay Area",
+              "link": "#"
+            },
+            {
+              "name": "Indika Delivery",
+              "address": "Walnut Creek, Bay Area",
+              "link": "#"
+            },
+            {
+              "name": "Highway 29 Health Care",
+              "address": "Vallejo, Bay Area",
+              "link": "https://www.google.com/maps/place/Highway+29+Health+Care/@38.1255958,-122.2580815,17z/data=!3m1!4b1!4m5!3m4!1s0x80857352c375a233:0x9ce12e865ece0f61!8m2!3d38.1255958!4d-122.2558928"
+            }
+          ]
+        },
+        {
+          "name": "Santa Cruz",
+          "stores": [
+            {
+              "name": "OZ Distribution",
+              "address": "Santa Cruz",
+              "link": "https://www.google.com/maps/place/OZ+Distribution+Inc./@36.979764,-122.0551145,13.85z/data=!4m5!3m4!1s0x808e40346716ccd1:0xc4903a6ba4b2823!8m2!3d36.9835012!4d-122.0349777?shorturl=1"
+            }
+          ]
+        }
+      ]
     }
   ],
   "faqs": [
