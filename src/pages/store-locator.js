@@ -1,18 +1,14 @@
 import React, { useEffect, useContext } from "react"
-import Grid from "styled-components-grid"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { fluidRange } from "polished"
 import { AppContext } from "../context"
 import SEO from "../components/seo"
 import { Box } from "../components/box"
-import { Text } from "../components/text"
 import { PageTitle } from "../components/text"
-import { Arrow } from "../components/icons"
 import { THEME } from "../data"
 
 const {
-  breakpoints: { md, xl },
+  breakpoints: { md },
 } = THEME
 
 const StateName = styled.h2`
@@ -130,8 +126,8 @@ const StoreLocatorPage = () => {
                     <li key={`${r}-store`}>
                       <a
                         href={store.link}
-                        target="_blank"
-                        rel="noopener noreferrer">
+                        target={store.link === "#" ? "_self" : "_blank"}
+                        rel={store.link === "#" ? "" : "noopener noreferrer"}>
                         {store.name}
                       </a>
                     </li>
