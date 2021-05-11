@@ -23,7 +23,7 @@
     "gatsby-source-instagram": "^0.6.1",
     "gatsby-transformer-json": "^2.2.26",
     "gatsby-transformer-sharp": "^2.3.13",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "polished": "^3.4.4",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
